@@ -189,10 +189,6 @@
 
 ;;;;;;;;; Examples ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; does bs1-string->pyret-string really return strings in all cases, or sometimes numbers?
-(define (list->pyret-inputs input-strs) 
-  (string-join (map (lambda (e) (format-exercise-text (bs1->pyret-string e))) input-strs) ", "))
-
 ;; retrieves info on whether to show named component from given spec
 ;; currently, spec is either a boolean or a list of three booleans
 ;;   corresponding to the funname, input, or output, respectively
@@ -213,7 +209,7 @@
                     #:show-input? (show-input? #f)
                     #:show-output? (show-output? #f)
                     )
-  (let ([input (if (empty? in-out-list) "" (list->pyret-inputs (all-but-last in-out-list)))]
+  (let ([input (if (empty? in-out-list) "" (format-pyret-arglist (all-but-last in-out-list)))]
         [output (if (empty? in-out-list) "" (last in-out-list))])
     (interleave-parbreaks/all
      (list (make-wrapper
