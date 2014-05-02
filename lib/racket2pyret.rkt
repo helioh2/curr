@@ -6,6 +6,7 @@
          pyret->string
          bs1->pyret-string
          bs1-string->pyret-string
+         format-simple-bs1-as-pyret
          )
 
 ;--------- PYRET AST -----------
@@ -28,6 +29,27 @@
   (second (assq b binop-table)))
 
 (define (atom? v) (not (list? v)))
+
+;; function to format simple (one-line) expressions in pyret
+;; supports atoms, binops, and application over simple bs1 expressions
+(define (format-simple-bs1-as-pyret sexp)
+  (cond [(atom? sexp) sexp] 
+        [else 
+         (case (first sexp)
+           [(+ - * /) (format "~a(~s, ~s)"
+                              (lookup-binop (first sexp)) 
+                              (format-simple-bs1-as-pyret (second sexp)) 
+                              (format-simple-bs1-as-pyret (third sexp)))]
+           [(define cond example) 
+            (error 'format-simple-bs1-as-pyret "Given non-simple bs1 ~a~n" sexp)]
+           [else ;; function application
+            (let ([fname (first sexp)]
+                  [args (rest sexp)])
+              (let* ([argfmt (string-join (map (lambda (a) (if (string? a) "~s" "~a")) args) ", ")]
+                     [fmtstr (string-append "~a(" argfmt ")")])
+                (apply format (cons fmtstr (cons fname (map format-simple-bs1-as-pyret args))))))]
+           )]))
+
 
 (define (bs1->pyret sexp)
   (cond [(atom? sexp) (make-pyatom sexp)]
@@ -86,6 +108,10 @@
   (display (pyret->string (bs1->pyret expr)))
   (printf "~n~n"))
 
+(define (test-fmt-simple expr)
+  (display (format-simple-bs1-as-pyret expr))
+  (printf "~n~n"))
+
 (define (run-tests)
   (test-bs1->pyret 3)
   (test-bs1->pyret '(+ 2 3))
@@ -93,3 +119,16 @@
   (test-bs1->pyret '(example (f x) (+ x 2)))
   (test-bs1->pyret '(cond [(* 4 5) "cake"] [else "pizza"]))
   )
+
+(define (run-simple-fmt-tests)
+  (test-fmt-simple 4)
+  (test-fmt-simple "hello")
+  (test-fmt-simple "hello, world")
+  (test-fmt-simple '(+ 3 5))
+  (test-fmt-simple '(string=? "a" b))
+  (test-fmt-simple '(string=? "a" "b"))
+  (test-fmt-simple '(f (g 4)))
+  (test-fmt-simple '(f (g "abba")))
+  (test-fmt-simple '(string=? (g "cake") "pie"))
+  )
+      

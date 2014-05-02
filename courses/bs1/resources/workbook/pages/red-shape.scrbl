@@ -6,11 +6,11 @@
                          #:show-examples'((#t #t #t ))
                          #:param-list (list "shape")
                          #:show-params? #f
-                         #:body "(cond [(string=? \"circle\" shape) (circle 50 \"solid\" \"red\")]
-                                       [(string=? \"triangle\" shape) (triangle 50 \"solid\" \"red\")]
-                                       [(string=? \"rectangle\" shape) (rectangle 50 40 \"solid\" \"red\")]
-                                       [(string=? \"star\" shape) (star 50 \"solid\" \"red\")]
-                                       [else \"Try another shape!\"])"
+                         #:body '(cond [(string=? "circle" shape) (circle 50 "solid" "red")]
+                                       [(string=? "triangle" shape) (triangle 50 "solid" "red")]
+                                       [(string=? "rectangle" shape) (rectangle 50 40 "solid" "red")]
+                                       [(string=? "star" shape) (star 50 "solid" "red")]
+                                       [else "Try another shape!"])
                          #:show-body? '(cond (#f #t) #f #f #f #f)
                          #:grid-lines? #t
                          )

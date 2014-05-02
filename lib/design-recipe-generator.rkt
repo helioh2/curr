@@ -13,59 +13,24 @@
          "sxml.rkt"
          "racket2pyret.rkt"
          "escape-values.rkt"
+         "process-code.rkt"
          )
 
 (provide design-recipe-exercise
          )
 
+;; temporary cheat around having a solutions mode that displays all code
+(define (always-show?) #t)
+
 ;;;;;;;;; API for Design Receipe Exercises ;;;;;;;;;;;;;;;;;;;;;
 
 (define htmlRarr (cond-element [html (sxml->element 'rarr)] [else "->"]))
-
-;; retrieves info on whether to show named component from given spec
-;; currently, spec is either a boolean or a list of three booleans
-;;   corresponding to the funname, input, or output, respectively
-(define (show-example-component? spec comp)
-  (let [(pos (case comp 
-               [(funname) first]
-               [(input) second]
-               [(output) third]))]
-    (or (and (boolean? spec) spec) 
-        (and (cons? spec) (pos spec)))))
+(define contract-label "contract:")
+(define purpose-label "#")
 
 (define (atom? v) (not (list? v)))
 
-; format the body of a design recipe worksheet -- formatting may depend on body contents
-(define (dr-body body #:show (show #f))
-  (if body
-      (let ([body-contents (with-input-from-string body read)])
-        (cond [(atom? body-contents) (dr-student-answer "recipe_definition_body" #:show? show body)]
-              [(eq? (first body-contents) 'cond) 
-               (let ([clauselines (map (lambda (c s) 
-                                         (make-wrapper
-                                          ;(make-spacer "[")
-                                          (dr-student-answer "recipe_definition_body clause" (first c) #:show? (if (list? s) (first s) s))
-                                          (dr-student-answer "recipe_definition_body clause" (second c) #:show? (if (list? s) (second s) s))
-                                          ;(make-spacer "]")
-                                          ))
-                                       (rest body-contents) 
-                                       ; show is either a single boolean or a list of specs with same length as number of clauses
-                                       (if (not show) (build-list (length (rest body-contents)) (lambda (i) #f))
-                                           (rest show)))])
-                 (apply make-wrapper
-                        (cons (dr-student-answer "recipe_definition_body cond" #:show? #f (first body-contents))
-                              clauselines)))]
-              [else ;; assume single-line expression for now
-               (dr-student-answer "recipe_definition_body" #:show? show body)]))
-      ;; eventually, this should become a warning about the body missing
-      (dr-student-answer "recipe_definition_body" #:show? show body)))
-
-(define (design-recipe-section id title instructions . body)
-  (nested #:style (bootstrap-div-style/id/nested id)
-          (interleave-parbreaks/all
-           (append (list (para #:style (bootstrap-div-style "sectionTitle") title)
-                         (para #:style (bootstrap-div-style "sectionInstructions") instructions))
-                   (interleave-parbreaks/all body)))))     
+;;;;;;;;; formatting helpers ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (define (make-wrapper . contents)
   (nested #:style (bootstrap-div-style "wrapper")
@@ -76,9 +41,6 @@
 
 (define (make-clear)
   (para #:style (bootstrap-span-style "clear") ""))
-  
-;; return sublist of L containing all but the last argument
-(define (all-but-last L) (reverse (rest (reverse L))))
 
 ;; format values for display in exercises.  Handles escapes for things like dollar amounts
 (define (format-exercise-text e #:fmt-quotes? (fmt-quotes? #t))
@@ -90,6 +52,18 @@
                                   (apply string-append (map (lambda (c) (format-exercise-text c #:fmt-quotes? fmt-quotes?)) e))
                                   ")")]
         [else (format "~a " e)]))
+
+;;;;;;;;;; DR segments ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define (design-recipe-section id title instructions . body)
+  (nested #:style (bootstrap-div-style/id/nested id)
+          (interleave-parbreaks/all
+           (append (list (para #:style (bootstrap-div-style "sectionTitle") title)
+                         (para #:style (bootstrap-div-style "sectionInstructions") instructions))
+                   (interleave-parbreaks/all body)))))     
+  
+;; return sublist of L containing all but the last argument
+(define (all-but-last L) (reverse (rest (reverse L))))
 
 ;; format a list as a string with spaces between each element
 (define (list->spaced-string L)
@@ -152,7 +126,7 @@
                        "recipe_contract" 
                        "Contract and Purpose Statement"
                        "Every contract has three parts ..."
-                       (make-spacer "#")
+                       (make-spacer contract-label)
                        (make-wrapper
                         (dr-student-answer #:id? #f "recipe_name" #:show? show-funname-contract? funname)
                         (para #:style (bootstrap-span-style "") ":")
@@ -160,7 +134,7 @@
                         (para #:style (bootstrap-span-style "") htmlRarr)
                         (dr-student-answer "recipe_range" #:show? show-range? range))
                        (make-clear)
-                       (make-spacer "#")
+                       (make-spacer purpose-label)
                        (make-wrapper
                         (dr-student-answer "recipe_purpose" #:show? show-purpose? purpose)))
                       ;; need one of these for each example provided/expected
@@ -207,14 +181,28 @@
                         (dr-student-answer "recipe_variables" #:show? show-params? (string-join param-list ", "))
                         (make-spacer "):")
                         ;(make-clear)  ; only force this for long-form DR (maybe via a flag?)
-                        (dr-student-answer "recipe_definition_body" #:show? show-body? #:parse-as-pyret? #t body)
+                        (dr-body body #:show show-body?)
+                        ;(dr-student-answer "recipe_definition_body" #:show? show-body? #:parse-as-pyret? #t body)
                         (make-clear))
                        (make-spacer "end"))
                       )))))))
 
+;;;;;;;;; Examples ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; does bs1-string->pyret-string really return strings in all cases, or sometimes numbers?
 (define (list->pyret-inputs input-strs) 
   (string-join (map (lambda (e) (format-exercise-text (bs1->pyret-string e))) input-strs) ", "))
+
+;; retrieves info on whether to show named component from given spec
+;; currently, spec is either a boolean or a list of three booleans
+;;   corresponding to the funname, input, or output, respectively
+(define (show-example-component? spec comp)
+  (let [(pos (case comp 
+               [(funname) first]
+               [(input) second]
+               [(output) third]))]
+    (or (and (boolean? spec) spec) 
+        (and (cons? spec) (pos spec)))))
 
 ;; generate an example within a design recipe activity
 ;; in-out-list is either empty or a list with the input and output expressions
@@ -235,21 +223,54 @@
             (make-spacer ")")
             (make-spacer "is")
             ;(make-clear) ; only force this for long-form DR (maybe via a flag?)
-            (dr-student-answer #:id? #f "recipe_example_body"#:show? show-output? #:parse-as-pyret? #t output)
+            (dr-student-answer #:id? #f "recipe_example_body" #:show? show-output? #:parse-as-pyret? #t output)
             )
            ))))
 
-(define (dr-student-answer class-or-id answer #:id? (id? #t)
-                                 #:parse-as-pyret? (parse-as-pyret? #f)
-                                 #:show? (show? #f) 
-                                 #:fmt-quotes? (fmt-quotes? #f)
-                                 )
-  (let* ([base-style (if show? "studentAnswer" "studentAnswer blank")]
+;;;;;;;;;; Function Bodies ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; format the body of a design recipe worksheet -- formatting may depend on body contents
+(define (dr-body body #:show (show #f))
+  (if body
+      (let ([body-contents body]) ;(with-input-from-string body read)])
+        (cond [(atom? body-contents) (dr-student-answer "recipe_definition_body" #:show? show body)]
+              [(eq? (first body-contents) 'cond) 
+               (let ([clauselines 
+                      (map (lambda (c s) 
+                             (make-wrapper
+                              (dr-student-answer "recipe_definition_body clause question" (first c) #:show? (if (list? s) (first s) s) #:fmt-quotes? #t)
+                              ; how to handle this syntax in terms of blanks?
+                              (make-spacer "=>")
+                              (dr-student-answer "recipe_definition_body clause answer" (second c) #:show? (if (list? s) (second s) s) #:fmt-quotes? #t)
+                              ))
+                           (rest body-contents) 
+                           ; show is either a single boolean or a list of specs with same length as number of clauses
+                           (if (not show) (build-list (length (rest body-contents)) (lambda (i) #f))
+                               (rest show)))])
+                 (apply make-wrapper
+                        (append (list (dr-student-answer "recipe_definition_body ask" #:show? #f "ask:" #:fmt-quotes? #f))
+                                clauselines
+                                (list (dr-student-answer "recipe_definition_body end" #:show? #f "end" #:fmt-quotes? #f)))))]
+              [else ;; assume single-line expression for now
+               (dr-student-answer "recipe_definition_body" #:show? show body)]))
+      ;; eventually, this should become a warning about the body missing
+      (dr-student-answer "recipe_definition_body" #:show? show body)))
+
+;;;;;;;;; Answers (that fill in blanks) ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define (dr-student-answer class-or-id answer 
+                           #:id? (id? #t)
+                           #:parse-as-pyret? (parse-as-pyret? #t)
+                           #:show? (show? #f) 
+                           #:fmt-quotes? (fmt-quotes? #f)
+                           )
+  (let* ([show-contents? (or show? (always-show?))]
+         [base-style (if show-contents? "studentAnswer" "studentAnswer blank")]
          [style (if id? 
                     (bootstrap-span-style/extra-id base-style class-or-id) 
                     (bootstrap-span-style (string-append base-style " " class-or-id)))]
-         [converted-ans (if parse-as-pyret? (bs1->pyret-string answer) answer)])
+         [converted-ans (if parse-as-pyret? (format-simple-bs1-as-pyret answer) answer)])
     (para #:style style
-          (cond [show? (format-exercise-text converted-ans #:fmt-quotes? fmt-quotes?)]
+          (cond [show-contents? (format-exercise-text converted-ans #:fmt-quotes? #f)]
                 [(string? answer) (make-string (string-length converted-ans) #\M)]
                 [else  " "]))))
