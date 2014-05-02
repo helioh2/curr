@@ -29,3 +29,4 @@ pretty-printing.css
 !lib/extra_curriculum.css
 courses/*/units/*/box.gif
 distribution
+courses/*/resources/workbook/pages/*.pdf
