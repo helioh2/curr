@@ -139,10 +139,15 @@
           (error 'get-manual-page "No manual page entry for page name ~a" pagename)))))
 
 ;; extract single PDF pages for each page due to pull from an existing PDF file
+;; assumes existing PDF file is in workbook directory
 (define (extract-PDF-pages pages wkbk-mod-sec)
   (parameterize ([current-directory (kf-get-workbook-dir)])
     (for-each (lambda (pspec)
-                (when (list? pspec)
+                (when (and (list? pspec)
+                           (or (not (file-exists? (build-path "pages" (string-append (second pspec) ".pdf"))))
+                               (< wkbk-mod-sec (file-or-directory-modify-seconds (first pspec)))
+                               (< wkbk-mod-sec (file-or-directory-modify-seconds "manualpages-index.rkt"))
+                               ))
                   (printf "Extracting PDF for ~a from ~a~n" pspec (current-directory))
                   (let* ([fromfile (first pspec)]
                          [tofile (second pspec)]
@@ -176,7 +181,8 @@
                 (copy-file (build-path (kf-get-workbook-dir) "workbook-numbered.pdf")
                            (build-path (kf-get-workbook-dir) "workbook.pdf")
                            #:exists-ok? #t)
-                (begin (merge-pages frontpages #:output "front-matter.pdf")
+                (begin (extract-PDF-pages frontpages workbook-last-gen-sec)
+                       (merge-pages (pdf-pagenames frontpages) #:output "front-matter.pdf")
                        (let ([frontpdf (build-path (kf-get-workbook-dir) "front-matter.pdf")]
                              [workbooknums (build-path (kf-get-workbook-dir) "workbook-numbered.pdf")]
                              [workbook (build-path (kf-get-workbook-dir) "workbook.pdf")])
