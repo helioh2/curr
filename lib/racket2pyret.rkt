@@ -7,6 +7,7 @@
          bs1->pyret-string
          bs1-string->pyret-string
          format-simple-bs1-as-pyret
+         format-pyret-arglist
          )
 
 ;--------- PYRET AST -----------
@@ -45,11 +46,14 @@
            [else ;; function application
             (let ([fname (first sexp)]
                   [args (rest sexp)])
-              (let* ([argfmt (string-join (map (lambda (a) (if (string? a) "~s" "~a")) args) ", ")]
-                     [fmtstr (string-append "~a(" argfmt ")")])
-                (apply format (cons fmtstr (cons fname (map format-simple-bs1-as-pyret args))))))]
+              (format "~a(~a)" fname (format-pyret-arglist args)))]
            )]))
 
+;; given list of simple racket args, convert to pyret arglist
+;;   function constructs format string manually to preserve string quotations
+(define (format-pyret-arglist args)
+  (let ([argfmt (string-join (map (lambda (a) (if (string? a) "~s" "~a")) args) ", ")])
+    (apply format (cons argfmt (map format-simple-bs1-as-pyret args))))) 
 
 (define (bs1->pyret sexp)
   (cond [(atom? sexp) (make-pyatom sexp)]
