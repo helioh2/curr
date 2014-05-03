@@ -48,12 +48,15 @@
             (format "~s is ~s" 
                     (format-simple-bs1-as-pyret (second sexp))
                     (format-simple-bs1-as-pyret (third sexp)))]
-           [(define) ;; can handle constant defns, but not functions
+           [(define) 
             (if (atom? (second sexp)) 
                 (if (string? (third sexp))
                     (format "~a = ~s" (second sexp) (third sexp))
                     (format "~a = ~a" (second sexp) (third sexp)))
-                (error 'format-simple-bs1-as-pyret "Given non-simple bs1 ~a~n" sexp))]
+                (format "fun ~a(~a): ~s end"
+                        (first (second sexp)) 
+                        (string-join (map ~a (rest (second sexp))) ", ")
+                        (format-simple-bs1-as-pyret (third sexp))))]
            [(cond)
             (error 'format-simple-bs1-as-pyret "Given non-simple bs1 ~a~n" sexp)]
            [else ;; function application

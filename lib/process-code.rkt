@@ -13,7 +13,8 @@
          code
          code/CSS
 	 sexp->coe
-         sexp->code         
+         sexp->code  
+         empty-code-space
          )
 
 ;;;;;;; styles ;;;;;;;;;;;;;;;;;;;;;;;
@@ -190,52 +191,51 @@
                (if purpose (list (make-comment purpose)) empty)
                body)))))
 
+;; creates a code area with no content
+;; this is used in language tables with no contents (to make row height
+;;   consistent with tables that have contents)
+(define (empty-code-space)
+  (render-code ""))
+
+;; produces scribble output for code segments
+;; - we do not use the built-in code formatting in order to let codemirror can handle it instead
+;; - the nbsp is there to hack around a rendering error that occurs when
+;;   an activity is immediately followed by code
+(define (render-code codestr #:multi-line? (multi-line? #f))
+  (cond-element 
+   [html (if multi-line? 
+             (elem (list (sxml->element 'nbsp) (sxml->element `(textarea ,(string-append "\n" codestr "\n")))))
+             (sxml->element `(tt ,codestr)))]               
+   [else codestr]))
+ 
 ;; generate tags to format code via codemirror
 ;; - lang controls whether source code pyret, racket, or intentionally malformed.  
 (define (code #:multi-line (multi-line #f)
-              #:contract (contract #f)
-              #:purpose (purpose #f)
               #:lang (lang "racket")
               . body)
-  ;; an error check to make sure we understand original API usage
-  (when (and (not multi-line) (or (and contract purpose) 
-                                  (and contract (not (null? body))) 
-                                  (and purpose (not (null? body)))))
-    (printf "WARNING: Use of code that supplied more than one of contract/purpose/body~n"))
+  ;; check that multi-line is consistent with body length
+  ;; - if this is true, why do we have both???
+  (when (and (not multi-line) (> (length body) 1))
+    (printf "WARNING: found multiple body expressions without multi-line: ~s~n" body))
   (case lang
     [("racket")
-     (if (or multi-line (empty? body))
+     (if multi-line 
          ;; anything landing in here will need to be converted to pyret manually
-         (let ([allcode
-                (string-append (if contract (string-append (curr-comment-char) " " contract "\n") "")
-                               (if purpose (string-append (curr-comment-char) " " purpose "\n") "")
-                               (apply string-append body)
-                               )])
-           ;; we do not use the built-in code formatting in order
-           ;; to let codemirror can handle it instead
-           ;; the nbsp is there to hack around a rendering error that occurs when
-           ;; an activity is immediately followed by code
-           (cond-element 
-            [html (if multi-line 
-                      (elem (list (sxml->element 'nbsp) (sxml->element `(textarea ,(string-append "\n" allcode "\n")))))
-                      (sxml->element `(tt ,allcode)))]               
-            [else allcode]))
+         (render-code (apply string-append body) #:multi-line? multi-line)
          ;; anything landing in here, we should be able to compile to pyret automatically
          (with-handlers ([(lambda (exn) #t)
                           (lambda (exn) 
                             (printf "WARNING: simple code conversion failed on ~s~n" body)
                             (printf "EXN msg: ~s~n" (exn-message exn))
                             "FIX ME!!!!!!")])
-           (when (> (length body) 1)
-             (printf "WARNING: found multiple body expressions without multi-line: ~s~n" body))
            (let* ([rawpycode (if (racket-comment? (first body))
                                  (string-replace (first body) ";" (curr-comment-char) #:all? #f)
                                  (format-oneline-bs1-as-pyret (with-input-from-string (first body) read)))]
                   [pycode (if (string? rawpycode) rawpycode (format "~a" rawpycode))])
-             (sxml->element `(tt ,pycode)))))]
+             (render-code pycode #:multi-line? multi-line))))] 
     [("pyret") (begin (printf "WARNING: pyret lang invoked but not supported~n")
-                      (sxml->element `(tt ,(first body))))]
-    [("malformed") (sxml->element `(tt ,(first body)))]
+                      (render-code (apply string-append body) #:multi-line? multi-line))] 
+    [("malformed") (render-code (apply string-append body) #:multi-line? multi-line)] 
     [else (error 'code "Unrecognized language parameter value: ~s~n" lang)]))
 
 

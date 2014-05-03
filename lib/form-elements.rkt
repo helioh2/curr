@@ -36,6 +36,7 @@
 ;; FIXME: must add contracts!
 (provide vocab
          code
+	 empty-code-space
          math
          bannerline
          new-paragraph
