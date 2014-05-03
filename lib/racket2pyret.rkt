@@ -8,6 +8,7 @@
          bs1-string->pyret-string
          format-simple-bs1-as-pyret
          format-pyret-arglist
+         lookup-binop
          )
 
 ;--------- PYRET AST -----------
@@ -18,6 +19,7 @@
 (define-struct pyask (clauses))
 (define-struct pyexample (in out))
 (define-struct pyapp (fname args))
+(define-struct pyconst (name val))
 
 ;--------- BINOPS --------------
 (define binop-table
@@ -27,7 +29,8 @@
     (/ div)))
 
 (define (lookup-binop b)
-  (second (assq b binop-table)))
+  (let ([find (assq b binop-table)])
+    (if find (second find) #f)))
 
 (define (atom? v) (not (list? v)))
 
@@ -37,11 +40,20 @@
   (cond [(atom? sexp) sexp] 
         [else 
          (case (first sexp)
-           [(+ - * /) (format "~a(~s, ~s)"
-                              (lookup-binop (first sexp)) 
-                              (format-simple-bs1-as-pyret (second sexp)) 
-                              (format-simple-bs1-as-pyret (third sexp)))]
-           [(define cond example) 
+           [(+ - * /) (format "~a(~a)" 
+                              (lookup-binop (first sexp))
+                              (format-pyret-arglist (rest sexp)))]
+           [(example)
+            (format "~s is ~s" 
+                    (format-simple-bs1-as-pyret (second sexp))
+                    (format-simple-bs1-as-pyret (third sexp)))]
+           [(define) ;; can handle constant defns, but not functions
+            (if (atom? (second sexp)) 
+                (if (string? (third sexp))
+                    (format "~a = ~s" (second sexp) (third sexp))
+                    (format "~a = ~a" (second sexp) (third sexp)))
+                (error 'format-simple-bs1-as-pyret "Given non-simple bs1 ~a~n" sexp))]
+           [(cond)
             (error 'format-simple-bs1-as-pyret "Given non-simple bs1 ~a~n" sexp)]
            [else ;; function application
             (let ([fname (first sexp)]
@@ -60,10 +72,12 @@
         [else 
          (case (first sexp)
            [(+ - * /) (make-pybinop (first sexp) (bs1->pyret (second sexp)) (bs1->pyret (third sexp)))]
-           [(define) (let ([defname (first (second sexp))]
-                           [args (second (second sexp))]
-                           [body (third sexp)])
-                       (make-pyfun defname args (bs1->pyret body)))]
+           [(define) (if (list? (second sexp)) 
+                         (let ([defname (first (second sexp))]
+                               [args (second (second sexp))]
+                               [body (third sexp)])
+                           (make-pyfun defname args (bs1->pyret body)))
+                         (make-pyconst (second sexp) (bs1->pyret (third sexp))))]
            [(cond) (let* ([clauses (rest sexp)]
                           [pyret-clauses 
                            (map (lambda (c) (make-pyask-clause (bs1->pyret (first c)) (bs1->pyret (second c))))
@@ -81,31 +95,38 @@
 (define (pyret->string pyast)
   (cond [(pyatom? pyast) (let ([a (pyatom-a pyast)])
                            (if (string? a) a (format "~a" a)))]
-        [(pybinop? pyast) (format "~a(~a, ~a)" 
+        [(pybinop? pyast) (format "~a(~s, ~s)" 
                                   (lookup-binop (pybinop-b pyast)) 
                                   (pyret->string (pybinop-l pyast)) 
                                   (pyret->string (pybinop-r pyast)))]
-        [(pyfun? pyast) (format "fun ~a(~a): ~n ~a ~nend" 
+        [(pyfun? pyast) (format "fun ~a(~a): ~n ~s ~nend" 
                                 (pyfun-name pyast) 
                                 (pyfun-args pyast)
                                 (pyret->string (pyfun-body pyast)))]
-        [(pyask-clause? pyast) (format " | ~a => ~a~n"
+        [(pyask-clause? pyast) (format " | ~s => ~s~n"
                                        (pyret->string (pyask-clause-test pyast))
                                        (pyret->string (pyask-clause-then pyast)))]
         [(pyask? pyast) (format "ask: ~n ~a ~nend" (string-join (map pyret->string (pyask-clauses pyast)) " "))]
-        [(pyexample? pyast) (format "~a is ~a"
+        [(pyexample? pyast) (format "~s is ~s"
                                     (pyret->string (pyexample-in pyast))
                                     (pyret->string (pyexample-out pyast)))]
         [(pyapp? pyast) (format "~a(~a)" 
                                 (pyapp-fname pyast)
                                 (string-join (map pyret->string (pyapp-args pyast)) ", "))]
+        [(pyconst? pyast) (format "~a = ~s" (pyconst-name pyast) (pyconst-val pyast))]
         [else (error 'pyret->string "Unknown ast ~a~n" pyast)]))
         
 (define (bs1->pyret-string sexp)
   (pyret->string (bs1->pyret sexp)))
 
 (define (bs1-string->pyret-string sexpstr) 
-  (bs1->pyret-string (with-input-from-string sexpstr read)))
+  (with-handlers ([(lambda (exn) (exn:fail:read? exn))
+                   (lambda (exn) 
+                     (printf "WARNING: attempt to read bs1 from malformed string ~s~n" sexpstr)
+                     sexpstr)]
+                  [(lambda (exn) (exn:fail? exn))
+                   (lambda (exn) (printf "~s on ~s~n" (exn-message exn) sexpstr))])
+    (bs1->pyret-string (with-input-from-string sexpstr read))))
 
 ;; TESTS
 (define (test-bs1->pyret expr)

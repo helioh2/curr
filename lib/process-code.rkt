@@ -100,7 +100,10 @@
                     (append
                      (list (elem #:style bs-openbrace-style "(") 
                            (elem #:style bs-operator-style 
-                                 (if (eq? (first sexp) EXPR-HOLE-SYM) " " (format "~a " (first sexp)))))
+                                 ; check for operators to rename in pyret
+                                 (if (eq? (first sexp) EXPR-HOLE-SYM) " " 
+                                     (let ([rename-binop (lookup-binop (first sexp))])
+                                       (format "~a " (or rename-binop (first sexp)))))))
                      args 
                      (list (elem #:style bs-closebrace-style ")")))))])]
         [else (error 'sexp->block 
@@ -167,16 +170,16 @@
 
 ;; generate tags to format code via codemirror
 (define (code/CSS #:multi-line (multi-line #f)
-              #:malformed? (malformed? #f)
-              #:contract (contract #f)
-              #:purpose (purpose #f)
-              . body)
+                  #:malformed? (malformed? #f)
+                  #:contract (contract #f)
+                  #:purpose (purpose #f)
+                  . body)
   ;; first an error check to make sure we understand original API usage
   (when (and (not multi-line) (or (and contract purpose) 
                                   (and contract (not (null? body))) 
                                   (and purpose (not (null? body)))))
     (printf "WARNING: Use of code that supplied more than one of contract/purpose/body~n"))
-  (let ([make-comment (lambda (str) (string-append "; " str "\n"))])
+  (let ([make-comment (lambda (str) (string-append (curr-comment-char) " " str "\n"))])
     (with-handlers
         ([exn:fail:read?
           ;; for now, assuming only malformed are simple compositional exprs: 
@@ -188,44 +191,52 @@
                body)))))
 
 ;; generate tags to format code via codemirror
-;; pyret-alt lets us manually provide the pyret code to insert in place of
-;;   the provided body.  This will be used for content that cannot be
+;; is-pyret? controls whether source code is pyret or racket.  This will be used for content that cannot be
 ;;   read as sexps, such as malformed expressions used to teach about error messages
 (define (code #:multi-line (multi-line #f)
               #:contract (contract #f)
               #:purpose (purpose #f)
-              #:pyret-alt (pyret-alt #f)
+              #:is-pyret? (is-pyret? #f)
               . body)
   ;; first an error check to make sure we understand original API usage
   (when (and (not multi-line) (or (and contract purpose) 
                                   (and contract (not (null? body))) 
                                   (and purpose (not (null? body)))))
     (printf "WARNING: Use of code that supplied more than one of contract/purpose/body~n"))
-  (let ([allcode (string-append (if contract (string-append (curr-comment-char) " " contract "\n") "")
-                                (if purpose (string-append (curr-comment-char) " " purpose "\n") "")
-                                (cond [(gen-racket?) (apply string-append body)]
-                                      [(gen-pyret?) (apply string-append (map bs1-string->pyret-string body))]
-                                      [else (error 'code "Unknown target language")])
-                                )])
-    ;; we do not use the built-in Racket code formatting in order
-    ;; to let codemirror can handle it instead
-    ;; the nbsp is there to hack around a rendering error that occurs when
-    ;; an activity is immediately followed by code
-    (cond-element 
-     [html (if multi-line 
-               (elem (list (sxml->element 'nbsp) (sxml->element `(textarea ,(string-append "\n" allcode "\n")))))
-               (sxml->element `(tt ,allcode)))]               
-     [else allcode])))
+  (if (or multi-line (empty? body))
+      ;; anything landing in here will need to be converted to pyret manually
+      (let ([allcode
+             (string-append (if contract (string-append (curr-comment-char) " " contract "\n") "")
+                            (if purpose (string-append (curr-comment-char) " " purpose "\n") "")
+                            (apply string-append body)
+                            )])
+        ;; we do not use the built-in code formatting in order
+        ;; to let codemirror can handle it instead
+        ;; the nbsp is there to hack around a rendering error that occurs when
+        ;; an activity is immediately followed by code
+        (cond-element 
+         [html (if multi-line 
+                   (elem (list (sxml->element 'nbsp) (sxml->element `(textarea ,(string-append "\n" allcode "\n")))))
+                   (sxml->element `(tt ,allcode)))]               
+         [else allcode]))
+      ;; anything landing in here, we should be able to compile to pyret automatically
+      (with-handlers ([(lambda (exn) #t)
+                       (lambda (exn) 
+                         (printf "WARNING: simple code conversion failed on ~s~n" body)
+                         (printf "EXN msg: ~s~n" (exn-message exn))
+                         "FIX ME!!!!!!")])
+        (when (> (length body) 1)
+          (printf "WARNING: found multiple body expressions without multi-line: ~s~n" body))
+        (let* ([rawpycode (if (racket-comment? (first body))
+                              (string-replace (first body) ";" (curr-comment-char) #:all? #f)
+                              (format-simple-bs1-as-pyret (with-input-from-string (first body) read)))]
+               [pycode (if (string? rawpycode) rawpycode (format "~a" rawpycode))])
+          (sxml->element `(tt ,pycode))))))
+
+; check whether first character in string is semicolon (racket comment char)
+(define (racket-comment? str)
+  (string=? ";" (substring str 0 1)))
 
 ;;; tailoring to pyret vs racket
 
-(define (gen-racket?)
-  (equal? (getenv "TARGET-LANG") "racket"))
-
-(define (gen-pyret?)
-  (equal? (getenv "TARGET-LANG") "pyret"))
-
-(define (curr-comment-char)
-  (cond [(gen-pyret?) "#"]
-        [(gen-racket?) ";"]
-        [else (error 'curr-comment "Current target lang unclear")]))
+(define (curr-comment-char) "#")
