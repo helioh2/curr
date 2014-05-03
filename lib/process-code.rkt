@@ -225,7 +225,7 @@
          (let ([pylines (map format-oneline-bs1-as-pyret body)])
            (if (member #f pylines)
                ;; multiple lines needed to form one sexp
-               (render-code (apply string-append body) #:multi-line? multi-line)
+               (render-code (format-manyline-bs1-as-pyret body) #:multi-line? multi-line)
                (render-code (apply string-append pylines) #:multi-line? multi-line)))
          (let* ([pycode (format-oneline-bs1-as-pyret (first body))])
            (if pycode

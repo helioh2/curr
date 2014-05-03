@@ -2,12 +2,13 @@
 
 ; BS1 -> pyret compiler
 
-(provide bs1->pyret
-         pyret->string
+(provide ;bs1->pyret
+         ;pyret->string
          bs1->pyret-string
          bs1-string->pyret-string
          format-simple-bs1-as-pyret
          format-oneline-bs1-as-pyret
+         format-manyline-bs1-as-pyret
          format-pyret-arglist
          lookup-binop
          )
@@ -65,17 +66,69 @@
               (format "~a(~a)" fname (format-pyret-arglist args)))]
            )]))
 
+;; need better handling of binop arglists -- could be strings
+(define (format-bs1-as-pyret sexp #:multi-line? (multi-line? #f))
+  (define (format-help sexp)
+    (cond [(atom? sexp) sexp] 
+          [else 
+           (case (first sexp)
+             [(+ - * /) (format "~a(~a)" 
+                                (lookup-binop (first sexp))
+                                (format-pyret-arglist (rest sexp)))]
+             [(example)
+              (format "~s is ~s" 
+                      (format-help (second sexp))
+                      (format-help (third sexp)))]
+             [(define) 
+              (cond [(atom? (second sexp)) ; defining a constant
+                     (if (string? (third sexp))
+                         (format "~a = ~s" (second sexp) (third sexp))
+                         (format "~a = ~a" (second sexp) (third sexp)))]
+                    [else ; defining a function
+                     (let ([fmtstr (if multi-line? 
+                                       "fun ~a(~a):~n ~s ~nend" 
+                                       "fun ~a(~a): ~s end")])
+                       (format fmtstr
+                               (first (second sexp)) 
+                               (string-join (map ~a (rest (second sexp))) ", ")
+                               (format-help (third sexp))))])]
+             [(cond)
+              (if multi-line?
+                  ;; using format-bs1-as-pyret rather than format-help on clause components to reset multiline
+                  (let ([clauses (rest sexp)])
+                    (format "ask:~n~a ~nend" 
+                            (string-join (map (lambda (c) 
+                                                (format " | ~a => ~s"
+                                                        (format-bs1-as-pyret (first c)) 
+                                                        (format-bs1-as-pyret (second c))))
+                                              clauses)
+                                         "\n")))
+                  (error 'format-bs1-as-pyret "Cond cannot be formatted for single line: ~a~n" sexp))]
+             [else ;; function application
+              (let ([fname (first sexp)]
+                    [args (rest sexp)])
+                (format "~a(~a)" fname (format-pyret-arglist args)))]
+             )]))
+  (formatted-pyret->string (format-help sexp)))
+
 ;; given list of simple racket args, convert to pyret arglist
 ;;   function constructs format string manually to preserve string quotations
 (define (format-pyret-arglist args)
   (let ([argfmt (string-join (map (lambda (a) (if (string? a) "~s" "~a")) args) ", ")])
     (apply format (cons argfmt (map format-simple-bs1-as-pyret args))))) 
 
+(define (formatted-pyret->string pycode)
+  (if (string? pycode) pycode (~a pycode)))
+
 ; check whether first character in string is semicolon (racket comment char)
 (define (racket-comment? str)
   (string=? ";" (substring str 0 1)))
 
 (define (curr-comment-char) "#")
+
+;; converts racket comment to a pyret comment
+(define (format-comment-line bs1cmtstr)
+  (string-replace bs1cmtstr ";" (curr-comment-char) #:all? #f))
 
 ;; consumes string of bs1 code and produces string of pyret code or #f
 ;;  if the bs1str cannot convert to a single line of pyret code
@@ -86,10 +139,32 @@
                      (printf "EXN msg: ~s~n" (exn-message exn))
                      #f)])
     (cond [(string=? "\n" bs1str) bs1str] ; don't process newlines 
-          [(racket-comment? bs1str)
-           (string-replace bs1str ";" (curr-comment-char) #:all? #f)]
-          [else (let ([pyraw (format-simple-bs1-as-pyret (with-input-from-string bs1str read))])
-                  (if (string? pyraw) pyraw (~a pyraw)))])))
+          [(racket-comment? bs1str) (format-comment-line bs1str)]
+          [else (formatted-pyret->string (format-simple-bs1-as-pyret (with-input-from-string bs1str read)))])))
+
+;; takes list of strings that make up one racket expression (optionally with leading comments)
+;;   and produce pyret rendering as a string
+;; assumes comment lines, if any, are at the top of the code segment
+(define (format-manyline-bs1-as-pyret bs1strs)
+  (with-handlers ([exn:fail:read? (lambda (exn) 
+                                    (printf "Multiline failed to parse: ~a~n" bs1strs)
+                                    "!!!!KATHI FIX ME!!!!!")]
+                  [(lambda (exn) #t)
+                   (lambda (exn) 
+                     (printf "EXN msg: ~s~n" (exn-message exn))
+                     #f)])
+    (let loop ([all-lines bs1strs] [comment-lines '()])
+      (if (empty? all-lines) 
+          (error 'format-manyline-bs1-as-pyret "No actual code lines in ~a~n" bs1strs)
+          (if (racket-comment? (first all-lines))
+              (loop (rest all-lines) (cons (format-comment-line (first all-lines)) comment-lines))
+              (let ([sexp (with-input-from-string (apply string-append all-lines) read)])
+                (string-join (append (reverse comment-lines) 
+                                     ;; need to handle newlines within the lines?
+                                     (list (format-bs1-as-pyret sexp #:multi-line? #t)))
+                             "\n")))))))
+                    
+
 
 (define (bs1->pyret sexp)
   (cond [(atom? sexp) (make-pyatom sexp)]
@@ -180,4 +255,18 @@
   (test-fmt-simple '(f (g "abba")))
   (test-fmt-simple '(string=? (g "cake") "pie"))
   )
-      
+   
+(define (test-ml strLst)
+  (display (format-manyline-bs1-as-pyret strLst))
+  (printf "~n~n"))
+
+(define (run-multiline-tests)
+  (test-ml '("(+ 2 3)"))
+  (test-ml '("(define (f x)" "(+ x 3))"))
+  (test-ml '("; a comment" "(define (f x)" "(+ x 3))"))
+  (test-ml '("; a comment" "; a second comment" "3"))
+  (test-ml '("(cond [(= 3 4) 5]" "[(> 6 7) 8]" ")"))
+  (test-ml '("(cond [(string=? x \"hi\") \"mom\"]" "[(> 6 7) \"dad\"]" ")"))
+  (test-ml '("(cond [(string=? x \"hi\") (string=? y \"mom\")]" "[(> 6 7) \"dad\"]" ")"))
+
+  )
