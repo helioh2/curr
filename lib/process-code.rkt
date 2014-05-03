@@ -170,6 +170,7 @@
     (nested #:style bs-code-style list-of-sexps-and-comments)))
 
 ;; generate tags to format code via codemirror
+;; IS THIS USED?  IF SO, NEEDS UPDATE
 (define (code/CSS #:multi-line (multi-line #f)
                   #:malformed? (malformed? #f)
                   #:contract (contract #f)
@@ -210,6 +211,7 @@
  
 ;; generate tags to format code via codemirror
 ;; - lang controls whether source code pyret, racket, or intentionally malformed.  
+;; body comes in as a list of strings (since it is invoked within scribble)
 (define (code #:multi-line (multi-line #f)
               #:lang (lang "racket")
               . body)
@@ -220,29 +222,20 @@
   (case lang
     [("racket")
      (if multi-line 
-         ;; anything landing in here will need to be converted to pyret manually
-         (render-code (apply string-append body) #:multi-line? multi-line)
-         ;; anything landing in here, we should be able to compile to pyret automatically
-         (with-handlers ([(lambda (exn) #t)
-                          (lambda (exn) 
-                            (printf "WARNING: simple code conversion failed on ~s~n" body)
-                            (printf "EXN msg: ~s~n" (exn-message exn))
-                            "FIX ME!!!!!!")])
-           (let* ([rawpycode (if (racket-comment? (first body))
-                                 (string-replace (first body) ";" (curr-comment-char) #:all? #f)
-                                 (format-oneline-bs1-as-pyret (with-input-from-string (first body) read)))]
-                  [pycode (if (string? rawpycode) rawpycode (format "~a" rawpycode))])
-             (render-code pycode #:multi-line? multi-line))))] 
+         (let ([pylines (map format-oneline-bs1-as-pyret body)])
+           (if (member #f pylines)
+               ;; multiple lines needed to form one sexp
+               (render-code (apply string-append body) #:multi-line? multi-line)
+               (render-code (apply string-append pylines) #:multi-line? multi-line)))
+         (let* ([pycode (format-oneline-bs1-as-pyret (first body))])
+           (if pycode
+               (render-code pycode #:multi-line? multi-line)
+               (begin (printf "WARNING: simple code conversion failed on ~s~n" body)
+                      "!!!!!FIX MY RENDERING!!!!!"))))]
     [("pyret") (begin (printf "WARNING: pyret lang invoked but not supported~n")
                       (render-code (apply string-append body) #:multi-line? multi-line))] 
     [("malformed") (render-code (apply string-append body) #:multi-line? multi-line)] 
     [else (error 'code "Unrecognized language parameter value: ~s~n" lang)]))
 
-
-; check whether first character in string is semicolon (racket comment char)
-(define (racket-comment? str)
-  (string=? ";" (substring str 0 1)))
-
 ;;; tailoring to pyret vs racket
-
 (define (curr-comment-char) "#")

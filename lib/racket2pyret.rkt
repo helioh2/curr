@@ -71,7 +71,25 @@
   (let ([argfmt (string-join (map (lambda (a) (if (string? a) "~s" "~a")) args) ", ")])
     (apply format (cons argfmt (map format-simple-bs1-as-pyret args))))) 
 
-(define format-oneline-bs1-as-pyret format-simple-bs1-as-pyret)
+; check whether first character in string is semicolon (racket comment char)
+(define (racket-comment? str)
+  (string=? ";" (substring str 0 1)))
+
+(define (curr-comment-char) "#")
+
+;; consumes string of bs1 code and produces string of pyret code or #f
+;;  if the bs1str cannot convert to a single line of pyret code
+(define (format-oneline-bs1-as-pyret bs1str)
+  (with-handlers ([exn:fail:read? (lambda (exn) #f)]
+                  [(lambda (exn) #t)
+                   (lambda (exn) 
+                     (printf "EXN msg: ~s~n" (exn-message exn))
+                     #f)])
+    (cond [(string=? "\n" bs1str) bs1str] ; don't process newlines 
+          [(racket-comment? bs1str)
+           (string-replace bs1str ";" (curr-comment-char) #:all? #f)]
+          [else (let ([pyraw (format-simple-bs1-as-pyret (with-input-from-string bs1str read))])
+                  (if (string? pyraw) pyraw (~a pyraw)))])))
 
 (define (bs1->pyret sexp)
   (cond [(atom? sexp) (make-pyatom sexp)]
