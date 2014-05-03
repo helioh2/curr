@@ -7,6 +7,7 @@
          bs1->pyret-string
          bs1-string->pyret-string
          format-simple-bs1-as-pyret
+         format-oneline-bs1-as-pyret
          format-pyret-arglist
          lookup-binop
          )
@@ -66,6 +67,8 @@
 (define (format-pyret-arglist args)
   (let ([argfmt (string-join (map (lambda (a) (if (string? a) "~s" "~a")) args) ", ")])
     (apply format (cons argfmt (map format-simple-bs1-as-pyret args))))) 
+
+(define format-oneline-bs1-as-pyret format-simple-bs1-as-pyret)
 
 (define (bs1->pyret sexp)
   (cond [(atom? sexp) (make-pyatom sexp)]

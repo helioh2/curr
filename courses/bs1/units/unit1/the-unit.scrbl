@@ -490,9 +490,9 @@
                         }
                 
                 @point{@student{The Circles of Evaluation are also easy to convert into computer programs. To translate a Circle of
-                                Evaluation into a program, begin with an open parenthesis @code{(}, and then the function written at
+                                Evaluation into a program, begin with an open parenthesis @code[#:lang "malformed"]{(}, and then the function written at
                                 the top of the circle. Then translate the inputs from left to right in the same way, adding a closing
-                                parenthesis @code{)} when you're done. This process gives us the second rule for @vocab{expressions}:  
+                                parenthesis @code[#:lang "malformed"]{)} when you're done. This process gives us the second rule for @vocab{expressions}:  
                                 @bannerline{Code Rule 2: Each open parenthesis is followed by one function, then by one or more legal
                                             expressions, and finally by a closing parenthesis.}
                                  @bitmap{images/FixedCircle.png}Here is the code for this Circle of Evaluation: @code{(- 4 5)}
@@ -541,10 +541,10 @@
                                 a couple of error messages so that you'll know what they are if you run into one while programming.
                        @activity[#:forevidence "BS-IDE&1&2"]{Enter each of the following illegal expressions in the Interactions Window 
                                                              and look at the error message or behavior that the computer gives you. 
-                                 @itemlist[@item{@code{(5 * 6)} [puts the function in the middle, instead of at the front]}
-                                           @item{@code{(*5 6)}  [missing a space after the function]}
-                                           @item{@code{* 5 6)}  [forgets the open parenthesis]}
-                                           @item{@code{(* 5 6}  [forgets the close parenthesis]}
+                                 @itemlist[@item{@code[#:lang "malformed"]{(5 plus 6)} [puts the function in the middle, instead of at the front]}
+                                           @item{@code[#:lang "malformed"]{plus(5 6)}  [missing commas between the arguments]]}
+                                           @item{@code[#:lang "malformed"]{plus 5, 6)}  [forgets the open parenthesis]}
+                                           @item{@code[#:lang "malformed"]{plus(5, 6}  [forgets the close parenthesis]}
                                           ]}}
                        @teacher{At this point, the goal is simply to have students see error messages, so they know that they mean 
                                 "something went wrong".  Students are not expected to be experts at reading error messages this early 
