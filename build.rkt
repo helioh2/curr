@@ -307,7 +307,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Main entry point:
 (make-fresh-deployment-and-copy-static-pages)
-(define bootstrap-courses '("bs1" "bs2"))
+;; turn off bs2 building while we work on initial pyret conversion
+(define bootstrap-courses '("bs1")) ;; "bs2"))
 ;; remove next line if ever want to generate links to web docs instead of PDF
 (putenv "WORKSHEET-LINKS-TO-PDF" "true")
 (putenv "CURRENT-SOLUTIONS-MODE" "off")
