@@ -237,5 +237,3 @@
     [("malformed") (render-code (apply string-append body) #:multi-line? multi-line)] 
     [else (error 'code "Unrecognized language parameter value: ~s~n" lang)]))
 
-;;; tailoring to pyret vs racket
-(define (curr-comment-char) "#")

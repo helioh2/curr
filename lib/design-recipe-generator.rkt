@@ -265,7 +265,7 @@
          [style (if id? 
                     (bootstrap-span-style/extra-id base-style class-or-id) 
                     (bootstrap-span-style (string-append base-style " " class-or-id)))]
-         [converted-ans (if parse-as-pyret? (format-simple-bs1-as-pyret answer) answer)])
+         [converted-ans (if parse-as-pyret? (format-oneline-bs1-as-pyret answer) answer)])
     (para #:style style
           (cond [show-contents? (format-exercise-text converted-ans #:fmt-quotes? #f)]
                 [(string? answer) (make-string (string-length converted-ans) #\M)]
