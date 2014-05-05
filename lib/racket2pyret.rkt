@@ -32,7 +32,7 @@
              [(+ - * /) (format "~a(~a)" 
                                 (lookup-binop (first sexp))
                                 (format-pyret-arglist (rest sexp)))]
-             [(example)
+             [(EXAMPLE)
               (format "~a is ~a" 
                       (format-help (second sexp))
                       (format-help (third sexp)))]
@@ -73,6 +73,8 @@
 (define (format-pyret-arglist args)
   (string-join (map format-bs1-as-pyret args) ", "))
 
+;;;;;;;; converting comments ;;;;;;;;;;;;;;
+
 ; check whether first character in string is semicolon (racket comment char)
 ; input is sometimes an sexp, hence the string? guard
 (define (racket-comment? str)
@@ -85,6 +87,28 @@
 ;; converts racket comment to a pyret comment
 (define (format-comment-line bs1cmtstr)
   (string-replace bs1cmtstr ";" (curr-comment-char) #:all? #f))
+
+;;;;;;;;; converting examples ;;;;;;;;;;;;;;
+
+(define (racket-example? str)
+  (and (> (string-length str) 8)
+       (string=? "(EXAMPLE" (substring str 0 8))))
+
+(define (format-example-line bs1examplestr)
+  (format-bs1-as-pyret (with-input-from-string bs1examplestr read)))
+   
+;; from-lines is a list of strings corresponding to a block of code
+;; assumes no example extends across more than two lines
+;(define (read-example from-lines)
+;  (if (racket-example? (first from-lines))
+;      (let ([oneline (format-oneline-bs1-as-pyret (first from-lines))])
+;        (if oneline oneline
+;            (let loop ([curr-example (list (first from-lines) (second from-lines))] 
+;                       [all-lines (rest (rest from-lines))])
+;              #t)))))
+              
+
+;;;;;;;;; exported API for rendering code ;;;;;;;;;;;;;;;;;
 
 ;; consumes string or sexp of bs1 code and produces string of pyret code or #f
 ;;  if the bs1str cannot convert to a single line of pyret code
@@ -103,6 +127,10 @@
 ;; takes list of strings that make up one racket expression (optionally with leading comments)
 ;;   and produce pyret rendering as a string
 ;; assumes comment lines, if any, are at the top of the code segment
+;; assumes example lines, if any, are between comments and code
+;; - input from scribble comes in with newlines -- we filter those out at the start of the loop
+;;   and reinsert them post conversion
+;; MUST FIX to support examples that extend over multiple lines
 (define (format-manyline-bs1-as-pyret bs1strs)
   (with-handlers ([exn:fail:read? (lambda (exn) 
                                     (printf "Multiline failed to parse: ~a~n" bs1strs)
@@ -111,16 +139,35 @@
                    (lambda (exn) 
                      (printf "EXN msg: ~s~n" (exn-message exn))
                      #f)])
-    (let loop ([all-lines bs1strs] [comment-lines '()])
+    (let loop ([all-lines (filter (lambda (s) (not (string=? s "\n"))) bs1strs)] [comment-lines '()] [example-lines '()])
       (if (empty? all-lines) 
-          (error 'format-manyline-bs1-as-pyret "No actual code lines in ~a~n" bs1strs)
-          (if (racket-comment? (first all-lines))
-              (loop (rest all-lines) (cons (format-comment-line (first all-lines)) comment-lines))
-              (let ([sexp (with-input-from-string (apply string-append all-lines) read)])
-                (string-join (append (reverse comment-lines) 
-                                     (list (format-bs1-as-pyret sexp #:multi-line? #t)))
-                             "\n")))))))
-                    
+          (assemble-multiline-code (reverse comment-lines) (reverse example-lines) all-lines)
+          (cond [(racket-comment? (first all-lines))
+                 (loop (rest all-lines) (cons (format-comment-line (first all-lines)) comment-lines) example-lines)]
+                [(racket-example? (first all-lines))
+                 (loop (rest all-lines) comment-lines (cons (format-example-line (first all-lines)) example-lines))]
+                [else ;; should only be body lines left
+                 (let* ([pylines (map format-oneline-bs1-as-pyret all-lines)]
+                        [body-lines
+                         (if (member #f pylines)
+                             ; next line assumes there is one sexp in all-lines, not multiple
+                             (let ([sexp (with-input-from-string (apply string-append all-lines) read)])
+                               (list (format-bs1-as-pyret sexp #:multi-line? #t)))
+                             (list (string-join pylines "\n")))])
+                   (assemble-multiline-code (reverse comment-lines) (reverse example-lines) body-lines))])))))
+                                
+;; inserts pyret structure around checks in a multi-line code sample
+(define (assemble-multiline-code comments examples bodies)
+  (let ([all-lines (append comments
+                           (if (empty? examples) empty
+                               (append (list "checks:")
+                                       ;; indent the examples
+                                       (map (lambda (e) (string-append " " e)) examples)
+                                       (list "end")))
+                           bodies)])
+    (string-join all-lines "\n")
+    ))
+
 ;;--------------------------------------------------------------------
 
 ;; TESTS
@@ -164,5 +211,8 @@
   (test-ml '("(cond [(= 3 4) 5]" "[(> 6 7) 8]" ")"))
   (test-ml '("(cond [(string=? x \"hi\") \"mom\"]" "[(> 6 7) \"dad\"]" ")"))
   (test-ml '("(cond [(string=? x \"hi\") (string=? y \"mom\")]" "[(> 6 7) \"dad\"]" ")"))
+  (test-ml '("; here are tests" "(EXAMPLE 5 5)" "(EXAMPLE 7 8)"))
+  (test-ml '("; here are tests" "(EXAMPLE 5 5)" "(EXAMPLE 7 8)" "(define x 9)"))
+  (test-ml '("; comment before cond" "(cond [(string=? x \"hi\") \"mom\"]" "[(> 6 7) \"dad\"]" ")"))
 
   )

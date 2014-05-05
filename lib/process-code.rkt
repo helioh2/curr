@@ -221,17 +221,13 @@
     (printf "WARNING: found multiple body expressions without multi-line: ~s~n" body))
   (case lang
     [("racket")
-     (if multi-line 
-         (let ([pylines (map format-oneline-bs1-as-pyret body)])
-           (if (member #f pylines)
-               ;; multiple lines needed to form one sexp
-               (render-code (format-manyline-bs1-as-pyret body) #:multi-line? multi-line)
-               (render-code (apply string-append pylines) #:multi-line? multi-line)))
-         (let* ([pycode (format-oneline-bs1-as-pyret (first body))])
-           (if pycode
-               (render-code pycode #:multi-line? multi-line)
-               (begin (printf "WARNING: simple code conversion failed on ~s~n" body)
-                      "!!!!!FIX MY RENDERING!!!!!"))))]
+     (let ([pycode (if multi-line 
+                       (format-manyline-bs1-as-pyret body)
+                       (format-oneline-bs1-as-pyret (first body)))])
+       (if pycode
+           (render-code pycode #:multi-line? multi-line)
+           (begin (printf "WARNING: ~a code conversion failed on ~s~n" (if multi-line "multi-line" "single-line") body)
+                  "!!!!!KATHI FIX MY RENDERING!!!!!")))]
     [("pyret") (begin (printf "WARNING: pyret lang invoked but not supported~n")
                       (render-code (apply string-append body) #:multi-line? multi-line))] 
     [("malformed") (render-code (apply string-append body) #:multi-line? multi-line)] 
