@@ -51,15 +51,15 @@
      @point{@student{The code for the @code{cost} function is written below:
                      @code[#:multi-line #t]{; cost : String -> Number
                                             ; given a Topping, produce the cost of a pizza with that topping
-                                            (EXAMPLE (cost "cheese")     9.00)
-                                            (EXAMPLE (cost "pepperoni") 10.50)
+                                            (EXAMPLE (cost "cheese")     "$$9.00")
+                                            (EXAMPLE (cost "pepperoni") "$$10.50")
                                             (EXAMPLE (cost "chicken")   11.25)
                                             (EXAMPLE (cost "broccoli")  10.25)
                                             
                                             (define (cost topping)
                                               (cond
-                                                [(string=? topping "cheese")     9.00]
-                                                [(string=? topping "pepperoni") 10.50]
+                                                [(string=? topping "cheese")     "$$9.00"]
+                                                [(string=? topping "pepperoni") "$$10.50"]
                                                 [(string=? topping "chicken")   11.25]
                                                 [(string=? topping "broccoli")  10.25]
                                                 [else 00.00]))}}

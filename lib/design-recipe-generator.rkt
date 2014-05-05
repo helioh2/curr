@@ -45,7 +45,7 @@
 ;; format values for display in exercises.  Handles escapes for things like dollar amounts
 (define (format-exercise-text e #:fmt-quotes? (fmt-quotes? #t))
   (cond [(number? e) (format "~a " e)]
-        [(string? e) (cond [(money-escaped? e) (format "~a " (~r (rem-money-escape e) #:precision '(= 2)))]
+        [(string? e) (cond [(money-escaped? e) (format-money e)]
                            [fmt-quotes? (format "~s " e)]
                            [else (format "~a " e)])]
         [(list? e) (string-append "(" 

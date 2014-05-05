@@ -4,7 +4,9 @@
 ;; atomic values in our scribbled material
 
 (provide money-escaped?
-         rem-money-escape)
+         rem-money-escape
+	 format-money
+         )
 
 (define MONEY-ESCAPE "$$")
 
@@ -18,4 +20,7 @@
   (let* ([escaped (substring str (string-length MONEY-ESCAPE) (string-length str))]
          [n (string->number escaped)])
     (if n n (error 'rem-money-escape "money-escaped value isn't a number"))))
-        
+
+;; assumes str is escaped for money
+(define (format-money str)
+  (format "~a " (~r (rem-money-escape str) #:precision '(= 2))))

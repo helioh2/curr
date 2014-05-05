@@ -2,6 +2,8 @@
 
 ; BS1 -> pyret compiler
 
+(require "escape-values.rkt")
+
 (provide format-oneline-bs1-as-pyret
          format-manyline-bs1-as-pyret
          format-pyret-arglist
@@ -20,12 +22,14 @@
   (let ([find (assq b binop-table)])
     (if find (second find) #f)))
 
+;-------------------------------
+
 (define (atom? v) (not (list? v)))
 
 ;; need better handling of binop arglists -- could be strings
 (define (format-bs1-as-pyret sexp #:multi-line? (multi-line? #f))
   (define (format-help sexp)
-    (cond [(string? sexp) (~s sexp)]
+    (cond [(string? sexp) (if (money-escaped? sexp) (format-money sexp) (~s sexp))]
           [(atom? sexp) (~a sexp)]
           [else 
            (case (first sexp)
