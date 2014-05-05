@@ -2,7 +2,8 @@
 
 ; BS1 -> pyret compiler
 
-(require "escape-values.rkt")
+(require "escape-values.rkt"
+         "test-generated-pyret.rkt")
 
 (provide format-oneline-bs1-as-pyret
          format-manyline-bs1-as-pyret
@@ -133,15 +134,16 @@
                    (lambda (exn) 
                      (printf "EXN msg: ~s~n" (exn-message exn))
                      #f)])
-    (cond [(equal? "\n" bs1str-or-sexp) bs1str-or-sexp] ; don't process newlines 
-          [(racket-comment? bs1str-or-sexp) (format-comment-line bs1str-or-sexp)]
-          [else (format-bs1-as-pyret 
-                 (if (string? bs1str-or-sexp) 
-                     (if string-is-sexp?
-                         (with-input-from-string bs1str-or-sexp read) 
-                         bs1str-or-sexp)
-                     bs1str-or-sexp)
-                 #:multi-line? #f)])))
+    (log-generated-pyret
+     (cond [(equal? "\n" bs1str-or-sexp) bs1str-or-sexp] ; don't process newlines 
+           [(racket-comment? bs1str-or-sexp) (format-comment-line bs1str-or-sexp)]
+           [else (format-bs1-as-pyret 
+                  (if (string? bs1str-or-sexp) 
+                      (if string-is-sexp?
+                          (with-input-from-string bs1str-or-sexp read) 
+                          bs1str-or-sexp)
+                      bs1str-or-sexp)
+                  #:multi-line? #f)]))))
 
 ;; takes list of strings that make up one racket expression (optionally with leading comments/examples)
 ;;   and produces pyret rendering as a string
@@ -155,25 +157,26 @@
                    (lambda (exn) 
                      (printf "EXN msg: ~s~n" (exn-message exn))
                      #f)])
-    (let loop ([all-lines (filter (lambda (s) (not (string=? s "\n"))) bs1strs)] [comment-lines '()] [example-lines '()])
-      (if (empty? all-lines) 
-          (assemble-multiline-code (reverse comment-lines) (reverse example-lines) all-lines)
-          (cond [(racket-comment? (first all-lines))
-                 (loop (rest all-lines) (cons (format-comment-line (first all-lines)) comment-lines) example-lines)]
-                [(racket-example? (first all-lines))
-                 (let-values ([(examplestr used-lines) (read-example all-lines)])
-                   (loop (list-tail all-lines used-lines)
-                         comment-lines 
-                         (cons examplestr example-lines)))]
-                [else ;; should only be body lines left
-                 (let* ([pylines (map format-oneline-bs1-as-pyret all-lines)]
-                        [body-lines
-                         (if (member #f pylines)
-                             ; next line assumes there is one sexp in all-lines, not multiple
-                             (let ([sexp (with-input-from-string (apply string-append all-lines) read)])
-                               (list (format-bs1-as-pyret sexp #:multi-line? #t)))
-                             (list (string-join pylines "\n")))])
-                   (assemble-multiline-code (reverse comment-lines) (reverse example-lines) body-lines))])))))
+    (log-generated-pyret
+     (let loop ([all-lines (filter (lambda (s) (not (string=? s "\n"))) bs1strs)] [comment-lines '()] [example-lines '()])
+       (if (empty? all-lines) 
+           (assemble-multiline-code (reverse comment-lines) (reverse example-lines) all-lines)
+           (cond [(racket-comment? (first all-lines))
+                  (loop (rest all-lines) (cons (format-comment-line (first all-lines)) comment-lines) example-lines)]
+                 [(racket-example? (first all-lines))
+                  (let-values ([(examplestr used-lines) (read-example all-lines)])
+                    (loop (list-tail all-lines used-lines)
+                          comment-lines 
+                          (cons examplestr example-lines)))]
+                 [else ;; should only be body lines left
+                  (let* ([pylines (map format-oneline-bs1-as-pyret all-lines)]
+                         [body-lines
+                          (if (member #f pylines)
+                              ; next line assumes there is one sexp in all-lines, not multiple
+                              (let ([sexp (with-input-from-string (apply string-append all-lines) read)])
+                                (list (format-bs1-as-pyret sexp #:multi-line? #t)))
+                              (list (string-join pylines "\n")))])
+                    (assemble-multiline-code (reverse comment-lines) (reverse example-lines) body-lines))]))))))
                                 
 ;; inserts pyret structure around checks in a multi-line code sample
 (define (assemble-multiline-code comments examples bodies)

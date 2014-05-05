@@ -10,6 +10,9 @@
 
 (define-runtime-path root-path (build-path 'up))
 
+(define-runtime-path testing-dir
+  (build-path 'up "testing"))
+
 (define-runtime-path lessons-dir
   (build-path 'up "lessons"))
 
