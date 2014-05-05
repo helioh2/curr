@@ -128,15 +128,15 @@
                        "Every contract has three parts ..."
                        (make-spacer contract-label)
                        (make-wrapper
-                        (dr-student-answer #:id? #f "recipe_name" #:show? show-funname-contract? funname)
+                        (dr-student-answer #:id? #f "recipe_name" #:show? show-funname-contract? funname #:is-code? #f)
                         (para #:style (bootstrap-span-style "") ":")
-                        (dr-student-answer "recipe_domain" #:show? show-domains? (string-join domain-list " "))
+                        (dr-student-answer "recipe_domain" #:show? show-domains? (string-join domain-list " ") #:is-code? #f)
                         (para #:style (bootstrap-span-style "") htmlRarr)
-                        (dr-student-answer "recipe_range" #:show? show-range? range))
+                        (dr-student-answer "recipe_range" #:show? show-range? range #:is-code? #f))
                        (make-clear)
                        (make-spacer purpose-label)
                        (make-wrapper
-                        (dr-student-answer "recipe_purpose" #:show? show-purpose? purpose)))
+                        (dr-student-answer "recipe_purpose" #:show? show-purpose? purpose #:is-code? #f)))
                       ;; need one of these for each example provided/expected
                       (design-recipe-section 
                         "recipe_examples"
@@ -257,15 +257,18 @@
 (define (dr-student-answer class-or-id answer 
                            #:id? (id? #t)
                            #:parse-as-pyret? (parse-as-pyret? #t)
+                           #:is-code? (is-code? #t)
                            #:show? (show? #f) 
                            #:fmt-quotes? (fmt-quotes? #f)
                            )
+  (when (string=? class-or-id "recipe_purpose")
+    (printf "Generating purpose ~s~n" answer))
   (let* ([show-contents? (or show? (always-show?))]
          [base-style (if show-contents? "studentAnswer" "studentAnswer blank")]
          [style (if id? 
                     (bootstrap-span-style/extra-id base-style class-or-id) 
                     (bootstrap-span-style (string-append base-style " " class-or-id)))]
-         [converted-ans (if parse-as-pyret? (format-oneline-bs1-as-pyret answer) answer)])
+         [converted-ans (if (and is-code? parse-as-pyret?) (format-oneline-bs1-as-pyret answer) answer)])
     (para #:style style
           (cond [show-contents? (format-exercise-text converted-ans #:fmt-quotes? #f)]
                 [(string? answer) (make-string (string-length converted-ans) #\M)]

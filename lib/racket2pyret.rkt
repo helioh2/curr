@@ -127,7 +127,7 @@
 
 ;; consumes string or sexp of bs1 code and produces string of pyret code or #f
 ;;  if the bs1str cannot convert to a single line of pyret code
-(define (format-oneline-bs1-as-pyret bs1str-or-sexp)
+(define (format-oneline-bs1-as-pyret bs1str-or-sexp #:string-is-sexp? (string-is-sexp? #t))
   (with-handlers ([exn:fail:read? (lambda (exn) #f)]
                   [(lambda (exn) #t)
                    (lambda (exn) 
@@ -136,7 +136,11 @@
     (cond [(equal? "\n" bs1str-or-sexp) bs1str-or-sexp] ; don't process newlines 
           [(racket-comment? bs1str-or-sexp) (format-comment-line bs1str-or-sexp)]
           [else (format-bs1-as-pyret 
-                 (if (string? bs1str-or-sexp) (with-input-from-string bs1str-or-sexp read) bs1str-or-sexp)
+                 (if (string? bs1str-or-sexp) 
+                     (if string-is-sexp?
+                         (with-input-from-string bs1str-or-sexp read) 
+                         bs1str-or-sexp)
+                     bs1str-or-sexp)
                  #:multi-line? #f)])))
 
 ;; takes list of strings that make up one racket expression (optionally with leading comments/examples)
