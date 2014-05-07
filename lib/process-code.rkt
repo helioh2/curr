@@ -32,6 +32,9 @@
 (define bs-keyword-style (bootstrap-span-style "wescheme-keyword"))
 (define bs-openbrace-style (bootstrap-span-style "lParen"))
 (define bs-closebrace-style (bootstrap-span-style "rParen"))
+(define bs-comma-style (bootstrap-span-style "comma"))
+(define bs-parstick-style (bootstrap-span-style "stick"))
+(define bs-askarrow-style (bootstrap-span-style "askarrow"))
 (define bs-operator-style (bootstrap-span-style "operator"))
 (define bs-expression-style (bootstrap-span-style "expression"))
 (define bs-define-style (bootstrap-span-style "wescheme-define"))
@@ -49,6 +52,7 @@
 ;; believe symbols only go to the first list case, not the symbol? case
 ;; recognizes EXPR-HOLE-SYM (used to create partially-completed expressions)
 ;;   in each of atom and operator positions
+;; NOTE: currently treats only individual examples, not checks blocks
 (define (sexp->block/aux sexp)
   (cond [(member sexp '(true false))
          (elem #:style bs-boolvalue-style (format "~a" sexp))]
@@ -69,42 +73,44 @@
            [(cond) 
             (let ([clauses (map (lambda (clause) 
                                   (elem #:style bs-clause-style
-                                        (list (elem #:style bs-openbrace-style "[") 
+                                        (list (elem #:style bs-parstick-style "|")
                                               (sexp->block/aux (first clause))
-                                              (sexp->block/aux (second clause))
-                                              (elem #:style bs-closebrace-style "]")))) 
+                                              (elem #:style bs-askarrow-style "=>")
+                                              (sexp->block/aux (second clause)))))
                                 (rest sexp))])
               (elem #:style bs-expression-style
                     (append
-                     (list 
-                      (elem #:style bs-openbrace-style "(") 
-                      (elem #:style bs-keyword-style "cond"))
+                     (list (elem #:style bs-keyword-style "ask:"))
                      clauses
-                     (list (elem #:style bs-closebrace-style ")")))))]
+                     (list (elem #:style bs-keyword-style "end")))))]
            [(EXAMPLE example Example) 
             (elem #:style bs-example-style
-             (list (elem #:style bs-openbrace-style "(") 
-                   (elem #:style bs-keyword-style "EXAMPLE")
-                   (elem #:style bs-example-left-style (sexp->block/aux (second sexp)))
+             (list (elem #:style bs-example-left-style (sexp->block/aux (second sexp)))
+                   (elem #:style bs-keyword-style "is")
                    (elem #:style bs-example-right-style (sexp->block/aux (third sexp)))
-                   (elem #:style bs-closebrace-style ")")))]
+                   ))]
            [(define) 
             (elem #:style bs-define-style
-                  (list (elem #:style bs-openbrace-style "(") 
-                        (elem #:style bs-keyword-style "define")
-                        (sexp->block/aux (second sexp))
-                        (sexp->block/aux (third sexp))
-                        (elem #:style bs-closebrace-style ")")))]
+                  (list (elem #:style bs-keyword-style "fun")
+                        (sexp->block/aux (first (second sexp)))
+                        (elem #:style bs-openbrace-style "(") 
+                        (add-between (map sexp->block/aux (rest (second sexp))) 
+                                     (elem #:style bs-comma-style ", "))
+                        (elem #:style bs-closebrace-style "):")
+                        (elem #:style bs-expression-style (sexp->block/aux (third sexp)))
+                        (elem #:style bs-keyword-style "end")
+                        ))]
            [else ;; have a function call
-            (let ([args (map sexp->block/aux (rest sexp))])
+            (let ([args (add-between (map sexp->block/aux (rest sexp))
+                                     (elem #:style bs-comma-style ", "))])
               (elem #:style bs-expression-style
                     (append
-                     (list (elem #:style bs-openbrace-style "(") 
-                           (elem #:style bs-operator-style 
+                     (list (elem #:style bs-operator-style 
                                  ; check for operators to rename in pyret
                                  (if (eq? (first sexp) EXPR-HOLE-SYM) " " 
                                      (let ([rename-binop (lookup-binop (first sexp))])
-                                       (format "~a " (or rename-binop (first sexp)))))))
+                                       (format "~a" (or rename-binop (first sexp)))))))
+                     (list (elem #:style bs-openbrace-style "("))
                      args 
                      (list (elem #:style bs-closebrace-style ")")))))])]
         [else (error 'sexp->block 
