@@ -201,7 +201,7 @@
                                  This file contains a list of definitions, where you will get to define how your game characters look, move, and interact. As you scroll down to the bottom, you'll see a bunch of 
                                  dummy definitions that have been filled in for you. It is up to @italic{you} to come up with definitions for your own game!
                                  @activity{Scroll to the very bottom of the screen, reading each of the things you will have to define. Stop when you get to the very bottom, where you see 
-                                           @code{(make_game...)} used as part of a definition. What do you notice about the values passed into @code{make_game}?}
+                                           @code{(make_game ...)} used as part of a definition. What do you notice about the values passed into @code{make_game}?}
                                  @code{make_game} is a function that has been provided for you, which takes all of your definitions and assembles them into a running game. Behind the scenes, @code{make_game}
                                  inserts your definitions inside a giant function that is called every tenth of a second, and uses your definitions to decide what is happening at that moment.}
                         @teacher{You can remind students that Bootstrap:2 will show them how to write this function, and customize it to create more advanced games (multiplayer, maze, etc).}

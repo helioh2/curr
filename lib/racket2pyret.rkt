@@ -58,7 +58,7 @@
               (cond [(atom? (second sexp)) ; defining a constant
                      (if (string? (third sexp))
                          (format "~a = ~a" (second sexp) (third sexp))
-                         (format "~a = ~a" (second sexp) (third sexp)))]
+                         (format "~a = ~a" (second sexp) (format-help (third sexp))))]
                     [else ; defining a function
                      (let ([fmtstr (if multi-line? 
                                        "fun ~a(~a):~n ~a ~nend" 
