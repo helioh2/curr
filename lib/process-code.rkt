@@ -220,18 +220,16 @@
 ;; generate tags to format code via codemirror
 ;; - lang controls whether source code pyret, racket, or intentionally malformed.  
 ;; body comes in as a list of strings (since it is invoked within scribble)
+;; body can be longer than 1 without multi-line (for example, in language table specs)
 (define (code #:multi-line (multi-line #f)
               #:lang (lang "racket")
               . body)
-  ;; check that multi-line is consistent with body length
-  ;; - if this is true, why do we have both???
-  (when (and (not multi-line) (> (length body) 1))
-    (printf "WARNING: found multiple body expressions without multi-line: ~s~n" body))
+  ;(printf "Code processing ~s~n" body)
   (case lang
     [("racket")
-     (let ([pycode (if multi-line 
-                       (format-manyline-bs1-as-pyret body)
-                       (format-oneline-bs1-as-pyret (first body)))])
+     (let ([pycode (cond [multi-line (format-manyline-bs1-as-pyret body)]
+                         [(> (length body) 1) (map format-oneline-bs1-as-pyret body)]
+                         [else (format-oneline-bs1-as-pyret (first body))])])
        (if pycode
            (render-code pycode #:multi-line? multi-line)
            (begin (printf "WARNING: ~a code conversion failed on ~s~n" (if multi-line "multi-line" "single-line") body)

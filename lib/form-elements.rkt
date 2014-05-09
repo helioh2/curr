@@ -224,16 +224,23 @@
 ;; language-table : list[list[elements]] -> table
 ;; produces table with the particular formatting for the Bootstrap language table
 (define (language-table . rows)
-  (nested #:style (bootstrap-div-style/id/nested "LanguageTable")    
-          (table (style "thetable"
-                        (list 
-                         (table-columns
+  (let ([rows-with-code 
+         (map (lambda (row)
+                (list (first row)
+                      (if (empty? (second row))
+                          (empty-code-space)
+                          (map (lambda (func) (code (symbol->string func))) (second row)))))
+              rows)])
+    (nested #:style (bootstrap-div-style/id/nested "LanguageTable")    
+            (table (style "thetable"
                           (list 
-                           (style "BootstrapTable" '(center))
-                           (style "BootstrapTable" '(center))))))   
-                 (cons (list (para #:style "BootstrapTableHeader" "Types")
-                             (para #:style "BootstrapTableHeader" "Functions"))
-                       (map (lambda (r) (map para r)) rows)))))
+                           (table-columns
+                            (list 
+                             (style "BootstrapTable" '(center))
+                             (style "BootstrapTable" '(center))))))   
+                   (cons (list (para #:style "BootstrapTableHeader" "Types")
+                               (para #:style "BootstrapTableHeader" "Functions"))
+                         (map (lambda (r) (map para r)) rows-with-code))))))
 
 ;; build-table : list[string] list[list[element]] (number number -> element) 
 ;;               number number -> table

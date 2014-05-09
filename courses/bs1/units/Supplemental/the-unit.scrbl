@@ -5,7 +5,7 @@
 @declare-tags[management]
 
 
-@unit-overview/auto[#:lang-table (list (list "" @empty-code-space{}))]{
+@unit-overview/auto[#:lang-table (list (list "" '()))]{
   @unit-descr{NOTE: THESE LESSONS ARE NOT INTENDED TO BE TAUGHT IN SEQUENCE - they are collected here solely for convenience!
               Students will deepen their understanding of various concepts, either through continued practice and review,
               encountering more complicated material (structs).}

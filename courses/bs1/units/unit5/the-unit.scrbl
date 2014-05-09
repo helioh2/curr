@@ -3,9 +3,9 @@
 
 @title{Unit 5: Game Animation}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
-                                       (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
+@unit-overview/auto[#:lang-table (list (list "Number" '(+ - * / sq sqrt expt))
+                                       (list "String" '(string-append string-length))
+                                       (list "Image"  '(rectangle circle triangle ellipse star text scale rotate put-image)))]{
 @unit-descr{Students define functions that map attributes of their game from one frame to the next, allowing them to move their dangers, targets, and projectiles.}
 }
 

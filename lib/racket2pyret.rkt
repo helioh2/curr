@@ -40,7 +40,8 @@
 (define (format-bs1-as-pyret sexp #:multi-line? (multi-line? #f))
   (define (format-help sexp)
     (cond [(string? sexp) (if (money-escaped? sexp) (format-money sexp) (~s sexp))]
-          [(atom? sexp) (~a sexp)]
+          [(atom? sexp) (let ([binop (lookup-binop sexp)])
+                          (~a (or binop sexp)))]
           [else 
            (case (first sexp)
              [(+ - * /) (format "~a(~a)" 

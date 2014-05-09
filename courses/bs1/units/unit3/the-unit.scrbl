@@ -3,9 +3,9 @@
 
 @title{Unit 3: Introduction to Definitions}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt})
-                                       (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
+@unit-overview/auto[#:lang-table (list (list "Number" '(+ - * / sqr sqrt expt))
+                                       (list "String" '(string-append string-length))
+                                       (list "Image"  '(rectangle circle triangle ellipse star text scale rotate put-image)))]{
   @unit-descr{Students are introduced to the Definitions window, and learn the syntax for defining values of various types.  They are also introduced to the syntax of defining functions and creating examples.}
 }
 @unit-lessons{

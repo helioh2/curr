@@ -4,10 +4,10 @@
 
 @title{Unit 9: Prepping for Launch}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
-                                       (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
-                                       (list "Boolean" @code{= > < string=? and or}))]{
+@unit-overview/auto[#:lang-table (list (list "Number" '(+ - * / sq sqrt expt))
+                                       (list "String" '(string-append string-length))
+                                       (list "Image"  '(rectangle circle triangle ellipse star text scale rotate put-image))
+                                       (list "Boolean" '(= > < string=? and or)))]{
 
 @unit-descr{Students will edit game details and prepare for their Launch Party!}
  }

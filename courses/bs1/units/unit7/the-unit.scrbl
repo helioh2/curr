@@ -3,10 +3,10 @@
 @declare-tags[group selftaught bootstrap management]
 @title{Unit 7: Conditional Branching}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt}) 
-                                       (list "String" @code{string-append string-length})                          
-                                       (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
-                                       (list "Boolean" @code{= > < string=? and or}))]{
+@unit-overview/auto[#:lang-table (list (list "Number" '(+ - * / sq sqrt expt)) 
+                                       (list "String" '(string-append string-length))                          
+                                       (list "Image" '(rectangle circle triangle ellipse radial-star scale rotate put-image))
+                                       (list "Boolean" '(= > < string=? and or)))]{
   @unit-descr{Students use geometry and conditional branching to move their player characters in response to key-presses.}
    }
 
