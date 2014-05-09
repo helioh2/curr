@@ -36,7 +36,7 @@
 (EXAMPLE (twinkle 15 \"solid\") 
          (star 15 \"solid\" \"yellow\"))
 (EXAMPLE (twinkle 36 \"outline\") 
-         (star 36 \"outline\" \"yellow\")"))
+         (star 36 \"outline\" \"yellow\"))"))
 @(define c4 (code "; twinkle : number string -> image"))
 
 

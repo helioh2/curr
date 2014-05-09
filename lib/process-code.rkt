@@ -221,13 +221,16 @@
 ;; - lang controls whether source code pyret, racket, or intentionally malformed.  
 ;; body comes in as a list of strings (since it is invoked within scribble)
 ;; body can be longer than 1 without multi-line (for example, in language table specs)
+;; body can also be length 1 with multi-line, if input is string with newlines
 (define (code #:multi-line (multi-line #f)
               #:lang (lang "racket")
               . body)
   ;(printf "Code processing ~s~n" body)
   (case lang
     [("racket")
-     (let ([pycode (cond [multi-line (format-manyline-bs1-as-pyret body)]
+     (let ([pycode (cond [(and multi-line (= (length body) 1) (string? (first body))) 
+                          (format-manyline-bs1-as-pyret (string-split (first body) "\n"))]
+                         [multi-line (format-manyline-bs1-as-pyret body)]
                          [(> (length body) 1) (map format-oneline-bs1-as-pyret body)]
                          [else (format-oneline-bs1-as-pyret (first body))])])
        (if pycode

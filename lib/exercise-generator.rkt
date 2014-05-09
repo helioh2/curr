@@ -77,8 +77,8 @@
 ;; only used by create-exercise-itemlist
 (define (contract-exercise tag #:name [name-ans #f] #:domain [domain-ans #f] #:range [range-ans #f])
   (cond-element [html
-                 (elem "; " (fill-in-the-blank #:id (format "~aname" tag) #:label "Name" #:class "contract-name studentAnswer")
-                       " : " (fill-in-the-blank #:id (format "~aarg" tag) #:label "Domain" #:class "contract-domain studentAnswer")
+                 (elem "# " (fill-in-the-blank #:id (format "~aname" tag) #:label "Name" #:class "contract-name studentAnswer")
+                       " :: " (fill-in-the-blank #:id (format "~aarg" tag) #:label "Domain" #:class "contract-domain studentAnswer")
                        " -> " (fill-in-the-blank #:id (format "~aoutput" tag) #:label "Range" #:class "contract-range studentAnswer"))]
                 [(or latex pdf)
                  (elem #:style bs-contract-exercise-style "")]))
