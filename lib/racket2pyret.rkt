@@ -44,9 +44,6 @@
                           (~a (or binop sexp)))]
           [else 
            (case (first sexp)
-             [(+ - * /) (format "~a(~a)" 
-                                (lookup-binop (first sexp))
-                                (format-pyret-arglist (rest sexp)))]
              [(EXAMPLE)
               (let ([fmtstr (if multi-line?
                                 "~a is~n~a"
@@ -82,7 +79,8 @@
              [else ;; function application
               (let ([fname (first sexp)]
                     [args (rest sexp)])
-                (format "~a(~a)" fname (format-pyret-arglist args)))]
+                (let ([binop (lookup-binop (first sexp))])
+                  (format "~a(~a)" (or binop fname) (format-pyret-arglist args))))]
              )]))
   (format-help sexp))
 
@@ -113,8 +111,8 @@
        (string=? "(EXAMPLE" (substring str 0 8))))
 
 (define (format-example-line bs1examplestr #:multi-line? (multi-line? #f))
-  (printf "formatting example ~a~n~n" bs1examplestr)
-  (printf "reads as ~s~n~n" (with-input-from-string bs1examplestr read))
+  ;(printf "formatting example ~a~n~n" bs1examplestr)
+  ;(printf "reads as ~s~n~n" (with-input-from-string bs1examplestr read))
   (format-bs1-as-pyret (with-input-from-string bs1examplestr read) #:multi-line? multi-line?))
    
 ;; from-lines is a list of strings corresponding to a block of code
@@ -123,11 +121,13 @@
 ;;   to create the example
 (define (read-example from-lines)
   (let loop ([try-example-str (first from-lines)] [num-used-lines 1] [rem-lines (rest from-lines)])
-    (let ([complete-eg (if (= num-used-lines 1)
-                           (format-oneline-bs1-as-pyret try-example-str)
-                           (format-manyline-bs1-as-pyret (list try-example-str)))])
+    (let ([complete-eg (with-handlers ([exn:fail:read? (lambda (exn) #f)])
+                         (format-bs1-as-pyret (with-input-from-string try-example-str read)
+                                              #:multi-line? (> num-used-lines 1)))])
       (if complete-eg 
-          (values complete-eg num-used-lines)
+          (begin
+           ;(printf "Returning ~a from ~a lines~n" complete-eg num-used-lines)
+           (values complete-eg num-used-lines))
           (if (empty? rem-lines)
               (error 'read-example "Never found complete example in ~s~n" from-lines)
               (loop (string-append try-example-str " " (first rem-lines))

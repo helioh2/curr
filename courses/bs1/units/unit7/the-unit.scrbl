@@ -82,8 +82,8 @@
             @teacher{}
            }
      @point{@student{Of course, @code{price} isn't really an independent variable, since the price depends entirely on the @code{topping}. 
-                     For example: if the topping is @code{"cheese"} the function will simply produce @code{9.00}, if the topping is 
-                     @code{"pepperoni"} the function will simply produce @code{10.50}, and so on. The price is still defined in terms 
+                     For example: if the topping is @code{"cheese"} the function will simply produce @code{"$$9.00"}, if the topping is 
+                     @code{"pepperoni"} the function will simply produce @code{"$$10.50"}, and so on. The price is still defined in terms 
                      of the topping, and there are four possible toppings - four possible conditions - that the function needs to care 
                      about. The @code{cost} function makes use of a special language feature called @vocab{conditionals}, which is 
                      abbreviated in the code as @code{cond}.}

@@ -215,10 +215,10 @@ uses a new function that @italic{compares Numbers}, returning
                 @point{@student{@code{and} and @code{or} are two new functions.
                                  @bannerline{@code{and} will return "true" only if @italic{both inputs} are true. @code{or} will return "true" if @italic{at least one} input is true.}
                                  @code[#:multi-line #t]{
-; and: Boolean Boolean -> Boolean
+; both: Boolean Boolean -> Boolean
 ; Returns true if BOTH inputs are true
                                       
-; or: Boolean Boolean -> Boolean  
+; either: Boolean Boolean -> Boolean  
 ; Returns true if EITHER of the inputs are true}
                                  @activity{Complete @worksheet-link[#:page 20 #:name "AND-and-OR"] in your workbook.}}
                         @teacher{}
