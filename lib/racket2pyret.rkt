@@ -70,9 +70,11 @@
                   (let ([clauses (rest sexp)])
                     (format "ask:~n~a ~nend" 
                             (string-join (map (lambda (c) 
-                                                (format " | ~a => ~a"
-                                                        (format-bs1-as-pyret (first c)) 
-                                                        (format-bs1-as-pyret (second c))))
+                                                (if (eq? (first c) 'else)
+                                                    (format " | otherwise: ~a" (format-bs1-as-pyret (second c)))
+                                                    (format " | ~a then: ~a"
+                                                            (format-bs1-as-pyret (first c))
+                                                            (format-bs1-as-pyret (second c)))))
                                               clauses)
                                          "\n")))
                   (error 'format-bs1-as-pyret "Cond cannot be formatted for single line: ~a~n" sexp))]

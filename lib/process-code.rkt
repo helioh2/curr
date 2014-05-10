@@ -34,7 +34,6 @@
 (define bs-closebrace-style (bootstrap-span-style "rParen"))
 (define bs-comma-style (bootstrap-span-style "comma"))
 (define bs-parstick-style (bootstrap-span-style "stick"))
-(define bs-askarrow-style (bootstrap-span-style "askarrow"))
 (define bs-operator-style (bootstrap-span-style "operator"))
 (define bs-expression-style (bootstrap-span-style "expression"))
 (define bs-define-style (bootstrap-span-style "wescheme-define"))
@@ -73,11 +72,16 @@
            (case (first sexp)
              [(cond) 
               (let ([clauses (map (lambda (clause) 
-                                    (elem #:style bs-clause-style
-                                          (list (elem #:style bs-parstick-style "|")
-                                                (sexp->block/aux (first clause))
-                                                (elem #:style bs-askarrow-style "=>")
-                                                (sexp->block/aux (second clause)))))
+                                    (if (eq? (first clause) 'else)
+                                        (elem #:style bs-clause-style
+                                              (list (elem #:style bs-parstick-style "|")
+                                                    (elem #:style bs-keyword-style "otherwise:")
+                                                    (sexp->block/aux (second clause))))
+                                        (elem #:style bs-clause-style
+                                              (list (elem #:style bs-parstick-style "|")
+                                                    (sexp->block/aux (first clause))
+                                                    (elem #:style bs-keyword-style "then:")
+                                                    (sexp->block/aux (second clause))))))
                                   (rest sexp))])
                 (elem #:style bs-expression-style
                       (append
