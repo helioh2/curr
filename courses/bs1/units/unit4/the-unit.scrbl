@@ -29,7 +29,7 @@
                               @item{Display Class posters, Language Table, Design Recipe}
                               @item{"Rocket" [Rocket.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=KY4s7msuh6" "WeScheme")] preloaded on students' machines}
                               @item{Seating arrangements: ideally clusters of desks/tables}
-                              @item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/134VD2NShK_VxDog4VG4lMm4jTbpxm2H2cSXqZbHwwSg/edit?usp=sharing" "Warmup activity sheet").}]
+                              @item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1wLPF5wTZHMnew6tzUJ8_3_S6q8IpCYuksg8lSjBDEQY/edit?usp=sharing" "Warmup activity sheet").}]
      #:prerequisites (list "Defining Functions")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}

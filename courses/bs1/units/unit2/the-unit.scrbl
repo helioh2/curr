@@ -18,7 +18,7 @@ include other datatypes, including Strings and Images.}
      #:product-outcomes @itemlist[]
      #:standards (list "A-SSE.1-2" "BS-CE")
      #:materials @itemlist[]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1Qn59Fol2tspqOx6XQV88xm-IYsRGY769cb7MQeknSMA/edit?usp=sharing" "Warmup activity sheet").}
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1pSNGugurZIqIrQZVJnSlNTH1uE3d3sihEcP7Dvcvj-I/edit?usp=sharing" "Warmup activity sheet").}
                               @item{Student Workbooks, and something to write with.}]
      #:prerequisites (list "Order of Operations")
      #:pacings (list 
