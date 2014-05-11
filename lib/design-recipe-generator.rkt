@@ -129,7 +129,7 @@
                        (make-spacer contract-label)
                        (make-wrapper
                         (dr-student-answer #:id? #f "recipe_name" #:show? show-funname-contract? funname #:is-code? #f)
-                        (para #:style (bootstrap-span-style "") ":")
+                        (para #:style (bootstrap-span-style "") "::")
                         (dr-student-answer "recipe_domain" #:show? show-domains? (string-join domain-list " ") #:is-code? #f)
                         (para #:style (bootstrap-span-style "") htmlRarr)
                         (dr-student-answer "recipe_range" #:show? show-range? range #:is-code? #f))
@@ -165,10 +165,11 @@
                                  ))])
                           ; insert clear-breaks between examples and merge the example content lists
                           ;; NEED TO GET SINTRAPARAS OUT OF HERE
-                          (append (list "checks:")
+                          ;(append (list "checks:")
                                   (foldr (lambda (e res-rest) (append (cons (make-clear) e) res-rest))
                                          '() example-elts)
-                                  (list "end")))
+                                  ;(list "end"))
+                          )
                         )
                       (design-recipe-section 
                        "recipe_definition"
@@ -213,6 +214,7 @@
         [output (if (empty? in-out-list) "" (last in-out-list))])
     (interleave-parbreaks/all
      (list (make-wrapper
+            (make-spacer EXAMPLE-KEYWORD-LABEL)
             (dr-student-answer #:id? #f "recipe_name" #:show? show-funname? funname)
             (make-spacer "(")
             (dr-student-answer #:id? #f "recipe_example_inputs" #:show? show-input? input)
@@ -220,6 +222,7 @@
             (make-spacer "is")
             ;(make-clear) ; only force this for long-form DR (maybe via a flag?)
             (dr-student-answer #:id? #f "recipe_example_body" #:show? show-output? #:parse-as-pyret? #t output)
+            (make-spacer EXAMPLE-END-SYNTAX)
             )
            ))))
 

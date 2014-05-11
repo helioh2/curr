@@ -10,6 +10,10 @@
          format-pyret-arglist
          lookup-binop
          curr-comment-char
+         EXAMPLE-KEYWORD-LABEL
+         EXAMPLE-END-SYNTAX
+         EXAMPLE-GROUP-LABEL
+         EXAMPLE-GROUP-END-SYNTAX
          )
 
 ;--------- BINOPS --------------
@@ -39,6 +43,7 @@
 (define EXAMPLE-KEYWORD-LABEL "check: ")
 (define EXAMPLE-END-SYNTAX "end")
 (define EXAMPLE-GROUP-LABEL "")
+(define EXAMPLE-GROUP-END-SYNTAX "")
 
 ;; need better handling of binop arglists -- could be strings
 (define (format-bs1-as-pyret sexp #:multi-line? (multi-line? #f))
@@ -204,10 +209,10 @@
   (let ([all-lines (append comments
                            (cond [(empty? examples) empty]
                                  [(gen-example-blocks?)
-                                  (append (list EXAMPLE-KEYWORD-LABEL)
+                                  (append (list EXAMPLE-GROUP-LABEL)
                                           ;; indent the examples
                                           (map (lambda (e) (string-append " " e)) examples)
-                                          (list EXAMPLE-END-SYNTAX))]
+                                          (list EXAMPLE-GROUP-END-SYNTAX))]
                                  [else (map (lambda (e) (string-append " " e)) examples)])
                            bodies)])
     (string-join all-lines "\n")
