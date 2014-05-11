@@ -23,4 +23,4 @@
 
 ;; assumes str is escaped for money
 (define (format-money str)
-  (format "~a " (~r (rem-money-escape str) #:precision '(= 2))))
+  (format "~a" (~r (rem-money-escape str) #:precision '(= 2))))

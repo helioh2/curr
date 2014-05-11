@@ -14,14 +14,14 @@
 
 ;--------- BINOPS --------------
 (define binop-table
-  '((+ plus)
-    (- minus)
-    (* times)
+  '((+ add)
+    (- sub)
+    (* mul)
     (/ div)
     (> greater)
-    (>= greatereq)
+    (>= greaterequal)
     (< less)
-    (<= lesseq)
+    (<= lessequal)
     (string=? strings-equal)
     (= nums-equal)
     (and both)
@@ -36,6 +36,10 @@
 
 (define (atom? v) (not (list? v)))
 
+(define EXAMPLE-KEYWORD-LABEL "check: ")
+(define EXAMPLE-END-SYNTAX "end")
+(define EXAMPLE-GROUP-LABEL "")
+
 ;; need better handling of binop arglists -- could be strings
 (define (format-bs1-as-pyret sexp #:multi-line? (multi-line? #f))
   (define (format-help sexp)
@@ -46,11 +50,13 @@
            (case (first sexp)
              [(EXAMPLE)
               (let ([fmtstr (if multi-line?
-                                "~a is~n~a"
-                                "~a is ~a")])
+                                "~a~a is~n~a ~a"
+                                "~a~a is ~a ~a")])
                 (format fmtstr
+                        EXAMPLE-KEYWORD-LABEL
                         (format-help (second sexp))
-                        (format-help (third sexp))))]
+                        (format-help (third sexp))
+                        EXAMPLE-END-SYNTAX))]
              [(define) 
               (cond [(atom? (second sexp)) ; defining a constant
                      (if (string? (third sexp))
@@ -190,14 +196,19 @@
                               (list (string-join pylines "\n")))])
                     (assemble-multiline-code (reverse comment-lines) (reverse example-lines) body-lines))]))))))
                                 
+; use to control whether generate examples in blocks
+(define (gen-example-blocks?) #f)
+
 ;; inserts pyret structure around checks in a multi-line code sample
 (define (assemble-multiline-code comments examples bodies)
   (let ([all-lines (append comments
-                           (if (empty? examples) empty
-                               (append (list "checks:")
-                                       ;; indent the examples
-                                       (map (lambda (e) (string-append " " e)) examples)
-                                       (list "end")))
+                           (cond [(empty? examples) empty]
+                                 [(gen-example-blocks?)
+                                  (append (list EXAMPLE-KEYWORD-LABEL)
+                                          ;; indent the examples
+                                          (map (lambda (e) (string-append " " e)) examples)
+                                          (list EXAMPLE-END-SYNTAX))]
+                                 [else (map (lambda (e) (string-append " " e)) examples)])
                            bodies)])
     (string-join all-lines "\n")
     ))
