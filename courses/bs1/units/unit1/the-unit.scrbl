@@ -1,16 +1,16 @@
 #lang curr/lib
 
-@title{Unit 1: Videogames and Coordinate Planes}
+@title{Unidade 1: Games e Coordenadas}
 
 @declare-tags[management]
 
 @unit-overview/auto[#:lang-table (list (list "" @code{}))]{
-  @unit-descr{Students discuss the components of their favorite videogames, and discover that they can be reduced to a series of coordinates. They then explore coordinates in Cartesian space, and identify the coordinates for the characters in a game at various points in time. Once they are comfortable with coordinates, they brainstorm their own games and create sample coordinate lists for different points in time in their own game.}
+  @unit-descr{Os alunos discutem os componentes de seus jogos favoritos, e descobrem que eles podem ser reduzidos a uma série de coordenadas. Eles, então, exploram as coordenadas no plano cartesiano, e identificam as coordenadas para os personagens em um jogo em vários pontos no tempo. Uma vez que eles estiverem confortáveis com coordenadas, eles poderão ter idéias para seus próprios jogos e criar lista de amostras de coordenadas para diferentes pontos no tempo.}
 }
 @unit-lessons{
 @lesson/studteach[
-     #:title "Introduction"
-     #:duration "5 minutes"
+     #:title "Introdução"
+     #:duration "5 minutos"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -25,9 +25,9 @@
                 )
       ]{
         @points[
-             @point{@student{Welcome to Bootstrap! In this course, you'll be learning a new @vocab{programming language} - a way to tell computers exactly what you want them to do. Just like English, Spanish or French, a programming language has its own vocabulary and grammar that you'll have to learn. Fortunately, the language you'll be using here has a lot in common with simple math that you already know!}
-                     @teacher{@management{Set expectations and rules for the class.}
-                               Connect the material to come with things students already know:
+             @point{@student{Bem vindo ao Bootstrap! Neste curso, você vai aprender uma nova linguagem de programação – uma maneira simples de dizer ao computador exatamente o que você quer que ele faça. Assim como inglês, espanhol ou francês, uma linguagem de programação tem seu próprio vocabulário e gramática que você terá que aprender. Felizmente, a linguagem que você vai usar aqui tem muito em comum com a matemática simples que você já sabe!}
+                     @teacher{@management{Crie expectativas e regras para a aula.}
+                              Faça uma conexão entre o material de estudo com as coisas que os alunos já sabem:
                               @itemlist[@item{What makes a language? Do some students already speak more than one language?}
                                          @item{Programming is very much a language, with its own syntax, semantics, etc}
                                          @item{Ask students about their favorite videogames. Be open about the scale of a modern game: they cost millions of dollars, are built by huge teams of programmers and artists, and are developed over years.}
@@ -37,12 +37,12 @@
          }
 
 @lesson/studteach[
-     #:title "Dissecting a Demo"
-     #:duration "10 minutes"
-     #:overview "Play a simple game, then take it apart and figure out what's going on in the computer."
+     #:title "Analisando uma Demonstração"
+     #:duration "10 minutos"
+     #:overview "Jogar um jogo simples, então deixe de lado por um tempo e tente descobrir o que está acontecendo no computador."
      #:learning-objectives @itemlist[@item{Model a simple videogame}]
      #:evidence-statements @itemlist[@item{Students will be able to identify the elements of a game and how each one changes during gameplay}]
-     #:product-outcomes @itemlist[@item{In workbooks, students create a data model that describes a simple videogame}]
+     #:product-outcomes @itemlist[@item{Nas apostilas, os alunos criam um modelo de dados que descreve um videogame simples.}]
      #:standards (list "BS-M")
      #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
@@ -56,15 +56,13 @@
                 )
       ]{
         @points[
-          @point{@student{Let's begin by exploring a simple videogame, and then figuring out how it works. Open @run-link[#:public-id "LyMwExWayT" "this link"] 
-                         to play the game, and spend a minute or two exploring it. @italic{You can use the arrow keys to move 
-                         the cat left, right and jump - try to catch  the ruby and avoid the dog!}}
+          @point{@student{Vamos começar a explorar um jogo simples, e, em seguida, descobrir como ele funciona. Abra  @run-link[#:public-id "LyMwExWayT" "este link"] para jogar o jogo, e passe um ou dois minutos explorando-o.  @italic{Você pode usar as teclas de setas para mover o gato para a esquerda, direita e saltar – tentar pegar o rubi e evitar o cão!.}}
                  @teacher{[@(hyperlink "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
                           Play until the students see all the characters (the clouds, the ruby, the dog and the cat), and be 
                           sure to point out the title and score as well.}
                  }
           
-          @point{@student{This game is made up of @italic{characters}, each of which has its own behavior. The Ruby moves from the right to the left, as does the Dog. NinjaCat only moves when you hit the arrow keys, and she can move left, right, up and down. We can figure out how the game works by first understanding how each character works.}
+          @point{@student{Este jogo é composto por personagens, cada qual com seu próprio comportamento. O rubi se move da direita para a esquerda, como faz o cão. O Gato Ninja só se move quando você usar as teclas de setas para ele se movimentar. Descobriremos como funciona o jogo após entendermos como funciona cada personagem.}
                  @teacher{}
                  }
           
@@ -94,7 +92,7 @@
      #:evidence-statements @itemlist[@item{Students apply the number line as a tool for objectively defining location, first identifying how to apply it to 
                                            describe the position of a character onscreen in one dimension. This understanding is extended to two dimensions, 
                                            ultimately motivating the use of a coordinate grid.}]
-     #:product-outcomes @itemlist[@item{Students identify the coordinates of characters in a picture}]
+     #:product-outcomes @itemlist[@item{Os alunos identificam as coordenadas dos personagens na imagem}]
      #:standards (list "6.NS.5-8" "N-Q" "5.G.1-2")
      #:materials @itemlist[@item{Cutouts of  @resource-link[#:path "images/ninjacat.png" #:label "NinjaCat"],  @resource-link[#:path "images/dog.png" #:label "Dog"]
                                  and the  @resource-link[#:path "images/ruby.png" #:label "Ruby"]}
@@ -171,7 +169,7 @@
      #:overview "Students select the theme and characters for their videogame"
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students complete the Videogame Design Worksheet to design their own game}]
+     #:product-outcomes @itemlist[@item{Os alunos completam a planilha de design do videogame, para projetar seu próprio jogo}]
      #:standards (list)
      #:materials @itemlist[@item{}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
@@ -235,7 +233,7 @@
                                      @item{Students will be able to translate the structure of an arithmetic expression into a Circle of 
                                            Evaluation}
 ]
-     #:product-outcomes @itemlist[@item{Students convert several arithmetic expressions between multiple representations}]
+     #:product-outcomes @itemlist[@item{Os alunos convertem várias expressões aritméticas entre várias representações.}]
      #:standards (list "A-SSE.1-2" "BS-CE" "5.OA.1-2")
      #:exercises (list (make-exercise-locator "Order-of-Operations" "complete-coe-from-arith")
                        (make-exercise-locator "Order-of-Operations" "arith-to-coe1")
