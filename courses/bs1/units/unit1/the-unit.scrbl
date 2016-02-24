@@ -57,7 +57,7 @@
       ]{
         @points[
           @point{@student{Vamos começar a explorar um jogo simples, e, em seguida, descobrir como ele funciona. Abra  @run-link[#:public-id "LyMwExWayT" "este link"] para jogar o jogo, e passe um ou dois minutos explorando-o.  @italic{Você pode usar as teclas de setas para mover o gato para a esquerda, direita e saltar – tentar pegar o rubi e evitar o cão!.}}
-                 @teacher{[@(hyperlink "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Show the kids NinjaCat, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
+                 @teacher{[@(hyperlink "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Mostrar o Gato Ninja para as crianças, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
                           Play until the students see all the characters (the clouds, the ruby, the dog and the cat), and be 
                           sure to point out the title and score as well.}
                  }
