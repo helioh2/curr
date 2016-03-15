@@ -23,7 +23,7 @@
     ("example" "shows the use of a function on specific inputs and the computation the function should perform on those inputs")
     ("expression" "a computation written in the rules of some language (such as arithmetic, code, or a Circle of Evaluation)")
     ("function definition" "code that names a function, lists its variables, and states the expression to compute when the function is used")
-    ("function" "a mathematical object that takes in some inputs and produces an output")
+    ("função" "a mathematical object that takes in some inputs and produces an output")
     ("hypoteneuse" "the side opposite the 90-degree angle in a right triangle")
     ("image" "a type of data for pictures")
     ("interactions window" "the text box at the top of the Editor (DrRacket or WeScheme), where we enter expressions to evaluate")

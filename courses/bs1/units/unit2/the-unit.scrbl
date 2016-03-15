@@ -2,16 +2,17 @@
 
 @declare-tags[management]
 
-@title{Unit 2: Contracts, Strings and Images}
+@title{Unit 2: Unidade 2: Assinaturas, Strings e Figuras}
 @unit-overview/auto[#:lang-table (list "Number" @code{+ - * / sq sqrt expt})]{
-@unit-descr{Students are introduced to a set-mapping representation for functions, in which the function object exists as a means of translating points
-from a Domain into a Range. Coupled with their understanding of Circles of Evaluation, students generalize their understanding of functions to
-include other datatypes, including Strings and Images.}
+@unit-descr{Alunos são  iniciados no mapeamento e na representações de funções, em como o objeto Função
+  existe como um meio de traduzir pontos de um Domínio para uma Imagem. Em conjunto com sua compreensão de
+  Círculos de Avaliação, os alunos aprimoram seu entendimento das funções para incluir outros tipos de
+  dados, incluindo Strings e Figuras.}
 }
 @unit-lessons{
 @lesson/studteach[
-     #:title "Circles of Evaluation Review"
-     #:duration "30 minutes"
+     #:title "Revisão de Círculos de Avaliação"
+     #:duration "30 minutos"
      #:overview "Students practice converting arithmetic expressions into Circles of Evaluation, and then converting those into Code."
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -39,8 +40,8 @@ include other datatypes, including Strings and Images.}
                  ]
          }
 @lesson/studteach[
-     #:title "Strings and Images"
-     #:duration "20 minutes"
+     #:title "Strings e Figuras"
+     #:duration "20 minutos"
      #:overview "Students extend the Circle of Evaluation metaphor to include new functions and datatypes."
      #:learning-objectives @itemlist[@item{Students will be able to use functions that produce Images}
                                      @item{Students will understand the concept of datatype}
@@ -66,58 +67,58 @@ include other datatypes, including Strings and Images.}
                 )
       ]{
         @points[          
-            @point{@student{The Circles of Evaluation are a powerful tool, and can be used for much more than just numbers.
-                            Consider the Circle of Evaluation shown here. @sexp{(star 50 "solid" "red")}
-                            @activity[#:forevidence "N-Q&1&2"]{@itemlist[@item{What is the name of the function being used?}
-                                                 @item{How many arguments are being given to that function?}
-                                                 @item{What do you think this function will do?}]}
-                             The same rules you used to convert a Circle of Evaluation into code still apply. Here is the code for that Circle: @sexp[#:form "code"]{(star 50 "solid" "red")}
+            @point{@student{O Círculo de Avaliação é uma poderosa ferramenta, e pode ser usada muito além do que com apenas números.
+     Considere o Círculo de Avaliação mostrado aqui. @sexp{(star 50 "solid" "red")}
+                            @activity[#:forevidence "N-Q&1&2"]{@itemlist[@item{Qual é o nome da função que está sendo usada?}
+                                                 @item{Quantos argumentos foram dados para essa função?}
+                                                 @item{O que você acha que essa função irá fazer?}]}
+                             As mesmas regras usadas para transformar o Círculo de Avaliação em Código ainda se aplicam. Aqui está o código para esse Círculo: @sexp[#:form "code"]{(star 50 "solid" "red")}
                              }
-                    @teacher{Students are not expected to know all the answers here - the goal is for them to apply what they know about Circles to a novel expression, and discuss for themselves what they think it might mean. Ask them to justify their answers, and to explain why they think they are correct. Linking this back to earlier examples of Circles of Evaluation may be useful.}
+                    @teacher{Os Alunos não precisam saber todas as respostas aqui – o objetivo é fazer com que eles apliquem o que eles já sabem sobre Círculos de Avaliação em uma nova expressão, e discutir com eles o que eles pensam que essa expressão poderia resultar. Peça à eles justificarem suas respostas, e explicarem porque seu pensamento está correto. Relembre os exemplos anteriores dos Círculos de Avaliação, será útil.}
                     }
-             @point{@student{@activity[#:forevidence "BS-PL.1&1&2"]{Type this code into the Interactions window, and hit "Return". What did you get back?
-                                       @itemlist[@item{What does the @code{star} function do?}
-                                                  @item{Type the expression again, but this time use a much larger number in place of @code{50}. What does the first argument tell the computer?}
-                                                  @item{Type the expression again, this time using @code{"outline"} in place of @code{"solid"}, being careful to keep the quotation marks! What does the second argument tell the computer?}
-                                                  @item{Now replace @code{"red"} with something else (again, keep the quotation marks!). What does the third argument tell the computer?}]
-                                       @editor-link[#:interactions-text "(star 50 \"solid\" \"red\")" "Click here to try it out!"]
+             @point{@student{@activity[#:forevidence "BS-PL.1&1&2"]{Digite esse código na janela de Iterações, e pressione “Enter”. O que você recebeu de volta?
+                                       @itemlist[@item{O que a função @code{star} faz?}
+                                                  @item{Digite a expressão novamente, mas use um número muito maior que @code{50}. O que o primeiro argumento diz ao computador?}
+                                                  @item{Digite a expressão novamente, mas desta vez use @code{"outline"} no lugar de @code{"solid"}, sendo cuidadoso e mantendo as Aspas Duplas! O que o segundo argumento diz ao computador?}
+                                                  @item{Agora substitua @code{"red"} por alguma outra palavra (mantendo as Aspas Duplas!). O que o terceiro argumento diz ao computador?}]
+                                       @editor-link[#:interactions-text "(star 50 \"solid\" \"red\")" "Clique aqui e experimente!"]
                                        } 
                              }
                
-                     @teacher{This activity is designed to get students @italic{playing} with new terms and concepts, so they develop their own model for what's going on. At this point, it is NOT essential that students understand every last component of the code. If you need to give away lots of code snippets, that's ok - just get them playing!}
+                     @teacher{Essa atividade foi pensada para que os alunos @italic{brinquem} com os novos termos e conceitos, a partir daí poderão desenvolver seu próprio modelo do que está acontecendo. Neste ponto, NÂO é necessário que o aluno entenda o código detalhadamente. Se você precisar dar a eles muitos trechos de código, não tem problema – apenas deixe eles brincarem!}
                      }
-             @point{@student{There's an entirely new @vocab{type} of value being used in these expressions: @code{"solid"} and @code{"red"} are examples of a completely new datatype, called a @vocab{String}.  
-                             @bannerline{A String is anything between quotation marks.} 
-                             When you first learned about values, you saw that a program can be nothing more than a value, such as a number.  
-                             If you type a number into the interactions window, for example, it evaluates to itself.  To remind yourself of this,
-                             try evaluating @code{716} in the Interactions window.
-                                          @editor-link[#:interactions-text "716"
-                                                    "What do you expect to get back?"]
-                                          Since Strings are values too, the value @code{"red"} is also a perfectly valid program! Just like number values, strings will evaluate to themselves.
-                                          @activity[#:forevidence "BS-PL.1&1&1"]{Try entering different Strings into the Interactions window. What happens if you put quotes around multiple words? Around Numbers?}
+             @point{@student{Há um @vocab{tipo} de valor inteiramente novo sendo usado nestas expressões: @code{"solid"} e @code{"red"} são exemplos de um novo tipo de dados, chamado @vocab{String}.  
+                             @bannerline{Uma String é qualquer coisa entre Aspas Duplas.}
+     Da primeira vez que você aprendeu sobre valores, você viu que um programa nada mais é do que um valor, como um número.
+     Se você digitar um número na janela de Iterações, por exemplo, retornará ele mesmo. Para lembrá-lo disso,
+     tente calcular @code{716} na janela de Iterações.
+     @editor-link[#:interactions-text "716"
+    " O que você espera receber de volta?"]
+     Já que Strings também são valores , o valor @code{“red”} também é um programa Válido. Assim como os valores do tipo Numero, Strings também retornarão elas mesmas na janela de Iterações.
+                                          @activity[#:forevidence "BS-PL.1&1&1"]{Tente colocar diferentes Strings na Janela de Iterações. O que acontece se você pôr várias palavras entre Aspas Duplas? E números entre Aspas?}
                                        }
-                     @teacher{Students should see Strings as an analog to Numbers: a different type of value, but one that is still a simple program that evaluates to itself and can be passed as an argument to a function.  Note that the Number 42 and the String "42" are different values!  You could add the Number 42 to another number, but you cannot add the String "42" to another number.}
+                     @teacher{Alunos devem ver Strings como um tipo semelhante ao tipo Numero: um tipo diferente de valor, mas que ainda o programa pode computá-lo e servir de argumento para uma função. Note que o Numero 42 e a String “42” são valores diferentes! Você pode somar o Número 42 à outro número, porém não pode somar a String “42” á nenhum número.}
                      }
-             @point{@student{This expression also included a new @vocab{function} called @code{star}. Just as the addition function @code{+} takes in two Numbers, @code{star} takes in @italic{a Number and two Strings}, and produces a new type of data, called an @vocab{Image}.
-                            @activity[#:forevidence "BS-PL.1&1&1"]{What is the datatype of each of the values listed below -- Number, String or Image? 
+             @point{@student{Essa expressão também inclui uma nova @vocab{função} chamada @code{star}. Assim como a função @code{+} precisa de dois números como entrada, a função @code{star} precisa de @italic{um Numero e duas Strings}, e produz um novo tipo de dado, do tipo @vocab{Figura}.
+                            @activity[#:forevidence "BS-PL.1&1&1"]{Qual é o tipo de dado de cada um dos valores listados abaixo – Numero, String ou Figura? 
                                       @itemlist[@item{@code{42}}
-                                                 @item{@code{"Hi, mom!"}}
+                                                 @item{@code{"Oi, mãe!"}}
                                                  @item{@code{9273482.42}}
                                                  @item{@bitmap{images/TriangleImage.png}}
                                                  @item{@code{"84729"}}
-                                                 @item{@code{"Strings and Numbers are two different datatypes"}}
+                                                 @item{@code{"Strings e Números são diferentes tipos de dados!"}}
                                                  @item{@bitmap{images/coffee-cup.png}}]
                                                  }}
-                     @teacher{Students have now seen three datatypes: Numbers, Strings and Images. You'll want to make sure students can correctly identify examples of each one.}
+                     @teacher{Os alunos viram até agora Números, Strings e Figura. Você deve certificar-se de que eles conseguem identificar corretamente os exemplos a seguir.}
                      }
-             @point{@student{You've also seen expressions that @vocab{produce} values, such as @code{(* 16 4)}, which produces a Number. Other expressions, however, can produce Strings or Images. 
-                             @activity[#:forevidence "BS-PL.1&1&2"]{What datatype will each of the expressions listed below evaluate to?
+             @point{@student{Você também viu expressões que @vocab{produzem} valores, como em @code{(* 16 4)}, que produzirá um Numero, porém outras expressões podem produzir Strings e Imagens. 
+                             @activity[#:forevidence "BS-PL.1&1&2"]{Que tipo de dado cada uma das expressões a seguir irão produzir?
                                       @itemlist[@item{@code{(/ (+ 7 2) 3)}}
                                                  @item{@code{(star 500 "solid" "purple")}}
                                                  @item{@code{(star (+ 1 3) "outline" "blue")}}
                                                  @item{@code{(- (* 4 2) (+ 1 0))}}
                                                  ]}
-                             @activity[#:forevidence "BS-M&1&3"]{Some of the items listed below are @vocab{types}, while others are @vocab{values}. Can you tell the difference?
+                             @activity[#:forevidence "BS-M&1&3"]{Alguns dos itens listados abaixo são @vocab{tipos}, enquanto outros são @vocab{valores}. Você pode diferenciá-los?
                                        @itemlist[@item{792.24}
                                                  @item{String}
                                                  @item{"hi, mom!"}
@@ -127,12 +128,12 @@ include other datatypes, including Strings and Images.}
                                                  @item{102}
                                                  ]}
                              }
-                     @teacher{For added practice, have students identify the type of each argument in each of those expressions. Going Further - If time allows, you can go further into @lesson-link[#:name "Manipulating-Images" #:label "Manipulating Images"] or @lesson-link[#:name "Making-Flags" #:label "Making Flags"].}
+                     @teacher{Para prática adicional, os alunos deve identificar o Tipo de cada argumento dessas expressões. Indo Além - se o tempo permitir, você pode começar a trabalhar @lesson-link[#:name "Manipulating-Images" #:label "Manipulação de Imagens"] ou @lesson-link[#:name "Making-Flags" #:label "Construindo Bandeiras"].}
                      }
              ]}
 @lesson/studteach[
-     #:title "Contracts"
-     #:duration "35 minutes"
+     #:title "Assinaturas"
+     #:duration "35 minutos"
      #:overview "Students learn to describe functions and their behavior, using formalisms including Contracts (Domain and Range) and Datatypes."
      #:learning-objectives @itemlist[@item{Students will start to write and use Contracts, which summarize the name, range, and domain of a function}
                                      @item{Students will learn how to use a function based on the information in its Contract}
@@ -157,71 +158,70 @@ include other datatypes, including Strings and Images.}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{You've already seen several functions that take in two Numbers, such as @code{+}, and @code{-}. Meanwhile, @code{star} takes in a Number and two Strings.  Different functions take in different inputs, and we need a way to keep track of the requirements for each function.
-                        @bannerline{The Domain of a function is the data that the function expects.}
-                        @activity[#:forevidence (list "F-IF.1-3&1&1")]{Why is it helpful to know the @vocab{Domain} of a function?}
-                        By keeping a list of all the functions in a language, and their Domains, programmers can easily look up how each function is used. However, it's also important to keep track of what each function produces! For example, a program wouldn't use @code{star} if they were trying to produce a Number, because @code{star} only produces Images.
-                        @bannerline{The Range of a function is the data that the function produces.}
-                        Domains and Ranges help programmers write better code, by preventing silly mistakes and giving themselves hints about what to do next. A programmer who wants to use @code{star} can look up the Domain and immediately know that the first input has to be a Number (like @code{100}), without having to remember it each time. Instead of writing a single value there, a programmer could write a whole expression, like @code{(* 25 4)}. We know this code will return an appropriate value (Number) by looking at the Range for @code{*}; therefore, the result of @code{*} can be used in place of any Number value.}
-                        @teacher{Domain and Range are critical concepts. They can be reinforced by modifying a simple expression (such as @code{(+ 1 2)}), asking questions at every step. For example, we know that @code{+} takes two Numbers, which is why 1 and 2 are used in the example. However, each of those values could be replaced by @italic{another expression} -- as long as that expression evaluates to a Number. Have students systematically replace each value with an expression, asking them to justify their replacement using the Domain and Range of each function.}
+        @points[@point{@student{Você já viu algumas funções que precisam de dois Números como Argumentos, como a função @code{+}, e @code{-}. Enquanto que, a função @code{star} precisa de um Numero e Duas Strings. As funções possuem diferentes argumentos de entrada, e precisamos achar uma maneira de manter o controle dos requisitos de Entrada para cada função.
+                        @bannerline{O Domínio de uma função é o dado que ela espera receber como entrada.}
+                        @activity[#:forevidence (list "F-IF.1-3&1&1")]{Por que é útil conhecer o @vocab{Domínio} de uma função?}
+                        Ao manter uma lista de todas as funções em uma linguagem, e seu Domínio, programadores podem facilmente checar como cada função é usada. Entretanto, é importante também manter controle de que Dado cada função produz! Por exemplo, um programa não usaria a função @code{star} se ele está tentando produzir um Numero, porque @code{star} produz somente Figura.
+                        @bannerline{A Imagem de uma função é o dado que a função produz.}
+                        Domínios e Imagens ajudam programadores a escrever um código melhor, prevenindo erros bobos e dando a eles dicas do que fazer em seguida. O programador que quiser usar @code{star} ode checar no Domínio e imediatamente ver que o primeiro Argumento precisa ser do Tipo Numero(como @code{100}), sem ter que lembrar disso toda hora. Ao invés de escrever um simples numero, o programador pode escrever uma expressão matemática, como @code{(* 25 4)}. Nós sabemos que esse código retornará um valor(Numero) olhando na Imagem de @code{*}; portanto, o resultado de @code{*} pode ser usado no lugar de qualquer valor Numero.}
+                        @teacher{Domínio e Imagem são conceitos essenciais, que podem ser reforçados modificando uma simples expressão; ex. @code{(+ 1 2)}, nós sabemos que a função @code{+} recebe dois Números, no caso 1 e 2. Contudo, esses números podem ser substituídos por @italic{alguma outra expressão} – expressão que produz um Número. Peça aos alunos sistematicamente substituir cada valor, com uma expressão, pedindo-lhes para justificar a sua substituição usando o Domínio e Imagem de cada função.}
                         }
-                 @point{@student{When programmers write down the Domains and Ranges of each function, they write what are called @vocab{contracts}, to keep track of what each function needs.
-                 @bannerline{A Contract has three parts: the Name, Domain and Range of a function.}
-                 The contract for @code{star} is:
+                 @point{@student{Quando programadores escrevem os Domínios e Imagens de cada função, eles escrevem as chamadas @vocab{assinaturas}, para manter o controle do que cada função precisa.
+                 @bannerline{A Assinatura possui três partes: o Nome, Domínio e Imagem da função.}
+                 A assinatura de @code{star} é:
                  @code[#:multi-line ""]{; star: Number String String -> Image}
-                 This means that the @vocab{Name} of the function is @code{star}, that it takes in a Number and two Strings as its Domain, and produces an Image as the Range. We use types instead of values when we write a Contract, because we want to be more general: a star could be of any size, so the Domain for @code{star} specifies that the first argument could be @italic{any Number}. If we think of a language as a collection of lego pieces, the Contracts are like the tabs and slots that tell us how each piece can connect.}
+                 Isto demonstra que o @vocab{Nome} da função é @code{star}, seus argumentos de entrada são um Numero e duas Strings que representam o Domínio, e produz uma Figura como Imagem. Escrevemos a Assinatura usando Tipos de Dados ao invés de Valores porque podemos ser mais amplos: a Figura da estrela pode ter qualquer tamanho, então o Domínio de @code{star} especifica que poderia ser @italic{qualquer número}. A Assinatura nos diz como cada função pode ser usada.}
                      @teacher{}
                      }
-             @point{@student{Contracts are sufficiently important and useful that we should keep a list of them somewhere.  The front page of your workbook contains a sheet labeled "Contracts".  Write the contract for @code{star} in the first row of your contracts table.}
-                    @teacher{Common mistakes when students first write down contracts include: writing values (such as @code{"red"}) instead of types (such as "String") and forgetting arguments.  Read your students' contracts carefully, as they often indicate misconceptions that will persist and affect them later on.}}
-             @point{@student{Here is the contract for a new function:
+             @point{@student{Assinaturas são tão úteis que devemos manter uma lista delas em algum lugar. Nas últimas páginas do seu livro contém uma folha com o nome “Assinaturas”. Escreva a assinatura da função @code{star} na primeira linha da sua tabela.}
+                    @teacher{São erros comuns dos alunos quando escrevem assinaturas: colocarem valores(exemplo: @code{“red”)} ao invés do Tipo de Dado (exemplo:”string”); e também esquecem argumentos. Leia as Assinaturas dos Alunos cuidadosamente, pois isso influenciará muito no decorrer da aprendizagem.}}
+             @point{@student{Aqui está o contrato de uma nova função:
                  @code[#:multi-line ""]{; rectangle: Number Number String String -> Image}
-                 @activity[#:forevidence (list "BS-PL.2&1&1")]{@itemlist[@item{What is the @vocab{Name} of this function?}
-                                      @item{How many things are the @vocab{Domain} of this function?}
-                                      @item{What is the type of each thing in the Domain?}
-                                      @item{What is the @vocab{Range} of this function?}
+                 @activity[#:forevidence (list "BS-PL.2&1&1")]{@itemlist[@item{Qual é o @vocab{Nome} dessa função?}
+                                      @item{Quantos itens o @vocab{Domínio} dessa função possui?}
+                                      @item{Qual o tipo de dado de cada item do Domínio?}
+                                      @item{Qual é a @vocab{Imagem} dessa função?}
                                       ]}
-                 A Contract tells you exactly how to use the function, by writing its Name and then using @vocab{values} for each of the arguments in 
-                 the @vocab{Domain}. Here is an example of an expression, written to use @code{rectangle}: 
+                 A Assinatura diz a você exatamente como usar a função, escrevendo seu nome e, em seguida, usando @vocab{valores} para cada um dos argumentos no 
+                 @vocab{Domínio}. Aqui está um exemplo de uma expressão usando @code{rectangle}:
                  @code[#:multi-line ""]{(rectangle 100 50 "solid" "blue")}
                  @editor-link[#:interactions-text "(rectangle 100 50 \"solid\" \"blue\")"
-                                                  "What do you think this code will produce?"]}
-                     @teacher{Have students experiment with changing the argument values, always drawing attention back to the Domain.}
+                                                  "O que você achar que este código irá produzir?"]}
+                     @teacher{Peça aos alunos experimentarem mudar os valores dos argumentos, sempre chamando a atenção ao Domínio da função.}
                      }
-             @point{@student{By writing down the Contracts for our functions, we can easily look back to see how they are used.
-                             @activity[#:forevidence (list "BS-PL.2&1&1" "F-IF.1-3&1&1")]{The Contract for @code{+} is shown below.
+             @point{@student{Escrevendo a Assinatura para nossas funções, podemos facilmente ver como elas são usadas.
+                             @activity[#:forevidence (list "BS-PL.2&1&1" "F-IF.1-3&1&1")]{A Assinatura de @code{+} é mostrada a seguir.
                                        @code[#:multi-line ""]{; +: Number Number -> Number}                
-                                       Can you write the Contract for @code{*}, @code{-}, @code{/} and @code{sqrt}?}}
+                                       Você pode escrever a Assinatura para @code{*}, @code{-}, @code{/} e @code{sqrt}?}}
                      @teacher{}
                      }
-             @point{@student{Now that you know how to use a Contract to write an expression, here are the Contracts for several new functions that produce Images:
+             @point{@student{Agora que você sabe como usar uma Assinatura para escrever uma expressão, aqui vai a Assinatura de algumas novas funções que produzem Figuras:
                              @code[#:multi-line ""]{; ellipse:  Number Number String String -> Image
                                                     ; triangle: Number String String        -> Image
                                                     ; circle:   Number String String        -> Image}
-                             @activity[#:forevidence (list "BS-PL.2&1&1" "BS-PL.2&1&3")]{See if you can figure out how to use these new functions to draw
-                                                                                         other shapes!
+                             @activity[#:forevidence (list "BS-PL.2&1&1" "BS-PL.2&1&3")]{Veja se você consegue descobrir como usar essas funções para desenhar novas formas!
                                                                                          @editor-link[#:interactions-text "(ellipse 150 40 \"outline\" \"black\")"
-                                                                                                                          "Here's an example to get you started"]}
+                                                                                                                          "Aqui está um exemplo para você começar"]}
                              }
-                     @teacher{You should start pushing students to write more sophisticated expressions, replacing Number values with entire expressions (e.g. @code{(star (* 10 5) "solid" "purple")}). Students should be comfortable looking at an entire subexpression as a single argument to the surrounding function. @management{You may wish to force students to write these Contracts into their notebooks BEFORE allowing them to play with them. Be careful about letting students rush to the keys without first taking notes!}}
+                     @teacher{Você deve começar a direcionar os alunos a escreverem expressões mais sofisticadas, substituindo valores Numero com expressões inteiras (por exemplo, @code{(star (* 10 5) "solid" "purple"). Alunos devem estar confortáveis olhando a subexpressão como um único argumento para a função circundante. Faça com que os alunos escrevam PRIMEIRO as Assinaturas em seus cadernos antes de deixar eles brincando com as funções.}}
                      }
-             @point{@student{Here is an expression that uses a very interesting function: @code{(bitmap/url "http://bootstrapworld.org/images/icon.gif")}.  This function takes in the URL of any image you can find online, and will produce that image so that you can use it in your program.
-                             @activity[#:forevidence (list "BS-PL.2&1&1")]{@itemlist[@item{What are the three parts of a Contract?}
-                                                  @item{What is the Name of this new function?}
-                                                  @item{How many things are in its Domain?}
-                                                  @item{What is the Domain of this function?}
-                                                  @item{What will this expression evaluate to?}]}                             
+             @point{@student{Aqui está uma expressão que usa uma função muito interessante: @code{(bitmap/url "http://bootstrapworld.org/images/icon.gif")}.  Essa função pega como entrada a URL de qualquer imagem que você pode encontrar online, e irá produzir essa figura que você pode usar em seu programa.
+                             @activity[#:forevidence (list "BS-PL.2&1&1")]{@itemlist[@item{Quais são as três partes da Assinatura?}
+                                                  @item{Qual o Nome dessa nova função?}
+                                                  @item{Quantos	itens estão presentes em seu Domínio?}
+                                                  @item{Qual o Domínio da função?}
+                                                  @item{O que essa expressão irá retornar?}]}                             
                              }
-                     @teacher{If you want to have students practice using @code{bitmap/url}, it is recommended that you use an image search-engine, such as @(hyperlink "https://images.google.com" "Google Images") or @(hyperlink "http://www.bing.com/images" "Bing Images"). Make sure that students know how to get the URL for the image itself, @italic{not the URL of the web page that contains the image.}}
+                     @teacher{Se você quer que seus alunos pratiquem usando @code{bitmap/url}, é recomendado usar Motores de busca, como o @(hyperlink "https://images.google.com" "Google Imagens") ou @(hyperlink "http://www.bing.com/images" "Bing Imagens"). Tenha certeza de que os alunos peguem a URL da Imagem, e @italic{não da página web que a contém.}}
                      }
-               @point{@student{Contracts help programmers write code, so it's always a good idea to write down contracts for each function you see. 
+               @point{@student{Assinaturas ajudam programadores a escrever código, então é sempre uma boa ideia escrever Assinaturas para cada função que você ver. 
                                @activity[#:forevidence (list "BS-PL.2&1&2" "F-IF.1-3&1&1")]{
-                                  Can you figure out the contract for a function, just by looking at 
-                                  some sample code? @editor-link[#:interactions-text "(text \"Bootstrap\" 30 \"purple\")"
-                                                                                     "Look at the function being used here"], 
-                                  and see if you can write the @vocab{Name}, @vocab{Domain} and @vocab{Range} for that function.
+                                                                                            Você pode descobrir a Assinatura de uma função, apenas olhando um
+                     exemplo de código? @editor-link[#:interactions-text "(text \"Bootstrap\" 30 \"purple\")"
+                                                     "Olhe a função que está sendo usada aqui!"], 
+                     e veja se você pode escrever o @vocab{Nome}, @vocab{Domínio} e @vocab{Imagem} dela.
                                          
-                                         Make sure you don't confuse the @vocab{Contract} for a function with code! Some of the items listed below are Contracts, but others are just examples of those functions being used. Can you tell which is which?
+                                         Não confunda a Assinatura da função com o Código da função! Alguns dos itens listados abaixo são Assinaturas, mas outros são apenas exemplos dessas funções em uso. Você pode dizer quais são Assinatura e quais são códigos?
                                          @itemlist[@item{@code{; triangle : Number String String -> Image}}
                                                     @item{@code{(triangle 100 "outline" "blue")}}
                                                     @item{@code{(square (+ 200 5) "solid" "red")}}
@@ -229,11 +229,11 @@ include other datatypes, including Strings and Images.}
                                          }
                        @teacher{}
                        }
-                @point{@student{Sometimes, we make mistakes when we write code, and we use a value that violates the contract.  Fortunately, the computer identifies such cases and provides @vocab{error messages} to help us find and correct the problem.  An error message highlights the code containing the error and explains where the computer found a problem.  
-                       @activity[#:forevidence (list "BS-IDE&1&2")]{For each of the following incorrect expressions, look at the code 
-				 and see if you can figure out what is wrong about it.  Then, type the 
-				 code into the Interactions Window and see what error message you get.  
-				 Does the error identify the same problem that you did? 
+                @point{@student{Às vezes, cometemos erros enquanto estamos escrevendo código, e usamos um valor que viola a Assinatura. Felizmente, o computador identifica esses casos e fornece @vocab{Mensagens de Erro} para nos ajudar a encontrar e corrigir o problema. Uma mensagem de erro destaca o trecho que contém o erro e mostra onde o computador encontrou o problema.  
+                       @activity[#:forevidence (list "BS-IDE&1&2")]{Para cada expressão incorreta a seguir, olhe o código
+                     e veja se descobre o que está errado. Então, digite o código
+                     na janela de Iterações e veja a Mensagem de Erro recebida.
+                     A Mensagem de Erro mostrou o mesmo erro que você identificou? 
                                  @itemlist[@item{@code{(+ 4 "hi")}}
                                            @item{@code{("hi" + "mom")}}
                                            @item{@code{(* (+ 4 5) "pizza")}}
@@ -244,12 +244,12 @@ include other datatypes, including Strings and Images.}
                                            @item{@code{(star (* 4 10) "blue")}}
                                            @item{@code{(cirle 25 "outline" "blue")}}
                                           ]}}
-                       @teacher{Controlled practice with error messages helps students gain confidence in dealing with them later on.  It is fine if students don't spot the errors for themselves at first, though having students explain the problems in their own words should reinforce correct use of these functions later in the course.}}
+                       @teacher{Prática controlada com mensagens de erro ajudam os alunos a ganharem confiança e lidar melhor com erros mais tarde. É bom se os alunos não detectarem o erro no primeiro momento(antes da mensagem de erro), porém ter o aluno explicando o erro com suas próprias palavras deve reforçar o uso correto dessas funções ao longo do curso.}}
              ]}
        
 @lesson/studteach[
-     #:title "Closing"
-     #:duration "5 minutes"
+     #:title "Enceramento"
+     #:duration "5 minutos"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -263,17 +263,17 @@ include other datatypes, including Strings and Images.}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{This lesson expanded Circles of Evaluations, expressions, and code to include Strings and Images (as well as Numbers).  
-                                You learned that everything you knew about functions on Numbers also works on Strings and Images (which will make your
-                                programs more interesting).  You also learned how to use the Image functions to create your own images, and how to 
-                                use existing Images in your programs (through @code{bitmap/url}).}
-                        @teacher{@management{@itemlist[@item{Have students volunteer what they learned in this lesson}
-                                                        @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
+        @points[@point{@student{Esse lição aumenta o que você já sabe sobre Círculos de Avaliação, expressões, e código para trabalhar com Strings e Figuras.
+                    Você aprendeu que tudo o você já sabia sobre Números também se aplica à Strings e Figuras (fará seus 
+                    programas mais interessantes). Você também aprendeu como usar funções do tipo Figura e a criar suas próprias figuras, e como
+                    usar figuras já existentes em seu programas (através de @code{bitmap/url}).}
+                        @teacher{@management{@itemlist[@item{Peça a alunos que digam voluntariamente o que aprenderam na lição}
+                                                        @item{Comportamentos que você valoriza: trabalho em equipe, de anotações, participação, etc}
                                                         @item{Pass out exit slips, dismiss, clean up.}]}}
                         }
-                @point{@student{In the next unit, you'll learn how to create your own functions to save work in writing expressions (this will turn 
-                                out to be an essential part of writing a game).  You'll also start customizing your game with images for the elements
-                                in your game design.}
+                @point{@student{Na próxima unidade , você aprenderá como criar suas próprias funções para salvar seu trabalho escrevendo expressões (isto será uma parte
+                    essencial na construção do jogo). Você também vai começar a personalizar seu jogo com figuras
+                    para os elementos em seu design do jogo.}
                        @teacher{}}
                         ]}
 }
