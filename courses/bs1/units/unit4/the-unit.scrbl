@@ -3,17 +3,17 @@
 
 @title{Unit 4: The Design Recipe}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
+@unit-overview/auto[#:lang-table (list (list "Número" @code{+ - * / sq sqrt expt})
                                        (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
-@unit-descr{Students continue to practice the Design Recipe by applying it to simple problems.}
+                                       (list "Figura"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
+@unit-descr{Alunos continuam a praticar a Design Recipe aplicando-a em problemas simples.}
  }
 @unit-lessons{
 @lesson/studteach[
      #:title "The Design Recipe"
-     #:duration "25 minutes"
-     #:overview "Students are formally introduced to the steps of the Design Recipe."
-     #:learning-objectives @itemlist[@item{Students practice using Contracts to create examples of functions}
+     #:duration "25 minutos"
+     #:overview "Os alunos são formalmente apresentados aos passos da Design Recipe."
+     #:learning-objectives @itemlist[@item{Os alunos praticam usando Assinaturas para criar exemplos de funções}
                                      @item{Students learn to abstract over examples to create functions}]
      #:evidence-statements @itemlist[@item{Given a definition, students will be able to identify the Name, Type and Value that is defined.}
                                      @item{Given a contract and purpose statement for a simple, one-variable function, students will be able to write two Examples}
@@ -21,10 +21,10 @@
                                       @item{Given two examples for a simple function, students will be able to write the definition}]
      #:product-outcomes @itemlist[@item{Students will use the Design Recipe to define a function, which is used to make a rocket fly.}]
      #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "BS-DR.1" "BS-DR.2" "BS-DR.3" "8.F.1-3")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+     #:materials @itemlist[@item{Canetas/lápis para os alunos, giz fresquinho para professores}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}
-                            @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
+                            @item{@resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "Caderno do Estudante"] com nome na capa, e algo para escrever}]
      #:preparation @itemlist[@item{Write agenda on board}
                               @item{Display Class posters, Language Table, Design Recipe}
                               @item{"Rocket" [Rocket.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=KY4s7msuh6" "WeScheme")] preloaded on students' machines}
@@ -39,12 +39,12 @@
                                                        @item{Can students make the rocket fly faster over time?}]}
                 )
       ]{
-        @points[ @point{@student{Functions are a key part of animation in computer programs. A function that draws a static picture of a cat, 
-                                for example, can place the cat at a different location based on the input. When that input changes slightly 
-                                based on time or user-interaction, the cat will appear to move. This is similar to the way that flip-book
-                                animations work, in which each page draws a static image that has changed by a small amount. When the pages 
-                                are displayed quickly, the images appear to change smoothly.
-                                 @bannerline{@bitmap{images/flipbookSlides.png}}
+        @points[ @point{@student{Funções são um ponto chave na animação de programas de computador. Uma função que desenha uma figura estática de um gato,
+                    por exemplo, pode colocá-lo em diferentes localizações com base na entrada. Quando a entrada muda ligeiramente
+                    com base no tempo ou de uma interação do usuário, o gato parecerá se mover. Isto é similar a maneira como animações flip-book funcionam (animações feitas em caderno),
+                    onde cada página desenhada é uma figura estática, que mudou um pouquinho da anterior. Quando as páginas
+                    são passadas rapidamente, as figuras parecem mudar sem problemas.
+                    @bannerline{@bitmap{images/flipbookSlides.png}}
                                  }
                         @teacher{@management{Review the importance of definitions for students (defining values helps cut down on redundancy 
                                              and makes future changes easier, defining functions allows for simplicity and testability. 
