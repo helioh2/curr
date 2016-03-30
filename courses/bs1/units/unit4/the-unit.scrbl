@@ -52,44 +52,44 @@
                                              throughout.)}
                                   }
                         }
-                 @point{@student{@animated-gif{images/flipbook.gif}Putting these images together, we arrive at an animation of the rocket moving up the screen. 
-                                  Let's see an example of this kind of animation, using a function to make a rocket-blast off! Turn to 
-                                  @worksheet-link[#:page 11 #:name "Design-Recipe-Rocket-Height"] in your workbook, and read the word problem carefully. 
-                         @bannerline{A rocket blasts off, traveling at 7 meters per second. Write a function called @code{rocket-height} that takes in the
-                                     number of seconds that have passed since the rocket took off, and which produces the height of the rocket at that time.}
+                 @point{@student{@animated-gif{images/flipbook.gif}Colocando essas imagens juntas, temos uma animação de foguete subindo na tela.
+                                  Vamos ver um exemplo deste tipo de animação, usando uma função para fazer o foguete decolar! Vá para
+                                  @workshhet-link[#:page 11 #:name "Design-Recipe-Rocket-Height"] em seu "Caderno do Estudante", e leia a "Word Problem" atentamente.
+                         @bannerline{O foguete decola, viajando 7 metros por segundo. Escreva uma função chamada @cod{rocket-height} que recebe 
+                     o número de segundos que se passaram desde que ele decolou, e que produza a altura que o foguete está no momento.}
                          @activity[#:forevidence (list "BS-M&1&1" "BS-DR.1&1&1" "F-IF.1-3&1&1" "F-IF.4-6&1&1")]{
-                                    @itemlist[@item{What is the @code{rocket-height} function taking in as an input? What type of data is that?}
-                                              @item{What is the function producing as an output? What type of data is that?}
-                                              @item{What are the three parts of a @vocab{Contract}?}
-                                              @item{What is the @vocab{Name} of the function you are being asked to define?}
-                                              @item{What is the @vocab{Domain} of the function?}
-                                              @item{What is the @vocab{Range} of the function?}]}}
+                                    @itemlist[@item{O que a fução @code{rocket-height} recebe como entrada? Esssa entrada é de qual tipo de dado?}
+                                              @item{O que a função produz como saída? De que tipo de dado ela é?}
+                                              @item{Quais são as três partes da @vocab{Assinatura}?}
+                                              @item{Qual o @vocab{Nome} da função que você está sendo convidado a definir?}
+                                              @item{Qual o @vocab{Domínio} da função?}
+                                              @item{Qual a @vocab{Imagem} da função?}]}}
                          @teacher{Check student understanding carefully, to make sure students read the problem carefully. It may be helpful to draw a diagram or table showing the change of rocket position on the board, and to have students verbally walk through a few examples.}
                          }
-                 @point{@student{The Contract is a way of thinking about the function in a general way, without having to worry about exactly how it will work or how it will be used. Starting with simple questions like these will make later steps much easier to think about. However, the Contract doesn't always have enough information! The Domain for @code{star}, for example, specifies that the function needs a Number and two Strings, but doesn't mention the fact that the first String must be @code{"solid"} or @code{"outline"}. To add this information, programmers write @vocab{Purpose Statements}, which are simple sentences that explain what a function does.
+                 @point{@student{A Assinatura é uma forma de pensar sobre a função de um modo geral, sem ter que se preocupar como exatamente ela vai funcionar ou como ela será usada. Começando com uma simples questão como essa, os próximos passos ficam mais fáceis de se pensar. Contudo, a Assinatura nem sempre tem informção suficiente! O Domínio de @code{star}, por exemplo, especifica que a função recebe como entrada um Número e duas Strings, mas não menciona que a primeira String deve ser @code{"solid"} ou @code{"outline"}. Para adicionar essa informação, programadores escrevem @vocab{Declarações de Propósito}, que são frases simples que explicam o que a função faz.
                                  @activity[#:forevidence (list "BS-DR.1&1&2" "F-IF.1-3&1&5")]{Underneath the Contract, copy the following simple Purpose Statement for @code{rocket-height}.}
                                  @code[#:multi-line #t]{; rocket-height : Number -> Number
-                                                        ; multiply the number of seconds by 7 to find the height}}
+                                                        ; multiplica o número de segundos por 7 para encontrar a altura}}
                          @teacher{This is an opportunity to talk about the importance of writing, clarity, and brevity. What information is essential for a purpose statement? What information is irrelevant?  A good purpose statement describes what is computed and how its inputs are used; it should go beyond the information given in the contract and implicit in the name of the function.}
                          }
-                 @point{@student{Armed with the Contract and Purpose Statement, it becomes easy to write an @code{EXAMPLE}. Every example begins with the name of the function and a sample input, both of which are written in the Contract. In this case, you know that the function is called @code{rocket-height} and that it expects a single number as input. The Purpose Statement goes further, telling you that the input is multiplied by 7. We can use this to write two examples, with different numbers of seconds as inputs.
+                 @point{@student{Em posse da Assinatura e da Declaração de Propósito, torna-se fácil escrever um @code{EXEMPLO}. Todo exemplo começa com o nome da função e uma entrada de exemplo, ambos escritos na Assinatura. Neste caso, você sabe que a função é chamada de @code{rocket-height} e ela espera receber apenas um número como entrada. A Declaração de Propósito vai além, dizendo a você que a entrada é multiplicada por 7. Podemos usar isso para escrever exemplos, com diferentes números de segundos como Entrada.
                                 @code[#:multi-line #t]{; rocket-height : Number -> Number
-                                                       ; multiply the number of seconds by 7 to find the height
+                                                       ; multiplica o número de segundos por 7 para encontrar a altura
                                                        (EXAMPLE (rocket-height 11) 
                                                                 (* 11 7))
                                                        (EXAMPLE (rocket-height 72) 
                                                                 (* 72 7))}
-                                @bold{Note:} The example shown above is broken into two lines! As functions and examples become more complex, it will become difficult to squeeze them into a single line. In your workbooks, every example and definition from this point onwards will use the two-line format.
-                                @activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{In your workbook, write two new examples of @code{rocket-height} using different values for the number of seconds. Both examples will have a lot in common (they all use @code{rocket-height} as the function name, they all multiply their input by 7, etc). Once you are done writing them, circle only the parts of the examples that are @italic{changeable}.}}
+                                @bold{Nota:} O exemplo mostrado acima foi quebrado em duas linhas! Como as funções e exemplos ficaram mais complexos, torna-se difícil apertá-los em uma única linha. Em seus cadernos, todo exemplo e definição de agora em diante usará o formato duas linhas.
+                                @activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{Em seu caderno, escreva dois novos exemplos de @code{rocket-height} usando diferentes valores para os números de segundos. Ambos os exemplos terão muito em comum (eles usam @code{rocket-height} como nome da função, multiplicam sua entrada por 7, etc). Assim que terminar de escrevê-las, circule apenas as partes dos exemplos que são *** @italic{mutáveis}, ou seja, que mudam comparando os dois exemplos.}}
                          @teacher{The main idea for students in this activity is to realize that the Contract and Purpose Statement can be relied upon to write examples. Ask students to justify  every part of each example, using only the Contract and Purpose Statement.  Students are often tripped up by the switch from one-line examples to two-line ones. Be @italic{very} careful to point this out to students, and to check their workbooks to see where they are writing their examples. At the end of the activity, make sure that students circle ONLY what has changed.}
                  }
-                 @point{@student{By comparing two different examples, it is easy to tell what changes. According to the Purpose Statement, it is the number of seconds that the rocket has been flying.
-                                 @activity[#:forevidence (list "BS-DR.2&1&3" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{On your paper, label the items you circled with "seconds".}}
+                 @point{@student{Comparando os dois exemplos diferentes, é fácil dizer o que muda. De acordo com a Declaração de Propósitos, é o número de segundos que o foguete esteve voando.
+                                 @activity[#:forevidence (list "BS-DR.2&1&3" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{No seu caderno, ***rotule os item que você circulou como "segundos".}}
                          @teacher{Have a discussion with students about why "seconds" is a better name than "time". Talk about specificity, relevance, and readability.}}
-                 @point{@student{Labeling what is @italic{changeable} gives programmers a sense for the names of a function's @vocab{variables}.  Variables are like placeholders for values that can be different at different times.  A function that computed how much you pay for text messages each month, for example, might have a variable for the number of messages that you sent in that month.  The number of messages you sent might change from month to month, but each one could still cost 20 cents.  
-                                                  @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2")]{How many variables does @code{rocket-height} have? What is the name of each variable? Define the function, using all the information from your Examples, Contract and Purpose Statement.}
+                 @point{@student{Rotulando o que é @italic{mutável} dá aos programadores um sentido para os nomes das @vocab{variáveis} de uma função. Variáveis são espaços reservados para valores que podem ser diferentes em diferentes momentos. Uma função que calcula o quanto você paga ao mês para mandar mensagens de texto, por exemplo, pode ter uma variável para o número de mensagens que você enviou.(EXEMPLO ULTRAPASSADO? PODERIA SER COM O NUMERO DE MINUTOS FALADOS EM LIGAÇÕES AO MÊS? MAIS ATUAL?). O número de mensagens que você enviou pode variar de um mês para outro, mas o preço por cada mensagem ainda custa 20 centavos.
+                                                  @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2")]{Quantas variáveis a função @code{rocket-height} tem? Qual o nome de cada variável? Defina a função, usando todas as informações dos seus Exemplos, Assinaturas e Declaração de Propósitos.}
                                   @code[#:multi-line #t]{; rocket-height : Number -> Number
-                                                       ; multiply the number of seconds by 7 to find the height
+                                                       ; multiplica o número de segundos por 7 para encontrar a altura
                                                        (EXAMPLE (rocket-height 11) 
                                                                 (* 11 7))
                                                        (EXAMPLE (rocket-height 72) 
