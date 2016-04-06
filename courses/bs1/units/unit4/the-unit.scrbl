@@ -54,8 +54,8 @@
                         }
                  @point{@student{@animated-gif{images/flipbook.gif}Colocando essas imagens juntas, temos uma animação de foguete subindo na tela.
                                   Vamos ver um exemplo deste tipo de animação, usando uma função para fazer o foguete decolar! Vá para
-                                  @workshhet-link[#:page 11 #:name "Design-Recipe-Rocket-Height"] em seu "Caderno do Estudante", e leia a "Word Problem" atentamente.
-                         @bannerline{O foguete decola, viajando 7 metros por segundo. Escreva uma função chamada @cod{rocket-height} que recebe 
+                                  @worksheet-link[#:page 11 #:name "Design-Recipe-Rocket-Height"] em seu "Caderno do Estudante", e leia a "Word Problem" atentamente.
+                         @bannerline{O foguete decola, viajando 7 metros por segundo. Escreva uma função chamada @code{rocket-height} que recebe 
                      o número de segundos que se passaram desde que ele decolou, e que produza a altura que o foguete está no momento.}
                          @activity[#:forevidence (list "BS-M&1&1" "BS-DR.1&1&1" "F-IF.1-3&1&1" "F-IF.4-6&1&1")]{
                                     @itemlist[@item{O que a fução @code{rocket-height} recebe como entrada? Esssa entrada é de qual tipo de dado?}
@@ -67,7 +67,7 @@
                          @teacher{Check student understanding carefully, to make sure students read the problem carefully. It may be helpful to draw a diagram or table showing the change of rocket position on the board, and to have students verbally walk through a few examples.}
                          }
                  @point{@student{A Assinatura é uma forma de pensar sobre a função de um modo geral, sem ter que se preocupar como exatamente ela vai funcionar ou como ela será usada. Começando com uma simples questão como essa, os próximos passos ficam mais fáceis de se pensar. Contudo, a Assinatura nem sempre tem informção suficiente! O Domínio de @code{star}, por exemplo, especifica que a função recebe como entrada um Número e duas Strings, mas não menciona que a primeira String deve ser @code{"solid"} ou @code{"outline"}. Para adicionar essa informação, programadores escrevem @vocab{Declarações de Propósito}, que são frases simples que explicam o que a função faz.
-                                 @activity[#:forevidence (list "BS-DR.1&1&2" "F-IF.1-3&1&5")]{Underneath the Contract, copy the following simple Purpose Statement for @code{rocket-height}.}
+                                 @activity[#:forevidence (list "BS-DR.1&1&2" "F-IF.1-3&1&5")]{Abaixo da Assinatura, copie a seguinte Declaração de Propósito para @code{rocket-height}.}
                                  @code[#:multi-line #t]{; rocket-height : Number -> Number
                                                         ; multiplica o número de segundos por 7 para encontrar a altura}}
                          @teacher{This is an opportunity to talk about the importance of writing, clarity, and brevity. What information is essential for a purpose statement? What information is irrelevant?  A good purpose statement describes what is computed and how its inputs are used; it should go beyond the information given in the contract and implicit in the name of the function.}
@@ -98,38 +98,38 @@
                                                                 (* seconds 7))}
                                   }
                          @teacher{As with the Examples, ask students to justify each part of the definition. In this case, the function name can be derived from the Contract, and the variable name and function body from the Examples.}}
-                 @point{@student{The Design Recipe allows a programmer to focus on one step of the problem at a time, and to use previous steps to help complete the next one.
-                                 @activity{@itemlist[@item{What does the @vocab{Contract} tell a programmer about a function?}
-                                                      @item{What does the @vocab{Purpose Statement} tell a programmer about a function?}
-                                                      @item{How do the Contract and Purpose Statement help a programmer write @vocab{Examples}?}
-                                                      @item{Why is it helpful to circle and label the parts of the Examples that change?}
-                                                      @item{How do all of these steps help a programmer define a function?}]}
+                 @point{@student{A Receita de Projeto permite que programadores se concentrem em um passo do problema de cada vez, e usar as estapas anteriores para ajudar a completar o próximo passo.
+                                 @activity{@itemlist[@item{O que a @vocab{Assinatura} diz ao programador sobre a função?}
+                                                      @item{O que a @vocab{Declaração de Propósito} diz ao programador sobre a função?}
+                                                      @item{Como a Assinatura e a Declaração de Propósito ajudam um programador a escrever @vocab{Exemplos}?}
+                                                      @item{Por que é útil circular e rotular partes dos Exemplos que mudam?}
+                                                      @item{Como fazer todos esses passos ajudam o programador a definir uma função?}]}
                                  }
                          @teacher{}
                          }
-                 @point{@student{You may have noticed that the Examples for @code{rocket-height} wrote out the multiplication as @code{(* 11 7)}, 
-                                 rather than the actual answer (@code{77}). Why bother to show the way a calculation is performed?  By doing this, 
-                                 Examples can provide hints about what process is taking place. In the provided Rocket code (Rocket.rkt from
-                                 @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | or the @editor-link[#:public-id "KY4s7msuh6" "online file"]),
-                                 you will see why it is so important to show your work when writing examples. 
-                                 @activity{Click "Run", and wait until a window appears with a rocket at the bottom of the screen and numbers for "time" and "height" at the top. This animation is set to update the rocket every time the spacebar is pressed, to simulate time going by. Hit the spacebar a few times, and notice that the time at the top of the window increases. Does the rocket move? Time is passing, but our rocket's height hasn't changed! Close the rocket window, so that you can see the code.}}
+                 @point{@student{Você pode ter notado que os Exemplos de @code{rocket-height} escreveu a multiplicação como @code{(* 11 7)},
+                    ao invés da resposta real (@code{77}). Por que se preocupar para mostrar o caminho de como o cálculo é realizado? Ao fazer isso,
+                    Exemplos podem fornecer dicas sobre o processo que está ocorrendo. No código de Foguete fornecida(Rocket.rkt de
+                    @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | ou em @editor-link[#:public-id "KY4s7msuh6" "arquivo online"]),
+                    você verá porque é tão importante mostrar seu trabalho ao escrever exemplos.
+                                 @activity{Clique em "Run", e espere até uma janela com um foguete aparecer na tela e número para "time" e "height" no topo. Esta anumação está definida para atualizar o foguete toda vez que a Barra de Espaço é pressionada, para simular o tempo passando. Aperte a Barra de Espaço algumas vezes, e perceba que o tempo no topo da janela aumenta. O foguete se move? O tempo está passando, mas a altura do nosso foguete não mudou! Feche a janela do foguete, e veja o código.}}
                          @teacher{}
                          }
-                 @point{@student{The Contract for this function is correct: the function's Name, Domain and Range are all accurately written here. However, the next step definitely has some problems:
+                 @point{@student{A Assinatura para esta função está correta: o Nome da função, Domínio e Imagem estão todos escritos aqui. Entretanto, o próximo passo definitivamente apresenta alguns problemas:
                                   @itemlist[#:style 'ordered
-                                                    @item{There is only one Example. This makes it difficult to notice what is changing, which could lead to mistakes when identifying variables}
-                                                    @item{The Example doesn't show how the height is calcluated - instead, this programmer just wrote the "answer", without showing their work.}]
+                                                    @item{Há apenas um exemplo. Isso torna dificil perceber o que está mudando na função, o que poderia levar a erros na identificação de variáveis}
+                                                    @item{O exemplo não mostra como a altura é calculada - em vez disso, o programador escreveu apenas o "resultado", ***sem mostrar como calculou a resposta.}]
                                   }
                          @teacher{}
                          }
                          
-                 @point{@student{By skipping these steps in the Examples, it can be easy to make mistakes when defining the function. 
-                                 @activity[#:forevidence (list "BS-DR.2&1&3" "8.F.1-3&1&3")]{Can you see the mistake the programmer made?}
-                                 Without seeing multiple Examples, this programmer failed to realize that the height of the rocket has to be calculated for @italic{every input}. Instead, they just produce the same number every time (in this case, zero). As a result, the rocket is always at zero, no matter how many seconds have passed. 
-                                 @activity{@itemlist[@item{Fix this programmer's Example to show their work.}
-                                                      @item{Write a second Example, below the first one.}
-                                                      @item{Fix the definition for the function, so that it multiplies the number of seconds by 7.}
-                                                      @item{Click "Run", and then use the spacebar to make the rocket fly!}]}
+                 @point{@student{Ao pular esses passos nos Exemplos, pode ser fácil cometer erros ao definir a função.
+                                 @activity[#:forevidence (list "BS-DR.2&1&3" "8.F.1-3&1&3")]{Você pode ver o erro que o programador cometeu?}
+                                 Sem ver vários Exemplos, o programador não conseguiu perceber que a altura do foguete tem que ser calculada @italic{a cada entrada}. Em vez disso, o programa produz o mesmo número(neste caso, zero). Como resultado, o foguete está sempre em zero, não importa quantos segundos se passaram.
+                                 @activity{@itemlist[@item{Conserte o Exemplo do programador para mostrar o cálculo realizado.}
+                                                      @item{Escreva um segundo Exemplo, abaixo do primeiro.}
+                                                      @item{Corrija a definição da função, de modo que multiplica o número de segundos por 7.}
+                                                      @item{Clique em "Run", e use a barra de espaço para fazer o foguete voar!}]}
                                  }
                          @teacher{}
                          }
@@ -137,8 +137,8 @@
 
        
 @lesson/studteach[
-     #:title "Practicing the Design Recipe"
-     #:duration "40 minutes"
+     #:title "Praticando a Receita de Projeto"
+     #:duration "40 minutos"
      #:overview "Students use the Design Recipe to define simple functions (of one and two variables), given various word problems"
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[@item{Given a contract and purpose statement for a simple function, students will be able to write two Examples.}
@@ -163,17 +163,17 @@
                                                        @item{}]}
                 )
       ]{
-        @points[@point{@student{The Design Recipe is a roadmap for defining functions, which programmers use to make sure the code they write does what they want it to do. Each step builds on the last, so any mistakes can be caught early in the process. This roadmap has a series of steps:
-                                @itemlist[@item{Moving from a word problem to a Contract}
-                                           @item{Writing Examples based on the contract}
-                                           @item{Defining a function that matches the examples}]
-                        Start out by practicing each of these steps, one at a time.
+        @points[@point{@student{A Receita de Projeto é um guia para definir funções, na qual programadores usam para ter certeza que o código que eles escrevem fará aquilo que eles querem. ***Cada passo deve ser o mais simples possível, dessa maneira erros podem ser detectados no inicio da atividade. Esse guia tem uma série de passos:
+                                @itemlist[@item{Transformar um problema descrito para uma Assinatura}
+                                           @item{Escrever Exemplos baseados na Assinatura}
+                                           @item{Definir uma função que combine com os exemplos}]
+                                Comece praticando cada um desses passos, um de cada vez.
                         @activity[#:forevidence (list "BS-DR.1&1&1" "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
-                                  For each of the following word problems, write down the Contract:
-                                  @itemlist[@item{Define a function 'purple-star', that takes in the size of the star and produces an outlined, purple star of the given size.}
-                                             @item{Define a function 'spot', that takes in a color and produces a solid circle of radius 50, filled in with that color}
-                                             @item{To find the average of two numbers, they should be added together and divided by two. Define a function 'average', which takes in two numbers and produces their average}
-                                             @item{A company logo is a word drawn in big, red letters, rotated some number of degrees. Define a function 'logo', that takes in a company name and a rotation, and produces a logo for that company}]
+                                  Para cada um dos seguintes problemas, escreva a Assinatura:
+                                  @itemlist[@item{Defina a função 'estrela-roxa', que recebe como entrada o tamanho da estrela, e produza um contorno de estrela na cor roxa, com o tamanho recebido.}
+                                             @item{Defina a função 'ponto', que recebe como entrada uma cor, e produza um círculo sólido(preenchido com a cor recebida) de raio tamanho 50.}
+                                             @item{Para encontrar a média de dois números, eles devem ser somados e depois divididos por dois. Defina a função 'media', que recebe dois números como entrada e produza a média deles.}
+                                             @item{A ***logo de uma companhia é uma palavra desenhada grande, em letras vermelhas, inclinada em alguns graus. Defina uma função 'logo', que receba o nome da companhia e a rotação, e produza a logo dessa companhia}]
                                   Be sure to include a good @vocab{Name} for each function, and remember that the @vocab{Domain} and @vocab{Range} can only include @vocab{types} like Numbers, Images, Strings, etc.}}
                         @teacher{If students come up with different Domains or Ranges for their functions, have them explain their thinking for each one. These conversations are an important part of this step!}
                         }
