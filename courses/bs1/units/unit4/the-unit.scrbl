@@ -174,60 +174,60 @@
                                              @item{Defina a função 'ponto', que recebe como entrada uma cor, e produza um círculo sólido(preenchido com a cor recebida) de raio tamanho 50.}
                                              @item{Para encontrar a média de dois números, eles devem ser somados e depois divididos por dois. Defina a função 'media', que recebe dois números como entrada e produza a média deles.}
                                              @item{A ***logo de uma companhia é uma palavra desenhada grande, em letras vermelhas, inclinada em alguns graus. Defina uma função 'logo', que receba o nome da companhia e a rotação, e produza a logo dessa companhia}]
-                                  Be sure to include a good @vocab{Name} for each function, and remember that the @vocab{Domain} and @vocab{Range} can only include @vocab{types} like Numbers, Images, Strings, etc.}}
+                                  Coloque um bom @vocab{Nome} para cada função, e lembre que o @vocab{Domínio} e @vocab{Imagem} podem apenas incluir @vocab{tipos} como Números, Figuras, Strings, etc.}}
                         @teacher{If students come up with different Domains or Ranges for their functions, have them explain their thinking for each one. These conversations are an important part of this step!}
                         }
-                 @point{@student{A Contract is the foundation for a function, which gives programmers just enough information to use them: the name of the function, the types of data it expects and the type of data it returns.
+                 @point{@student{A Assinatura é a base para uma função, que dá ao programador informação suficiente para usá-las: o nome da função, os tipos de dados que espera receber e o tipo de dado que ela retorna.
                                  @activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{
-                                          Now that you've completed the Contracts for all four word problems, try to generate two Examples for each one.}}
+                                          Agora que você completou as Assinaturas de todos os quatro problemas, tente criar dois Exemplos para cada um deles.}}
                          @teacher{Challenge students to defend their Examples (their function name, the number of inputs, their types and the type of the returned value). Make sure that the two Examples for each function have @italic{different input values}! For each of these questions, students must be able to point to the specific part of their Contract as the justification for their Example.}}
-                 @point{@student{Once you have two or more Examples, it should be easy to identify what has changed between them. In fact, the number of things that change should match the number of things in the function's Domain: if the Domain has a Number and a String in it, then those two values should be the things that differ between your Examples.
+                 @point{@student{Uma vez que você tenha dois Exemplos ou mais, deve ser fácil identificar o que muda entre eles. Na verdade, o número de itens que mudam deve ser o número de itens do Domínio: se o Domínio tem um Número e uma String, então esses dois valores deve ser o que muda entre seus Exemplos.
                                  @activity[#:forevidence (list "BS-DR.2&1&3" "BS-DR.2&1&3" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{
-                                       Identify what has changed between these Examples, and use this information to define all four functions.}}
+Identifique o que muda entre seus Exemplos do mesmo desafio, e use essas informações para definir suas quatro funções.}}
                          @teacher{Make sure students have chosen good variable names for their function definitions, and ask students to justify every part of the function body. The only acceptable answers should be "I copied this because it's the same in both Examples", or "I used a variable name because it differs between Examples."}}
                 @point{@student{@activity[#:forevidence (list "BS-DR.3&1&1" "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
-                                       Turn to @worksheet-link[#:page 12 #:name "Design-Recipe-Red-Square"] in your workbook, and read the word problem carefully.
-                                          @itemlist[@item{Circle the @vocab{Name} of the function, and underline what it takes in and what it produces.}
-                                                       @item{Write the @vocab{Contract} for this function, using what you underlined to help you find the @vocab{Domain} and @vocab{Range}.}
-                                                       @item{Underneath the Contract, write the @vocab{Purpose Statement} by summarizing what the function does in a single sentence}]}
+                                       Vá para @worksheet-link[#:page 12 #:name "Design-Recipe-Red-Square"] em sua apostila, e leia a questão atentamente.
+                                          @itemlist[@item{Circlule o @vocab{Nome} da função, e sublinhe sua entrada e o que ela produz.}
+                                                       @item{Escreva a @vocab{Assinatura} para essa função, usando as partes sublinhadas para ajudar a encontrar o @vocab{Domínio} e @vocab{Imagem}.}
+                                                       @item{Abaixo da Assinatura, escreva a @vocab{Declaração de Propósito} resumindo o que a função faz em uma simples frase}]}
                                 }
                         @teacher{Challenge students to explain why this function does not need to know the color of the square, or whether or not it is solid. They main idea here is that the function already "knows" these things, so the only thing that is changing is the size of the square.
                                  Note that there are actually two easy solutions here: using the @code{square} function, or using @code{rectangle} with the same variable for width and height.}
                         }
-                 @point{@student{Remember that the Contract and Purpose Statement can be used to write the Examples, even if a programmer isn't sure how to begin.
+                 @point{@student{Lembre-se de que a Assinatura e a Declaração de Propósito podem ser usados para escrever Exemplos, mesmo que o programador não tenha certeza de como começar.
                                  @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{
-                                           Using only the Contract and Purpose Statement, see if you can answer the following questions:
-                                           @itemlist[@item{Every Example begins with the name of the function. Where could you find the name of the function?}
-                                                      @item{Every Example has to include sample inputs. Where could you find out how many inputs this function needs, and what types they are?}
-                                                      @item{Every Example has to include an expression for what the function should @italic{do} when given an input. Where could you look to find out what this function does?}
-                                                      @item{Write two Examples on your paper, then circle and label what is changing between them.}]}}
+                                           Usando apenas a Assinatura e a Declaração de Propósito, veja o que você pode responder das questões a seguir:
+                                           @itemlist[@item{Todo Exemplo começa com o nome da função. Onde você poderia encontrar o nome da sua função?}
+                                                      @item{Todo Exemplo deve incluir alguma entrada de amostra. Onde você poderia encontrar quantas entradas essa função precisa, e de que tipos elas são?}
+                                                      @item{Todo Exemplo deve conter uma expressão para o que a função deveria @italic{fazer} quando recebe uma entrada. Onde você pode olhar para descobrir o que a função faz?}
+                                                      @item{Escreva dois Exemplos no papel, e então circule e ***rotule o que muda entre eles.}]}}
                         @teacher{Make sure students realize that every answer can be found in the Contract or Purpose Statement. Suggestion: write these steps on the board, and draw arrows between them to highlight the process. The goal here is to get students into the habit of asking themselves these questions each time they write Examples, and then using their own work from the previous step to find the answers. NOTE: students can solve this using either @code{square} or @code{rectangle}. The latter requires them to use the same variable twice, which is a useful thought-exercise.}
                         }
-                 @point{@student{Once the two Examples are written and the variable (or variables) are labeled, it becomes easy to define the function. 
+                 @point{@student{Uma vez que os dois Exemplos foram escritos e a variável(ou variáveis) foram ***rotuladas, torna-se fácil definir a função.
                                  @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{
-                                           Using the Contract, Purpose Statement and Examples, see if you can answer the following questions:
-                                           @itemlist[@item{Every function definition begins with the name. Where did you write this already?}
-                                                      @item{Every definition has to include variable names for the inputs. Where did you write these down?}
-                                                      @item{Every definition should work exactly the way the Examples did. Where could you look to figure out what the function should @italic{do?}}
-                                                      @item{Write the function definition on your paper.}]}}
+                                           Usando a Assinatura, a Declaração de Propósito e os Exemplos, veja o que você pode responder das questões a seguir:
+                                           @itemlist[@item{Toda definição de função começa com o nome. Onde você já escreveu o nome antes?}
+                                                      @item{Toda definição deve conter os nomes das variáveis para as entradas. Onde você já escreveu elas?}
+                                                      @item{Toda definição deve funcionar exatamente da mesma maneira como os Exemplos funcionam. Onde é que você olha para descobrir o que a função deve @italic{fazer}?}
+                                                      @item{Escreva a definição da função 'quadrado-vermelho' no papel.}]}}
                         @teacher{}
                         }
-                 @point{@student{When typing in a function definition, be sure to type in all three parts: The Contract and Purpose Statement, 
-                                 the Examples and the Definition. When "Run" is clicked, the computer will read the definition, test your 
-                                 Examples to make sure it works correctly, and then add the definition to your language. Once added, you 
-                                 can use the function as if it were built into the computer. 
+                 @point{@student{Ao digitar a definição de função, certifique-se de digitar as três partes: A Assinatura e a Declaração de Propósito,
+                                 os Exemplos e a Definição. Quando "Run" for clicado, o computador irá ler a definição, testar seus
+                                 Exemplos para ter certeza de que funcionam corretamente, e então irá adicionar a definição da função na
+                                 linguagem dele. Uma vez adicionado, ***você pode usar essa função como se fosse construída no seu computador.
                                  @activity[#:forevidence (list "BS-IDE&1&1")]{
                                              @editor-link[#:definitions-text "; red-square : Number -> Image
 ; draw a solid, red square using the given size
 (EXAMPLE (red-square 42) (square 42 \"solid\" \"red\"))
 (EXAMPLE (red-square 73) (square 73 \"solid\" \"red\"))
 (define (red-square size) (square size \"solid\" \"red\"))"
-                                                          "Test out this function by using it with various inputs."]
+                                                          "Teste essa função usando diferentes valores como entrada e veja o resultado."]
                                              }
                                  }
                         @teacher{}
                         }
-                 @point{@student{Some functions take more than one input. The @code{red-square} function always makes solid red squares, with size being the only thing that varies. Suppose, however, we wanted the function to make red squares that could be @italic{either} solid or outline? This would mean that both the size and the style can vary, so a user might type @code{(red-square 50 "solid")} or @code{(red-square 50 "outline")}
+                 @point{@student{Algumas funções recebem mais de um entrada. A função @code{quadrado-vermelho} sempre faz quadrados vermelhos sólidos(preenchidos por dentro), com o tamanho sendo o único elemento que muda. Supondo que, nós queremos uma função que faça quadrados vermelhos que sejam @italic{ou} sólidos @italic{ou} ***apenas o contorno de um quadrado? Isto significaria que tamanho e o estilo podem variar, então o usuário poderia digitar @code{(red-square 50 "solid")} ou @code{(red-square 50 "outline")}
                                  @activity[#:forevidence (list "BS-DR.1&1&1" "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
                                            @itemlist[@item{How would that change the Domain of the function?}
                                                       @item{How would the Examples have to change?}
