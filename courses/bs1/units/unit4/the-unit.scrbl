@@ -81,12 +81,11 @@
                                                                 (* 72 7))}
                                 @bold{Nota:} O exemplo mostrado acima foi quebrado em duas linhas! Como as funções e exemplos ficaram mais complexos, torna-se difícil apertá-los em uma única linha. Em seus cadernos, todo exemplo e definição de agora em diante usará o formato duas linhas.
                                 @activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{Em seu caderno, escreva dois novos exemplos de @code{foguete-altura} usando diferentes valores para os números de segundos. Ambos os exemplos terão muito em comum (eles usam @code{foguete-altura} como nome da função, multiplicam sua entrada por 7, etc). Assim que terminar de escrevê-las, circule apenas as partes dos exemplos que são *** @italic{mutáveis}, ou seja, que mudam comparando os dois exemplos.}}
-                         @teacher{A ideia principal para alunos nessa atividade é perceber que Assinaturas e Declarações de Propósito podem ser invocadas para escrever exemplos. 
-                    The main idea for students in this activity is to realize that the Contract and Purpose Statement can be relied upon to write examples. Ask students to justify  every part of each example, using only the Contract and Purpose Statement.  Students are often tripped up by the switch from one-line examples to two-line ones. Be @italic{very} careful to point this out to students, and to check their workbooks to see where they are writing their examples. At the end of the activity, make sure that students circle ONLY what has changed.}
+                         @teacher{A ideia principal para alunos nessa atividade é perceber que Assinaturas e Declarações de Propósito podem ser invocadas para escrever exemplos. Peça aos alunos para justificar cada parte do exemplo, usando apenas a Assinatura e a Declaração de Propósito. Eles muitas vezes tropeçam em mudar de uma-linha para exemplos em duas-linhas. Tenha @italic{muito} cuidado ao apontar isso para os alunos,  e verifique suas apostilas para ver onde estão escrevendo seus exemplos. No fim da atividade, tenha certeza de que eles circularam APENAS o que mudou.}
                  }
                  @point{@student{Comparando os dois exemplos diferentes, é fácil dizer o que muda. De acordo com a Declaração de Propósitos, é o número de segundos que o foguete esteve voando.
                                  @activity[#:forevidence (list "BS-DR.2&1&3" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{No seu caderno, ***rotule os item que você circulou como "segundos".}}
-                         @teacher{Have a discussion with students about why "seconds" is a better name than "time". Talk about specificity, relevance, and readability.}}
+                         @teacher{Converse com os alunos do porque "segundos" é um melhor nome que "tempo". Fale sobre especificidade, relevância e legibilidade de código.}}
                  @point{@student{Rotulando o que é @italic{mutável} dá aos programadores um sentido para os nomes das @vocab{variáveis} de uma função. Variáveis são espaços reservados para valores que podem ser diferentes em diferentes momentos. Uma função que calcula o quanto você paga ao mês para mandar mensagens de texto, por exemplo, pode ter uma variável para o número de mensagens que você enviou.(EXEMPLO ULTRAPASSADO? PODERIA SER COM O NUMERO DE MINUTOS FALADOS EM LIGAÇÕES AO MÊS? MAIS ATUAL?). O número de mensagens que você enviou pode variar de um mês para outro, mas o preço por cada mensagem ainda custa 20 centavos.
                                                   @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2")]{Quantas variáveis a função @code{foguete-altura} tem? Qual o nome de cada variável? Defina a função, usando todas as informações dos seus Exemplos, Assinaturas e Declaração de Propósitos.}
                                   @code[#:multi-line #t]{; foguete-altura : Number -> Number
@@ -98,7 +97,7 @@
                                                        (define (foguete-altura seconds)
                                                                 (* seconds 7))}
                                   }
-                         @teacher{As with the Examples, ask students to justify each part of the definition. In this case, the function name can be derived from the Contract, and the variable name and function body from the Examples.}}
+                         @teacher{Como nos Exemplos, peça que os alunos justifiquem cada parte da difinição. Neste caso, o nome da função pode ser conseguido na Assinatura, e nome da variável e corpo da função podem vir dos Exemplos.}}
                  @point{@student{A Receita de Projeto permite que programadores se concentrem em um passo do problema de cada vez, e usar as estapas anteriores para ajudar a completar o próximo passo.
                                  @activity{@itemlist[@item{O que a @vocab{Assinatura} diz ao programador sobre a função?}
                                                       @item{O que a @vocab{Declaração de Propósito} diz ao programador sobre a função?}
@@ -176,24 +175,24 @@
                                              @item{Para encontrar a média de dois números, eles devem ser somados e depois divididos por dois. Defina a função 'media', que recebe dois números como entrada e produza a média deles.}
                                              @item{A ***logo de uma companhia é uma palavra desenhada grande, em letras vermelhas, inclinada em alguns graus. Defina uma função 'logo', que receba o nome da companhia e a rotação, e produza a logo dessa companhia}]
                                   Coloque um bom @vocab{Nome} para cada função, e lembre que o @vocab{Domínio} e @vocab{Imagem} podem apenas incluir @vocab{tipos} como Números, Figuras, Strings, etc.}}
-                        @teacher{If students come up with different Domains or Ranges for their functions, have them explain their thinking for each one. These conversations are an important part of this step!}
+                        @teacher{Se aparecerem diferentes Domínios e Imagens para suas funções, deixe eles explicarem seu pensamento para cada um. Essas conversas são uma parte importante desta etapa!}
                         }
                  @point{@student{A Assinatura é a base para uma função, que dá ao programador informação suficiente para usá-las: o nome da função, os tipos de dados que espera receber e o tipo de dado que ela retorna.
                                  @activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{
                                           Agora que você completou as Assinaturas de todos os quatro problemas, tente criar dois Exemplos para cada um deles.}}
-                         @teacher{Challenge students to defend their Examples (their function name, the number of inputs, their types and the type of the returned value). Make sure that the two Examples for each function have @italic{different input values}! For each of these questions, students must be able to point to the specific part of their Contract as the justification for their Example.}}
+                         @teacher{Desafie seus alunos a defender seus Exemplos(Nome da função, número de entradas, seus tipos e o valor de retorno). Esteja certo de que os dois Exemplos tenham @italic{diferentes valores de entrada}! Para cada uma dessas perguntas, os alunos devem ser capazes de apontar para a parte específica de dua Assinatura como justificativa de seu Exemplo.}}
                  @point{@student{Uma vez que você tenha dois Exemplos ou mais, deve ser fácil identificar o que muda entre eles. Na verdade, o número de itens que mudam deve ser o número de itens do Domínio: se o Domínio tem um Número e uma String, então esses dois valores deve ser o que muda entre seus Exemplos.
                                  @activity[#:forevidence (list "BS-DR.2&1&3" "BS-DR.2&1&3" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{
 Identifique o que muda entre seus Exemplos do mesmo desafio, e use essas informações para definir suas quatro funções.}}
-                         @teacher{Make sure students have chosen good variable names for their function definitions, and ask students to justify every part of the function body. The only acceptable answers should be "I copied this because it's the same in both Examples", or "I used a variable name because it differs between Examples."}}
+                         @teacher{Esteja certo que os alunos escolheram bons nomes de variáveis para suas definições, e peça para justificarem cada parte do corpo da função. As únicas resposta aceitáveis devem ser "Eu copiei isto porque está presente nos dois Exemplos", ou "Eu usei uma variável porque é o que muda entre Exemplos."}}
                 @point{@student{@activity[#:forevidence (list "BS-DR.3&1&1" "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1")]{
                                        Vá para @worksheet-link[#:page 12 #:name "Design-Recipe-Red-Square"] em sua apostila, e leia a questão atentamente.
                                           @itemlist[@item{Circlule o @vocab{Nome} da função, e sublinhe sua entrada e o que ela produz.}
                                                        @item{Escreva a @vocab{Assinatura} para essa função, usando as partes sublinhadas para ajudar a encontrar o @vocab{Domínio} e @vocab{Imagem}.}
                                                        @item{Abaixo da Assinatura, escreva a @vocab{Declaração de Propósito} resumindo o que a função faz em uma simples frase}]}
                                 }
-                        @teacher{Challenge students to explain why this function does not need to know the color of the square, or whether or not it is solid. They main idea here is that the function already "knows" these things, so the only thing that is changing is the size of the square.
-                                 Note that there are actually two easy solutions here: using the @code{square} function, or using @code{rectangle} with the same variable for width and height.}
+                        @teacher{Desafie os alunos a explicar porque esta função não precisa saber a cor do quadrado, ou se é sólido ou não. A ideia principal aqui é que a função já "sabe" essas coisas, então a única coisa que é mutável é o tamanho do quadrado.
+                                 Perceba que na verdade existem duas soluções fáceis: usando a função @code{square}, ou usando @code{rectangle} com a mesma variável para largura e altura.}
                         }
                  @point{@student{Lembre-se de que a Assinatura e a Declaração de Propósito podem ser usados para escrever Exemplos, mesmo que o programador não tenha certeza de como começar.
                                  @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{
@@ -202,7 +201,7 @@ Identifique o que muda entre seus Exemplos do mesmo desafio, e use essas informa
                                                       @item{Todo Exemplo deve incluir alguma entrada de amostra. Onde você poderia encontrar quantas entradas essa função precisa, e de que tipos elas são?}
                                                       @item{Todo Exemplo deve conter uma expressão para o que a função deveria @italic{fazer} quando recebe uma entrada. Onde você pode olhar para descobrir o que a função faz?}
                                                       @item{Escreva dois Exemplos no papel, e então circule e ***rotule o que muda entre eles.}]}}
-                        @teacher{Make sure students realize that every answer can be found in the Contract or Purpose Statement. Suggestion: write these steps on the board, and draw arrows between them to highlight the process. The goal here is to get students into the habit of asking themselves these questions each time they write Examples, and then using their own work from the previous step to find the answers. NOTE: students can solve this using either @code{square} or @code{rectangle}. The latter requires them to use the same variable twice, which is a useful thought-exercise.}
+                        @teacher{Esteja certo de que os alunos percebam que toda resposta pode ser encontrada na Assinatura ou na Declaração de Propósito. Sugestão: escreva estes passos no quadro, e desenhe setas entre eles para destacar o processo. O objetivo aqui é fazer com que os alunos tenham o hábito de fazer-se estas perguntas cada vez que forem escrever Exemplos, em seguida, usar seu próprio esforço do passo anterior para encontrar as respostas. NOTA:alunos podem usar tanto @code{square} como @code{rectangle}. O último requer usar a mesma variável duas vezes, o que é um ótimo exercício-mental.}
                         }
                  @point{@student{Uma vez que os dois Exemplos foram escritos e a variável(ou variáveis) foram ***rotuladas, torna-se fácil definir a função.
                                  @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{
@@ -246,7 +245,7 @@ Identifique o que muda entre seus Exemplos do mesmo desafio, e use essas informa
                                                               @item{Escreva dois Exemplos para esta função, então círcule e nomeie o que varia entre.}
                                                               @item{Escreva a Definição para esta função.}]}
                                  }
-                         @teacher{If time allows, pass out extra Design Recipe worksheets [@resource-link[#:path "DesignRecipeWorksheet.pdf" #:label "PDF"] | @resource-link[#:path "DesignRecipeWorksheet.odt" #:label "Ooo"]], and have students practice with other word problems. Practice variations on red-square, involving two inputs changing while other parameters stay fixed.}
+                         @teacher{Se o tempo permitir, dê uma olhada nas folhas de Exercício extra da Receita de Projeto [@resource-link[#:path "DesignRecipeWorksheet.pdf" #:label "PDF"] | @resource-link[#:path "DesignRecipeWorksheet.odt" #:label "Ooo"]], e pratique com os alunos com outras questões. Seja uma variação do quadrado-vermelho, envolvendo duas entradas que variam, enquanto outros parâmetros continuam fixos.}
                         }
                  ]
          }
@@ -287,9 +286,9 @@ Identifique o que muda entre seus Exemplos do mesmo desafio, e use essas informa
                                  @activity[#:forevidence (list "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.1-3&1&5" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.2&1&1")]{
                                      Escreva mais dois Exemplos, usando notação Algébrica.}
                                  }
-                         @teacher{Point out that the Contract hasn't changed @italic{at all} between Racket and Algebra. 
-                                  @management{If students are struggling with the change in syntax, let them first write the Examples in Racket, and 
-                                              then convert them to Algebra by following the model shown here.}}
+                         @teacher{Destaque que a Assinatura @italic{não mudou em nada} entre Racket e Algebra. 
+                                  @management{Se os alunos estão lutando com a mudança de sintaxe, deixe-os primeiro escrever os Exemplos em racket, e 
+                                              então converta-os em Algebra seguindo o modelo mostrado aqui.}}
                          }
                  @point{@student{Assim como antes, as variáveis da função podem ser identificadas escrevendo dois Exemplos, e olhando p que muda entre eles.
                                  @activity[#:forevidence (list "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
@@ -306,9 +305,9 @@ Identifique o que muda entre seus Exemplos do mesmo desafio, e use essas informa
                       segundo. Escreva uma função que retorna o tempo que o foguete esteve viajando, em função da distância."}
                                           }
                                   }
-                         @teacher{Point out that this is the same relationship between distance and time as before, 
-                                  @bold{only now we want be able to see the relationship from the opposite direction}: time in terms of 
-                                  distance, rather than distance in terms of time.}
+                         @teacher{Aponte que esta é a mesma relação entre distância e tempo de antes, 
+                                  @bold{mas desta vez estamos vendo a relação na direção oposta}: o tempo em função 
+                                  da distância(entramos com a distancia e descobriamos o tempo), em vez da distância em termos de tempo.(o contrário)}
                          }
             @point{@student{Uma vez que já temos a Assinatura, é fácil escrever Exemplos:
                             @math{tempo : Numero \rightarrow Numero}
@@ -321,7 +320,7 @@ Identifique o que muda entre seus Exemplos do mesmo desafio, e use essas informa
                     }
             @point{@student{Uma vez definida sua função, é fácil inserir valores e receber os resultados de volta. @italic{Como na maioria dos problemas, a parte mais difícil é a definição da função.} Felizmente, a Receita de Projeto torna essa configuração muito mais fácil! Nós acabamos de usá-la para configurar duas funções diferentes, que podem ser usadas para nos dar respostas em termos de distância e tempo. Definição de funções é como construir ferramentas, que podem ser usadas para resolver problemas simples ou combinadas juntas para resolver os mais complexos.
                     @activity{Suponha que você queira saber quanto o foguete viajou em 6 segundos: qual das duas funções você usaria? E se você quizer saber quanto tempo demora para o foguete viajar mil quilômetros?}}
-            @teacher{Ask students to identify which function they would use to answer a variety of different questions.}
+            @teacher{Peça aos alunos a identificar qual função eles usariam para responder uma variedade de diferentes questões.}
             }
             @point{@student{@activity{Vá para @worksheet-link[#:page 38 #:name "Math-Rocket-Collision"] em sua apostila, e leia a questão atentamente: 
                                               @italic{"Um foguete deixa a Terra, viajando a Marte a 80 auilômetros por segundo. No mesmo momento, um asteróide
@@ -331,7 +330,7 @@ Identifique o que muda entre seus Exemplos do mesmo desafio, e use essas informa
                                                                @item{O que o problema está pedindo pra você?}
                                                                @item{Use suas respostas para completar a seguinte frase: "Dada a ___________, escreva uma função que produza _________."}
                                                                @item{Caso essa função exista, qual seria um bom nome para ela?}]}}
-                                   @teacher{Ultimately, the problem is asking students about a functional relationship between distance and collision-time.}
+                                   @teacher{Na última análise, o problema está pedindo aos alunos uma relação entre distância e tempo-de-colisão.}
                                    }
                             @point{@student{Se tivéssemos uma função que calcula tempo-de-colisao, seria fácil responder essa pergunta apenas conectando a distância entre Terra e Marte. Ao invés de começar a se preocupar com a criação de uma equação, vocẽ pode usar a Receita de Projeto para construir a sua própria função!
                                             @activity[#:forevidence (list "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.2&1&1")]{
@@ -354,7 +353,7 @@ Identifique o que muda entre seus Exemplos do mesmo desafio, e use essas informa
                                      }
                              @point{@student{Aqui você pode ja pode ter visto o quadro geral: a distância dada neste problema pode ser ligada a função sem ter que definir uma função para ela. Às vezes a Receita de Projeto te dá a resposta mesmo sem ter chegado ao fim! Outras vezes, você pode não ver o quadro geral até que tenha quebrado o problema em partes pequenas, cada uma com sua própria função.
                                              @activity{Abra sua apostila na @worksheet-link[#:page 39 #:name "Math-Blank-Recipe"], e pratique usando a Receita de Projeto para resolver outros problemas.}}
-                                     @teacher{You can add as many pages as you like to the workbooks, using any algebra problem you like. We recommend using word problems from your students' algebra textbook, or even from your state's standardized test!}
+                                     @teacher{Você pode adicionar quantas páginas quiser em sua apostila, usando qualquer questão de algebra que quiser. Nós recomendamos usar questões de algebra a partir do livro de algebra dos seus alunos, ou questões padronizadas, fique a vontade!}
                                      }]
          }
        
@@ -377,7 +376,7 @@ Identifique o que muda entre seus Exemplos do mesmo desafio, e use essas informa
         @points[@point{@student{Nesta unidade, você começou a ver como funções podem ser úteis em construir animações: funções ajudam a produzir informação(como a altura de um foguete) que pode ser usada para criar cenas em um jogo. Com prática extra na escrita de funções e usando a Receita de Projeto, agora você está preparado para começar a escrever funções que irão mover os elemento dentro do seu próprio jogo.}
                         @teacher{@management{@itemlist[@item{Peça que alunos digam voluntariamente o que aprenderam nesta lição}
                                                         @item{Comportamentos de recompensa que você valoriza: trabalho em equipe, fazer anotações, engajamento, etc}
-                                                        @item{Pass out exit slips, dismiss, clean up.}]}}
+                                                        @item{***Pass out exit slips, dismiss, clean up.}]}}
                         }
                         ]}
 }
