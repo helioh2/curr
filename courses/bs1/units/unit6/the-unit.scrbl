@@ -1,24 +1,24 @@
 #lang curr/lib
 @declare-tags[management]
 
-@title{Unit 6: Teaching Functions to Compare}
+@title{Unidade 6: Comparando Funções}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
+@unit-overview/auto[#:lang-table (list (list "Numero" @code{+ - * / sq sqrt expt})
                                        (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
-@unit-descr{Students discover Boolean types, and use them to create programs that test values, and then model scenarios using these programs.}
+                                       (list "Figura"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
+@unit-descr{Os alunos descobrem tipos Booleanos, e os usam para criar programas que testam valores, e então modelam o cenário usando esses programas.}
 }
 
 @unit-lessons{
 @lesson/studteach[
-     #:title "Review"
-     #:duration "15 minutes"
+     #:title "Revisão"
+     #:duration "15 minutos"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
+     #:materials @itemlist[@item{Caneta/lápis para os alunos, giz fresquinho para professores}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
      #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1WvlflsKM28IOwgyV2HttnGxul3sAUnL0-KOZhvb6C2s/edit?usp=sharing" "Warmup activity sheet").}]
@@ -28,16 +28,16 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@item{@student{What datatypes have you seen so far? Can you think of @code{Number} values? @code{String} values? @code{Image} values?
-                               What are some expressions that evaluate to a @code{Number}? How about the other datatypes?}
-                       @teacher{Before introducing a new datatype (Booleans), this would be a good time to quickly review the three major 
-                                contexts students have learned for working with expressions: Circles of Evaluation, Contracts and Design Recipe.
-                                In this lesson, students will apply each one of them to Booleans, discovering that everything they've already 
-                                learn still applies - even in the new type.}}]}
+        @points[@item{@student{Quais tipos você viu até agora? Você pode pensar em valores do tipo @code{Número}? Do tipo @code{String}? Do tipo @code{Figura}?
+                               Quais são algumas expressões que produzem um @code{Número}? E quanto aos outros tipos de dados?}
+                       @teacher{Antes de apresentar um novo tipo dado (Booleano), esta pode ser uma boa hora para revisar rapidamente os três principais
+                                cenários onde vocês aprenderam a trabalhar com expressões: Círculos de Avaliação, Assinatura e Receita de Projeto.
+                                Nesta lição, alunos irão aplicar cada um destes cenários aos Booleanos, descobrindo que tudo que já aprenderam
+                                ainda aplica-se mesmo em um novo tipo.}}]}
 
 @lesson/studteach[
-     #:title "Booleans"
-     #:duration "10 minutes"
+     #:title "Booleanos"
+     #:duration "10 minutos"
      #:overview "Students are introduced to a new type (Boolean), and practice using it with Circles of Evaluation, Contracts and Code."
      #:learning-objectives @itemlist[@item{Students learn about Boolean values and functions that manipulate them}]
      #:evidence-statements @itemlist[@item{Students will know the two Boolean values (true and false)}
@@ -57,41 +57,41 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity[#:forevidence (list "BS-IDE&1&1")]{What would each of the following expressions @vocab{evaluate} to? (If you're not sure, you can type it in and try it out!)
+        @points[@point{@student{@activity[#:forevidence (list "BS-IDE&1&1")]{O que cada uma das seguintes expressões @vocab{retornam} a você? (Se você não tem certeza, você pode digitar e descobrir!)
                               @itemlist[@item{@code{(+ 1 4)}}
                                          @item{@code{(/ 4 2)}}
                                          @item{@code{(circle 10 "solid" "blue")}}
                                          @item{@code{(< 3 4)}}]}}
                         @teacher{}
                         }
-                 @point{@student{The last expression, @code{(< 3 4)},
-uses a new function that @italic{compares Numbers}, returning
-@code{true} if 3 is less than 4. What do you think it would return if the numbers were swapped?
+                 @point{@student{A última expressão, @code{(< 3 4)},
+usa uma nova função que @italic{compara Números}, retornando
+@code{verdadeiro} se 3 é menor do que 4. O que você acha que a expressão retornaria se os números forem trocados de lugar?
                                  @activity[#:forevidence (list "BS-IDE&1&1")]{
-                                        The function @code{<} tests if one number is less than another. Can you think of some other tests? 
-                                        Try them out in the Interactions window.}
-                         Functions like @code{<}, @code{>} and @code{=} all consume two Numbers as their Domain, and produce a special value called a 
-                         @vocab{Boolean} as their Range. Booleans are answers to a yes-or-no question, and Boolean functions are used to perform tests. 
-                         In a videogame, you might test if a player has walked into a wall, or if their health is equal to zero. A machine in a doctor's 
-                         office might use Booleans to test if a patient's heartrate is above or below a certain level.
-                                                @bannerline{Boolean values can only be @code{true} or @code{false}.}
-                                                @activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&1")]{Try typing a Number into the Interactions window and hitting Enter. What do you expect to get back? What about a String? Now try a Boolean, such as @code{false}.  As with all values, Booleans evaluate to themselves. The Circles of Evaluation can also be used with Booleans: try converting each of the following math expressions into Circles of Evaluation, and then converting those Circles into code:
+                                        A função @code{<} testa se o primeiro número é menor que o outro. Você pode pensar em alguns outros testes? 
+                                                 Experimente-os na Janela de Iterações.}
+                         Funções como @code{<}, @code{>} e @code{=} sempre recebem dois números em seu Domínio, e produzem um valor especial chamado 
+                         de @vocab{Booleano} como sua Imagem. Booleanos são respostas para perguntas do tipo sim/não, e funções Booleanas são usadas para realizar testes.
+                         Em um videogame, você pode testar se um jogador tem caminhado sobre uma parede, ou se sua vida é igual à zero. Uma máquina em um consultório médico 
+                         pode usar Booleanos para testar se a frequência cardíaca de um paciente está acima ou abaixo de determinado nível.
+                                                @bannerline{Valores Booleanos podem ser apenas @code{verdadeiro} ou @code{falso}.}
+                                                @activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&1")]{Tente digitar um Número na Janela de Iterações e aperte Enter. O que você espera receber de volta? E quanto a uma String? Agora tente um Booleano, como @code{false}. Assim como todos estes valores, Booleanos retornam eles mesmos. Círculos de Avaliação podem serem usados com Booleanos: tente converter cada uma das expressões em Círculo de Avaliação, e então converta os Círculos em código:
                                    @itemlist[@item{@math{10 = 16.1}}
                                          @item{@math{-13 \gt 5}}
                                          @item{@math{40-1 \lt 90*2}}
                                          @item{@math{0 = -5 + 10}}]}}
                         @teacher{Give students plenty of practice here! You can see a video demonstration of this intro at @(video-link (hyperlink "http://www.youtube.com/watch?v=X7gAXxpBhUo" "Video Lesson: Intro to Booleans"))}
                         }
-                 @point{@student{There are many other functions that produce Booleans. Here's one that can be used to compare two @vocab{Strings}: @code[#:multi-line #t]{(string=? "apples" "oranges")}
-                                 @activity[#:forevidence (list "BS-PL.2&1&1" "BS-PL.2&1&3")]{Make sure you've written down the complete @vocab{Contract} for all four Boolean functions.}}
-                         @teacher{Make sure students are comfortable using Booleans to compare more complex subexpressions, rather than just comparing two Numbers.}
+                 @point{@student{Existem muitas outras funções que produzem Booleanos. Aqui está uma que pode ser usada para comparar duas @vocab{Strings}: @code[#:multi-line #t]{(string=? "apples" "oranges")}
+                                 @activity[#:forevidence (list "BS-PL.2&1&1" "BS-PL.2&1&3")]{Certifique-se de escrever a @vocab{Assinatura} completa destas quatro funções Booleanas.}}
+                         @teacher{Certifique-se de que os alunos estão confortáveis usando Booleanos para comparar subexpressões mais complexas, em vez de apenas comparar dois Números.}
                          }
                  ]}
                  
 @lesson/studteach[
-     #:title "onscreen? 1.0"
-     #:duration "25 minutes"
-     #:overview "Students use the Design Recipe to write a simple, Boolean-producing function"
+     #:title "esta-na-tela? 1.0"
+     #:duration "25 minutos"
+     #:overview "Alunos usam a Receita de Projeto para escrever uma simples função que produz Booleanos"
      #:learning-objectives @itemlist[@item{Students use Booleans to determine whether a game element is partly visible onscreen}
                                      @item{Students write functions that use other functions they have written to compute answers}
                                     ]
@@ -112,81 +112,81 @@ uses a new function that @italic{compares Numbers}, returning
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Open the "Cage" program (Cage.rkt from @(resource-link #:path "source-files.zip" #:label "source-files.zip") or in @editor-link[#:public-id "bM6VNiLdkv" "WeScheme"]) on your computer, and click "Run". The window that pops up contains a butterfly, which you can move around using the arrow keys on your keyboard. This butterfly is named Sam, and the window is Sam's yard. Much like the videogame screen, this yard is 640 pixels wide by 480 pixels tall! As you can see, Sam is free to walk around the yard, and the coordinates at the top of the screen update to tell you his location.}
-                        @teacher{This may be a good opportunity to review coordinates, for students who need the practice.}
+        @points[@point{@student{Abra o programa "Gaiola"(Gaiola.rkt de @(resource-link #:path "source-files.zip" #:label "source-files.zip") ou no @editor-link[#:public-id "bM6VNiLdkv" "WeScheme"]) em seu computador,
+                                                                       e clique "Run". A tela que aparece contém uma borboleta, que você pode mover usando as setas do seu teclado. O nome da borboleta é Sam, e a tela em que ela está é seu quintal. Assim como a tela de um videogame, este quintal tem 640 pixels de largura e 480 de altura! Como você pode ver, Sam é livre para andar livre pelo quintal, e suas coordenadas aparecem no topo da tela nos dizem sua localização.}
+                        @teacher{Esta pode ser uma boa oportunidade para rever coordenadas, para estudantes que precisam praticar.}
                         }
-                 @point{@student{@bitmap{images/buffer.png}Sam's mother tells him that it's okay for him to step outside of the yard, but only by a short distance! Specifically, she wants to make sure that she can always see at least a little piece of him. Sam is safe @italic{as long as some piece of him is onscreen}. That means he can go a little past zero on the lefthand size, or a little past 640 on the right - but how far @italic{can} he go?
-                                @activity[#:forevidence (list "7.EE.3-4&1&5" "A-CED.1-4&1&1")]{Turn to @worksheet-link[#:page 17 #:name "Protecting-Sam"], and read through the top half of the page. Using the arrow keys, see how far Sam can go to the left @italic{while still staying onscreen}. You'll find that Sam is onscreen as long as his x-coordinate is @italic{greater than} -50, which is exactly the code that's filled in for the first problem on the page.
-                                                  @itemlist[@item{Find out how far Sam can go to the right while still being onscreen.}
-                                                             @item{Fill in the code for the second problem.}
-                                                             @item{Convert both of those expressions into Circles of Evaluation, using the empty Circles at the bottom of the page.}]}}
+                 @point{@student{@bitmap{images/buffer.png}A mãe de Sam disse que ela pode sair do quintal, mas por uma curta distância! Especificamente, ela quer ter certeza de que sempre pode vê-la, ao menos uma parte dela. Sam está segura @italic{desde que alguma parte dela esteja na tela}. Isso significa que ela pode ir um pouco além do zero pela esquerda, ou passar um pouco de 640 pela direita - mas quão longe ela @italic{pode} ir?
+                                @activity[#:forevidence (list "7.EE.3-4&1&5" "A-CED.1-4&1&1")]{Vá para @worksheet-link[#:page 17 #:name "Protecting-Sam"], e leia a metado superior da página. Usando as setas de direção, veja quanto Sam pode ir para a esquerda @italic{ainda aparecendo na tela}. Você encontrará que Sam está na tela enquanto sua coordenada-x for @italic{maior que} -50, que é exatamente o código que está preenchido no primeiro problema da página.
+                                                  @itemlist[@item{Descubra o quão longe Sam pode ir pela direita ainda aparecendo na tela.}
+                                                             @item{Preencha o código do segundo problema.}
+                                                             @item{Converta as duas expressões em Círculos de Avaliação, usando os círculos vazios na parte de baixo da página.}]}}
                          @teacher{Pay close attention to the corner-cases: is Sam on the screen at 690? What about 680?}
                          }
-                 @point{@student{Unfortunately, right now there is nothing to keep Sam from leaving his yard! Looking at the code for this program, we find three function definitions:
-                                  @itemlist[@item{@code{safe-left?}, which takes in Sam's x-coordinate and checks to see if Sam is safe on the lefthand side of the screen. Right now, this function always returns @code{true}.}
-                                             @item{@code{safe-right?}, which takes in Sam's x-coordinate and checks to see if Sam is safe on the righthand side of the screen. Right now, this function always returns @code{true}.}
-                                             @item{@code{onscreen?}, which takes in Sam's x-coordinate and checks to see if at least tiny piece of Sam is on the screen. Right now, this function @italic{asks @code{safe-left?} if the given x-coordinate is safe.}}]
-                                  Right now, all three functions return @code{true} no matter what Sam's x-coordinate is!}
-                         @teacher{It's extremely valuable at this point to have three students stand, and act out each of these three functions:
-                                  @itemlist[@item{Ask each student to tell you their Name, Domain and Range. If they get stuck, remind them that all of this information is written in their Contract!}
-                                             @item{Practice calling each function, by saying their name and then giving them an x-coordinate. For example, "safe-left? fifty" means that the number @code{50} is being passed into @code{safe-left?}. That student should return "true", since the code currently returns @code{true} for all values of x.}
-                                             @item{Do this for all three functions, and have the class practice calling them with different values as well.}
-                                             @item{Note: the volunteer for @code{onscreen?} should first call @code{safe-left?}, before replying with the value.}]}
+                 @point{@student{Infelizmente, até agora não existe nada que impeça que Sam saia do quintal! Olhando para o código encontramos três definições de funções:
+                                  @itemlist[@item{@code{esquerda-salvo?}, que recebe a coordenada-x de Sam e verifica se Sam está segura do lado esquerdo da tela. Neste momento a função sempre retornará @code{true}.}
+                                             @item{@code{direita-salvo?}, recebe a coordenada-x de Sam e verifica se Sam está segura do lado direito da tela. Neste momento a função sempre retornará @code{true}.}
+                                             @item{@code{esta-na-tela?}, recebe a coordenada-x de Sam e verifica se pelo menos uma parte dela está visível na tela. Neste momento, essa função somente @italic{pergunta para @code{esquerda-salvo?} se a coordenada-x recebida é segura.}}]
+                                  Até agora, todas as três funções retornam @code{true} não importando qual seja a coordenada-x de Sam!}
+                         @teacher{É de grande importância neste momento que três alunos voluntários representem e demonstrem como elas funcionam:
+                                  @itemlist[@item{Peça a cada aluno para dizer o Nome, Domínio e Imagem. Se eles se embaraçarem, relembre eles todas as informações escritas na Assinatura!}
+                                             @item{Pratique chamando cada função, dizendo seu nome e em seguida dando-lhes uma coordenada-x. Por Exemplo, "esquerda-salvo? vinte" significa que o número @code{20} está sendo passado para @code{esquerda-salvo?}. Que o aluno deve retornar "true", pois o código está retornando atualmente @code{true} para todos os valores de x.}
+                                             @item{Faça isso para as três funções, e tenha a prática de chama-las com valores diferentes.}
+                                             @item{Nota: no exemplo de @code{esta-na-tela?} deve primero chamar @code{esquerda-salvo?}, antes de responder com o valor.}]}
                          }
-                 @point{@student{Right now @code{safe-left?} is ignoring Sam's x-coordinate, and blindly returning @code{true} no matter where he is. 
-                                           What should the function be doing instead? 
+                 @point{@student{Neste momento @code{esquerda-salvo?} está ignorando a coordenada-x de Sam, e retornando @code{true} cegamente não importando onde ela esteja. 
+                                           O que a função deveria fazer ao invés disso? 
                                            @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "8.F.1-3&1&1" "F-IF.1-3&1&1")]{
-                                                 Turn to @worksheet-link[#:page 18 #:name "safe-left?"] in your workbook. Use the Design Recipe to fix this
-                                                 function, so that @code{safe-left?} takes in Sam's x-coordinate and returns @code{true} or @code{false} 
-                                                 depending on whether it is @italic{greater than -50}.}
-                                           Once you have typed in the EXAMPLEs and definition for @code{safe-left?}, click "Run" and see if Sam is prevented 
-                                           from flying off the lefthand side of the screen. Be sure to test your function in the Interactions window as well, 
-                                           for example:
-                                  @code[#:multi-line #t]{(safe-left? 50)
-                                                         (safe-left? -100)
-                                                         (onscreen? 50)
-                                                         (onscreen? -100)}
+                                                 Vá para @worksheet-link[#:page 18 #:name "safe-left?"] em sua apostila. Use a Receita de Projeto para corrigir 
+                                                 esta função, de modo a função @code{esquerda-salvo} receba a coordenada-x de Sam e retorne @code{true} ou @code{false}
+                                                 dependendo se ela for @italic{maior que -50}.}
+                                           Depois de ter digitado Exemplos e a definição para @code{esquerda-salvo?}, clique em "Run" e veja se Sam está impedida
+                                           de voar para fora do lado esquerdo da tela. Certifique-se de testar sua função na Janela de iterações, por exemplo:
+                                  @code[#:multi-line #t]{(esquerda-salvo? 50)
+                                                         (esquerda-salvo? -100)
+                                                         (esquerda-salvo? 50)
+                                                         (esquerda-salvo? -100)}
                                   }
-                         @teacher{Remind students that they've already written the check for this on page 19! 
-                                 @management{It may be helpful to have students complete this activity in parts, by giving them a short time
-                                             to do the Contract and Purpose Statement, then a short time to write their first example, their second, etc. 
-                                             By debriefing and reviewing after each step, you are likely to uncover misunderstandings earlier in the process.}
-                                 Have the three volunteers from earlier stand again, and act out the code now that @code{safe-left?} is written properly. As before, make sure students practice calling each function individually: now @code{safe-left?} will be able to return true and false (as will @code{onscreen?}), while @code{safe-right?} still returns only @code{true}.}
+                         @teacher{Lembre os alunos que eles já escreveram o teste para isso na página 19! 
+                                 @management{Isto pode ser útil para que os alunos completem a atividade em partes, dando algum tempo para
+                                             escreverem a Assinatura e a Declaração de propósito, então um curto tempo para escreverem seu primeiro exemplo, o segundo, etc.
+                                             Esclarecendo e revisando a cada passo, é provável que vocẽ descubra mal-entendidos no início do processo.}
+                                 Peça aos três voluntários de antes que, representem o código de @code{esquerda-salvo?} para ver se está escrito corretamente. Como antes, assugure-se que os alunos pratiquem chamando cada função individualmente: agora @code{esquerda-salvo?} será capaz de retornar @code{true} ou @code{false}, (como será @code{esta-na-tela?}), enquanto @code{direita-salvo?} ainda retorna apenas @code{true}.}
                          }
                  @point{@student{@activity[#:forevidence (list "7.EE.3-4&1&1" "7.EE.3-4&1&3" "7.EE.3-4&1&4" "7.EE.3-4&1&5" "7.EE.3-4&1&10" "F-IF.4-6&1&1")]{
-                                     Turn to @worksheet-link[#:page 19 #:name "safe-right?"] in your workbook. Use the Design Recipe to fix this function, 
-                                     so that @code{safe-right?} takes in Sam's x-coordinate and returns @code{true} or @code{false} depending on whether it 
-                                     is @italic{less than 690}.
+                                     Vá para @worksheet-link[#:page 19 #:name "safe-right?"] em sua apostila. Use a Receita de Projeto para corrigir esta função, 
+                                     para que @code{direita-salvo?} receba a coodernada-x de Sam e retorne @code{true} ou @code{false} dependendo se o valor
+                                     for @italic{menor que 690}.
                                      }
                                   }
-                         @teacher{After walking through @code{safe-right?} section by section, students should be able to complete this activity on their own. 
-                                  If students are doing well with programming, you might discuss whether to compare the x-coordinate to @code{690} or 
-                                  @code{(+ 640 50); both yield the same computation, but the second reveals where 690 comes from (screen width plus 50).}
+                         @teacher{Depois de passear por @code{direita-salvo?} seção por seção, os alunos devem ser capazes de completar esta atividade por conta própria. 
+                                  Se eles estão se dando bem com a programação, você pode discutir se comparar a coordenada-x com @code{690} ou com 
+                                  @code{(+ 640 50); ambos produzem o mesmo resultado, mas o segundo revela ce onde o 690 vem(comprimento da tela mais 50).}
                                   }
                          }
-                 @point{@student{Once you have typed in the EXAMPLEs and definition for @code{safe-right?}, click "Run" and see if Sam is prevented from flying off the righthand side of the screen. You may be surprised at what happens! Test your function in the Interactions window:
-                                  @code[#:multi-line #t]{(safe-right? 50)
-                                                         (safe-right? 810)
-                                                         (onscreen? 50)
-                                                         (onscreen? 810)}
-                         Is @code{safe-right?} working the way you expected?  Is @code{onscreen?} working as you expected?
-                         The @code{onscreen?} function is only talking to @code{safe-left?}, which means that Sam is only protected on the lefthand side of the screen.
-                          @activity{Change the code for @code{onscreen?} so that it calls @code{safe-right?} instead. 
-                                   Now Sam will be protected on the righthand side of the screen, but not the left. What should @code{onscreen?} be doing?}}
-                         @teacher{Have the three actors stand again, and repeat the activity. Now @code{safe-left?} and @code{safe-right?} behave correctly, but @code{onscreen?} is still @bold{only talking to @code{safe-left}!}}
+                 @point{@student{Depois de ter digitado Exemplos e a definição para @code{direita-salvo?}, clique "Run" e veja se Sam está impedida de voar para fora do lado direito. Você pode se surpreender com o que acontece! Tese sua função na Janela de Iterações:
+                                  @code[#:multi-line #t]{(direita-salvo? 50)
+                                                         (direita-salvo? 810)
+                                                         (esta-na-tela? 50)
+                                                         (esta-na-tela? 810)}
+                         A @code{direita-salvo?} está funcionado como esperado? E @code{esta-na-tela?} está funcionando como esperado?
+                         A função @code{esta-na-tela} está apenas perguntando para @code{esquerda-salvo?}, isso significa que Sam está protegida apenas do lado esquerdo da tela.
+                          @activity{Altere o código de @code{esta-na-tela?} para que ela chame @code{direita-salvo?} ao invés de (esquerda-salvo?). 
+                                   Agora Sam será protegida do lado direito da tela, mas não do esquerdo. O que @code{esta-na-tela} deve fazer?}}
+                         @teacher{Chame os três voluntários novamente, e repita a atividade. Agora @code{direita-salvo?} e @code{esquerda-salvo?} comportam-se corretamente, mas @code{esta-na-tela?} ainda está perguntando @bold{somente para @code{esquerda-salvo}!}}
                          }
                  ]}
                  
 
 @lesson/studteach[
-     #:title "and/or"
-     #:duration "10 minutes"
-     #:overview "Students are introduced to and/or, two functions that consume Booleans"
-     #:learning-objectives @itemlist[@item{Students learn to combine Boolean values with @code{and} and @code{or}}]
-     #:evidence-statements @itemlist[@item{Students understand when to use each of @code{and} and @code{or}}
-                                     @item{Students can write Circles of Evaluation for expressions that use @code{and} and @code{or}}
-                                     @item{Students can write code expressions that use @code{and} and @code{or}}
-                                     @item{Students can determine the answers produced by expressions that use @code{and} and @code{or}}]
+     #:title "and/or e/ou"
+     #:duration "10 minutos"
+     #:overview "Estudantes são apresentados a e/ou, duas funções que consomem Booleanos"
+     #:learning-objectives @itemlist[@item{Alunos aprendem a combinar valores Booleanos com @code{and} e @code{or}}]
+     #:evidence-statements @itemlist[@item{Alunos entendem quando usar @code{and} ou @code{or}}
+                                     @item{Alunos escrevem Círculos de Avaliação para expressões que usam @code{and} e @code{or}}
+                                     @item{Alunos podem escrever expressões que usam @code{and} e @code{or}}
+                                     @item{Alunos podem definir as respostas produzidas por expressões que usam @code{and} e @code{or}}]
      #:product-outcomes @itemlist[]
      #:exercises (list (make-exercise-locator "AndOr" "boolean-coe-to-code1"))
      #:standards (list)
@@ -201,43 +201,43 @@ uses a new function that @italic{compares Numbers}, returning
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-       @points[@point{@student{You've already learned many functions that allow you to create Booleans. The functions @code{<} and @code{>}, for example, will each return a boolean when applied to the appropriate input. What happens when you want to @italic{combine} these tests, to see if more than one thing is true? 
-                                @activity{Consider the following statements - are they true or false?:
-                                           @itemlist[@item{Sugar is sweet}
-                                                      @item{Ice is hot}
-                                                      @item{Sugar is sweet @bold{and} Ice is cold}
-                                                      @item{Sugar is sweet @bold{and} Ice is hot}
-                                                      @item{Sugar is sweet @bold{or} Ice is cold}
-                                                      @item{Sugar is sweet @bold{or} Ice is hot}]}
+       @points[@point{@student{Você já aprendeu algumas funções que permitem que você crie Booleanos. As funções @code{<} e @code{>}, por exemplo, retornam um booleano cada um quando aplicadas com a entrada adequada. O que acontece quando você quiser @italic{combinar} esses testes, para ver se mais de um coisa é verdade? 
+                                @activity{Considere as seguintes afirmações - elas são verdadeiras ou falsas?:
+                                           @itemlist[@item{Açucar é doce}
+                                                      @item{Gelo é quente}
+                                                      @item{Açucar é doce @bold{e} Gelo é frio}
+                                                      @item{Açucar é doce @bold{e} Gelo é quente}
+                                                      @item{Açucar é doce @bold{ou} Gelo é frio}
+                                                      @item{Açucar é doce @bold{ou} Gelo é quente}]}
                                 }
-                       @teacher{Challenge students on their answers here - ask them to explain why they choose "true" or "false" for the compound statements, especially if the individual statements are a mix of true and false.}
+                       @teacher{Desafiar os alunos em suas respostas aqui - pedir-lhes para explicar porque escolheram "verdadeiro" ou "falso" para as afirmações, especialmente se a estrutura for composta de uma mistura de verdadeiro e falso.}
                        }
-                @point{@student{@code{and} and @code{or} are two new functions.
-                                 @bannerline{@code{and} will return "true" only if @italic{both inputs} are true. @code{or} will return "true" if @italic{at least one} input is true.}
+                @point{@student{@code{and} e @code{or} são duas novas funções.
+                                 @bannerline{@code{and} retornará "true/verdadeiro" apenas se @italic{as duas entradas} são verdadeiras. @code{or} retornará "true/verdadeiro" se @italic{pelo menos uma} entrada for verdadeira.}
                                  @code[#:multi-line #t]{
 ; and: Boolean Boolean -> Boolean
-; Returns true if BOTH inputs are true
+; Retorna verdadeiro se AMBAS as entradas forem verdadeiras
                                       
 ; or: Boolean Boolean -> Boolean  
-; Returns true if EITHER of the inputs are true}
-                                 @activity{Complete @worksheet-link[#:page 20 #:name "AND-and-OR"] in your workbook.}}
+; Retorna verdadeiro se PELO MENOS UMA entrada for verdadeira}
+                                 @activity{Complete a @worksheet-link[#:page 20 #:name "AND-and-OR"] em sua apostila.}}
                         @teacher{}
                         }]
         }                                                                                             
 
 @lesson/studteach[
-     #:title "onscreen? 2.0"
-     #:duration "25 minutes"
-     #:overview "Students use the Design Recipe alongside their newfound knowledge of and/or, to write a function that performs two boolean tests."
-     #:learning-objectives @itemlist[@item{Students will be able to compose Boolean functions results using @code{and} and @code{or}}
-                                     @item{Students will understand how Booleans and Boolean functions are used to control the behavior of game elements}
-                                     @item{Students will begin to appreciate why programs are written as compositions of several smaller functions}]
+     #:title "esta-na-tela? 2.0"
+     #:duration "25 minutos"
+     #:overview "Os alunos usam a Receita de Projeto ao lado de seu novo conhecimento de and/or, para escrever a função que realiza dois testes booleanos."
+     #:learning-objectives @itemlist[@item{Alunos serão capazes de compor resultados de funções Booleanas usando @code{and} e @code{or}}
+                                     @item{Alunos entenderão como Booleanos e funções Booleanas são usadas para controlar o comportamento de elementos do jogo}
+                                     @item{Alunos vão começar a apreciar do porque de programas serem compostos de várias funções menores}]
      #:evidence-statements @itemlist[@item{Students will be able to write functions that combine screen-boundary tests using @code{and} and @code{or}}
                                      @item{Students will understand why @code{and} is necessary to check for two boundaries}
                                      @item{Students will be able to explain why re-using existing functions is better than reproducing their computations}
                                      @item{Students will understand how they use Booleans and conditional to control how game elements behave at the screen boundaries}
 ]
-     #:product-outcomes @itemlist[@item{Students detect when game elements have moved offscreen (so they can reappear on the other edge of the screen)}]
+     #:product-outcomes @itemlist[@item{Estudantes detectam quando elementos do jogo movem-se para fora da tela (então podem reaparecer no outro lado da tela)}]
      #:standards (list "A-CED.1-4" "F-IF.4-6" "A-SSE.1-2" "BS-DR.2")
      #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
                             @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
@@ -251,33 +251,33 @@ uses a new function that @italic{compares Numbers}, returning
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-       @points[@point{@student{Now that you know how to combine tests, how can @code{onscreen?} combine both tests to keep Sam onscreen?
+       @points[@point{@student{Agora que você já sabe como combinar testes, como @code{esta-na-tela?} pode combinar ambos os testes para manter Sam na tela?
                                @activity[#:forevidence (list "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&4" "A-CED.1-4&1&1")]{
-                                    Turn to @worksheet-link[#:page 21 #:name "onscreen?"] in your workbook and write the completed @code{onscreen?} 
-                                    function, so that it tests both @code{safe-left?} and @code{safe-right?}. Type in the examples and definition when you're done,
-                                    click "Run", and see if Sam is protected on both sides!}
+                                    Vá para @worksheet-link[#:page 21 #:name "onscreen?"] em sua apostila e escreva a função completa de @code{esta-na-tela?}, 
+                                    para que ela teste ambos @code{esquerda-salvo?} e @code{direita-salvo?}. Digite os Exemplos e a definição, e quando estiver feito, 
+                                    clique em "Run", e veja se Sam está protegida dos dois lados!}
                                }
-                       @teacher{Have the volunteers stand once again, and ask the class what @code{onscreen?} @italic{should} do. Should it be using @code{and} or @code{or}? Be sure to give specific examples of points that are onscreen, too far to the left and too far to the right, and challenge the students to justify their answers.}
+                       @teacher{Chame os voluntários novamente, e peça para a classe o que @code{esta-na-tela?} @italic{deve} fazer. Devemos usar @code{and} ou @code{or}? Certifique-se de dar exemplos específicos de pontos que estejam na tela, pontos além da esquerda e pontos além da direita, e desafie os alunos a justificarem suas respostas.}
                        }
-                @point{@student{There are two ways to go about solving the @code{onscreen?} word problem: 
-                                @code[#:multi-line #t]{(define (onscreen? x)
+                @point{@student{Existem duas maneiras de resolver a questão de @code{esta-na-tela?}: 
+                                @code[#:multi-line #t]{(define (esta-na-tela? x)
                                                          (and (> x -50) (< x 690)))}
-                                and...
-                                @code[#:multi-line #t]{(define (onscreen? x)
-                                                         (and (safe-left? x) (safe-right? x)))}
-                                Does it matter which one you use?}
+                                e...
+                                @code[#:multi-line #t]{(define (esta-na-tela? x)
+                                                         (and (esquerda-salvo? x) (direita-salvo? x)))}
+                                Tem diferença entre usar uma das duas?}
                        @teacher{}
                        }
-                @point{@student{There is more to being a writer than good spelling and grammar. There's more to being an architect or an artist than building a bridge or coloring in a canvas. All of these disciplines involved an element of @italic{design}. Likewise, there is more to being a Programmer than just writing code. You've gotten decent at writing code, and now you're able to write sophisticated programs that include multiple functions - congratulations! But that also means you're ready to consider what it means to @italic{design} the code that you write.}
+                @point{@student{Há mais em ser um escritor do que apenas ter uma boa ortografia e gramática. Há muito mais em ser um arquiteto ou um artista do que apenas construir uma ponte ou pintar uma tela. Todas essas atividades envolvem um elemento de @italic{design}. Da mesma forma, há mais em ser um programador do que apenas escrever código. Você se tornou bom em escreve código, e agora você é capaz de escrever programas sofisticados que incluem várias funções - parabéns! Mas isso também significa que você está pronto para considerar o que significa @italic{projetar} o código que você escreve.}
                        @teacher{}
                        }
-                @point{@student{Suppose you just built a car, but it's not working right. What would you do? Ideally, you'd like to test each part of the car (the engine, the transmission, etc) @italic{one at a time}, to see which one was broken. The same is true for code! If you have a bug, it's much easier to find when every function is simple and easy to test, and the only complex functions are just built out of simpler ones. In this example, you can test your @code{safe-left?} and @code{safe-right?} functions independently, before stitching them together into @code{onscreen?}.}
+                @point{@student{Suponha que você acabou de construir um carro, mas ele não está funcionando direito. O que deve ser feito? O ideal, você gostaria de testar cada parte do carro(o motor, transmissão, etc) @italic{uma de cada vez}, para ver qual está quebrada. O mesmo vale para o código! Se você tem um erro, é mais fácil de encontrar quando cada função é simples e fácil de testar, e as únicas funções complexas serão construídas a partir das funções simples. Neste exemplo, você pode testar a @code{esquerda-salvo?} e @code{direita-salvo?} de forma independente, antes de colocar elas para trabalharem juntas na @code{esta-na-tela?}.}
                        @teacher{}
                        }
-                @point{@student{Another reason to define multiple, simple functions is the fact that it lets programmers be lazy. Suppose you have a few characters in a videogame, all of which need to be kept on the screen.  Some of them might only need @code{safe-left?}, others might only need @code{safe-right?}, and only a few might need @code{onscreen?}. What happens if the game suddenly needs to run on computers with differently-sized monitors, where the boundary is 1000 instead of 690? If you have simple and complex functions spread throughout your code, you'll need to change them all. If your complex functions just use the simpler ones, you'd only need to change them in one place!}
+                @point{@student{Outra razão de definir várias funções simples, é o fato de que permitem o programador ser preguiçoso. Suponha que você tem alguns personagens em um videogame, todos precisam ser mantidos na tela. Alguns podem precisar apenas de @code{esquerda-salvo?}, outros apenas de @code{direita-salvo?}, e alguns poucos podem precisar de @code{esta-na-tela?}. O que acontece se o jogo precisa ser executado em computadores com monitores de diferentes tamanhos,  onde o limite da tela é 1000 ao invés de 690? Se você tem funções simples e complexas espalhadas pelo código, terá que mudar todas elas. Se sua função complexa apenas usa as funções simples, você só precisará mudá-los em um só lugar!}
                        @teacher{}
                        }
-                @point{@student{Badly designed programs can work just fine, but they are hard to read, hard to test, and easy to screw up if things change. As you grow and develop as a programmer, you'll need to think beyond just "making code work". It's not good enough if it just works - as artists, we should care about whether or not code is @italic{well designed}, too. This is what functions allow us to do! Everyone from programmers to mathematicians uses functions to carve up complex problems into simpler pieces, which make it possible to design elegant solutions to difficult problems.
+                @point{@student{Programas mau projetados podem funcionar bem, mas são difíceis de ler, difícil de testar, e estragam fácil se as coisas mudam. A medida que você crescer e se desenvolver como programador, você precisará pensar além de "fazer o código funcionar". Não é bom o suficiente se apenas funciona - como os artistas, devemos nos atentar se o código é @italic{bem projetado} também. Isso é o que as funções nos permitem fazer! Todos desde programadores a matemáticos usam funções para dividir problemas complexos em partes mais simples, o que torna possível projetar soluções elegantes para problemas difíceis.
                                 @activity{Can you list three reasons why it's good to have several simple functions, rather than a single complex one?}}
                        @teacher{}
                        }
