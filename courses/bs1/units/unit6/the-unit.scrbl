@@ -28,7 +28,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@item{@student{Quais tipos você viu até agora? Você pode pensar em valores do tipo @code{Número}? Do tipo @code{String}? Do tipo @code{Figura}?
+        @points[@item{@student{Quais tipos de dados você viu até agora? Você pode pensar em valores do tipo @code{Número}? Do tipo @code{String}? Do tipo @code{Figura}?
                                Quais são algumas expressões que produzem um @code{Número}? E quanto aos outros tipos de dados?}
                        @teacher{Antes de apresentar um novo tipo dado (Booleano), esta pode ser uma boa hora para revisar rapidamente os três principais
                                 cenários onde vocês aprenderam a trabalhar com expressões: Círculos de Avaliação, Assinatura e Receita de Projeto.
@@ -80,7 +80,7 @@ usa uma nova função que @italic{compara Números}, retornando
                                          @item{@math{-13 \gt 5}}
                                          @item{@math{40-1 \lt 90*2}}
                                          @item{@math{0 = -5 + 10}}]}}
-                        @teacher{Give students plenty of practice here! You can see a video demonstration of this intro at @(video-link (hyperlink "http://www.youtube.com/watch?v=X7gAXxpBhUo" "Video Lesson: Intro to Booleans"))}
+                        @teacher{Dê aos alunos muita prática aqui! Você pode ver um video de demonstração de Introdução em @(video-link (hyperlink "http://www.youtube.com/watch?v=X7gAXxpBhUo" "Video Aula: Intro to Booleans/Introdução a Booleanos"))}
                         }
                  @point{@student{Existem muitas outras funções que produzem Booleanos. Aqui está uma que pode ser usada para comparar duas @vocab{Strings}: @code[#:multi-line #t]{(string=? "apples" "oranges")}
                                  @activity[#:forevidence (list "BS-PL.2&1&1" "BS-PL.2&1&3")]{Certifique-se de escrever a @vocab{Assinatura} completa destas quatro funções Booleanas.}}
@@ -121,7 +121,7 @@ usa uma nova função que @italic{compara Números}, retornando
                                                   @itemlist[@item{Descubra o quão longe Sam pode ir pela direita ainda aparecendo na tela.}
                                                              @item{Preencha o código do segundo problema.}
                                                              @item{Converta as duas expressões em Círculos de Avaliação, usando os círculos vazios na parte de baixo da página.}]}}
-                         @teacher{Pay close attention to the corner-cases: is Sam on the screen at 690? What about 680?}
+                         @teacher{Preste muita atenção nos casos de canto: Sam aparece na tela em 690? E em 680?}
                          }
                  @point{@student{Infelizmente, até agora não existe nada que impeça que Sam saia do quintal! Olhando para o código encontramos três definições de funções:
                                   @itemlist[@item{@code{esquerda-salvo?}, que recebe a coordenada-x de Sam e verifica se Sam está segura do lado esquerdo da tela. Neste momento a função sempre retornará @code{true}.}
@@ -278,18 +278,18 @@ usa uma nova função que @italic{compara Números}, retornando
                        @teacher{}
                        }
                 @point{@student{Programas mau projetados podem funcionar bem, mas são difíceis de ler, difícil de testar, e estragam fácil se as coisas mudam. A medida que você crescer e se desenvolver como programador, você precisará pensar além de "fazer o código funcionar". Não é bom o suficiente se apenas funciona - como os artistas, devemos nos atentar se o código é @italic{bem projetado} também. Isso é o que as funções nos permitem fazer! Todos desde programadores a matemáticos usam funções para dividir problemas complexos em partes mais simples, o que torna possível projetar soluções elegantes para problemas difíceis.
-                                @activity{Can you list three reasons why it's good to have several simple functions, rather than a single complex one?}}
+                                @activity{Você pode listar três outros motivos para ter várias funções simples, ao invés de ter uma única função complexa?}}
                        @teacher{}
                        }
-                @point{@student{The boundary-detection code you wrote (through @code{safe-left?} and @code{safe-right?}) is very useful for videogames. It can be used to stop a character from traveling through a wall, or to regenerate the character once it has left the screen. @activity{Open your game file, and scroll down past the @code{update-} functions until you see the definitions for @code{safe-left?}, @code{safe-right?} and @code{onscreen?}.  Right now, they all return true. Since your gamescreen has the same dimensions as Sam's yard (640x480), you can use the same code for each of these three functions! Make sure you include EXAMPLEs, so that your game code can test each function separately.}}
+                @point{@student{O cídgo de detecção de limites que você escreveu (através de @code{esquerda-salvo?} e @code{direita-salvo?}) é muito usado em videogames. Ele pode ser usado para parar um personagem que iria atravessar uma parede, ou recolocar um personagem na tela quando ele saísse dos limites. @activity{Abra o arquivo do jogo, e role para baixo passando pelas funções @code{update-} até ver as definições de @code{esquerda-salvo?}, @code{direita-salvo?} e @code{esta-na-tela?}. Agora todas elas retornam verdadeiro, desde que sua tela de jogo tenha as mesmas dimensões do quintal de Sam(640x480), você pode usar o mesmo código para cada uma das trẽs funções! Certifique-se de incluir Exemplos, para que seu código possa ser testado separadamente.}}
                        @teacher{}
                        }
                 ]}
                   
 
 @lesson/studteach[
-     #:title "Closing"
-     #:duration "5 minutes"
+     #:title "Encerramento"
+     #:duration "5 minutos"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -304,6 +304,6 @@ usa uma nova função que @italic{compara Números}, retornando
                 )
       ]{
         @points[
-           @point{@student{You've learned how to use Booleans to constrain where elements can move in a game.  In the next unit, we'll discuss how to use Booleans to move game elements based on which keys users press while playing your game.}
+           @point{@student{Você aprendeu como usar Booleanos para delimitar onde os elementos do jogo podem se mover. Na próxima aula, vamos ver como usar Booleanos para movimentar elementos do jogo quando o usuário pressionar teclas de movimento.}
                   @teacher{}}]}
 }
