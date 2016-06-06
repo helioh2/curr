@@ -95,7 +95,7 @@
                 )
      ]{
        @points[@point{@student{Antigas civilizações tiveram o mesmo problema: eles também trabalharam para encontrar a distância entre pontos em duas dimensões! Vamos trabalhar com uma maneira de pensar sobre este problema: Qual expressão calcula o comprimento da hipotenusa em um triângulo-retângulo?}
-                       @teacher{Este exercício é melhor feito em pequenos grupos (2-3 pessoas). Passe os materiais do Teorema de Pitágoras [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] para cada grupo, e peça para que separem do material:@itemlist[@item{Um grande quadrado branco, com um quadrado menor desenhado dentro}@item{Quatro triângulos cinza, todos do mesmo tamanho}] Se possivel mostro o @(resource-link #:path "images/pythag1.png" #:label "video") aos alunos}
+                       @teacher{Este exercício é melhor feito em pequenos grupos (2-3 pessoas). Passe os materiais do Teorema de Pitágoras [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] para cada grupo, e peça para que separem do material:@itemlist[@item{Um grande quadrado branco, com um quadrado menor desenhado dentro}@item{Quatro triângulos cinza, todos do mesmo tamanho}]}
                        }
                 @point{@student{@bitmap{images/csquared.png}Para qualquer triângulo-retângulo, é possível desenhar uma figura onde a hipotenusa é usada por todos os quatro lados de um quadrado. No diagrama mostrado ao lado, o quadrado branco está rodeado por quatro cinzas, triângulos-retângulos idênticos, com lados A e B. O quadrado por sua vez tem quatro lados idênticos chamados de C, que são as hipotenusas para os triângulos. Se a area do quadrado é encontrada usando @math{lado * lado}, então a area do espaço em branco é @math{C^{2}}.}
                        @teacher{Peça aos alunos para colocar os triângulos cinza sobre o papel branco, para combinar com o diagrama.}
@@ -117,15 +117,15 @@
                                já está parcialmente feito, mas você terá que terminá-lo por si mesmo. Assim que estiver pronto, converta o círculo 
                                em código na parte de baixo da página.}
                         @teacher{Relembre os alunos que A e B são as distâncias horizontal e vertical, que são calculadas usando @code{tamanho-linha.}
-                        }
+                        }}
                 @point{@student{O código na página 27 ira calcular com precisão a distância entre dois objetos cujos centros estão nos pontos  em (0,0) e (4,3). Mas e os outros pontos? Seria bom ter uma função que calcula a distância para @italic{qualquer} conjunto de pontos.
                                 @activity[#:forevidence (list "BS-DR.3&1&1" "BS-PL.4&1&1" "8.G.6-8&1&3" "8.F.1-3&1&1" "8.F.1-3&1&3")]{
                                    Vá para @worksheet-link[#:page 28 #:name "distance"] em sua apostila, e use a Receita de Projeto para escrever sua função @code{distancia}. 
                                    Sinta-se livre para usar o material da página anterior como seu primeiro exemplo, e então chegar a uma nova, feita por você mesmo.}}
-                        @teacher{AVISO: verifique se os alunos estão passando as coordenadas corretas para @code{tamanho-linha}" Muitos alunos por engano passam o par @code{px} e @code{py} 
+                        @teacher{AVISO: verifique se os alunos estão passando as coordenadas corretas para @code{tamanho-linha}! Muitos alunos por engano passam o par @code{px} e @code{py} 
                                  juntos, ao invés de emparelhar as coodenadas-x. Verifique o trabalho dos alunos com cuidado!}
                         }
-                ]}
+                ]}]
 
 @lesson/studteach[
      #:title "colisao?" 
@@ -167,8 +167,7 @@
                        @teacher{Nós estamos sendo intencionalmente vagos sobre unidades de medida aqui. As unidade estão em pixels, que é uma noção de distância em uma tela de computador. Se você quer explicar pixels para seus alunos, pode começar a falar em termos como "50 pixels". Caso contrário, pode volta à usar a linha numérica se você quer explicar unidades de distância. @(new-paragraph) Se você quer que seus alunos calculem a distãncia de maneira limiar(graficamente), você pode usar as funções @code{image-height} e @code{image-width}, que recebe uma imagem e retorna um número. O número retornado é o comprimento máximo da imagem correspondente(diâmetro de um círculo, largura ou altura de um retângulo ou uma imagem bitmap/url). Você pode ter alunos a desenvolver código e experimentar com expressões como @math{(widthA + widthB)/2} para calcular a distância horizontal entre os centros de dois objetos(onde @math{widthA} representa a largura do primeiro objeto, etc). Este é um significante exercício computacional em si, que poderia servir de base para exercícios extra-classe ou lição da casa extendida.}
                        }
                 @point{@student{@activity[#:forevidence (list "8.F.1-3&1&1" "8.F.1-3&1&3")]{Vá para @worksheet-link[#:page 29 #:name "collide?"] em sua apostila,e use a Receita de Projeto para escrever uma função que produz @code{true} se a distância entre duas coordenadas for menor que 50. DICA: Você deve usar sua função @code{distancia}!}
-                                @activity{Coloque a definição de sua função @code{colisao?} no seu arquivo do jogo. Jogue, e faça seu personagem colidir com o perigo. Seu jogo agora faz algo diferente que ele não fazia antes de você escrever @code{colisao?}?
-                                    Enter your @code{collide?} function definition into your game ollide with the danger.  Does your game now do something different than it did before you wrote @code{collide?}?}
+                                @activity{Coloque a definição de sua função @code{colisao?} no seu arquivo do jogo. Jogue, e faça seu personagem colidir com o perigo. Seu jogo agora faz algo diferente que ele não fazia antes de você escrever @code{colisao?}?}
                       }
                         @teacher{}}
                 ]}
@@ -202,9 +201,10 @@
                                                      @item{Será que cada função tem pelo menos dois exemplos?}
                                                      @item{Quando você clicar em "Run", todos os seus Exemplos irão passar no teste?}
                                                      ]}
-                                
+                                }
                         @teacher{@management{@itemlist[@item{Peça aos alunos o que eles aprenderam nesta lição}
                                                        @item{Comportamentos que você valoriza: trabalho em equipe, fazendo anotações, engajamento, etc}
                                                        @item{Pass out exit slips, dismiss, clean up.}]}}
                         }
-}
+                        ]}
+ }
