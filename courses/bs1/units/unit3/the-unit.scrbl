@@ -1,17 +1,17 @@
 #lang curr/lib
 @declare-tags[management]
 
-@title{Unit 3: Introduction to Definitions}
+@title{Unidade 3: Iniciando com Definições}
 
 @unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt})
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
-  @unit-descr{Students are introduced to the Definitions window, and learn the syntax for defining values of various types.  They are also introduced to the syntax of defining functions and creating examples.}
+  @unit-descr{Alunos são apresentados à Janela de Definições, e aprendem a sintaxe de definir valores de vários tipos. Eles também são iniciados a sintaxe de definição de funções e criam exemplos.}
 }
 @unit-lessons{
 @lesson/studteach[
-     #:title "Review"
-     #:duration "5 minutes"
+     #:title "Revisão"
+     #:duration "5 minutos"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -27,25 +27,25 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{So far, you've seen the Circles of Evaluation, learned about Contracts and experimented with multiple
-                                datatypes. Make sure you remember what each of those are, and look back at previous lessons for a refresher 
-                                if you need.
+        @points[@point{@student{Até agora, você viu Círculos de Avaliação, aprendeu sobre Assinaturas e experimentou com vários 
+                                tipos de dados. Certifique-se de lembrar o que cada um desses é, e olhe nas lições anteriores se 
+                                você precisar.
                                 @activity[#:forevidence (list "BS-PL.2&1&1" "6.NS.5-8&1&2")]{
-                                     Can you think of three functions that draw shapes? See if you can write their contracts without
-                                     needing to look back at your Contracts page. What type of data is always surrounded in quotes?
-                                     What are the coordinates for the bottom left-hand corner of the screen? What about the top-right?
+                                     Você pode pensar em três funções que desenham formas? Veja se você pode escrever suas Assinaturas sem 
+                                     precisar olhar novamente na página de Assinaturas. Qual tipo de dado é sempre cercado por aspas? 
+                                     Quais são as coordenadas do canto inferior esquerdo da tela? E da parte superior direita? 
                                      }
                                 }
-                        @teacher{@management{Review Circles of Evaluation, paying special attention to @vocab{types} and @vocab{contracts}. 
-                                            Make sure that students are comfortable hearing - and using - the proper terminology to describe code.}}
+                        @teacher{@management{Revise Círculos de Avaliação, dando atenção especial para @vocab{tipos} e @vocab{assinaturas}. 
+                                            Certifique-se que os alunos estão confortáveis ouvindo - e usando - os termos apropriados para descrever o código.}}
                         }
                  ]}
 
        
 @lesson/studteach[
-     #:title "Defining Variables"
-     #:duration "10 minutes"
-     #:overview "Students define names for simple values (Numbers, Strings and Images) and use them in expressions."
+     #:title "Definindo Variáveis"
+     #:duration "10 minutos"
+     #:overview "Alunos definem nomes para valores simples (Números, Strings e Figuras) e usam eles em expressões"
      #:learning-objectives @itemlist[]
      #:evidence-statements  @itemlist[@item{Students will be able to define names for Number, String and Image values.}
                                        @item{Students will be able to identify the name, domain, range, and variable name for a function, when presented with a completed Design Recipe.}
@@ -64,71 +64,71 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Suppose we want to make an image that had fifty identical, solid red triangles. You would have to write 
-                                @code{(triangle 50 "solid" "red")} fifty times! To make matters worse, any change to those triangles would 
-                                have to be repeated for all fifty expressions! Good programmers know that their effort is better spent 
-                                elsewhere, so they made sure that programming languages have a way to avoid all that repetition.  
-                                They write something once, define it as a shortcut in the language, and then use the shortcut wherever they want.}
+  @points[@point{@student{Suponde que queremos fazer uma imagem que tem 50 triângulos, sólidos e idênticos. Você teria que escrever 
+                                @code{(triangle 50 "solid" "red")} cinquenta vezes! Para piorar a situação, qualquer alteração a esses triãngulos 
+                                teria que ser repetida a todos as cinquenta expressões! Bons programadores sabem que seu esforço é melhor gasto em 
+                                outro lugar, então eles fizeram com que as linguagens de programação evitassem toda essa repetição. 
+                                Eles escrevem algo uma vez, e definem um atalho na linguagem, e então usam esse atalho onde quiserem.}
                        @teacher{}}
-                @point{@student{We name values in our language using @vocab{define} statements.  Let's look at 
+                @point{@student{Nós nomeamos valores em nossa linguagem usando a declaração @vocab{define}. Vamos ver 
                                @editor-link[#:definitions-text "(define shape1 (triangle 50 \"solid\" \"red\"))\n"
                                                                #:interactions-text ""
-                                                               "an example of a definition"]
-                               , that defines @code{shape1} to be a solid red triangle. When you click "Run", you can evaluate @code{shape1}
-                               in the Interactions window and the computer will show you the triangle. What do you think would happen if you
-                               evaluated @code{shape1} @italic{without} clicking "Run"?
+                                                               "um exemplo de uma definição"]
+                               , que define @code{shape1} para ser um triângulo sólido vermelho. Quando você clicar em "Run", você pode digitar @code{shape1} 
+                               na Janela de Iterações e o computador mostrará a você um triângulo vermelho. O que você pensa que aconteceria se você 
+                               digitasse @code{shape1} @italic{sem clicar} em "Run"?
                                }
-                        @teacher{Make sure students see what happens when @code{shape1} is evaluated without first clicking "Run", so they
-                                 can read and understand the error. Similarly, have them change the definition and evaluate @code{shape1}
-                                 again - still without clicking "Run". It's important for them to understand that running a program
-                                 causes the computer to @italic{read the definitions}, and that any change requires it to re-read them.
+                        @teacher{Certifique-se que os alunos vejam o que acontece quando @code{shape1} é executada sem clicar primeiro em "Run", para que 
+                                 eles possam ler e entender o erro. Da mesma forma, peça para modificarem a definição e calcular @code{shape1} 
+                                 novamente - ainda sem clicar em "Run". É importante para eles entenderem que executar um programa 
+                                 faz com que o computador @italic{leia as definições}, e que qualquer mudança precisar abriga a ser lidos novamente.
                                  }
                         }
-                @point{@student{Definitions go in the upper window in your editor (the one above the 
-                               Interactions Window); this upper window is called the @vocab{Definitions Window}.        
+                @point{@student{Definições vão na parte esquerda da tela(ao lado da Janela 
+                               de Iterações); que é chamada de @vocab{Janela de Definições}.        
                                @activity[#:forevidence (list "BS-PL.3&1&1")]{
-                                     @itemlist[@item{Enter the @code{shape1} definition into the @vocab{Definitions Window}.}
-                                                @item{Click "Run" to have the computer read that definition.}
-                                                @item{What do you think will happen when you evaluate @code{shape1} in the Interactions window?}
-                                                @item{Add a new line to the definitions window, just below the definition of @code{shape1}. Add a new 
-                                                      definition called @code{shape2}, and define it to be a solid, blue circle of radius 20.}
-                                                @item{Click "Run", and try evaluating @code{shape2.}}
-                                                @item{On the next line, define a new value called @code{age} to be the number of years old that you are.}
-                                                @item{On the next line, define a new value called @code{name} to be the String that represents your name.}]
+                                     @itemlist[@item{Digite a definição de @code{shape1} na @vocab{Janela de Definições}.}
+                                                @item{Clique "Run" para que o computador leia a definição.}
+                                                @item{O que você pensa que vai acontecer quando você digita @code{shape1} na Janela de Iterações?}
+                                                @item{Adicione uma nova linha na janela de definições, logo abaixo da definição de @code{shape1}. Adicione uma nova 
+                                                      definição chamada @code{shape2}, e defina para ser um círculo sólido azul, de tamanho de raio 20.}
+                                                @item{Clique "Run", e tente calcular @code{shape2}.}
+                                                @item{Na próxima linha, defina um novo valor chamado @code{idade} para ser o quantos anos você tem.}
+                                                @item{Na próxima linha, defina um novo valor chamado @code{nome} para ser uma String que representa seu nome.}]
                                       }
                                
-                          @bannerline{Each time "Run" is clicked, the computer reads all of the definitions and adds them to the language. If a 
-                                      definition is changed, the computer will keep using the previous definition until the next time "Run" is clicked.}
+                          @bannerline{Cada vez que "Run" é clicado, o computador lê todas as definições e às adiciona a linguagem. Se uma 
+                                      definição é modificada, o computador continuará usando a definição anterior até que "Run" seja clicado e leia no novo valor.}
                           }
                         @teacher{}
                         }
                 @point{@student{@activity[#:forevidence (list "BS-PL.3&1&1" "BS-IDE&1&2")]{
-                                    One a new line in the Definitions Window, define a value called @code{eye-color} to be the color of your eyes.  
-                                    Don't hit "Run" yet!  
-                                    @itemlist[@item{Go into the Interactions Window and try evaluating @code{eye-color}.  You should get an error 
-                                                    message that the computer doesn't know about @code{eye-color}, because you didn't click "Run" 
-                                                    after adding the definition.}
-                                              @item{Click "Run".}
-                                              @item{Try asking for @code{eye-color} in the Interactions Window again.  This time, you should not get the error.}]}
-                                 Definitions are useful because we can reuse them in other expressions.  For example, we could use @code{eye-color} 
-                                 inside another expression, such as @code{(circle 10 "solid" eye-color)}.  Let's practice using definitions inside other expressions.
+                                    Uma nova linha na Janela de Definições, defina um valor chamado @code{cor-dos-olhos} para ser a cor dos seus olhos.
+                                    Não clique "Run" ainda! 
+                                    @itemlist[@item{Vá para a Janela de Iterações e tente calcular @code{cor-dos-olhos}. Você deve receber uma mensagem de
+                                                    erro que o computador não sabe sobre @code{cor-dos-olhos}, porque você não clicou em "Run" 
+                                                    depois de adicionar a definição.}
+                                              @item{Clique em "Run".}
+                                              @item{Digite @code{cor-dos-olhos} novamente na janela de Iterações. Desta vez você não deve receber uma mensagem de erro.}]}
+                                 Definiçẽs são úteis porque podemos reutilizá-las em outras expressões. Por exemplo, podemos usar @code{cor-dos-olhos} 
+                                 dentro de outra expressão, como em @code{(circle 10 "solid" cor-dos-olhos)}. Vamos praticar usando as definições dentro de outras expressões.
                                  }
                         @teacher{}
                         }
                 @point{@student{@activity[#:forevidence (list "BS-PL.3&1&1" "BS-IDE&1&1")]{
-                                    Create the following definitions in the Definitions Window, and check them out in the Interactions Window:
-                                    @itemlist[@item{Define a value called @code{prize} to be a solid yellow star (you pick the size).}
-                                              @item{Define a value called @code{big} that uses @code{scale} to make your @code{prize} three times larger.}
-                                              @item{Define a value called @code{tilt} that uses @code{rotate} to turn your big yellow star by @code{45} degrees.}
-                                              @item{Type @code{tilt} in the Interactions Window, and make sure you get a large, tilted, yellow star.}
-                                              @item{It turns out that green stars are more popular as prizes than yellow stars.  Change the expression in your @code{prize} definition to make the star green instead of yellow.  Click "Run" so the computer will read your new definition.}
-                                              @item{Now type @code{tilt} in the Interactions Window again.  What color star did you get?  If you defined each of @code{big} and @code{tilt} to use your definitions, you should get a tilted green star!  If you didn't get a green star, try to fix your definitions to make that happen.}
+                                    Crie as definições a seguir na Janela de Definições, e verifique-as na Janela de Iterações: 
+                                    @itemlist[@item{Defina um valor chamado @code{premio} para ser uma estrela sólida amarela (você pode escolher o tamanho).}
+                                              @item{Defina uma valor chamado @code{grande} que usa @code{scale} para fazer seu @code{premio} três vezes maior.}
+                                              @item{Defina uma valor chamado @code{girar} que usa @code{rotate} para girar sua grande estrela amarela por @code{45} graus.}
+                                              @item{Digite @code{girar} na Janela de Iterações, e certifique-se de obter uma grande e inclinada estrela amarela.}
+                                              @item{Acontece que as estrelas verdes são mais populares em prêmios que as amarelas. Altere a definição de seu @code{premio} para fazer a estrela verde ao invés da amarela. Clique "Run" para que o computador leia sua nova definição.}
+                                              @item{Agora digite @code{girar} na janela de Iterações novamente. De que cor a estrela apareceu? Se você definiu as expressões @code{grande} e @code{girar} para usar suas definições, você deve conseguir uma estrela verde inclinada! Se você não conseguiu uma estrela verde, tente consertar suas definições para fazer isso acontecer.}
                                              ]
                                    }
                           }
-                        @teacher{It is important to give students ample time to experiment with @code{define}.  Students need to understand that they can use 
-                                 the defined name in place of the value.  Have them define several values (each of different types), and then practice using 
-                                 them inside other expressions.}
+                        @teacher{É importante dar as alunos tempo suficiente para experimentar o @code{define}. Eles precisam entender que e podem usar 
+                                 os nomes definidos no lugar dos valores. Peça a eles definirem vários valores (cada um de um tipo), e então pratique usando-os 
+                                 dentro de outras expressões.}
                         }
                  ]
 }
