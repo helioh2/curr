@@ -134,8 +134,8 @@
 }
        
 @lesson/studteach[
-     #:title "Defining Variables (Algebra)"
-     #:duration "10 minutes"
+     #:title "Definindo Variáveis (Algebra)"
+     #:duration "10 minutos"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -151,37 +151,38 @@
                 )
       ]{
         @points[
-             @point{@student{In our programming language, variables are defined by: 
+             @point{@student{Em nossa linguagem de programação, variáveis são definidas assim: 
                              @bannerline{@code[#:multi-line #t]{(define x 4)
                                                                 (define y (+ 4 9))
                                                                 (define z (* x 2))}}
-                             Values can be fixed (like the first example), the result of an expression (the second), or even be defined in terms of other 
-                             variables (the third). We can do the same things in algebra:
+                             
+                             Valores podem ser fixos(como no primeiro exemplo), ou o resultado de uma expressão(o segundo), ou ainda ser definidas em termos de 
+                             de outras variáveis(o terceiro). Nós podemois fazer as mesmas coisas em álgebra:
                              @bannerline{@math{x = 4}
                                           @math{y = 4+9}
                                           @math{z = x \times 2}}
-                             @activity[#:forevidence (list "7.EE.3-4&1&4" "A-SSE.1-2&1&1")]{Convert the following three Algebra definitions into Racket definitions:
-                                       @itemlist[@item{@math{dollars = 16.50}}
-                                                 @item{@math{feet = 2 \times 3}}
-                                                  @item{@math{inches = feet \times 12}}]
+                             @activity[#:forevidence (list "7.EE.3-4&1&4" "A-SSE.1-2&1&1")]{Convera as próximas três definições de Álgebra para definições no Racket:
+                                       @itemlist[@item{@math{dólares = 16.50}}
+                                                 @item{@math{pés = 2 \times 3}}
+                                                  @item{@math{polegadas = pés \times 12}}]
                                        }}
-                     @teacher{For this activity write all Racket expressions on one side of the board, and all algebra expressions on the other.
-                              You'll want to line them up as closely as possible, to reinforce the connection between the two languages.}
+                     @teacher{Para esta atividade escreva todas as expressões em Racket em um lado do quadro, e todas de álgebra do outro.
+                              Tente deixar as definições de uma maneira próxima uma da outra, para reforçar a ligação entre as duas linguagens.}
                      }
-            @point{@student{@activity{Turn to @worksheet-link[#:page 35 #:name "Translating-to-Algebra"] page 35 in your workbooks. 
-                                      You will see a bunch of value definitions written in code - take 2 minutes to convert this into math. GO!}}
+            @point{@student{@activity{Vá para @worksheet-link[#:page 35 #:name "Translating-to-Algebra"] página 35 em sua apostila. 
+                                      Você verá um monte de valores definidos em código - você tem 2 minutos para converter isso em matemática. VAI!}}
                     @teacher{}
                     }]
          }
      
 @lesson/studteach[
-     #:title "Game Images"
-     #:duration "30 minutes"
-     #:overview "Students define values in their videogames"
+     #:title "Imagens do Jogo"
+     #:duration "30 minutos"
+     #:overview "Os alunos definem valores em seu jogo"
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students will name their videogame project}
-                                  @item{Students will modify the definitions for @code{TITLE, TITLE-COLOR, BACKGROUND, PLAYER, TARGET} and @code{DANGER}}]
+     #:product-outcomes @itemlist[@item{Alunos dão nome aos seus projetos de Jogo}
+                                  @item{Alunos modificarão as definições para @code{TITULO, TITULO-COR, CENARIO, JOGADOR, ALVO} e @code{PERIGO}}]
      #:standards (list "BS-PL.3")
      #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
      #:preparation @itemlist[@item{Create student game files. [See the (teachers-only) @resource-link[#:path "teachers/teachers-guide/teachers-guide.html" #:label "Teachers Guide"]]}
@@ -193,71 +194,71 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{Open the videogame file (Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"]
-                                          or @editor-link[#:public-id "Q1X9Y8ZayX" "the online template"] so that you can see the code,
-                                          and click "Run". (You may need to wait a few seconds for the images to load!) The window that
-                                          appears is a running videogame, but you probably notice that nothing is moving - even if you 
-                                          hit the "up" or "down" arrows! For now, click the "close" button to return to the code.}
-                                 This file contains a list of definitions, where you will get to define how your game characters look, move, and interact. As you scroll down to the bottom, you'll see a bunch of 
-                                 dummy definitions that have been filled in for you. It is up to @italic{you} to come up with definitions for your own game!
-                                 @activity{Scroll to the very bottom of the screen, reading each of the things you will have to define. Stop when you get to the very bottom, where you see 
-                                           @code{(make_game...)} used as part of a definition. What do you notice about the values passed into @code{make_game}?}
-                                 @code{make_game} is a function that has been provided for you, which takes all of your definitions and assembles them into a running game. Behind the scenes, @code{make_game}
-                                 inserts your definitions inside a giant function that is called every tenth of a second, and uses your definitions to decide what is happening at that moment.}
-                        @teacher{You can remind students that Bootstrap:2 will show them how to write this function, and customize it to create more advanced games (multiplayer, maze, etc).}
+        @points[@point{@student{@activity{Abra os arquivos do jogo(Game.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"]
+                                          ou @editor-link[#:public-id "Q1X9Y8ZayX" "o modelo online"] de modo que você pode ver o código,
+                                          e clique "Run". (Talvez vocẽ precise esperar alguns segundo para carregar as imagens!) A janela que 
+                                          surgiu está executando o jogo, mas você provavelmente ja percebeu que nada se move - mesmo se você 
+                                          apertar as setas "para cima" ou "para baixo". Por enquanto, clique no botão "fechar" e volte para o código.}
+                                 Este arquivo contém uma lista de definição, onde você você vai começar a definir como seus personagens se parece, movem, e interagem. Descendo o código, você verá um monte de
+                                 definições falsas que foram preeenchidas. E é aqui que @italic{você} colocará as definições do seu próprio jogo!
+                                 @activity{Role para a parte inferior da tela, lendo cada uma das coisas que vocẽ terá que definir. Pare quando chegar ao fim, onde você vê 
+                                           @code{(make_game...)} usado como parte de uma definição. O que você percebe sobre os valores passados para @code{make_game}?}
+                                 @code{make_game} é uma função que foi dada a você, ela recebe todas as suas definições e às monta na execução do jogo. Por trás de tudo isso, @code{make_game} 
+                                 insere suas definições dentro de uma função gigante que é chamada a cada décimo de segundo, e usa suas definições para decidir o que está acontecendo naquele momento.}
+                        @teacher{Você pode lembrar eles que Bootstrap:2 irá mostrar-lhes como escrever esta função, e personalizá-la para criar jogos mais avançados (multiplayer, labirinto, etc).}
                         }
-                 @point{@student{In the Definitions window, you will see that this program defines several values: @code{TITLE}, for example, is defined to the be the String @code{"My Game"}.
-                                @activity[#:forevidence (list "BS-PL.3&1&1")]{@itemlist[@item{If you type @code{TITLE} into the Interactions window, what do you think it would evaluate to?}
-                                           @item{What other definitions do you see?}
-                                           @item{What are their values?}
-                                           @item{What are their types?}
-                                           @item{Try evaluating each of these values in the Interactions window, starting with @code{BACKGROUND}}]}
+                 @point{@student{Na janela de Definições, vocẽ verá que este programa define vários valores: @code{TITULO}, por exemplo, está definido para ser a String @code{"Meu Jogo"}.
+                                @activity[#:forevidence (list "BS-PL.3&1&1")]{@itemlist[@item{Se você digitar @code{TITULO} na janela de Iterações, o que você acha que o computador respondera?}
+                                           @item{Quais outras definições você pode ver?}
+                                           @item{Quais são seus valores?}
+                                           @item{Quais são seus tipos?}
+                                           @item{Tente calcular cada um desses valores na janela de Iterações, começando com @code{CENARIO}}]}
                                 }
-                        @teacher{@management{By now, you should have students' graphics already created, and 
-                                             @(hyperlink "../../resources/teachers/teachers-guide/teachers-guide.html#addingimages" "added to the file)").}
-                                  The purpose of this activity is to increase students' confidence in @italic{reading} and @italic{talking about} code. 
-                                  Make sure students get a lot of practice speaking aloud, both to each other and to the instructor.}
+                        @teacher{@management{Até agora, você deve ter gráficos criados e 
+                                             @(hyperlink "../../resources/teachers/teachers-guide/teachers-guide.html#addingimages" "adicionados ao arquivo)").}
+                                  O objetivos desta atividade é aumentar a confiança dos alunos na @italic{leitura} e na @italic{fala} sobre código. 
+                                  Certifique-se dos alunos terem bastante prática em falar alto(sobre código), entre si e com o intrutor.}
                         }
-                 @point{@student{If you don't like the definitions provided here, you can change them! You can modify the @code{TITLE} and @code{TITLE-COLOR} 
-                                    to change what is displayed at the top of your screen, and you can change the definitions for your game images as well: 
-                                    @(video-link (hyperlink "http://www.teachertube.com/viewVideo.php?video_id=288261" "Video: A screencast of this section - follow along to see how to change images in your game")).}
-                         @teacher{Images should be in PNG or GIF format. Background images should be 640x480, and character images should generally be 
-                                   no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds! 
-                                   TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these 
-                                   images usually have transparent backgrounds to begin with. For more instructions on setting up the game files and
-                                   images, read the @(hyperlink "../../resources/teachers/teachers-guide/teachers-guide.html#addingimages" "Coding Instructions") 
-                                   document.}
+                 @point{@student{Se você não gostou das definições fornecidas aqui, você pode mudá-las! Você pode modificar o @code{TITULO} e @code{TITULO-COR} 
+                                    para alterar o que é mostrado no topo da tela, e você pode mudar as definições para as imagens do seu jogo também: 
+                                    @(video-link (hyperlink "http://www.teachertube.com/viewVideo.php?video_id=288261" "Video: Um passo a passo desta parte - para ver como mudar imagens de seu jogo")).}
+                         @teacher{Imagens devem ser no formato PNG ou GIF. A imagem de fundo deve ser 640x480, e imagens de personagens geralmente 
+                                   não muito mais que 200x200px. Certifique-se que as imagens dos personagens tenham o fundo transparente! 
+                                   DICA:use GIFs animados para os personagens - não só a animação faz o jogo parecer bonito, mas essas 
+                                   imagens geralmente possuem fundos transparentes para começar. Para mais instruções sobre como configurar os arquivos do jogo e 
+                                   imagens, leia o @(hyperlink "../../resources/teachers/teachers-guide/teachers-guide.html#addingimages" "Guia do Professor") 
+                                   para este curso.}
                          }
-                 @point{@student{If you want to change one of your definitions so that the image is smaller or larger, you can use the @code{scale} function:
-                                  @code[#:multi-line #t]{; scale : Number Image -> Image}
-                                  This function resizes the @code{Image} based on the @code{Number}. For example, @code{(scale 10 (triangle 5 "solid" "green")} will make the that tiny triangle ten times as large, while @code{(scale 0.5 (rectangle 200 100 "outline" "purple"))} will shrink the rectangle by half.
-                                  @activity{Practice using @code{scale} to grow and shrink different images. If you would like to experiment with more functions, try using the contracts below:
-                                                           @code[#:multi-line #t]{; flip-vertical : Image -> Image
-                                                                                  ; flip-horizontal : Image -> Image
-                                                                                  ; rotate : Number Image -> Image}
+                 @point{@student{Se você quer mudar suas definições para que a imagem fique maior ou menos, você pode usar a função @code{scale}:
+                                  @code[#:multi-line #t]{; scale : Numero Figura -> Figura}
+                                  Esta função redimensiona a @code{Figura} com base no @code{Numero}. Por exemplo, @code{(scale 10 (triangle 5 "solid" "green"))} fará esse pequeno triângulo dez vezes maior, enquanto @code{(scale 0.5 (rectangle 200 100 "outline" "purple"))} vai diminuir o retângulo pela metade.
+                                  @activity{Pratiquee usando @code{scale} paa aumentar e diminuir diferentes figuras. Se você quizer experimentar com mais funções, tente usando as assinaturas abaixo:
+                                                           @code[#:multi-line #t]{; flip-vertical : Figura -> Figura
+                                                                                  ; flip-horizontal : Figura -> Figura
+                                                                                  ; rotate : Numero Figura -> Figura}
                                                               @editor-link[#:interactions-text "(scale 3 (star 50 \"solid\" \"red\"))"
-                                                                           "Try playing with this example"]
+                                                                           "Tente praticar com este exemplo"]
                                                            }
                                   }
-                         @teacher{If a student struggles here, you should fall back to the Circles of Evaluation and Contracts. For example: have the student first draw a circle for @code{rotate}, and have them use the Contract to figure out what the inputs are. When they get to the second input (the @code{image}), ask them what kind of shape they want to rotate. Whatever their answer is, have them look it up in their contracts page, and draw a Circle of Evaluation @italic{inside} the one they drew for @code{rotate}. Once the Circle of Evaluation is correct, have them convert it to code. Once they are confident, you can challenge them to apply another operation to the whole expression, perhaps flipping the rotated shape vertically.}
+                         @teacher{Se algum aluno encontrar dificuldade, retorne aos Círculos de Avaliação e Assianturas. Por exemplo, peça aos alunos primeiro desenha um Círculo de avaliação para @code{rotate}, e deixe eles usarem a Assinatura para demonstrar o que são as entradas. Quando ele chegar á segunda entrada(a @code{figura}), peça a eles que tipo de forma eles querem girar. Qualquer que tenha sido a resposta, deixe eles olharem na página de Assinaturas, e desenhe o Círculo de Avaliação @italic{dentro} do círculo do @code{rotate}. Depois que o círculo estiver correto, peça para converterem em código. Quando estiverem confiantes, você pode desafiá-los a aplicar outra operação para toda a expressão, talvez invertendo verticalmente a forma girada anterior.}
                          }
-                 @point{@student{Another definition in this program is @code{SCREENSHOT}. This expression uses the @code{put-image} function to layer one image on top of another, using coordinates to decide where to place each image. 
-                         @activity{Advertisements for videogames often have static pictures (called @italic{screenshots}) of the game in action, so people will know what it looks like to play. Change the coordinates used in the definition of @code{SCREENSHOT} so that you have a picture of your game. (Remember: the screen is 640 pixels wide, by 480 pixels tall!)}}
-                         @teacher{This can be a useful opportunity to review coordinates, especially for students who need the practice.}
+                 @point{@student{Outra definição do programa é o @code{CENARIO}. Esta expressão usa a função @code{put-image} para posicionar uma imagem sobre a outra, usando coordenadas para decidir o lugar de cada imagem. 
+                         @activity{Propagandas de jogos geralmente têm imagens estáticas(chamadas @italic{screeenshots}) do jogo em ação, para as pessoas poderem ver como é jogar ele. Altere as coordenadas usadas na definição de @code{CENARIO} para que você tenha uma imagem do seu jogo. (Lembre-se:a tela é 640 pixels-largura, por 480 pixels de altura!)}}
+                         @teacher{Esta pode ser uma boa oportunidade para rever coordenadas, especialmente para alunos que precisarem de prática.}
                         }
-                 @point{@student{Being able to define values in a programming language is a powerful tool, which allows programmers to simplify their code and make it both more readable and maintainable. }
+                 @point{@student{Ser capaz de deinir valores em uma linguagem de programação é uma ferramenta poderosa, que permite ao programador simplificar seu código e deixá-lo mais legível e fácil de fazer manutenção. }
                          @teacher{}
                          }
              ]
          }
        
 @lesson/studteach[
-     #:title "Defining Functions"
-     #:duration "20 minutes"
-     #:overview "Students are get a taste of the Design Recipe, but primarily they're introduced to the syntax for function definition."
-     #:learning-objectives @itemlist[@item{Students will be able to define very simple functions, given a simple word problem.}]
+     #:title "Definindo Funções"
+     #:duration "20 minutos"
+     #:overview "Os alunos vão sentir um gostinho da Receita de Projeto, mas principalmente são introduzidos a sintaxe de definição de funções."
+     #:learning-objectives @itemlist[@item{Alunos serão capazes de definir funções muito simples, para solucionar questões.}]
      #:evidence-statements @itemlist[]
-     #:product-outcomes @itemlist[@item{Students will define at least two functions, using the Design Recipe}]
+     #:product-outcomes @itemlist[@item{Alunos vão definir ao menos duas funções, usando a Receita de Projeto}]
 
      #:exercises (list (make-exercise-locator "Defining-Functions" "match-examples-functions1")
                        (make-exercise-locator "Defining-Functions" "create-contracts-examples1"))
@@ -271,43 +272,43 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
                  ]{
-                   @points[@point{@student{Defining a @vocab{value} is helpful when a program has lots of identical expressions. Sometimes, however, a program has expressions that aren't identical, but are just @italic{very similar}. A program that has fifty solid, green triangles can be simplified by defining a single value, @italic{as long as they are all the same size}. But what if a program has fifty green triangles of different sizes?}
+                   @points[@point{@student{A definição de um @vocab{valor} é muito útil quando o programa tem muitas expressões idênticas. Porém, as vezes, um programa tem expressões que não são idênticas, mas são apenas @italic{muito parecidas}. Um programas que tem 50 triângulos verdes sólidos pode ser simplificado pela definição de um valor simples, @italic{desde sejam do mesmo tamanho}. Mas e se um programas tem 50 triângulos verdes sólidos de tamanhos diferentes?}
                                    @teacher{}
                                    }
-                            @point{@student{Think about the Image functions you have already used, 
-				           like @code{star} and @code{circle}.  They take inputs and produce 
-					   images.  Similarly, we might want a green-triangle function that 
-					   takes the size as an input and produces a green triangle.  
-					   The programming language doesn't provide this function, 
-					   but it does let you define your own functions.  We want to define
-					   our own function (let's call it @code{gt}, for green triangle) that
-					   takes in a Number and produces a solid green triangle of whatever size we want.
-                                           @itemlist[@item{@code{(gt 10)} would be a shortcut for @code{(triangle 10 "solid" "green")}}
-                                                     @item{@code{(gt 20)} would be a shortcut for @code{(triangle 20 "solid" "green")}}
-                                                     @item{@code{(gt 1980)} would be a shortcut for @code{(triangle 1980 "solid" "green")}}
-                                                     @item{@code{(gt 98)} would be a shortcut for @code{(triangle 98 "solid" "green")}}
-                                                     @item{and so on...}]
-                                            Problems that require a function definition can be phrased as a word problem such as the following:
-                                            @bannerline{Define a function @code{gt}, which takes in a Number and produces a solid, green triangle of the given size.}
-                                            Luckily, we can follow specific steps to define functions from word problems.  Let's work through the steps to 
-                                            define @code{gt}.
+                            @point{@student{Pense sobre funções com Figuras que você já usou, 
+				           como @code{star} ou @code{circle}. Eles recebem entradas e produzem 
+					   figuras. Da mesma maneira, podemos querer uma função triangulo-verde que 
+					   recebe o Tamanho do triângulo como entrada, e produz um triângulo verde. 
+					   A linguagem de programação não fornece esta função, 
+					   mas nos permite definir nossas próprias funções. Nós queremos definir 
+					   nossa própria função (vamos chamá-la de @code{tv}, iniciais de triangulo verde) que 
+					   recebe como entrada um Número e produz um triângulo verde sólido do tamanho que nós queremos.
+                                           @itemlist[@item{@code{(tv 10)} será um atalho para @code{(triangle 10 "solid" "green")}}
+                                                     @item{@code{(tv 20)} será um atalho para @code{(triangle 20 "solid" "green")}}
+                                                     @item{@code{(tv 1980)} será um atalho para @code{(triangle 1980 "solid" "green")}}
+                                                     @item{@code{(tv 98)} será um atalho para @code{(triangle 98 "solid" "green")}}
+                                                     @item{e assim por diante...}]
+                                            Problemas que exigem uma definição podem ser formulados a partir de problemas como este abaixo:
+                                            @bannerline{Defina uma função @code{tv}, que recebe um Número e produz um triângulo verde sólido do tamanho dado como entrada.}
+                                            Felizmente, podemos seguir um passo a passo específico para definir funções de problemas escritos. Vamos trabalhar com etapas para 
+                                            definir @code{tv}.
                                             }
-                                    @teacher{To make this more concrete, have a student "act" as gt. To call the function, another student says "gt ten!" 
-                                             (calling out both the name of the function and the input). The actor responds "triangle ten solid green", 
-                                             to signify the work that the function does when it receives an input.}
+                                    @teacher{Para fazer isto mais concreto, peça a um aluno para "agir" como tv. Para chamar a função, outro aluno diz "tv dez!" 
+                                             (chamando o nome da função e a entrada). O "aluno-função" respode "triangulo dez solido verde", 
+                                             para representar o trabalho que a função faz quando recebe uma entrada.}
                                     }
-                            @point{@student{@bannerline{Step 1: Write the Contract}
-                                             The first step in defining a function is to write its @vocab{Contract}.  Contracts summarize three pieces 
-                                             of essential information about a function:
-                                              @itemlist[@item{The @vocab{Name} of the function: in this case, the name is given, as @code{gt}}
-                                                         @item{The @vocab{Domain} of a function, which is the types of data that the function expects: in this case, just a single Number.}
-                                                         @item{The @vocab{Range} of this function, which is the type of data that the function produces: in this case an Image since it produces solid, green triangles}]
-                                              Here's the @code{gt} Contract written as code.  The line starts with a semicolon, followed by the name, a colon, the Domain, an arrow, then the Range:
-                                              @code[#:multi-line ""]{; gt : Number -> Image}
-                                              Word problems give several clues as to the name, Domain, and Range of a function.  Be sure to read the problem carefully! Some word problems will describe functions that take multiple inputs in their Domain, or inputs of different types.
+                            @point{@student{@bannerline{Passo 1: Escreva a Assinatura}
+                                             O primeiro passo na definição de Funções é escrever sua @vocab{Assinatura}. Assinaturas resumem três partes 
+                                             essenciais de informação sobre a função:
+                                              @itemlist[@item{O @vocab{Nome} da função: neste caso, o nome dado é @code{tv}}
+                                                         @item{O @vocab{Domínio} de uma função, é o tipo de dados que a função espera receber: neste caso, apena um Número.}
+                                                         @item{A @vocab{Imagem} de uma função, é o tipo de dados que a função produz: neste caso uma Figura, pois é produzido triângulo verde sólido}]
+                                              Aqui a Assinatura de @code{tv} escrita em código. A linha começa com ponto-e-vírgula(;), seguida do nome, dois-pontos(:), o Domínio, uma seta(->), e a Imagem:
+                                              @code[#:multi-line ""]{; gt : Numero -> Figura}
+                                              Problemas dão várias pistas sobre o nome, Domínio, e Imagem de uma Função. Leia o problema com atenção! Alguns problemas descrevem funções que recebem mais de uma entrada em seu Domínio, ou entradas de tipos diferentes.
                                               @activity[#:forevidence (list "BS-DR.1&1&1")]{
-                                                              Open your workbook to @worksheet-link[#:name "Fast-Functions"], where it says 
-                                                              "fast functions", and write the Contract for the @code{gt} function.}}
+                                                              Abra sua apostila em @worksheet-link[#:name "Fast-Functions"], onde diz 
+                                                              "funções rápidas", e escreva a Assinatura para a função @code{tv}.}}
                                     @teacher{It is often a good idea to give students examples of different word problems, and have them pick out the 
                                              contract for each one. @(new-paragraph) Contracts are written as @italic{comments} in Racket: whenever Racket 
                                              sees a semicolon, it ignores the rest of the line after the semicolon.  This means that you will never get an 
