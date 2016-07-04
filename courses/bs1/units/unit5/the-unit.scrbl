@@ -1,28 +1,28 @@
 #lang curr/lib
 @declare-tags[management]
 
-@title{Unit 5: Game Animation}
+@title{Unidade 5: Animando o Jogo}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
+@unit-overview/auto[#:lang-table (list (list "Número" @code{+ - * / sq sqrt expt})
                                        (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
-@unit-descr{Students define functions that map attributes of their game from one frame to the next, allowing them to move their dangers, targets, and projectiles.}
+                                       (list "Figura"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
+@unit-descr{Estudantes definem funções que mapeiam atributos de seu jogo de um quadro para o outro, o que lhes permite mover seus perigos, alvos e projéteis.}
 }
 
 @unit-lessons{
 @lesson/studteach[
-     #:title "Bug Hunting"
-     #:duration "20 minutes"
+     #:title "Caça aos Bugs"
+     #:duration "20 minutos"
      #:overview ""
      #:learning-objectives @itemlist[@item{Gain more experience understanding and correcting programming errors}]
      #:evidence-statements @itemlist[@item{Students will be able to read error messages for basic syntax errors}
                                      @item{Students will be able to edit programs to eliminate basic syntax errors}]
      #:product-outcomes @itemlist[]
      #:standards (list "BS-PL.1" "BS-PL.2" "BS-PL.3" "BS-IDE")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, language table, course calendar)}
+     #:materials @itemlist[@item{Canetas/lápis para os alunos, giz/canetão para professores}
+                            @item{Cartazes da turma (Lista de Regras, language table, calendário do curso)}
                             @item{Language Table (see below)}
-                            @item{Bug Hunting [Bugs.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=lQUC6RJArG" "WeScheme")] file preloaded on students' machines, as the front-most window.}]
+                            @item{Caça aos Bugs [Bugs.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=HAu5aCVhFP" "WeScheme")] arquivo pré-carregado nas máquinas dos alunos.}]
      #:preparation @itemlist[]
      #:prerequisites (list "Defining Functions")
      #:pacings (list 
@@ -31,31 +31,31 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Debugging (finding and correcting problems in code) is an important part of programming, so it's a good idea to practice finding bugs in code. 
+        @points[@point{@student{Depuração (encontrar e corrigir problemas no código) é uma parte importante da programação, por isso é uma boa ideia a prática de encontrar bugs no código. 
                                 @activity[#:forevidence (list "BS-IDE&1&2" "BS-PL.1&1&2" "BS-PL.2&1&1" "BS-PL.2&1&2" "BS-PL.3&1&3")]{
-                                        Open the @editor-link[#:public-id "lQUC6RJArG" "Bug Hunting"] program in a new window, and see if you can find the 
-                                        bug in each expression. Click "Run" and read the error message carefully! After you fix each one, clicking 
-                                        Run will show you the error message for the next bug.}}
-                        @teacher{Make sure students understand that the goal is not to FIX the bugs, but rather just to find them.}
+                                        Abra o programa @editor-link[#:public-id "HAu5aCVhFP" "Caça aos Bugs"] em uma nova janela, e veja se você consegue encontrar 
+                                        o bug em cada expressão. Clique em "Run" e leia a mensagem de erro com atenção! Depois de consertar uma expressão, clique em 
+                                        Run e será mostrada a mensagem de erro para o próximo bug.}}
+                        @teacher{Certifique-se que os alunos entendam que o objetivo não é CORRIGIR os erros, mas apenas encontrá-los.}
                         }
                  ]}
 
 @lesson/studteach[
-     #:title "Danger and Target Movement"
-     #:duration "30 minutes"
-     #:overview "Students model animation in the coordinate plane, and write a simple linear function that animates their Danger."
-     #:learning-objectives @itemlist[@item{Students learn to move game elements through functions that compute attributes in one frame from attributes in the previous frame}]
-     #:evidence-statements @itemlist[@item{Students will be able to write functions that take in one dimension of a game element's coordinate and produce the next coordinate value in that dimension}
-                                     @item{Students will learn how to control speed of movement through functions}]
-     #:product-outcomes @itemlist[@item{Students will add danger movement to their games}
-                                  @item{Students will add target movement to their games}]
+     #:title "Movimento do Perigo e do Alvo"
+     #:duration "30 minutos"
+     #:overview "Alunos planejam a animação no plano cartesiano, e escrevem uma simples função linear que anima seu Perigo."
+     #:learning-objectives @itemlist[@item{Alunos aprendem a mover elementos do jogo através defunções que calculam atributos de um quadro com base no quadro anterior}]
+     #:evidence-statements @itemlist[@item{Alunos serão capazes de escrever funções que recebem o valor de uma coordenada de um elemento e produz o valor da próxima coordenada naquela dimensão}
+                                     @item{Alunos vão aprender como controlar a velocidade de movimento através de funções}]
+     #:product-outcomes @itemlist[@item{Os alunos vão adicionar movimentos ao perigo}
+                                  @item{Os alunos vão adicionar movimentos ao alvo}]
      #:standards (list "F-IF.1-3" "F-LE.5" "BS-DR.2" "BS-DR.3")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-                            @item{All student computers should have their game templates pre-loaded, with their image files linked in}
+     #:materials @itemlist[@item{Canetas/lápis para os alunos, e giz/canetão aos professores}
+                            @item{@(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "Apostila do Aluno")}
+                            @item{Todos os computadores dos alunos devem ter seu modelo de jogo pré-carregado, com seus arquivos de imagens}
                             @item{Class poster (List of rules, language table, course calendar)}
                             @item{Language Table (see below)}]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1i3WQ4Q58Wn6fhqxEz027KDcUHIewtk-wLPQzJalCFt0/edit?usp=sharing" "Warmup activity sheet").}]
+     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1VGSW8kmjFikwZhZzH9JOyddqBqgDl1vkVcPlbxEGCC4/edit?usp=sharing" "Atividade de Aquecimento").}]
      #:prerequisites (list "Game Images" "The Design Recipe")
      #:pacings (list 
                 @pacing[#:type "remediation"]{At this point, students should be very comfortable with the Design Recipe. If they are struggling, try reviewing the Contract with them first, then having a student act out the function. Ask that student what their name is, what they are expecting to be given, and what they will produce. Have them simulate a function call by calling out their name ("update-danger") and giving them an x-coordinate (they should produce a number that is 50 fewer than what they were given). Then refer back to this skit when writing Examples: the call-and-response is exactly how the code should behave, with students only having to write the code for whatever work your volunteer was doing in their head.}
@@ -63,50 +63,50 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@bitmap{images/AnimationDiagram.png}The dimensions of your videogame are 640x480, and each character is placed on the screen at a set of (x,y) coordinates. Your Target (T), Player (P) and Danger (D) each move along the x- or y-axis, having their x- or y-coordinate changed according to an animation function. These animation functions will start off simple: they take in the current x- or y-coordinate, and produce the next x- or y-coordinate. Later on you'll be able to adapt them to create more sophisticated motion, using @italic{both} the x- and y-coordinates.}
+        @points[@point{@student{@bitmap{images/AnimationDiagram.png}As dimensões do seu video game são 640x480, e cada personagem está localizado na tela com coordenadas(x, y). Seu Alvo(A), Jogador(J) e Perigo(P) se movem pelos eixos x e y, tendos suas coordenadas x ou y alteradas de acordo com a função de animação. Essas funções de animação começam bem simples: elas recebem a coordenada x ou y atual, e produzem a próxima coordenada x ou y. Mais tarde você será capaz de adaptá-las para criar movimentos mais sofisticados, usando @italic{ambas} coordenadas x e y na mesma função.}
                         @teacher{}
                         }
                  @point{@student{@activity[#:forevidence (list "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "F-LE.5&1&1" "7.EE.3-4&1&4" "F-IF.1-3&1&4")]{
-                                           Turn to @worksheet-link[#:page 15 #:name "Design-Recipe-Update-Danger"] in your workbook for @code{update-danger}.
-                                           @itemlist[@item{Read the word problem carefully, and pay attention to @italic{what the function takes in}.}
-                                                      @item{Fill out the @vocab{Contract} and @vocab{Purpose Statement} for the function, using what you circled to help you choose the Domain.}
-                                                      @item{Write two @vocab{Examples} for the function.}
-                                                      @item{Circle and label what varies between those examples, and label it with a @vocab{variable} name.}
-                                                      @item{Define the function.}]}}
-                         @teacher{If students are working on their own, check their work to make sure every last step is being executed correctly. If the class is working through it together, be sure to ask students to justify each step in terms of a prior step. @management{Tip: tell students that they must get your permission before typing in their code, then use that expectation to check each student's paper carefully.}}
+                                           Vá para @worksheet-link[#:page 15 #:name "Design-Recipe-Update-Danger"] na sua apostila, em @code{atualizar-perigo}.
+                                           @itemlist[@item{Leia a questão com calma, e preste atenção @italic{no que a função recebe como entrada}.}
+                                                      @item{Preencha a @vocab{Assinatura} e a @vocab{Declaração de Propósito} da função, usando o que você circulou para te ajudar a escolher o Domínio.}
+                                                      @item{Escreva dois @vocab{Exemplos} para a função.}
+                                                      @item{Circule e nomeie o que muda entre os dois exemplos, e nomeie dando um nome para a @vocab{variável}.}
+                                                      @item{Defina a função.}]}}
+                         @teacher{Se os alunos estão trabalhando por conta própria, verifique seu trabalho para garantir que cada último passo está correto. Se a turma está trabalhando em conjunto, não se esqueça de pedir aos alunos para justificar seu último passo. @management{Dica: Diga aos alunos que eles devem ter sua autorização antes de digitar o código,  e use essa expectativa para verificaro papel de cada aluno com cuidado.}}
                          }
-                 @point{@student{Putting all of these together, @code{update-danger} is defined by:
-                                 @code[#:multi-line]{; update-danger : Number -> Number
-                                                     ; subtract 50 from the danger's x-coordinate
-                                                     (EXAMPLE (update-danger 171) (- 171 50))
-                                                     (EXAMPLE (update-danger -90) (- -90 50))
-                                                     (define (update-danger x) (- x 50))}
-                                 (Note: you may have slightly different Examples or variable names.)
-                                 @activity{Open your saved Game file and scroll until you find the definition for @code{update-danger}. Is the contract correct?
-                                           Make sure it matches what you have in your workbook, add both of your examples, and fix the definition. When you 
-                                           click "Run" you should see your danger fly across the screen!}
+                 @point{@student{Colocando tudo isso junto, @code{atualizar-perigo} é definido por:
+                                 @code[#:multi-line]{; atualizar-perigo : Numero -> Numero
+                                                     ; diminui 50 da coordenada-x do perigo
+                                                     (EXAMPLE (atualizar-perigo 171) (- 171 50))
+                                                     (EXAMPLE (atualizar-perigo -90) (- -90 50))
+                                                     (define (atualizar-perigo x) (- x 50))}
+                                 (Nota: você pode ter diferentes Exemplos e nomes de variáveis.)
+                                 @activity{Abra o arquivo de seu jogo, e desça até encontrar a definição de @code{atualizar-perigo}. A assinatura está certa?
+                                           Tenha certeza que isso combina com o que você tem em sua apostila, adicione ambos os exemplos e corrija a definição. Quando você 
+                                           clicar "Run", deve ver seu perigo voar por toda a tela!}
                                  }
                          @teacher{}
                          }
-                 @point{@student{Now it's time to animate the Target, which moves in the opposite direction.
+                 @point{@student{Agora é hora de animar o Alvo, que se move na direção oposta.
                                  @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4" "F-IF.1-3&1&4")]{
-                                           Turn to @worksheet-link[#:page 16 #:name "Design-Recipe-Update-Target"] in your workbook for @code{update-target}.
-                                           @itemlist[@item{Read the word problem carefully, and pay attention to @italic{what the function takes in}.}
-                                                      @item{Fill out the @vocab{Contract} and @vocab{Purpose Statement} for the function, using what you circled to help you choose the Domain.}
-                                                      @item{Write two @vocab{Examples} for the function.}
-                                                      @item{Circle and label what varies between those examples, and label it with a @vocab{variable} name.}
-                                                      @item{Define the function.}]}}
-                         @teacher{For students who finish these quickly, have them experiment with making the Target and Danger move faster or slower, or change direction altogether. Be sure that they are typing in Examples, and updating those examples to keep up with any changes to their definition.}
+                                           Vá para @worksheet-link[#:page 16 #:name "Design-Recipe-Update-Target"] de sua apostila em @code{atualizar-alvo}.
+                                           @itemlist[@item{Leia o problema com calma, e preste atenção @italic{no que a função recebe como entrada}.}
+                                                      @item{Preencha a @vocab{Assinatura} e a @vocab{Declaração de Propósito} para a função, usando o que você circulou para te ajudar a escolher o Domínio.}
+                                                      @item{Escreva dois @vocab{Exemplos} para a função.}
+                                                      @item{Circule e nomeie o que muda entre os dois exemplos, e nomeie dando um nome para a @vocab{variável}.}
+                                                      @item{Defina a função.}]}}
+                         @teacher{Para os alunos que terminaram isso rapidamente, deixe-os experimentar tornar o Alvo e Perigo mais rápidos ou lentos, ou ainda mudar sua direção. Certifique-se que estão digitando Exemplos, e atualizando os anteriores para acompanhar as mudanças feitas na definição.}
                          }
      ]}
 
 @lesson/studteach[
-     #:title "Projectile Movement (Optional)"
-     #:duration "15 minutes"
-     #:overview "OPTIONAL: students discover that the \"mystery\" definitions in the game are actually used to add projetiles, and adapt these definitions to add a custom projectile and projectile animation to their game."
-     #:learning-objectives @itemlist[@item{Students learn to move game elements through functions that compute attributes in one frame from attributes in the previous frame}]
-     #:evidence-statements @itemlist[@item{Students will be able to write functions that take in one dimension of a game element's coordinate and produce the next coordinate value in that dimension}]
-     #:product-outcomes @itemlist[@item{Students will add projectile movement to their games}]
+     #:title "Movimento do Projétil (Opcional)"
+     #:duration "15 minutos"
+     #:overview "OPCIONAL: os alunos descobrem que as definições de \"misterio\" são na verdade usadas para adicionar projéteis, e adaptar essas definições para adicionar projéteis personalizados e animação dos projéteis no game."
+     #:learning-objectives @itemlist[@item{Alunos aprendem a mover elementos do game através de funções que calculam atributos de um quado com base no quadro anterior}]
+     #:evidence-statements @itemlist[@item{Alunos são capazes de escrever funções que recebem como entrada uma coordenada de um elemento e produz o próximo valor da coordenada desta dimensão}]
+     #:product-outcomes @itemlist[@item{Alunos vão adiconar movimentos dos projéteis em seus jogos}]
      #:standards (list "F-IF.1-3" "F-LE.5" "BS-DR.3")
      #:materials @itemlist[]
      #:preparation @itemlist[]
@@ -117,17 +117,17 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{This game template also has a mystery object, which is defined at the very bottom of the screen. The "mystery" is actually a @italic{projectile}, which will be set to the Player's position whenever the spacebar is pressed. As you can see, @code{mystery} is defined to be a small gray star, but you can change that to be any image you like. If you have a game in which the player is a monkey, you could change the definition of @code{mystery} to be a bitmap of a banana, so that the monkey will throw bananas every time you hit the spacebar. A game that takes place in space could have an alien throwing crystals, or a sports game might involve an athlete thowing a ball.
+        @points[@point{@student{Este modelo de jogo tem um objeto misterioso, que está definido no final da tela. O "misterio" é na verdade um @italic{projétil}, que está com as coordenadas do Jogador. Como você pode ver, o @code{misterio} está definido para ser uma pequena estrela prateada, mas você pode alterar isso para a imagem que você quiser. Se no seu jogo o jogador for uma macaco, você poderial mudar a definição de @code{misterio} para ser um bitmap de uma banana, de modo que o macaco vai jogar bananas toda vez que a barra de espaço for pressionada. Um jogo que se passa no espaço poderia ter um alien lançando cristais, ou em um jogo de esportes ter um atleta lançando uma bola.
                                 @activity[#:forevidence (list "BS-DR.3&1&1" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4" "F-IF.1-3&1&4")]{
-                                          @itemlist[@item{Change the definition for @code{mystery}, so that your projectile looks the way you want it to. Don't forget to use @code{scale} and @code{rotate} if you need to change the image slightly.}
-                                                     @item{Use the Design Recipe to write @code{update-mystery}, so that the projectile moves to the left or right. Hint: this will be very similar to your solutions for @code{update-danger} and @code{update-target}!}]}}
-                        @teacher{Be careful when introducing Projectiles into the game! Many students will actually be @bold{less creative} when using them, as it will automatically push their mindset towards the standards "shoot the bad guy" format. Many teachers choose to skip this section entirely, or else add it after the games are complete.}
+                                          @itemlist[@item{Mude a definição de @code{misterio}, para que seu projétil pareça da maneira que você quiser. Não se esqueça de usar @code{scale} e @code{rotate} se você precisar ajustar sua imagem um pouco.}
+                                                     @item{Use a Receita de Projeto para escrever @code{atualizar-misterio}, para que o projétil se mova para a esquerda ou para a direita. Dica: isto será bem parecido com suas soluções para @code{atualizar-perigo} e @code{atualizar-alvo}!}]}}
+                        @teacher{Tenha cuidado ao introduzir Projéteis no jogo! Muitos alunos vão realmente ser @bold{menos criativos} ao usá-los, uma vez que irá enviar à sua mente automaticamente o formato "atire no cara mau". Muitos professores optam por ignorar esta seção inteiramente, ou então adicionar só quando os jogos estiverem completos.}
                          }]
          }
        
 @lesson/studteach[
-     #:title "Closing"
-     #:duration "5 minutes"
+     #:title "Encerramento"
+     #:duration "5 minutos"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -141,13 +141,13 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Congratulations - you've got the beginnings of a working game! However, several things remain unfinished:
-                                @itemlist[@item{The Player doesn't move}
-                                           @item{When the Target and Danger move offscreen, they never come back}
-                                           @item{Nothing happens when the Player collides with the Danger or Target}]
-                                The next few lessons will extend what you know about functions, so that you can define functions to implement each of these features.}
-                        @teacher{@management{@itemlist[@item{Have students volunteer what they learned in this lesson}
-                                                        @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
+        @points[@point{@student{Parabéns - você tem o começo de um belo jogo! No entanto, várias coisas permanecem inacabadas:
+                                @itemlist[@item{O jogador não se move}
+                                           @item{Quando o Alvo ou o Perigo saem da tela, eles nunca voltam}
+                                           @item{Nada acontece quando o Jogador se choca com o Perigo ou com o Alvo}]
+                                As próximas lições irão estender o que você sabe sobre funções, de modo que você pode definir funções para implementar cada um desses recursos.}
+                        @teacher{@management{@itemlist[@item{Peça aos alunos para que voluntáriamente digam o que aprenderam nesta lição}
+                                                        @item{Comportamentos que você valoriza: trabalho em equipe, fazer anotações no caderno, engajamento, etc}
                                                         @item{Pass out exit slips, dismiss, clean up.}]}}
                         }]
          }
