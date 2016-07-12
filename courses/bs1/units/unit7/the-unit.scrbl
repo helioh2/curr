@@ -3,9 +3,9 @@
 @declare-tags[group selftaught bootstrap management]
 @title{Unidade 7: Desvios Condicionais}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt}) 
+@unit-overview/auto[#:lang-table (list (list "Numero" @code{+ - * / sq sqrt expt}) 
                                        (list "String" @code{string-append string-length})                          
-                                       (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
+                                       (list "Figura" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
                                        (list "Boolean" @code{= > < string=? and or}))]{
   @unit-descr{Os alunos usam geometria e desvios condicionais para moverem seus personagens em resposta à teclas pressionadas.}
    }
@@ -24,16 +24,14 @@
                                     ]
      #:product-outcomes @itemlist[]
      #:standards (list "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-PL.4")
-     #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
-                           @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-                           @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                           @item{Class posters (List of rules, basic skills, course calendar)}
-                           @item{Language Table (see below)}
+     #:materials @itemlist[@item{Computadores com DrRacket ou WeScheme}
+                           @item{Canetas/lápis para os alunos, e giz/canetão aos professores}
+                           @item{Tabela da Linguagem}
                           ]
-     #:preparation @itemlist[@item{"Luigi's Pizza" [LuigisPizza.rkt from @(resource-link #:path "source-files.zip" 
+     #:preparation @itemlist[@item{"Pizza do Luigi" [LuigisPizza.rkt from @(resource-link #:path "source-files.zip" 
                                                                                        #:label "source-files.zip") |
-@(hyperlink "http://www.wescheme.org/openEditor?publicId=Qzjz5xbQ8h" "WeScheme")] preloaded on students' machines, and on the projector}
-                              @item{REQUIRED: Hand out @(hyperlink "https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit?usp=sharing" "Luigi's Pizza Worksheet").}]
+@(hyperlink "http://www.wescheme.org/openEditor?publicId=Am9KC0nqpr" "WeScheme")] pré-carregado nas máquinas dos alunos, e no projetor}
+                              @item{NECESSÁRIO: Distribua a @(hyperlink "https://docs.google.com/document/d/1nJih797yEq6BBNgkXdH_K4IGz0dNJWqYauUcyDGFtZI/edit?usp=sharing" "Atividade - Pizzaria do Luigi").}]
      #:prerequisites (list "The Design Recipe" "and/or")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -43,7 +41,7 @@
      ]{
   @points[
      @point{@student{@activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
-                           Para iniciar essa lição, complete o desafio @(hyperlink "https://docs.google.com/document/d/1k67XlYWkHefd4APynvwSnPKRaSTeOvGD7_lRbI8hHrg/edit" 
+                           Para iniciar essa lição, complete o desafio @(hyperlink "https://docs.google.com/document/d/1nJih797yEq6BBNgkXdH_K4IGz0dNJWqYauUcyDGFtZI/edit?usp=sharing" 
                                       "Pizza do Luigi").}}
             @teacher{Revise as respostas dos alunos. Você pode ver um video de demonstração de introdução à condições nesses links: @(video-link (hyperlink "http://www.youtube.com/watch?v=2ckWSjWum-8" "1")),
                      @(video-link (hyperlink "http://www.youtube.com/watch?v=iTrY-N3MLRY#t=3m8s" "2"))}
@@ -137,8 +135,8 @@
                                     ]
      #:product-outcomes @itemlist[@item{Alunos irão escrever @code{atualizar-jogador}, que move seu personagem quando teclas definidas forem pressionadas}]
      #:standards (list "A-SSE.1-2" "BS-DR.2" "BS-DR.3")
-     #:materials @itemlist[@item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-                           @item{All student computers should have their game templates pre-loaded, with their image files linked in}]
+     #:materials @itemlist[@item{@(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "Apostila") do aluno}
+                           @item{Todos os computadores dos alunos devem ter seu modelo de jogo pré-carregado, com seus arquivos e imagens}]
      #:preparation @itemlist[]
      #:prerequisites (list "Luigi's Pizza" "Target and Danger Movement")
      #:pacings (list 
@@ -170,8 +168,8 @@
                                              2 3]
                            
                            @activity[#:forevidence (list "BS-M&1&1" "BS-M&1&2" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2")]{
-                                    On @worksheet-link[#:page 24 #:name "Design-Recipe-Update-Player"] in your workbook, 
-                                    you'll find the word problem for @code{update-player}.}
+                                    Na @worksheet-link[#:page 24 #:name "Design-Recipe-Update-Player"] de sua apostila, 
+                                    você encontrará um problema para @code{atualizar-jogador}.}
                            (Se você não gostar de usar as setas de direção para fazer o jogador mover-se para cima e baixo, 
                            você pode facilmente mudá-los para trabalhar com "w" e "x"!)
                            }
@@ -181,16 +179,16 @@
                }
        @point{@student{Você também pode adicionar movimentos mais avançados, usando o que você aprendeu sobre
                        funções booleanas. Aqui estão algumas ideias: 
-                       @itemlist[@item{@bold{Warping***:} ao invés de ter a coordenada-y somada
+                       @itemlist[@item{@bold{Teletransporte:} ao invés de ter a coordenada y somada
                                         ou diminuída, substitua ela com um número para que o
                                         o jogador apareça de repente nessa localização. 
                                        (Por exemplo, pressionando a tecla "c" faz o jogador 
                                        voltar ao centro da tela, em y=240.)}
-                                  @item{@bold{Boundary-detection***(detecção de limites)} Altera a condição de se movimentar para cima
+                                  @item{@bold{Detecção de Limites} Altera a condição de se movimentar para cima
                                          para que o jogador só consiga subir se a tecla="up" AND 
                                          @code{jogador-y} for menor que 480. Da mesma maneira, altera a condição 
-                                         para baixo para verificar se @code{player-y} é maior do que 0.}
-                                  @item{@bold{Wrapping***:} Adiciona uma condição (antes de qualquer tecla) 
+                                         para baixo para verificar se @code{jogador-y} é maior do que 0.}
+                                  @item{@bold{Portal:} Adiciona uma condição (antes de qualquer tecla) 
                                          que verifica se a coordenada-y do jogar está acima 
                                          da tela (y > 480). Se estiver, faça o jogador 
                                          aparecer na parte de baixo(y=0). Adicione outra condição que 
@@ -201,7 +199,7 @@
        }}
      
 @lesson/studteach[
-     #:title "Closing"
+     #:title "Encerramento"
      #:duration "5 min"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -215,12 +213,12 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Congratulations - you've got the beginnings of a working game!  
-                                What's still missing? Nothing happens when the player collides with the object or target!
-                                We're going to fix these over the next few lessons, and also work on the artwork and story 
-                                for our games, so stay tuned!}
-                        @teacher{@management{@itemlist[@item{Have students volunteer what they learned in this lesson}
-                                                       @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
+        @points[@point{@student{Parabéns - você tem o início de um belo game! 
+                                O que ainda está faltando? Nada acontece quando o jogador se encontra com o alvo e o perigo também! 
+                                Nós vamos corrigir isso nas próximas lições, e trabalhar na arte e história de nossos games, 
+                                então fique ligado!}
+                        @teacher{@management{@itemlist[@item{Peça a alunos voluntário o que eles aprendeream nessa lição}
+                                                       @item{Comportamentos que você valoriza: trabalho em equipe, tomar notas, engajamento, etc}
                                                        @item{Pass out exit slips, dismiss, clean up.}]}}
                         }
                         ]}
