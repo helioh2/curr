@@ -3,11 +3,11 @@
 
 @declare-tags[management]
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
+@unit-overview/auto[#:lang-table (list (list "Numero" @code{+ - * / sq sqrt expt})
                                        (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
-                                       (list "Boolean" @code{= > < string=? and or}))]{
-@unit-descr{Students derive, discuss, and prove the Pythagorean theorem, then use this theorem---in conjunction with Booleans---to detect collisions in their games.}
+                                       (list "Figura"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
+                                       (list "Booleano" @code{= > < string=? and or}))]{
+@unit-descr{Os alunos estudam, discutem e comprovam o Teorema de Pitágoras, em seguida, usam o teorema---em conjunto com Booleanos---para detectar colisões em seus jogos.}
 }
 
 @unit-lessons{
@@ -20,11 +20,11 @@
                                      @item{Students will be able to explain why the @code{line-length} function uses a conditional}]
      #:product-outcomes @itemlist[]
      #:standards (list "BS-PL.3" "BS-PL.4" "6.NS.5-8")
-     #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
-                           @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-                           @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                           @item{Class posters (List of rules, basic skills, course calendar)}
-                           @item{Language Table (see below)}
+     #:materials @itemlist[@item{Computadores com DrRacket ou WeScheme}
+                           @item{@(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "Apostila") do aluno}
+                           @item{Canetas/lápis aos alunos, e giz/canetão para os professores}
+                           @item{***Class posters (List of rules, basic skills, course calendar)}
+                           @item{Tabela de Linguagem (veja abaixo)}
                           ]
      #:preparation @itemlist[]
      #:prerequisites (list "Luigi's Pizza" "Coordinate Planes")
@@ -40,13 +40,13 @@
                 @point{@student{@bitmap{images/numberline.png}Em uma dimensão, é fácil calcular quando dois objetos se sobrepoem. Neste exemplo, o círculo vermelho possui 1cm de Raio, e o círculo azul tem 1.5cm. Os círculos irão se sobrepôr se a distância @italic{entre seus centros} for @italic{menor que a soma de seus Raios} (1+1.5 = 2.5). Como a distância entre os centros é calculada? Neste exemplo, seus centros estão 3cm separados, porque 4-1=3. @activity{Será que a distância entre eles mudaria se os círculos trocassem de lugar um com o outro? Porque sim ou porque não?}}
                        @teacher{Trabalhe com uma série de exemplos, usando uma linha numérica no quadro e peça aos alunos como eles calculam a distância entre os pontos. Tendo alunos encenando isto pode funcionar muito bem: desenhe uma linha numérica, tendo dois alunos em diferentes pontos da linha, usando seus braços para mostrar seu alcançe(bordas do círculo)***. Mova os alunoas ao longo da linha até se tocarem, então calcula a distância na linha numérica(?)***. Os primeiros segundos @(hyperlink "http://www.youtube.com/watch?v=leP3tQ_GZL8&feature=player_embedded" "deste vídeo") mostra o exemplo em ação.}
                        }
-                @point{@student{Seu arquivo de jogo fornece uma função chamada @code{comprimento-linha} que calcula a diferença entre dois pontos em uma linha numérica. Especificamente, @code{comprimento-linha} recebe dois números como entrada e determina a distância entre eles.
-                       @activity[#:forevidence (list "BS-PL.3&1&3" "BS-PL.4&1&1" "6.NS.5-8&1&6")]{Que respostas você espera da cada um dos seguintes usos da função @code{comprimento-linha}:
-                                 @itemlist[@item{@code{(comprimento-linha 2 5)}}
-			                   @item{@code{(comprimento-linha 5 2)}}
+                @point{@student{Seu arquivo de jogo fornece uma função chamada @code{tamanho-linha} que calcula a diferença entre dois pontos em uma linha numérica. Especificamente, @code{tamanho-linha} recebe dois números como entrada e determina a distância entre eles.
+                       @activity[#:forevidence (list "BS-PL.3&1&3" "BS-PL.4&1&1" "6.NS.5-8&1&6")]{Que respostas você espera da cada um dos seguintes usos da função @code{tamanho-linha}:
+                                 @itemlist[@item{@code{(tamanho-linha 2 5)}}
+			                   @item{@code{(tamanho-linha 5 2)}}
                                           ]
                                  Você espera a mesma resposta mesmo se a entrada maior ou a menor vier por primeiro?}}
-                       @teacher{Se você tem tempo e quer reforçar como condicionais funcionam através de exemplos, peça aos alunos para preencher os espaços em branco em Exemplos como em @code{(EXAMPLE (comprimento-linha 2 5) ____)}, circule o que é diferente, e note que o que foi circulado pode estar em ordem diferente dependendo se a primeira ou a segunda entrada for a Maior. Esta lição sugere que o código para @code{comprimento-linha} use um condicional. Neste caso, para alunos mais experientes, pode optar por usar a função @code{abs}, de valor absoluto ao invés do condicional;Usando @code{cond}, entretanto, enfatize como a estrutura de código resulta dos exemplos.}}
+                       @teacher{Se você tem tempo e quer reforçar como condicionais funcionam através de exemplos, peça aos alunos para preencher os espaços em branco em Exemplos como em @code{(EXAMPLE (tamanho-linha 2 5) ____)}, circule o que é diferente, e note que o que foi circulado pode estar em ordem diferente dependendo se a primeira ou a segunda entrada for a Maior. Esta lição sugere que o código para @code{tamanho-linha} use um condicional. Neste caso, para alunos mais experientes, pode optar por usar a função @code{abs}, de valor absoluto ao invés do condicional;Usando @code{cond}, entretanto, enfatize como a estrutura de código resulta dos exemplos.}}
 
                @point{@student{Vá até as funções @code{tamanho-linha} e @code{colisao?} em seu código. Note que @code{tamanho-linha} usa uma condição de um modo que subtrai o número menor do maior.
                        @activity[#:forevidence (list "BS-M&1&1" "8.F.5&1&1")]{Você pode explicar porque @code{tamanho-linha} precisa usar @code{cond}? Quais são as duas condições?}}
@@ -76,17 +76,17 @@
                                      @item{Students can state the Pythagorean Theorem}
                                      @item{Students can turn the Pythagorean Theorem into code by writing a @code{distance} function}
                                     ]
-     #:product-outcomes @itemlist[@item{Students write the distance function in their game files.}]
+     #:product-outcomes @itemlist[@item{Os alunos escrevem a função Distância em seus arquivos do jogo.}]
      #:standards (list "8.G.6-8" "BS-PL.4" "BS-DR.3")
-     #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
-                           @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-                           @item{All student computers should have their game templates pre-loaded, with their image files linked in}
-                           @item{Cutouts of Pythagorean Theorem packets [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1 per cluster of students working together}
-                           @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                           @item{Class posters (List of rules, basic skills, course calendar)}
-                           @item{Language Table (see below)}
+     #:materials @itemlist[@item{Computadores com DrRacket ou WeScheme}
+                           @item{@(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "Apostila") do aluno}
+                           @item{Todos os computadores dos alunos devem ter o modelo de seu jogo pré-carregado, com seus arquivos e figuras}
+                           @item{Recorte os pacotes do Teorema de Pitágoras [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1 para cada grupo de alunos que trabalham juntos}
+                           @item{Canetas/lápis aos alunos, e giz/canetão para os professores}
+                           @item{***Class posters (List of rules, basic skills, course calendar)}
+                           @item{Tabela de Linguagem (veja abaixo)}
                           ]
-     #:preparation @itemlist[ @item{REQUIRED: Hand out @(hyperlink "https://docs.google.com/document/d/1Vkaz30B8AAaze6fMiFJypFb1bOIeH0RzkeaBLCCPf9E/edit?usp=sharing" "Warmup Activity Sheet").}]
+     #:preparation @itemlist[ @item{NECESSÁRIO: Distribua esta @(hyperlink "https://docs.google.com/document/d/1k8UiHsMukSH5CKPS9Zal8g-VnradcQo3Zcik-rf9Wlo/edit?usp=sharing" "Atividade de Preparação").}]
      #:prerequisites (list "1D Distance")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -135,14 +135,14 @@
      #:evidence-statements @itemlist[@item{Students understand that collisions occur when the distance between objects is below some threshhold}
                                      @item{Students understand how to determine the collision threshhold between two objects}
                                      @item{Students write a @code{collide?} function that determines whether the player and danger elements in their games have collided}]
-     #:product-outcomes @itemlist[@item{Students add a @code{collide?} function to their games to detect when the player and danger have collided}]
+     #:product-outcomes @itemlist[@item{Os alunos adicionam a função @code{colisao?} em seus jogos para detectar quando o personagem do jogador se encontra com o perigo}]
      #:standards (list "F-IF.1-3" "F-IF.4-6" "8.F.1-3" "A-SSE.1-2" "8.G.6-8")
-     #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
-                           @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-                           @item{All student computers should have their game templates pre-loaded, with their image files linked in}
-                           @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                           @item{Class posters (List of rules, basic skills, course calendar)}
-                           @item{Language Table (see below)}
+     #:materials @itemlist[@item{Computadores com DrRacket ou WeScheme}
+                           @item{@(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "Apostila") do aluno}
+                           @item{Todos os computadores dos alunos devem ter o modelo de seu jogo pré-carregado, com seus arquivos e figuras}
+                           @item{Canetas/lápis aos alunos, e giz/canetão para os professores}
+                           @item{***Class posters (List of rules, basic skills, course calendar)}
+                           @item{Tabela de Linguagem (veja abaixo)}
                           ]
      #:prerequisites (list "2D Distance" "and/or")
      #:pacings (list 
@@ -191,7 +191,7 @@
                                 o quanto você aprendeu: Círculos de Avaliação, tipos de dados como @code{Numero}, @code{String}, @code{Figura} 
                                 e @code{Booleano}, a importância das Assinaturas e Declaração de Propósito, e de funções grandes serem divididas em funções
                                 pequenas. Você aprendeu uma nova linguagem de programação inteira, e o mais importante, você aprendeu a Receita de Projeto, que te ajuda a resolver problemas
-                                e desafios de programação, concentrando-se me apensa um passo de cada vez, certificando-se que cada passo é verificado
+                                e desafios de programação, concentrando-se me apenas um passo de cada vez, certificando-se que cada passo é verificado
                                 em relação aos passos que vieram antes dele.
                                 @activity{Uma vez que programadores colocam algo para funcionar, eles sempre olham de volta em seu código e certificam-se
                                           de que está legível, limpo e fácil de ser entendido por outras pessoas. Um carro que funciona bem pode ser bom,
