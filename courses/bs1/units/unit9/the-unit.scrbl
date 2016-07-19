@@ -2,36 +2,36 @@
 
 @declare-tags[management]
 
-@title{Unit 9: Prepping for Launch}
+@title{Unidade 9: Preparando para o Lançamento}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
+@unit-overview/auto[#:lang-table (list (list "Numero" @code{+ - * / sq sqrt expt})
                                        (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
-                                       (list "Boolean" @code{= > < string=? and or}))]{
+                                       (list "Figura"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
+                                       (list "Booleano" @code{= > < string=? and or}))]{
 
-@unit-descr{Students will edit game details and prepare for their Launch Party!}
+@unit-descr{Alunos editam detalhes do jogo e se preparam para sua Festa de Lançamento!}
  }
 
 @unit-lessons{
 @lesson/studteach[
-     #:title "Presentation Preparation" 
+     #:title "Preparando a Apresentação" 
      #:duration "60 min"
-     #:overview "Students create posters and draft presentations for their videogames."
+     #:overview "Os alunos criam cartazes e projetos de apresentações para seus jogos."
      #:learning-objectives @itemlist[@item{Students practice explaining programming artifacts and concepts to others}]
      #:evidence-statements @itemlist[@item{Students will be able to explain the Circles of Evaluation to others}
                                      @item{Students will be able to explain the purpose of a Contract}
                                      @item{Students will be able to walk an audience through a simple use of the Design Recipe}
                                      @item{Students will be able to explain how the Distance Formula is used in their game}
                                      @item{Students will be able to explain how Piecewise Functions are used in their game}]
-     #:product-outcomes @itemlist[@item{A poster illustrating a key component of a game program}]
+     #:product-outcomes @itemlist[@item{Um cartaz que ilustra o ponto essencial de um jogo}]
      #:standards (list)
-     #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
-                           @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-                           @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                           @item{Class posters (List of rules, basic skills, course calendar)}
-                           @item{Language Table (see below)}
-                           @item{Printouts of game code for each team.}
-                           @item{Camera - take pictures today!}
+     #:materials @itemlist[@item{Computadores com DrRacket ou WeScheme}
+                           @item{@(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "Apostila") do Aluno}
+                           @item{Canetas/lápis para os alunos, e giz/canetão aos professores}
+                           @item{Cartazes da turma (Lista de regras, conhecimentos básicos, calendário do curso)}
+                           @item{Tabela da Linguagem(veja abaixo)}
+                           @item{Impressões do código do jogo de cada equipe.}
+                           @item{Câmera - Tire fotos hoje!}
                           ]
      #:preparation @itemlist[@item{Sample poster or tri-fold poster for a fictional game, to use as a model for students.}]
      #:prerequisites ""
@@ -41,38 +41,38 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
      ]{
-       @points[@point{@student{Once you have a working game (will all your Contracts and EXAMPLEs included, of course!), it's time to think about how to present your work to others. Programmers spend a lot of time designing and writing their code, but they also spend time explaining their work to others. These might be other programmers on their team, other engineers within the company, or even non-technical people. Do you think you can explain your code to someone else?}
-                       @teacher{Got time for a challenge? Try introducing them to @lesson-link[#:name "Structs" #:label "Data Structures"], to allow for 2-dimensional motion and more player control.}
+       @points[@point{@student{Agora que você tem um jogo completo (com todos os Exemplos e Assinatura, é claro!), é hora de pensar como apresentar seu trabalho para os outros. Programadores gastam muito tempo projetando e escrevendo código, mas eles gastam também muito tempo explicando seu trabalho para os outros. Eles podem ser outros programadores em sua equipe, ou engenheiros dentro da empresa, ou até mesmo para pessoas que não sabem programar. Você achar que pode explicar seu código para outra pessoa?}
+                       @teacher{Tem tempo para um desafio? Experimente introduzir a eles @lesson-link[#:name "Structs" #:label "Estrutura de Dados"], para permitir o movimento em 2D (duas dimensões)  e mais controle do jogador.}
                        }
-                @point{@student{@activity{Create a sample poster for your game! Every poster should have the following:
-                                          @itemlist[@item{Your name(s), and the title of your game}
-                                                     @item{A picture to catch people's eyes}
-                                                     @item{The story behind your game}
-                                                     @item{A written description of ONE function from your code. This description should include the Name, Domain and Range of the function, with an explanation of what it does and how it is used in your game.  Instead of describing a function, you could describe some concept you learned (Circles of Evaluation, Design Recipe, Piecewise Functions, Pythagorean Theorem) and how you used it in creating your game.}]}}
-                       @teacher{Make sure that each group of students gets a different function to talk about, so that a classwide presentation will review the entire game. You may also want to have groups assigned to explain the Circles of Evaluation, Contracts, the purpose behind the Design Recipe, Piecewise Functions, and the Pythagorean Theorem.}
+                @point{@student{@activity{Crie um cartaz de amostra para seu jogo! Todo Cartaz deve ter o seguinte:
+                                          @itemlist[@item{Seu(s) nome(s), e o título do jogo}
+                                                     @item{Uma figura para atrair o olhar das pessoas}
+                                                     @item{A história por trás do seu jogo}
+                                                     @item{Uma descrição escrita de UMA função do seu código. Essa descrição deve incluir o Nome, Domínio e Imagem da função, com uma explicação sobre o que ela faz e como é usada em seu jogo. Em vez de descrever uma função, você poderia descrever alguns conceitos que você aprendeu (Círculos de Avaliação, Receita de Projeto, Funções Segmentadas, Teorema de Pitágoras) e como você o usou na criação do jogo.}]}}
+                       @teacher{Certifique-se que cada grupo de alunos tenha uma função diferente para falar, de forma que a turma toda irá rever o jogo inteiro. Você também pode querer ter grupos atribuidos a falar sobre Círculos de Avaliação, Assinaturas, e o propósito da Receita de Projeto, Funções Segmentadas (divididas em partes menores) e do Teorema de Pitágoras.}
                        }
-                @point{@student{After you've made the poster, think about how you will use it during your presentation. What will you say to the audience? How can you use what you've written on the poster or in your code to help with the presentation?}
-                       @teacher{@management{Demo a terrible presentation, modeling bad posture, low volume, and mumbling. When it's time for the code-walk, stop. Ask kids to critique, pointing out what they liked and didn't like. What did they think of the speed of the presentation? Could they hear you? Then model a much better presentation! Demonstrate positive energy, clear speech, etc.} }
+                @point{@student{Depois de ter feito o cartaz, pense como você vai usá-lo durante sua apresentação. O que você vai dizer ao público? Como você vai usar o que você escreveu no cartaz ou no seu código para ajudar na apresentação?}
+                       @teacher{@management{Demonstre uma apresentação ruim, esboçando uma má postura, baixa voz, e resmungando. Quando for hora de falar do código, pare. Peça as crianças para criticar, apontar o que eles gostaram e não gostaram. O que eles pensam sobre a velocidade da apresentação? Eles conseguem te ouvir? Em seguida, mostre uma apresentação muito melhor! Demonstre energia positiva, discurso claro, etc.} }
                        }
-                @point{@student{@activity{Write or practice a 5 minute presentation, in which you introduce yourself and explain your game, then walk the audience through an explanation of the function or concept you were assigned.}}
-                       @teacher{Have students walk through their presentations, and get feedback from their peers. You may also want to model the explanation of a few lines of code, so they see what you're looking for. Don't allow students to just recite the code! They should be able to explain each line in plain english - don't be afraid to push students to really explain what's going on.}
+                @point{@student{@activity{Escreva ou pratique uma apresentação de 5 minutos, em que você se apresenta e explica seu jogo, em seguida, dirija ao público uma explicação da função ou conceito que lhe foi atribuído.}}
+                       @teacher{Peça aos alunos que revisem suas apresentações, e tenham um feedback de sua dupla. Você pode querer mostrar uma explicação de algumas linhas de código, para que eles vejam o que você está procurando. Não permita que eles apenas recitem o código! Eles devem ser capazes de explicar cada linha em pleno Portugês - não tenha medo de empurrar os alunos para realmente explicar o que está acontecendo.}
                        }]
         }
       
 @lesson/studteach[
-     #:title "Celebration" 
+     #:title "Comemoração" 
      #:duration "15 min"
      #:overview "Students are awarded certificates for their presentation"
      #:learning-objectives @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
-     #:materials @itemlist[@item{Computers w/ DrRacket or WeScheme}
-                           @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-                           @item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                           @item{Class posters (List of rules, basic skills, course calendar)}
-                           @item{Language Table (see below)}
-                           @item{Printouts of game code for each team.}
-                           @item{Camera - take pictures today!}
+     #:materials @itemlist[@item{Computadores com DrRacket ou WeScheme}
+                           @item{@(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "Apostila") do Aluno}
+                           @item{Canetas/lápis para os alunos, e giz/canetão aos professores}
+                           @item{Cartazes da turma (Lista de regras, conhecimentos básicos, calendário do curso)}
+                           @item{Tabela da Linguagem(veja abaixo)}
+                           @item{Impressões do código do jogo de cada equipe.}
+                           @item{Câmera - Tire fotos hoje!}
                           ]
      #:preparation @itemlist[@item{(Optional) Game Design Certificates: 
                                    @itemlist[@item{Most creative story}
@@ -89,8 +89,8 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
      ]{
-       @points[@point{@student{Congratulations: you've done something really incredible! You've learned a new programming language, learned about the Circles of Evaluation, Numbers, Strings, Booleans, Images, Functions, Values, Conditional Branching, the Design Recipe, Contracts, and more. You made a rocket fly, you learned how to generate computer graphics, and you put all of that together to build a videogame!}  
-                       @teacher{@management{Have the class give each other a round of applause. Give out awards, talk about student achievement, etc}}
+       @points[@point{@student{Parabéns: você fez algo realmente incrível! Você aprendeu uma nova linguagem de programação, aprendeu sobre Círculos de Avaliação, Números, Strings, Booleanos, Figuras, Funções, Valores, Estruturas de Decisão, a Receita de Projeto, Assinaturas, e mais. Você fez um foguete voar, aprendeu a gerar gráficos de computador, e colocou tudo isso em conjunto para construir um belo jogo!}  
+                       @teacher{@management{Peça a turma para dar uma salva de palmas. Dê prêmios, e fale sobre o desempenho dos alunos, etc}}
                        }]
         }
 
