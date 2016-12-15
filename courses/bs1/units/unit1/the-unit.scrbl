@@ -28,10 +28,10 @@
              @point{@student{Bem vindo ao Bootstrap! Neste curso, você vai aprender uma nova linguagem de programação – uma maneira simples de dizer ao computador exatamente o que você quer que ele faça. Assim como inglês, espanhol ou francês, uma linguagem de programação tem seu próprio vocabulário e gramática que você terá que aprender. Felizmente, a linguagem que você vai usar aqui tem muito em comum com a matemática simples que você já sabe!}
                      @teacher{@management{Crie expectativas e regras para a aula.}
                               Faça uma conexão entre o material de estudo com as coisas que os alunos já sabem:
-                              @itemlist[@item{What makes a language? Do some students already speak more than one language?}
-                                         @item{Programming is very much a language, with its own syntax, semantics, etc}
-                                         @item{Ask students about their favorite videogames. Be open about the scale of a modern game: they cost millions of dollars, are built by huge teams of programmers and artists, and are developed over years.}
-                                         @item{Set expectations about what can be accomplished in a single, introductory programming class.}]}
+                              @itemlist[@item{Do que uma linguagem(idioma) é feita? Alguns alunos já falam mais de um idioma?}
+                                         @item{Programação é muito parecido com idioma, possui sua própria sintaxe, semântica, etc}
+                                         @item{Pergunte aos alunos sobre seus jogos de videogame favoritos. Abra a escola para um jogo de última geração: eles custão milhões de dólares e são construídos por grandes equipes de programadores e artistas, e são desenvolvidos ao longo de anos.}
+                                         @item{Defina expectativas sobre o que pode ser feito em uma única aula de Introdução à programação.}]}
                      }
               ]
          }
@@ -44,7 +44,7 @@
      #:evidence-statements @itemlist[@item{Students will be able to identify the elements of a game and how each one changes during gameplay}]
      #:product-outcomes @itemlist[@item{Nas apostilas, os alunos criam um modelo de dados que descreve um videogame simples.}]
      #:standards (list "BS-M")
-     #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
+     #:materials @itemlist[@item{Ambiente de Edição (WeScheme ou DrRacket com o pacote bootstrap-teachpack instalado)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
                              @item{If using DrRacket, make sure the Ninja.rkt file is loaded}
                              @item{"NinjaCat" [NinjaCat.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=LyMwExWayT" "WeScheme")] preloaded on students' machines}
@@ -57,9 +57,9 @@
       ]{
         @points[
           @point{@student{Vamos começar a explorar um jogo simples, e, em seguida, descobrir como ele funciona. Abra  @run-link[#:public-id "LyMwExWayT" "este link"] para jogar o jogo, e passe um ou dois minutos explorando-o.  @italic{Você pode usar as teclas de setas para mover o gato para a esquerda, direita e saltar – tentar pegar o rubi e evitar o cão!.}}
-                 @teacher{[@(hyperlink "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Mostrar o Gato Ninja para as crianças, either letting them play or by demoing it in front of the class. You can move the cat up, down, left and right by using the arrow keys. 
-                          Play until the students see all the characters (the clouds, the ruby, the dog and the cat), and be 
-                          sure to point out the title and score as well.}
+                 @teacher{[@(hyperlink "https://www.youtube.com/watch?v=KSt_3ovWfjk" "Video")] Mostre o Gato Ninja para as crianças, pode deixar elas jogarem ou demonstre para toda a turma ver. Você pode mover o gato para cima, baixo, direita e esquerda usando as setas direcionais do teclado. 
+                          Jogue até os alunos verem todos os personagens (as nuvens, o rubi, o cão e o gato) e esteja 
+                          certo de que observaram o título e a pontuação também.}
                  }
           
           @point{@student{Este jogo é composto por personagens, cada qual com seu próprio comportamento. O rubi se move da direita para a esquerda, como faz o cão. O Gato Ninja só se move quando você usar as teclas de setas para ele se movimentar. Descobriremos como funciona o jogo após entendermos como funciona cada personagem.}
@@ -94,10 +94,10 @@
                                            ultimately motivating the use of a coordinate grid.}]
      #:product-outcomes @itemlist[@item{Os alunos identificam as coordenadas dos personagens na imagem}]
      #:standards (list "6.NS.5-8" "N-Q" "5.G.1-2")
-     #:materials @itemlist[@item{Cutouts of  @resource-link[#:path "images/ninjacat.png" #:label "NinjaCat"],  @resource-link[#:path "images/dog.png" #:label "Dog"]
-                                 and the  @resource-link[#:path "images/ruby.png" #:label "Ruby"]}
-                            @item{Student Workbooks, and something to write with}]
-     #:preparation @itemlist[@item{Student Workbooks, and something to write with}]
+     #:materials @itemlist[@item{Recortes impressos das figuras ou apenas na tela do @resource-link[#:path "images/ninjacat.png" #:label "NinjaCat"],  @resource-link[#:path "images/dog.png" #:label "Cão"]
+                                 and the  @resource-link[#:path "images/ruby.png" #:label "Rubi"]}
+                            @item{Apostila dos alunos, ou algo para fazer anotações}]
+     #:preparation @itemlist[@item{Apostila dos alunos, ou algo para fazer anotações}]
      #:prerequisites (list "Dissecting a Demo")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -108,13 +108,13 @@
                 )
         ]{
   @points[
-      @point{@student{@bitmap{images/number-line.png}Computadores usam numeros para representar a posição do personagem na tela, usando uma règua para medir 
+      @point{@student{@bitmap{images/number-line.png}Computadores usam numeros para representar a posição do personagem na tela, usando uma régua para medir 
                        a distância, colocando o zero no canto esquerdo inferior da tela. Para nosso jogo, temos uma "régua imaginária" da tela que vai do 0 
                        (na esquerda) até 640 (na direita). Podemos pegar a imagem do Cão, e por em qualquer lugar dessa linha, e medir a distância até a 
                        margem do lado esquerdo. Qualquer outra pessoa que sabe sobre nossa linha será capaz de duplicar a posição exata do Cão, sabendo apenas 
                        o número. Qual seria a coordenada do Cão para ele estar do lado direito da tela? E no Centro? Qual coordenada iria colocar o Cão para frente 
                        da margem esquerda da tela?}
-              @teacher{Os pontos-chave para os alunos são @italic{precisão} e @italic{objetividade}. Exeistem muitas possíveis respostas corretas, mas eles 
+              @teacher{Os pontos-chave para os alunos são @italic{precisão} e @italic{objetividade}. Existem muitas possíveis respostas corretas, mas eles 
                        devem entender porque uma solução deve ser precisa e clara. Isso exige deles, propor soluções que compartilham um "zero" comum 
                        (o ponto de partida de sua linha numérica) e a direção (literalmente, a direção em que a posição do personagem é medida, neste caso na horizontal).
                        @management{Deixe os alunos conversarem sobre isso. Se o tempo permitir, peça para um alunos deixar a sala e deixe os outros escreverem 
@@ -124,41 +124,41 @@
                                    tela", etc.) e peça a ele traduzir isso em coordenadas.}}
               }
 
-      @point{@student{@bitmap{images/cat-coordinates.png}By adding a second number line, we can locate a character anywhere on the screen in either 
-                       dimension. The first line is called the x-axis, which runs from left to right. The second line, which runs up and down, is 
-                       called the y-axis. A 2-dimensional @italic{coordinate} consists of both the x- and y-locations on the axes. Suppose we wanted
-                       to locate NinjaCat's position on the screen. We can find the x-coordinate by dropping a line down from NinjaCat and read 
-                       the position on the number line. The y-coordinate is found by running a line to the y-axis.}
-              @teacher{A coordinate represents a single point, and an image is (by definition) many points. Some students will ask whether a
-                       character's coordinate refers to the center of the image, or one of the corners. In this particular program, the center 
-                       serves as the coordinate - but other programs may use another location. The important point in discussion with students
-                       is that there is flexibility here, @italic{as long as the convention is used consistently}. @management{If time allows, 
-                       invite volunteers up to the board to try placing NinjaCat and the Ruby at different locations. Have students identify the
-                       coordinates at the corners of the screen. For additional practice, have students bisect each side of the screen and label
-                       the midpoints.}}
+      @point{@student{@bitmap{images/cat-coordinates.png}Adicionando uma segunda linha imaginária, podemos localizar um personagem em qualquer lugar da tela 
+                       em qualquer dimensão. A primeira linha é chamada eixo-x, que corre da esquerda para a direita. A segunda linha, vai de cima para baixo, é 
+     chamada de eixo-y. Uma @italic{coordenada} bidimensional é feita de uma localização nos eixos X e Y. Supondo que queremos 
+                       localizar a posição do NinjaCat na tela. Podemos encontrar a coordenada-x colocando uma linha abaixo do Gato e pegamos 
+                       a posição na linha numérica(régua). A coordenada-y é encontrada colocando uma linha no eixo-y.}
+              @teacher{Uma coordenada representa um único ponto, e uma imagem (por definição) possui vários pontos. Alguns estudante perguntaram se a 
+                       coordenada de um personagem se refere ao centro da imagem, ou um de seus cantos. Neste programa em particular, o centro 
+                       servo como coordenada - mas outros programas podem usar outro local. O ponto importante na discussão com os alunos 
+                       é que há muita flexibilidade aqui, @italic{contando que a convenção seja usada de forma consistente}. @management{Se o tempo permitir, 
+                       convide alguns voluntários ao quadro para colocar o GatoNinja e o Rubi em locais diferentes. Peça aos alunos identificarem 
+                       as coordenadas nas bordas da tela. Para prática adicional, peça aos alunos que traçem as linhas pela tela 
+                       nomeiem os pontos de encontro.}}
               }
-      @point{@student{When we write down these coordinates, we always put the x before the y (just like in the alphabet!). Most of the time, 
-                      you'll see coordinates written like this: (200, 50) meaning that the x-coordinate is 200 and the y-coordinate is 50.}
+      @point{@student{Quando escrevemos coordenadas, sempre colocamos o x antes do y (igual no alfabeto!). Na maior parte do tempo, 
+                      você verá coordenadas escritas assim: (200, 50) significando que a coordenada-x é 200 e a coordenada-y é 50.}
               @teacher{}
               }
 
-      @point{@student{Depending on how a character moves, their position might change only along the x-axis, only along the y-axis, or both. Look
-                      back to the table you wrote in the workbook (@worksheet-link[#:name "NinjaCat-Dissection"]).
-                      Can NinjaCat move up and down in the game? Can she move left and right? So what's changing: her x-coordinate, her y-coordinate, 
-                      or both? What about the clouds? Do they move up and down? Left and right? Both?}
+      @point{@student{Dependendo de como o personagem se move, sua posição pode mudar apenas no eixo-x, apenas no eixo-y, ou nos dois. Olhe 
+                      novamente na tebela que você completou em sua apostila (@worksheet-link[#:name "NinjaCat-Dissection"]). 
+                      O GatoNinja pode se mover para cima e para baixo no jogo? Ele pode se mover para a direita e esquerda? Então o que está mudando: Sua coordenada-x, sua coordenada-y, 
+                      ou as duas? E quanto as nuvens? Elas se movem para cima e para baixo? Direita e Esquerda? Todos os movimentos?}
               @teacher{}
               }
       
       @point{@student{@activity[#:forevidence (list "N-Q&1&4" "5.G.1-2&1&1" "5.G.1-2&1&2")]{
-                          @bitmap{images/game-table3.png}Fill in the rest of the table, identifying what is changing for each of your characters.}
+                          @bitmap{images/game-table3.png}Preencha o restante de sua tabela, identificando o que muda em cada um dos seus personagens.}
                        }
               @teacher{}
               }
       
-      @point{@student{@activity[#:forevidence (list "6.NS.5-8&1&2")]{Turn to @worksheet-link[#:name "NinjaCat-Coordinates"] in your game-planning workbook, and look at the
-                                        project sheet that has a picture of the NinjaCat game. What are the coordinates at the bottom-left corner 
-                                        of the screen? Top-right? Center? For practice, label the coordinates at the midpoint of @italic{each side}
-                                        of the screen, then label the coordinates of each of the characters.}}
+      @point{@student{@activity[#:forevidence (list "6.NS.5-8&1&2")]{Vá para a @worksheet-link[#:name "NinjaCat-Coordinates"] a planilha de planejamento do jogo, e olhe 
+                                        para a folha de projeto que tem uma imagem do jogo NinjaCat. Quais são as coordenadas do canto inferior-esquerdo 
+                                        da tela? Do superior-direto? Centro? Para praticar, rotule as coordenadas nos pontos corretos de @italic{cada lado} 
+                                        da tela, e encontre as coordenadas de cada personagem.}}
               @teacher{}
               }]
    }
@@ -239,7 +239,7 @@
                        (make-exercise-locator "Order-of-Operations" "arith-to-coe1")
                        (make-exercise-locator "Order-of-Operations" "coe-to-arith1")
                        (make-exercise-locator "Order-of-Operations" "match-arith-coe1"))
-     #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
+     #:materials @itemlist[@item{Ambiente de Edição (WeScheme ou DrRacket com o pacote bootstrap-teachpack instalado)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
                              @item{If using DrRacket, make sure the Ninja.rkt file is loaded}
                              @item{Student Workbooks, and something to write with}]
@@ -408,7 +408,7 @@
                                      @item{Given a bank of Circles of Evaluation and programs, students will be able to match them}]
      #:product-outcomes @itemlist[]
      #:standards (list "A-SSE.1-2" "N-Q" "BS-CE" "BS-PL.1" "BS-IDE")
-     #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
+     #:materials @itemlist[@item{Ambiente de Edição (WeScheme ou DrRacket com o pacote bootstrap-teachpack instalado)}]
      #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
                               @item{Student Workbooks, and something to write with}
                               @item{Overhead projector}]
