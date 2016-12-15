@@ -66,27 +66,27 @@
                  @teacher{}
                  }
           
-          @point{@student{@activity[#:forevidence (list "BS-M&1&1")]{@bitmap{images/game-table1.png} Turn to @worksheet-link[#:name "NinjaCat-Dissection"] in your workbook. Here we have a table, which we'll use to reverse-engineer NinjaCat and see how it works. Fill out the first column with a complete list of all things in the game.}
+          @point{@student{@activity[#:forevidence (list "BS-M&1&1")]{@bitmap{images/game-table1.png} Vá para a página @worksheet-link[#:name "NinjaCat-Dissection"] de sua apostila. Aqui temos uma tabela, que usaremos para fazer uma engenharia-reversa do NinjaCat e ver como ele funciona. Preencha e primeira coluna com uma lista completa de todas as coisas no jogo.}
                            }
-                 @teacher{This can be a team activity. Solicit a few examples from students, to make sure they understand what's being listed here: nouns like "the cat", not verbs like "jumping". @management{During this activity, walk around and see how groups are doing. This is the time to encourage expectations of community and respect - call out good teamwork when you see it! When time is up, give them a countdown: "30...10... 5... 4... 3... 2... 1... PENCILS DOWN, EYES UP HERE!" Wait for total silence and complete attention. }}
+                 @teacher{Essa pode ser uma atividade em equipe. Peça aos alunos alguns exemplos, para ter certeza de que entenderam o que é pra ser listado: substantivos(nomes) como "o gato", não pode ser verbos como "pulando". @management{Durante esta atividade, caminhe e veja como os grupos ou duplas estão fazendo. Este é um bom momento para encorajar valores de trabaho conjunto e respeito - Diga "bom trabalho" quando ver algum! Quando o tempo acabar, dê uma contagem regressiva: "30...10... 5... 4... 3... 2... 1... LÁPIS ABAIXADOS, OLHOS AQUI!" Espere por silêncio completo e atenção total.}}
                  }
           
-          @point{@student{Did you list all four moving characters? What else is in the game? Is the background a part of the game? The score?}
-                 @teacher{@management{Have students come up to the board, and fill in the table with what they've found. If time is short, call on students and have them tell you what to write.}}
+          @point{@student{Você listou todos os quatro personagens que se movem? O que mais temos no jogo? O plano de fundo faz parte do jogo? E a Pontuação (score)?}
+                 @teacher{@management{Peça a algum aluno a vir ao quadro, e preencher na tabela o que encontraram pra primeira coluna. Se o tempo estiver curto, peça que eles digam de onde estão sentados o que escreveram.}}
                  }
           
-          @point{@student{@activity{@bitmap{images/game-table2.png}We also need to think about what is @italic{changing} when we play the game. What about the Ruby? Does it get bigger? Does it change color? Does it spin around? The only thing that changes about the Ruby is its @italic{position}! Everything else about it is the same. What about the Dog? The Cat? Fill in the rest of the second column, listing everything that changes about each character.}}
+          @point{@student{@activity{@bitmap{images/game-table2.png} Precisamos pensar também sobre o que está @italic{mudando} quando estamos jogando. O que acontece com o Rubi? Ele fica maior? Sua cor muda? Ele gira? A única coisa que muda no Rubi é sua @italic{posição}! Todo o restante sobre ele continua o mesmo. E sobre o cão? o Gato? Preencha o restante na segunda coluna, colocando tudo o que muda sobre cada personagem.}}
                  @teacher{}
                  }
                             
-          @point{@student{Did you notice that the Dog, Ruby, Cloud and Cat only change position, and nothing else? What about the Background - it doesn't change at all, so we can @italic{leave that cell in table blank!} Did you notice the Score changes value? You'll want to add that to your table, too!}
-                 @teacher{@management{Quickly fill in the second column on the board. Assign scores.}}
+          @point{@student{Você percebeu que o Cão, o Rubi, a Nuvem e o Gato mudam apenas sua posição e nada mais? E sobre o Plano de Fundo - ele não muda em nada, então podemos @italic{deixá-lo de fora desta coluna!} Você percebeu que a Pontuação(Score) muda de valor? Você vai querer ter isso adicionado a sua lista também!}
+                 @teacher{@management{Rapidamente preencha a segunda coluna no quadro.}}
                  }
           ]}
 
 @lesson/studteach[
-     #:title "Coordinate Planes"
-     #:duration "15 minutes"
+     #:title "Plano de Coordenadas"
+     #:duration "15 minutos"
      #:overview "Students must use the Cartesian plane to describe the location of characters in a picture."
      #:learning-objectives @itemlist[@item{Understand the use of number lines in defining locations via coordinates}]
      #:evidence-statements @itemlist[@item{Students apply the number line as a tool for objectively defining location, first identifying how to apply it to 
@@ -108,20 +108,20 @@
                 )
         ]{
   @points[
-      @point{@student{@bitmap{images/number-line.png}Computers use numbers to represent a character's position onscreen, using number lines as rulers to measure 
-                       the distance from the bottom-left corner of the screen. For our videogame, we will place the numberline so that the screen runs from 0 
-                       (on the left) to 640 (on the right). We can take the image of the Dog, stick it anywhere on the line, and measure the distance back to 
-                       the lefthand edge. Anyone else who knows about our number line will be able to duplicate the exact position of the Dog, knowing only 
-                       the number. What is the coordinate of the Dog on the righthand side of the screen? The center? What coordinate would place the Dog beyond 
-                       the lefthand edge of the screen?}
-              @teacher{The key point for students here is @italic{precision} and @italic{objectivity}. There are many possible correct answers, but students
-                       should understand why any solution should be accurate and unambiguous. This requires students to propose solutions that share a common
-                       "zero" (the starting point of their number line) and direction (literally, the direction from which a character's position is measured).
-                       @management{Have students discuss this. If time allows, have a student leave the room and let other students come up with ways to write
-                                   down where the dog is on the board. Then remove the dog, call in the other student, and have the class direct them using 
-                                   only what they've written down.Try positioning the characters at different places on the line, and have students tell you 
-                                   what their coordinates are. Try giving them verbal descriptions (e.g. "The center of the screen", "Off the righthand 
-                                   side of the screen", etc.) and have them translate those into coordinates.}}
+      @point{@student{@bitmap{images/number-line.png}Computadores usam numeros para representar a posição do personagem na tela, usando uma règua para medir 
+                       a distância, colocando o zero no canto esquerdo inferior da tela. Para nosso jogo, temos uma "régua imaginária" da tela que vai do 0 
+                       (na esquerda) até 640 (na direita). Podemos pegar a imagem do Cão, e por em qualquer lugar dessa linha, e medir a distância até a 
+                       margem do lado esquerdo. Qualquer outra pessoa que sabe sobre nossa linha será capaz de duplicar a posição exata do Cão, sabendo apenas 
+                       o número. Qual seria a coordenada do Cão para ele estar do lado direito da tela? E no Centro? Qual coordenada iria colocar o Cão para frente 
+                       da margem esquerda da tela?}
+              @teacher{Os pontos-chave para os alunos são @italic{precisão} e @italic{objetividade}. Exeistem muitas possíveis respostas corretas, mas eles 
+                       devem entender porque uma solução deve ser precisa e clara. Isso exige deles, propor soluções que compartilham um "zero" comum 
+                       (o ponto de partida de sua linha numérica) e a direção (literalmente, a direção em que a posição do personagem é medida, neste caso na horizontal).
+                       @management{Deixe os alunos conversarem sobre isso. Se o tempo permitir, peça para um alunos deixar a sala e deixe os outros escreverem 
+                                   onde o Caõ está no quadro. Então remova o Cão, e chame o aluno que saiu para voltar, e deixe a turma direcionar ele usando 
+                                   apenas o que eles anotaram anteriormente. Tente posicionar os personagem em diferentes lugares da linha, os alunos lhe dizem quais 
+                                   são as coordenadas. Experimente dar descrições verbais (Ex. "No centro da tela", "Além do lado direito da 
+                                   tela", etc.) e peça a ele traduzir isso em coordenadas.}}
               }
 
       @point{@student{@bitmap{images/cat-coordinates.png}By adding a second number line, we can locate a character anywhere on the screen in either 
