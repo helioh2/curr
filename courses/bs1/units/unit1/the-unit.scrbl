@@ -264,13 +264,12 @@
                                 para descrever ações sobre esses substantivos. A matemática tem @vocab{funções} como adição e subtração, que 
                                 são operações feitas em números. Assim como você pode "fatiar um pão", uma possoa também pode "somar 4 e 5".}
 
-                        @teacher{Alunos devem começar a olhar a matemática como uma @italic{língua}. Para ajudar eles, você pode discutir sintaxe e 
+                        @teacher{Alunos devem começar a olhar a matemática como uma @italic{linguagem}. Para ajudar eles, você pode discutir sintaxe e 
                                  gramática da matemática, e sua potencial ambiguidade na ausência de uma ordem fixa de operadores. Ajude 
                                  os alunos a ver que a matemática é uma forma de comunicar cálculos entre as pessoas.}
                         }
                  @point{@student{Uma @vocab{expressão matemática} é como uma frase: é uma instrução para fazer algo. A 
-                                 expressão @math{4+5} nos diz para somar 4 e 5. Para @vocab{}
-     ion @math{4+5} tells us to add 4 and 5.  To @vocab{calcular} uma expressão, nós seguimos as instruções 
+                                 expressão @math{4+5} nos diz para somar 4 e 5. Para @vocab{calcular} uma expressão, nós seguimos as instruções 
                                  da expressão. A expressão @math{4+5} ***@vocab{resulta em} @vocab{evaluates to} @math{9}.                         
                         @activity{O que resulta a operação @math{8*4}? E @math{20-16}? Qual o resultado de @math{16-20}?}}
                        @teacher{}}
