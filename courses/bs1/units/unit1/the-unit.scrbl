@@ -184,39 +184,39 @@
         
         
 @points[
-        @point{@student{On @worksheet-link[#:name "Game-Design"], you'll find a planning template for you to make your own game. 
-                           Just like we made a list of everything in the NinjaCat game, we're going to start with a list of everything in your game.}
-                @teacher{@management{Put your names at the top of this page.}}
+        @point{@student{Na @worksheet-link[#:name "Game-Design"], você encontrará um modelo de planejamento para fazer seu próprio jogo. 
+                           Nós fizemos apenas uma lista de tudo o que tinha o NinjaCat, agora vamos começar a listar o que terá no seu jogo.}
+                @teacher{@management{Coloquem seus nomes no inicio desta página.}}
                 }
          
-        @point{@student{To start, your game will have with four things in it: 
+        @point{@student{Para começar, seu jogo deverá ter quatro coisas: 
                         @itemlist[
-                                  @item{A Background, such as a forest, a city, space, etc.}
-                                   @item{A Player, who can move when the user hits a key.}
-                                   @item{A Target, which flies from the right to the left, and gives the player points for hitting it.}
-                                   @item{A Danger, which flies from the right to the left, which the player must avoid.}]}
-                @teacher{Have students walk through some sample themes, to make sure they understand the format of the game. For example: A football 
-                         game might have a quarterback for the player, a rival player for the danger, and a football as the target. A jungle game
-                         might have a monkey as the player, a snake as the danger, and bananas as the target.}
+                                  @item{Um Cenário, como uma floresta, uma cidade, o espaço, etc}
+                                   @item{Um Personagem Principal, que se move usando as setas.}
+                                   @item{Um Alvo, que voa da direita para a esquerda, e dá pontos ao jogador quando pegá-lo.}
+                                   @item{Um Perigo, que vem da direita para a esquerda, que o jogador deve evitar.}]}
+                @teacher{Peça aos alunos olharem alguns exemplos de temas, tenha certeza de que entenderam o formato do jogo. Por exemplo: um jogo de futebol americano 
+                         deve ter um quarterback(jogador que corre com a bola), um jogador rival como perigo, e a bola como alvo. Em um jogo na selva, 
+                         pode ter um macaco como jogador principal, uma cobra como perigo, e bananas como alvo.}
                 }
         
-        @point{@student{@activity{Now it's time to get creative! Fill out @worksheet-link[#:name "Game-Design"] in your 
-                                  workbook for @italic{your} game, using your own player, target and danger.}}
-                @teacher{@management{Be sure to consult with every team. A lot of students will have trouble fitting their ideas into this 
-                                     format, or they'll struggle with coordinates. Be clear about what can and cannot be done! (e.g. - no 
-                                     3d games, joysticks, multiplayer games, etc. Hint: students who have a well-worded description of their
-                                     images will be happier with any images you could find them. Try searching for "Person" versus "Jogger",
-                                     for example.}}
+        @point{@student{@activity{Agora é hora de ser criativo! Preencha a @worksheet-link[#:name "Game-Design"] em sua apostila 
+                                  para o @italic{seu} jogo, usando seu próprio jogador, alvo e perigo.}}
+                @teacher{@management{Certifique-se de consultar cada equipe. Muitos alunos terão diufculdade em encaixar suas ideias neste 
+                                     formato, ou podem se atrapalhar com as orientações. Para ser claro sobre o que pode e não pode ser feito! (e.g. - sem 
+                                     jogos 3d, joysticks, jogos multiplayer, etc. ***Hint: students who have a well-worded description of their
+                                     images will be happier with any images you could find them. Tente pesquisar por "Person" versus "Jogger", ou
+                                     Jogador versus Computador, por exemplo.}}
                 }
         ]}
 
 @lesson/studteach[
-     #:title "Order of Operations"
-     #:duration "20 minutes"
-     #:overview "Students identify the order of operations for complicated arithmetic expressions through diagramming (circles) and 
-                 evaluating (the numerical answer). This lesson introduces students to the Circle of Evaluation, which is a sentence 
-                 diagramming tool for arithmetic expressions. This is a powerful way to understand Order of Operations, as it forces
-                 students to focus on the structure of expressions over their computed result."
+     #:title "Ordem de Operações"
+     #:duration "20 minutos"
+     #:overview "Alunos identificam a ordem das opeações para uma expressão matemática complexa através de diagramas (círculos) e 
+                 calculam o resultado. Essa lição indroduz aos alunos o Círculo de Avaliação, que é uma ferramenta de 
+                 diagramas para expressões aritméticas. Essa é uma maneira poderosa de entender a Ordem das Operações, pois direciona 
+                 o aluno a dar foco na estrutura das expressões do que no resultado em si."
      #:learning-objectives @itemlist[@item{Understand the structure of arithmetic expressions}
 	                             @item{Understand order of operations in an expression}
                                      @item{Write expressions as Circles of Evaluation}
@@ -258,48 +258,49 @@
                 )
       ]{
         @points[
-                @point{@student{Math is a language, just like English, Spanish, or any other language. We use nouns, like "bread", "tomato", 
-                                "mustard" and "cheese" to describe physical objects. Math has @vocab{values}, like the numbers @math{1}, 
-                                @math{2} or @math{3}, to describe quantities. Humans also use verbs like "toast", "slice", "spread" and "melt" 
-                                to describe operations on these nouns. Mathematics has @vocab{functions} like addition and subtraction, which
-                                are operations performed on numbers. Just as you can "slice piece of bread", a person can also "add four and five".}
+                @point{@student{Matemática é um idioma, como Inglês, Espanhol, ou qualquer outro. Usamos substantivos, como "pão", "tomate", 
+                                "mostarda" e "queijo" para descrever objetos físicos. A matemática possui @vocab{valores}, como números @math{1}, 
+                                @math{2} ou @math{3}, para descrever quantidades. Humanos também usam verbos como "fatiar",  "repartir", "espalhar" e "derreter" 
+                                para descrever ações sobre esses substantivos. A matemática tem @vocab{funções} como adição e subtração, que 
+                                são operações feitas em números. Assim como você pode "fatiar um pão", uma possoa também pode "somar 4 e 5".}
 
-                        @teacher{Students should begin to look at math as a @italic{language}.  To help them with this, you can discuss syntax 
-                                 and grammar of math, and its potential for ambiguity in the absence of a fixed order of operations.  Help 
-                                 students see that math is a way to communicate calculations among people.}
+                        @teacher{Alunos devem começar a olhar a matemática como uma @italic{língua}. Para ajudar eles, você pode discutir sintaxe e 
+                                 gramática da matemática, e sua potencial ambiguidade na ausência de uma ordem fixa de operadores. Ajude 
+                                 os alunos a ver que a matemática é uma forma de comunicar cálculos entre as pessoas.}
                         }
-                 @point{@student{A @vocab{mathematical expression} is like a sentence: it's an instruction for doing something.  The 
-                                 expression @math{4+5} tells us to add 4 and 5.  To @vocab{evaluate} an expression, we follow the instructions 
-                                 in the expression.  The expression @math{4+5} @vocab{evaluates to} @math{9}.                         
-                        @activity{What does @math{8*4} evaluate to?  What does @math{20-16} evaluate to?  What does @math{16-20} evaluate to?}}
+                 @point{@student{Uma @vocab{expressão matemática} é como uma frase: é uma instrução para fazer algo. A 
+                                 expressão @math{4+5} nos diz para somar 4 e 5. Para @vocab{}
+     ion @math{4+5} tells us to add 4 and 5.  To @vocab{calcular} uma expressão, nós seguimos as instruções 
+                                 da expressão. A expressão @math{4+5} ***@vocab{resulta em} @vocab{evaluates to} @math{9}.                         
+                        @activity{O que resulta a operação @math{8*4}? E @math{20-16}? Qual o resultado de @math{16-20}?}}
                        @teacher{}}
-                 @point{@student{Sometimes, we need multiple expressions to accomplish a task.  If you were to write instructions for making 
-                                 a sandwich, it would matter very much which came first: melting the cheese, slicing the bread, spreading the 
-                                 mustard, etc. The order of functions matters in mathematics, too. If someone says "four plus two minus one", 
-                                 they could mean several things:
-                                @itemlist[@item{Add four and two, then subtract one: @math{(4+2) - 1}}
-                                          @item{Add four to the result of subtracting one from two: @math{4 + (2-1)}}]
-                        @activity{Write an expression of your own that can mean several things.}}
+                 @point{@student{As vezes, precisamos de várias expressões para completar uma tarefa. Se voce escreveu instruções para fazer 
+                                 um sanduíche, a ordem do que vem primeiro importa muito: derreter o queijo, fatiar o pão, espalhar a 
+                                 mostarda, etc. A ordem das funções importam na matemática também, e muito. Se alguém diz "quatro mais dois menos um", 
+                                 pode ter significados diferentes:
+                                @itemlist[@item{Some quatro e dois, então diminua um: @math{(4+2) - 1}}
+                                          @item{Some quatro com o resultado da subtração de dois e um: @math{4 + (2-1)}}]
+                        @activity{Escreva uma expressão própria que pode significar várias coisas.}}
                         @teacher{}
                         }
                  
-                 @point{@student{Depending on which way you read the expression, you might have very different results!  This is a problem, 
-                                 because we often use math to share calculations between people.  For example, you and your cell phone company 
-                                 should agree upfront on how much you will pay for sending text messages and making calls.  Different results
-                                 might mean that your bill looks wrong.  We avoid problems by agreeing on the order in which to use the 
-                                 different operations in an expression.  There are two ways to do this:
+                 @point{@student{Dependendo da maneira como você lê a expressão, você pode ter resultados muito diferentes! Esse é um problema, 
+                                 porque com frequência usamos a matemática para compartilhar cálculos entre pessoas. Por exemplo, você e sua operadora de celular 
+                                 devem concordar antecipadamente o quanto você deverá pagar por enviar mensagens e fazer chamadas. Diferentes resultados 
+                                 podem seignificar que sua conta parece errada. Nós evitamos problemas concordando com a ordem que usamos os 
+                                 diferentes operadores em uma expressão. Existem duas maneira de fazer isso: 
                                @itemlist[#:style 'ordered
-                                         @item{We can all agree on an order to use}
-                                         @item{We can add detail to expressions that indicate the order}]
-                          @activity{Write down one reason why it is important to have rules about the order of operations.}}
+                                         @item{Todos podemos concordar em usar ordem}
+                                         @item{Podemos adicionar detalhes nas expressões, que indicam a ordem}]
+                          @activity{Anote uma razão de porque é importante ter regras sobre a ordem das operações.}}
                          @teacher{}}
-                  @point{@student{@bitmap{images/PEMDASTriangle.png} Mathematicians didn't always agree on the order of operations, but now
-                                   we have a common set of rules for how to evaluate expressions.  The pyramid on the right summarizes the 
-                                   order.  When evaluating an expression, we begin by applying the operations written at the top of the 
-                                   pyramid (multiplication and division). Only after we have completed all of those operations can we 
-                                   move down to the lower level. If both operations are present (as in @math{4+2-1}), we read the expression
-                                   from left to right, @vocab{apply}ing the operations in the order in which they appear.
-                          @activity[#:forevidence (list "A-SSE.1-2&1&3" "5.OA.1-2&1&2")]{In what order should we apply the functions in the following example? 
+                  @point{@student{@bitmap{images/PEMDASTriangle.png} Matematicos nem sempre concordaram com a ordem das operações, mas agora 
+                                   temos um conjunto comum de regras de como calcular expressões. A pirâmide à direita resume essa 
+                                   ordem. Quando avaliamos uma expressão, começamos aplicando as operações escritas no topo da pirâmide 
+                                   (multiplicação e divisão). Somente depois de ter completado todas essas operações podemos 
+                                   descer para o próximo nível. Se ambas as operações estiverrem presentes (como em @math{4+2-1}), nós lemos a expressão 
+                                   da esquerda para a direita, @vocab{aplicando} as operações na ordem que aparecem.
+                          @activity[#:forevidence (list "A-SSE.1-2&1&3" "5.OA.1-2&1&2")]{Qual deve ser a ordem para resolver o exemplo a seguir? 
                                     @math{19 \div 2 * 11 - 7 + 8}
                                     @itemlist[#:style 'ordered
                                               @item{@math{+ \div * - }}
@@ -307,61 +308,63 @@
                                               @item{@math{\div * + -}}
                                               @item{@math{* \div + -}}]
 }}
-                         @teacher{This item covers PEMDAS (order of operations in ambiguous expressions).  You can skip this item if you
-                                  do not need to cover PEMDAS.}
+                         @teacher{Essa atividade cobre PEMDAS(ordem das operações em expressões ambíguas). Você pode pular esse item se você 
+                                  não precisa trabalhar PEMDAS(P. parênteses, E. expoente ou raíz, M. multiplicação, D. divisão, A. adição e S. subtração).}
                          }
 
-                @point{@student{@bitmap{images/FixedCircle.png} One way to indicate the order of operations in an expression is to first 
-                                 draw the expression as a diagram.  This diagram is called a @vocab{Circle of Evaluation}.  Here you can
-                                 see an example of a Circle of Evaluation, for the math expression @math{4-5}. Circles of Evaluation 
-                                 show the structure that's going on inside an expression.  All Circles of Evaluation have two rules:
-                       @bannerline{Circle Rule 1: Each circle must have one function, which goes at the top of the circle.}
-                       @bannerline{Circle Rule 2: The numbers are written below, in order from left to right.}
-                       @activity[#:forevidence "BS-CE&1&1"]{@bitmap{images/CircleBug.png}Which rule does this Circle of Evaluation break?}
+                @point{@student{@bitmap{images/FixedCircle.png} uma maneira de indicar a ordem das operações em uma expressão é primeiro 
+                                 desenhar a expressão com um diagrama. Esse diagrama é chamado de @vocab{Círculo de Avaliação}. Aqui você pode 
+                                 ver um exemplo de um Cículo de Avaliação, para a expressão @math{4-5}. Círculos de Avaliação 
+                                 mostram a estrutura que vai dentro da expressão. Todos os Círculos de Avaliação possuem duas regras: 
+                       @bannerline{Regra 1: Cada círculo deve ter uma única função, que vai no topo do círculo.}
+                       @bannerline{Regra 2: Os números são escritos abaixo, em ordem da esqueda para a direita.}
+                       @activity[#:forevidence "BS-CE&1&1"]{@bitmap{images/CircleBug.png}Qual das regras esse Círculo de Avaliação quebra?}
                        }
-                @teacher{[@(hyperlink "https://www.youtube.com/watch?v=AMFaPKHp3Mg" "Video")] This section benefits enormously from visual aids, diagrams, etc. Make sure you have plenty of board space to 
-                         draw examples!}
+                @teacher{[@(hyperlink "https://www.youtube.com/watch?v=AMFaPKHp3Mg" "Video")] Essa seção é beneficiada com a ajuda visual de diagramas, etc. Tenha bastante espaço no quadro 
+                         para desenhar exemplos!}
                 }
-                @point{@student{@activity[#:forevidence (list "BS-CE&1&1" "5.OA.1-2&1&1")]{Try drawing the Circle of Evaluation for each of the following 
-                                                                     expressions:
+                @point{@student{@activity[#:forevidence (list "BS-CE&1&1" "5.OA.1-2&1&1")]{Tente desenhar o Cículo de Avaliação para cada uma das 
+                                                                     expressões a seguir:
                                           @itemlist[#:style 'ordered
                                                     @item{@math{6*4}}
                                                     @item{@math{7-10}}
                                                     @item{@math{5 + 8}}
                                                     @item{@math{\frac{351}{-1} }}]
                                           }
-                                 @bitmap{images/FixedCircle.png} Every Circle of Evaluation @vocab{evaluates to} the result of its 
-                                 corresponding expression.  For example, the circle on the right evaluates to @math{-1}, because 
-                                 the circle says to use subtraction (the function at the top) on the numbers in order (@math{4-5}).}
-                        @teacher{It's important for students to view the Circles of Evaluation as "just another way of writing arithemetic". 
-                                 Have students discuss whether associativity and commutativity still matter here (they do).}
+                                 @bitmap{images/FixedCircle.png} Todo Círculo de Avaliação calcula o resultado de sua 
+                                 expressão correspondente. Por exemplo, o círculo á direita resulta em @math{-1}, porque 
+                                 o círculo diz para usar uma subtração(operação no topo) nos números em ordem (@math{4-5}).}
+                        @teacher{É importante que os alunos vejam que os Círculos de Avaliação são "apenas outra maneira de escrever cálculos". 
+                                 Peça aos alunos discutirem entre si se a Associatividade e Comutatividade ainda estão presentes.
+     (Comutatividade tem a ver com a ordem dos elementos na operação,Ex (+ 2 7), ou (+ 2 500) são comutativas pois mesmo trocando a ordem dos elementos, o resultado é o mesmo.
+     (Associatividade, operações com mesmo operador podem ser "unidas", ex (+ 20 (+ 5 2)).}
                         }
-                @point{@student{@bitmap{images/Nesting.png}To use multiple functions in the same expression, we can combine Circles
-                                 of Evaluation.  Look at the Circle of Evaluation you've written for @math{351 / -1}. We already 
-                                 know that the Circle for @math{4 - 5} will evaluate to @math{-1}, so we can @italic{replace the 
-                                 number with the expression.} Does this change what the expression evaluates to?
+                @point{@student{@bitmap{images/Nesting.png}Usando multiplas funções na mesma expressão, podemos combinar Círculos 
+                                 de Avaliação. Olhe para o Círculo que você escreveu para @math{351 / -1}. Nós já 
+                                 sabemos que o Círculo para @math{4 - 5} resultará em @math{-1}, então podemos @italic{substituir a
+                                 expressão pelo numero.} Isso muda o resultado da expressão? 
                                 @activity[#:forevidence (list "BS-CE&1&2" "5.OA.1-2&1&1")]{
-                                      @bitmap{images/fill-in-circle.png}Finish writing the Circle of 
-                                       Evaluation shown here, so that it represents @math{(23 + 7) * (13 - 5)}}
+                                      @bitmap{images/fill-in-circle.png}termine de escrever o Círculo de Avaliação 
+                                       mostrado abaixo para representar @math{(23 + 7) * (13 - 5)}}
                       }
-                        @teacher{From this point forward, the Circles of Evaluation are your assessment tool for Order of Operations. 
-                                 Quizzing students by asking them to correctly evaluate an expression is fraught with false negatives,
-                                 as many student might get the order right but may still have problems with basic calculations. This 
-                                 method is also vulnerable to Commutativity, since a student will correctly evaluate @math{1*2+2} 
-                                 even if they get the order of operations wrong! Circles of Evaluation have neither of these flaws,
-                                 as they put the emphasis where it should be: exercising a student's ability to see the structure 
-                                 inside the arithemetic.}
+                        @teacher{A partir desse momento, os Círculos de Avaliação são sua ferramente de avaliação de Ordem de Operações. 
+                                 Questionando os alunos pedindo-lhes para avaliar uma expressão cheia de falsos negativos, 
+                                 muitos alunos podem obter a ordem certa, mas podem ter problemas com cálculos básicos. Este 
+                                 método também é vulnerável á Comutabilidade, uma vez que o aluno irá avaliar corretamente @math{1*2+2} 
+                                 mesmo se receber a ordem das operações errada! O Cículos de Avaliação não possui essas falhas, 
+                                 já que ele coloca ênfase: exercitando a habilidade do aluno ver a estrututa 
+                                 dentro da aritmética.}
                         }
-                @point{@student{@bitmap{images/NestedCircle.png}What does this Circle of Evaluation evaluate to?  Let's review how
-                                 we evaluate a Circle:
-                                 @itemlist[@item{We know we are multiplying because that's the function at the top of the Circle.} 
-                                           @item{The Number @math{6} is the first number in the multiplication, because it's on 
-                                                            the left-hand side.}
-                                           @item{The second number in the multiplication is on the right-hand side.  The right-hand
-                                                 side has a separate circle, so we need to @vocab{evaluate} the number for that 
-                                                 circle.  The second number is therefore @italic{the result of adding 4 and 5}.}
-                                           @item{@math{4 + 5} (the inner circle) evaluates to @math{9}, and @math{6 * 9} (the outer 
-                                                  circle) evaluates to @math{54}.  This circle evaluates to @math{54}.}]
+                @point{@student{@bitmap{images/NestedCircle.png}Qual o resultado desde Círculo de Avaliação? Vamos revisar como 
+                                 avaliamos um Círculo:
+                                 @itemlist[@item{Sabemos que é uma multiplicação porque é a função que está no topo do Círculo.} 
+                                           @item{O número @math{6} é o primeiro número da multiplicação, porque está do 
+                                                 do lado esquerdo.}
+                                           @item{O segundo número da multiplicação está ao lado direito. Neste lado temos 
+                                                 um círculo separado, então precisamos @vocab{calcular} primeiro 
+                                                 este círculo. O segundo número da multiplicação é, portanto, @italic{o resultado da soma de 4 e 5}.}
+                                           @item{@math{4 + 5} (o círculo interno) resulta em @math{9}, e @math{6 * 9} (o círculo  
+                                                  externo) resulta em @math{54}. O círculo todo resulta em @math{54}.}]
                         @activity[#:forevidence (list "BS-CE&1&3" "A-SSE.1-2&1&3" "5.OA.1-2&1&1")]{
                                @bitmap{images/NestedCircle2.png}Convert this Circle of Evaluation into an arithmetic expression.}
                         }
