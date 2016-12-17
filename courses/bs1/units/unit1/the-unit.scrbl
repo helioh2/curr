@@ -343,7 +343,7 @@
                                  sabemos que o Círculo para @math{4 - 5} resultará em @math{-1}, então podemos @italic{substituir a
                                  expressão pelo numero.} Isso muda o resultado da expressão? 
                                 @activity[#:forevidence (list "BS-CE&1&2" "5.OA.1-2&1&1")]{
-                                      @bitmap{images/fill-in-circle.png}termine de escrever o Círculo de Avaliação 
+                                      @bitmap{images/fill-in-circle.png}Termine de escrever o Círculo de Avaliação 
                                        mostrado abaixo para representar @math{(23 + 7) * (13 - 5)}}
                       }
                         @teacher{A partir desse momento, os Círculos de Avaliação são sua ferramente de avaliação de Ordem de Operações. 
@@ -365,18 +365,18 @@
                                            @item{@math{4 + 5} (o círculo interno) resulta em @math{9}, e @math{6 * 9} (o círculo  
                                                   externo) resulta em @math{54}. O círculo todo resulta em @math{54}.}]
                         @activity[#:forevidence (list "BS-CE&1&3" "A-SSE.1-2&1&3" "5.OA.1-2&1&1")]{
-                               @bitmap{images/NestedCircle2.png}Convert this Circle of Evaluation into an arithmetic expression.}
+                               @bitmap{images/NestedCircle2.png}Transforme esse Círculo de Avaliação em uma expressão matemática.}
                         }
-                        @teacher{Work through several of these examples with students, asking them to come up with arithmetic
-                                 expressions and then convert them into Circles, or giving them Circles and having them 
-                                 translate them back into arithmetic.  When you talk about Circles, be sure to consistently use
-                                 the term @italic{function} for what's on top, rather than similar terms like "operation", "symbol",
-                                 "procedure", "name", etc.  The Circles of Evaluation will help students see the similarity between
-                                 arithmetic functions (like @math{+}) and algebraic functions (like @math{f}) if you use 
-                                 terminology carefully.}
+                        @teacher{Trabalhe com vários exemplos com os alunos, dê a eles expressões matemáticas 
+                                 e as converta em Círculos, ou trabalhe pedindo que traduzam Círculos 
+                                 em expressões aritméticas. Quando falar sobre Círculos, use constantemente 
+                                 o termo @italic{função} para o que está no topo, em vez de termos parecidos como "operação", "símbolo", 
+                                 "procedimento", "nome", etc. Os Círculos de Avaliação ajudará os alunos a ver a semelhança entre 
+                                 funções aritmáticas (como @math{+}) e funções algébricas (como @math{f}) se você usar 
+                                 o vocabulário com cuidado.}
                         }
                 @point{@student{@activity[#:forevidence (list "BS-CE&1&3" "A-SSE.1-2&1&3" "5.OA.1-2&1&1")]{
-                              Match the following Circles of Evaluation with the corresponding arithmetic expressions:
+                              Combine os Círculos de Avaliação com as expressões a seguir:
                                   @(circeval-matching-exercise/math 
 				    (list (math "9 * (4 - 3)")
 					  (math "(9 * 4) - 3")
@@ -395,9 +395,9 @@
          }
 
 @lesson/studteach[
-     #:title "Intro to Programming"
-     #:duration "15 minutes"
-     #:overview "Students are introduced to the programming environment"
+     #:title "Entrando na Programação"
+     #:duration "15 minutos"
+     #:overview "Alunos são introduzidos ao ambiente de programação"
      #:learning-objectives @itemlist[@item{Convert Circles of Evaluation into code}
                                      @item{Enter and evaluate code expressions for arithmetic on the computer}
                                      @item{Understand the goal of error messages from the computer}]
@@ -426,101 +426,101 @@
                 )
       ]{
         @points[
-                @point{@student{Open the programming tool of your choice: If you've installed, DrRacket, double-click the 
-                                application to launch it. If you are using the online-tool, @login-link["click here to log in"]
-                                enter your username and password to log in, then click "Start a New Program".}
-                        @teacher{@management{Have the students look at the editor on their computers. Refer to overhead 
-                                             projector as necessary.}}
+                @point{@student{Abra a ferramenta de programação de sua escolha: Se você tem instalado o DrRacket, abra a 
+                                aplicação. Se vai usar uma ferramenta online, @login-link["clique aqui para entrar"] 
+                                colocando seu nome de usuário e senha e entre, então clique em "Start a new Program".}
+                        @teacher{@management{Peça aos alunos para que olhem o editor em seus computadores. Caso precise, 
+                                             faça uso de um projetor.}}
                         }
                  
-                @point{@student{@bitmap{images/wireframeIDE.png}This screen is called the @vocab{editor}, and it looks something
-                                 like the diagram you see here. There are a few buttons at the top, but most of the screen is 
-                                 taken up by two large boxes: the @vocab{Definitions window} at the top and the 
-                                 @vocab{Interactions window} at the bottom.}
-                        @teacher{The Definitions window is where programmers define values and functions in their program, 
-                                 while the Interactions window allows them to experiment with those values and functions. 
-                                 This is analogous to writing a series of function definitions on a blackboard, and having 
-                                 student evaluate expressions using those function on scrap paper. As students are not yet 
-                                 defining values of their own, it is not important that students understand this distinction 
-                                 right now.  For now, we will work only with the Interactions window.}
+                @point{@student{@bitmap{images/wireframeIDE.png}******Essa tela é chamada de @vocab{editor}, e se parece com
+                                 o diagrama que você vê ao lado. Existem poucos botões no topo, mas a maior parte da tela é 
+                                 dividida em duas grandes caixas: a @vocab{Janela de Definições} em cima e a 
+                                 @vocab{Janela de Interações} abaixo.***************}
+                        @teacher{Na Janela de Definições é onde os programadores definem os valores e funções de seu programa, 
+                                 enquanto a janela de Interações permite que eles experimentem esses valores e funções. 
+                                 Isto faz referência a escrever uma série de definições de funções no quadro da sala de aula, e 
+                                 ter alunos resolvendo expressões usando essas funções no papel. Como os alunos ainda não 
+                                 estão definindo seus próprios valores, não é importante que os alunos entendam essa distinção 
+                                 agora. Por enquanto, vamos trabalhar apenas na Janela de Interações.}
                         }
                 
-                @point{@student{A program is a @vocab{legal expression} that, when evaluated, produces a value. You've been
-                                               writing programs using mathematical expressions since you first learned how 
-                                               to add! Just as in English, there are rules that determine whether a sentence
-                                               makes sense. Programs have rules too!  A program can be very complicated, but
-                                               it doesn't have to be: the simplest programs of all are just Numbers.}
+                @point{@student{Um programa é uma @vocab{expressão válida} que, quando calculada porduz um valor. Você tem 
+                                               escrito programas usando expressões matemáticas desde que você aprendeu a 
+                                               somar! Com no Português, existem regras que determinam se uma frase 
+                                               faz sentido. Programas também têm regras! Um programa pode ser muito complicado, mas 
+                                               ele não precisa ser: os programas mais simples de todos são apenas Números.}
                         @teacher{@management{Draw students' attention to the Language Table (see Lesson Overview for Unit 1),
                                              which currently sits empty. Add "Numbers" to the Types section of the language 
                                              table.}}
                         }
-                @point{@student{@bannerline{Code Rule 1: All values are legal expressions.}
-                                 @activity[#:forevidence "BS-IDE&1&1"]{What do you think @code{4} will evaluate to? 
+                @point{@student{@bannerline{Code Rule 1**: Todos os valores são expressões válidas.}
+                                 @activity[#:forevidence "BS-IDE&1&1"]{O que você pensa que se digitarmos @code{4}, resultará em que?
                                                                        @editor-link[#:interactions-text "4"
-                                                                                    "Click here to test it out."]}
-                                              @itemlist[@item{Enter 4 in the Interactions window and hit "Return". You
-                                                              will see the value @code{4} appear on the next line in 
-                                                              the Interactions window.}
-                                                        @item{Type 10 in the Interactions window and hit "Return".  Now the 
-                                                              value @code{10} appears in the Interactions window.}
-                                                         @item{Try evaluating numbers, like @code{10345017}, or negative 
-                                                               numbers, like @code{-2}. Is there a limit to how big a number can be?
-                                                               What happens if you write a decimal? What happens when you click on
-                                                               a decimal, like @code{1.5}? You get a new type of number, a 
-                                                               fraction, like @code{3/2}.}]
+                                                                                    "Clique aqui para testar."]}
+                                              @itemlist[@item{Digite 2 na Janela de Interações e aperte "Enter". Você verá 
+                                                              o valor @code{4} aparecer na próxima linha da 
+                                                              Janela de Interações.}
+                                                        @item{Digite 10 na Jnale da Interações e aperte "Enter". Agora 
+                                                              o valor @code{10} aparece na Janela de Interações.}
+                                                         @item{Tente colocar outros números, como @code{10345017}, ou números 
+                                                               negativos, como @code{-2}. Existe um limite para o tamanho do número? 
+                                                               O que acontece se você escrever um número decimal? O que acontece se você clicar sobre 
+                                                               um número decimal, como @code{1.5}? Você recebe um novo tipo de número, uma 
+                                                               fração, como @code{3/2}.}]
                                 }
-                        @teacher{The editing environment evaluates all fractions and returns them as decimals by default. This can be
-                                 surprising to students at first, so you may want to take a moment to explain what's going on, and 
-                                 show them that these decimals can be converted back to fractions just by clicking on them.  The 
-                                 environment uses standard annotations for repeating, non-terminating decimal expressions and 
-                                 properly handles expressions like @math{(\sqrt -1)}.  If you want to work with those kinds of 
-                                 numbers in your class, enter them to get familiar with how they appear in the Interactions window.}
+                        @teacher{O ambiente do editor calcula todas as frações e retorna o número em decimal por padrão. Isso pode ser 
+                                 surpreendende para os alunos de início, então você pode tomar um momento para explicar o que está acontecendo, e 
+                                 mostrar a eles que esse números decimais podem ser convertidos de volta clicando sobre eles. O 
+                                 ambiente usa anotações padrão para retetição, expressões decimais não-finitas e 
+                                 manuseia corretamente expressões como @math{(\sqrt -1)}. Se você quizer trabalhar com esses tipos de 
+                                 números em sua classe, insira-os para familiarizar-se como eles aparecem na Janela de interações.}
                         }
            
                 
-                @point{@student{@activity[#:forevidence "BS-IDE&1&2"]{The computer obviously knows about Numbers, but what happens
-                                                                      if you type in something that it @italic{doesn't} know about?
-                                                                      Will it complain? Crash? Guess?
-                                                                      @editor-link[#:interactions-text "dog" "Try asking the computer"] 
-                                                                      to evaluate @code{dog} in the Interactions window.}
-                                 These error messages are really useful for programmers. Rather than saying "this program doesn't 
-                                work", the computer does the best it can to tell you what went wrong, and to give you as much 
-                                information as possible to help you fix the problem. Make sure you always read these messages carefully!
+                @point{@student{@activity[#:forevidence "BS-IDE&1&2"]{O computador conhece amplamente sobre Números, mas o que acontece 
+                                                                      se você digitar algo que ele @italic{não conhece}? 
+                                                                      Ele irá reclamar? Falhar? Vai adivinhar? 
+                                                                      @editor-link[#:interactions-text "cachorro" "Peça para o computador"] 
+                                                                      para calcular @code{cachorro} na Janela de Interações.}
+                                 Essas mensagens de erro são muito úteis aos programadores. Ao invés de dizer "esse programa não 
+                                funciona", o computador faz o que pode para te dizer o que está errado, e te dá o máximo 
+                                de informações possível para lhe ajudar a corrigir o problema. Certifique-se de sempre ler essas mensagens com atenção!
                                  }
-                        @teacher{The error message uses the term "variable".  Don't worry if your students don't already know this 
-                                 term; we will teach it to them shortly.  For now, students just need to get used to error messages 
-                                 and the kinds of problems that they catch in programs.}
+                        @teacher{A mensagem de erro usa o termo "variável. Não se preocupe se seus alunos conhecem ainda essa 
+                                 palavra; nós ensinaremos a eles rapidamente. Por enquanto, os alunos só precisam se acostumar às mensagens de erro 
+                                 e tipos de problemas que eles recebem de seus programas.}
                         }
                 
-                @point{@student{The Circles of Evaluation are also easy to convert into computer programs. To translate a Circle of
-                                Evaluation into a program, begin with an open parenthesis @code{(}, and then the function written at
-                                the top of the circle. Then translate the inputs from left to right in the same way, adding a closing
-                                parenthesis @code{)} when you're done. This process gives us the second rule for @vocab{expressions}:  
-                                @bannerline{Code Rule 2: Each open parenthesis is followed by one function, then by one or more legal
-                                            expressions, and finally by a closing parenthesis.}
-                                 @bitmap{images/FixedCircle.png}Here is the code for this Circle of Evaluation: @code{(- 4 5)}
-                                 @activity[#:forevidence "BS-PL.1&1&2"]{ @editor-link[#:interactions-text "(- 4 5)" "See what happens"]
-                                                                         when this code is entered into the Interactions window.
-                                                                         Press the Return key to evaluate the program. You should 
-                                                                         see @math{-1} as an answer.
+                @point{@student{Círculos de Avaliação são fáceis de converter para programas de computador. Para traduzir um Círculo de 
+                                Avaliação em programa, começe abrindo parênteses @code{(}, em seguida a função que está escrita no 
+                                topo do círculo. Coloque as entradas da esquerda para a direita, na mesma ordem como no círculo, adicionado um
+                                parenteses de fechamento @code{)} quando terminar. Esse procedimento nos dá a segunda regra para @vocab{expressões}:  
+                                @bannerline{Code Rule 2***: Cada parêntese aberto é seguido de uma função, em seguida de uma ou mais 
+                                            expressões válidas, e finalmente do parêntese de fechamento.}
+                                 @bitmap{images/FixedCircle.png}Aqui está o código para esse Círculo de Avaliação: @code{(- 4 5)}
+                                 @activity[#:forevidence "BS-PL.1&1&2"]{ @editor-link[#:interactions-text "(- 4 5)" "Veja o que acontece"]
+                                                                         quando esse código é colocado na Janela de Interações.
+                                                                         Pressione Enter para ver o resultado. Você deve ver 
+                                                                         ver @math{-1} com resposta.
                                                                         }
                         }
                         
-                        @teacher{Have students practice converting simple Circles of Evaluation into code.  If you want to help students 
-                                 understand when to use the parentheses, here are two explanations that we find useful.  First, the
-                                 parens look like the Circle, and the Circle encloses the function name and its inputs.  Second, we
-                                 use a more visual description of an ant eating its way through the expression.  The ant eats into the 
-                                 Circle (an open paren), then goes to the function at the top, then to the arguments from left to right,
-                                 then finally out of the Circle (a close paren).  If the ant encounters another Circle while writing 
-                                 down the arguments, it needs another open paren, etc.}
+                        @teacher{Diga aos alunos para praticar convertendo simples Círculos de Avaliação em código. Se você que ajudar os alunos 
+                                 á entender quando usar parênteses, aqui vai duas explicações que achamos úteis. Primeiro, o parênteses 
+                                 se parecem com o Círculo, o Círculo inclui o nome da função e suas entradas. Segundo, usamos 
+                                 mais uma descrição visual de uma formiga que vai ***an ant eating its way through the expression.(percorrendo seu caminho através da expressão.) A formiga come dentro do círculo 
+                                 (um parêntese aberto), e vai para a função no topo, depois para os argumentos da esquerda para a direita, 
+                                 e finalmente chega ao final do círculo(um parêntese de fechamento). Se a formiga encontrar outro círculo enquanto estiver escrevendo 
+                                 os argumentos, ela precisa abrir outro parênteses, etc.}
                         }   
-                @point{@student{@bitmap{images/NestedCircle.png}When a Circle of Evaluation has other circles inside of it, the 
-                                 translation still follows the same rules: each Circle requires a new set of parentheses:
+                @point{@student{@bitmap{images/NestedCircle.png}Quando um Círculo de Avaliação tem outro círculo dentro dele, a 
+                                 tradução ainda segue as mesmas regras: cada Círculo requer um novo conjunto de parênteses:
                                  @code{(* 6 (+ 4 5))}
-                                 @activity[#:forevidence "BS-PL.1&1&2"]{@itemlist[@item{Try entering this code into the Interactions 
-                                                                                        window. What should the program evaluate to 
-                                                                                        when you hit Return?}
-                                                     @item{Practice converting other Circles of Evaluation you've drawn into code.}]}}
+                                 @activity[#:forevidence "BS-PL.1&1&2"]{@itemlist[@item{Experimente digitar esse código na Janela de Interações. 
+                                                                                        O que o programa deve retornar quando 
+                                                                                        você apertar Enter?}
+                                                     @item{Pratique convertendo outros Círculos de Avaliação que você já desenhou para código.}]}}
                         @teacher{@management{Scaffolding for Pair Programming: Talk to students about the roles of @italic{Driver} 
                                              and @italic{Navigator}. The Driver is the student with their hands on the keyboard - they're 
                                              in charge of typing, using the mouse, etc. The Navigator should be telling the Driver what to
@@ -529,41 +529,41 @@
                                              and talking to one another about the task at hand.}}
                         }
                
-                @point{@student{@bannerline{All of the expressions that follow the function name are called @vocab{arguments} to the 
-                                            function. The following diagram summarizes the shape of an expression that uses a function. 
+                @point{@student{@bannerline{Todas as expressões que são seguidas do nome da função são chamadas de @vocab{argumentos} da 
+                                            função. O diagrama a seguir resume o forma de uma expressão que usas uma função. 
                                             @bitmap{images/ExpressionDiagram.png}}
                                 @activity[#:forevidence (list "BS-CE&1&2" "BS-CE&1&4")]{
-                                        For practice, turn to @worksheet-link[#:name "Circle-of-Evaluation-Practice"]
-                                        in your workbook. For each mathematical expression, draw the Circle of Evaluation, then convert
-                                        that Circle into Racket code.}}
+                                        Para praticar, vá para a @worksheet-link[#:name "Circle-of-Evaluation-Practice"] 
+                                        de sua apostila. Para cada expressão matemática, desenhe um Círculo de Avaliação, e depois converta 
+                                        o Círculo para Código em Racket.}}
                         @teacher{}
                         }
-                @point{@student{When expressions don't follow the code rules, the computer will tell you that it found a problem.  The
-                                computer also gives you information to help you fix the problem. This information is called an 
-                                @vocab{error message}. We'll talk more about error messages later.  For now, we just want you to see 
-                                a couple of error messages so that you'll know what they are if you run into one while programming.
-                       @activity[#:forevidence "BS-IDE&1&2"]{Enter each of the following illegal expressions in the Interactions Window 
-                                                             and look at the error message or behavior that the computer gives you. 
-                                 @itemlist[@item{@code{(5 * 6)} [puts the function in the middle, instead of at the front]}
-                                           @item{@code{(*5 6)}  [missing a space after the function]}
-                                           @item{@code{* 5 6)}  [forgets the open parenthesis]}
-                                           @item{@code{(* 5 6}  [forgets the close parenthesis]}
+                @point{@student{Quando uma expressão não segue as regras do código, o computador lhe diz que encontrou um problema. O 
+                                computador também lhe dá informação para te ajudar a corrigir o problema. Essa informação é chamada de 
+                                @vocab{mensagem de erro}. Nós falaremos mais sobre mensagens de erro depois. por enquanto, queremos que você veja 
+                                um par de mensagens de erro para que você saiba o que eles são quando encontrar algum enquanto estiver programando. 
+                       @activity[#:forevidence "BS-IDE&1&2"]{Digite cada uma das expressões inválidas a seguir na Jnaela de Interações 
+                                                             e olhe para as mensagens de erro ou avisos que o computador te retorna. 
+                                 @itemlist[@item{@code{(5 * 6)} [colocou a função no meio, ao invés de colocar no início]}
+                                           @item{@code{(*5 6)}  [faltando um espaço depois da função]}
+                                           @item{@code{* 5 6)}  [esqueceu de abrir parênteses]}
+                                           @item{@code{(* 5 6}  [esqueceu de fechar o parênteses]}
                                           ]}}
-                       @teacher{At this point, the goal is simply to have students @italic{see} error messages.  Students are not 
-                                expected to be experts at reading error messages this early 
-                                (you will drill this later).  NOTE: When a close parenthesis is missing, hitting return will do nothing, 
-                                because the computer is waiting for the parenthesis.  When an open parenthesis is missing, WeScheme
-                                does nothing and waits for the programmer 
-                                to add the parens.  If students hit enter and "nothing happens", they should check their parentheses. 
-                                Also note that if you do this sequence of exercises with @code{+} instead of @code{*}, the error 
-                                appears differently, because @code{+5} is a perfectly valid number (just like @code{-5}).}
+                       @teacher{Neste momento, o objetivo é simplesmente que os alunos @italic{vejam} mensagens de erro. Não espere que 
+                                eles sejam experts em ler mensagens de erro tão cedo 
+                                (você trabalhará isso mais tarde). NOTA: Quando um parêntese de fechamento está faltando, apertar Enter não faz nada, 
+                                porque o computador está esperando pelo parêntese. Quando um parêntese de abertura está faltando, o WeScheme 
+                                não faz nada e espera o programador 
+                                adicionar o parêntese. Se os alunos apertam Enter e "nada acontece", eles devem checar seus parênteses. 
+                                Observe também que se você fizer essa sequênciade exercícios com @code{+} ao invés de @code{*}, o erro 
+                                aparecerá de forma diferente, porque @code{+5} é perfeitamente um número válido (assim como @code{-5}).}
                       }
                 ]}
 
 
 @lesson/studteach[
-     #:title "Closing"
-     #:duration "5 minutes"
+     #:title "Encerramento"
+     #:duration "5 minutos"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -577,14 +577,14 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{You've done a lot in this first unit!  
-                                @itemlist[@item{You took a game apart to see how the parts move}
-					  @item{You designed your own game, that you'll make during this course}
-                                          @item{You practiced using coordinates to put characters into a screen}
-                                          @item{You learned about order of operations, Circles of Evaluation, how to turn Circles of
-                                                Evaluation into programs, and how to run those programs to get answers.}]
-                        In the next unit, we'll begin writing programs for more interesting things than just arithmetic.}
-                        @teacher{@management{Make sure student names are on page 3. Take page 3 itself, or take photos of page 3, to prep game images for a later Unit. }}}
+        @points[@point{@student{Você fez muito nessa primeira aula! 
+                                @itemlist[@item{Você analisou um jogo para ver como seus personagens se movem}
+					  @item{Você projetou seu próprio jogo, que você fará durante esse curso}
+                                          @item{Você praticou usando coordenadas para colocar seu personagem na tela}
+                                          @item{Você aprendeu sobre a ordem das operações, Círculos de Avaliação, como transformar Círculos de 
+                                                Avaliação em programas, e como executar esses programas para conseguir as respostas.}]
+                        Na próxima lição, nós vamos começar a escrever programas para coisas mais interessantes do que apenas aritmética.}
+                        @teacher{@management{Certifique-se que o nome dos alunos estão na página 3. Destaque a página 3, ou tire fotos da página 3, para preparar as imagens do jogo para a próxima Unidade. }}}
                ]
          }
 }
