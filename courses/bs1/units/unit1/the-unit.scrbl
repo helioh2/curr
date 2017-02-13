@@ -458,10 +458,10 @@
                                  @activity[#:forevidence "BS-IDE&1&1"]{O que você pensa que se digitarmos @code{4}, resultará em que?
                                                                        @editor-link[#:interactions-text "4"
                                                                                     "Clique aqui para testar."]}
-                                              @itemlist[@item{Digite 2 na Janela de Interações e aperte "Enter". Você verá 
+                                              @itemlist[@item{Digite 4 na Janela de Interações e aperte "Enter". Você verá 
                                                               o valor @code{4} aparecer na próxima linha da 
                                                               Janela de Interações.}
-                                                        @item{Digite 10 na Jnale da Interações e aperte "Enter". Agora 
+                                                        @item{Digite 10 na Janela da Interações e aperte "Enter". Agora 
                                                               o valor @code{10} aparece na Janela de Interações.}
                                                          @item{Tente colocar outros números, como @code{10345017}, ou números 
                                                                negativos, como @code{-2}. Existe um limite para o tamanho do número? 
@@ -530,7 +530,7 @@
                         }
                
                 @point{@student{@bannerline{Todas as expressões que são seguidas do nome da função são chamadas de @vocab{argumentos} da 
-                                            função. O diagrama a seguir resume o forma de uma expressão que usas uma função. 
+                                            função. O diagrama a seguir resume a maneira como uma expressão que usa uma função. 
                                             @bitmap{images/ExpressionDiagram.png}}
                                 @activity[#:forevidence (list "BS-CE&1&2" "BS-CE&1&4")]{
                                         Para praticar, vá para a @worksheet-link[#:name "Circle-of-Evaluation-Practice"] 
@@ -579,10 +579,10 @@
       ]{
         @points[@point{@student{Você fez muito nessa primeira aula! 
                                 @itemlist[@item{Você analisou um jogo para ver como seus personagens se movem}
-					  @item{Você projetou seu próprio jogo, que você fará durante esse curso}
-                                          @item{Você praticou usando coordenadas para colocar seu personagem na tela}
+					  @item{Você projetou seu próprio jogo, que você construirá durante esse curso}
+                                          @item{Você praticou usando coordenadas para colocar personagens na tela}
                                           @item{Você aprendeu sobre a ordem das operações, Círculos de Avaliação, como transformar Círculos de 
-                                                Avaliação em programas, e como executar esses programas para conseguir as respostas.}]
+                                                Analisou o programa, e como executar esses programas para conseguir as respostas.}]
                         Na próxima lição, nós vamos começar a escrever programas para coisas mais interessantes do que apenas aritmética.}
                         @teacher{@management{Certifique-se que o nome dos alunos estão na página 3. Destaque a página 3, ou tire fotos da página 3, para preparar as imagens do jogo para a próxima Unidade. }}}
                ]
