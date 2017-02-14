@@ -1,6 +1,6 @@
 #lang curr/lib
 
-@title{Unit 2: Introduction to Data Structures}
+@title{Unidade 2: Introdução à Estruturas de Dados}
 
 @declare-tags[management]
 
@@ -9,13 +9,13 @@
                                        (list "String" @code{string-append string-length})
                                        (list "Image"  @code{rectangle circle triangle ellipse star text}))
                                                                                                           ]{
-@unit-descr{Students discover the need for data structures and they practice defining them, making examples, and writing functions that produce them.}
+@unit-descr{Alunos descobrem a necessidade de estruturas de dados e praticam definindo-as, criando exemplos e escrevendo funções que os produzem.}
 }
 @unit-lessons{
               
 @lesson/studteach[
-     #:title "Review"
-     #:duration "20 minutes"
+     #:title "Revisão"
+     #:duration "20 minutos"
      #:overview ""
      #:learning-objectives @itemlist[@item{Students will deepen their understanding of function definitions and the Design Recipe}]
      #:evidence-statements @itemlist[@item{}]
@@ -36,58 +36,58 @@
                 )
       ]{
         @points[
-                @point{@student{In the previous unit, you reviewed almost everything from Bootstrap 1 including Datatypes, Contracts, and the Design Recipe. 
-                                In this unit you will go above and beyond all that, and learn an entirely new datatype that will be the basis for everything you'll do in 
-                                Bootstrap 2.}
-                        @teacher{Ask a few introductory review questions to test students' understanding, such as: 
-                                 @itemlist[@item{What are the three parts of a Contract?}        
-                                            @item{What is the racket code to draw a solid, green triangle of size 22?}
-                                            @item{Why is it important to write at least 2 examples before defining a function?}]}} 
+                @point{@student{Na unidade passada, você revisou quase tudo do Bootstrap 1 incluindo Tipos de Dados, Assinaturas, e a Receita de Projeto. 
+                                Nesta unidade vamos além de tudo isso, você aprenderá um novo tipo de dados inteiramente novo que será a base para tudo o que você vai fazer 
+                                no Bootstrap 2.}
+                        @teacher{Faça algumas perguntas de revisão para testar o entendimento dos alunos, como: 
+                                 @itemlist[@item{Quais são as três partes de uma Assinatura?}        
+                                            @item{Qual é o código em racket que desenha um triangulo, sólido, e verde de tamanho 22?}
+                                            @item{Por que é importante escrever ao menos 2 exemplos antes de definir a função?}]}} 
                  
-                 @point{@student{To make sure the material from last unit is fresh in your mind, tackle the following activity: @activity{Turn to @worksheet-link[#:page 7 #:name "double-radius"] in your workbook. Write a function called @code{double-radius}, 
-                                                   which takes in a radius and a color. It produces an outlined circle of whatever color was passed in, whose radius 
-                                                   is twice as big as the input.}}
-                        @teacher{@management{If walking through this example as a class, use a projector so kids can see the function being written on the computer: }}}
-                 @point{@student{Remember how to use the design recipe to work through word problems? @bannerline{Step 1: Contract and Purpose Statement}
-                                 @activity{ @itemlist[@item{What is the @vocab{Name} of this function?}
-                                                       @item{What is the @vocab{Domain} of this function?}
-                                                       @item{What is the @vocab{Range} of this function?}
-                                                       @item{What does it do? Write a @vocab{Purpose Statement} describing what the function does in plain English.}]}
+                 @point{@student{Para ver se o conteúdo da última unidade está fresco em sua mente, enfrente a seguinte atividade: @activity{Vá para @worksheet-link[#:page 7 #:name "double-radius"] em sua apostila. Escreva uma função chamada @code{dobro-raio}, 
+                                                   que recebe um número e uma cor. Ela produz um contorno de um círculo da cor que ele recebeu, mas seu raio 
+                                                   é duas vezes maior do que ele recebeu na entrada.}}
+                        @teacher{@management{Se for trabalhar esse exemplo em aula, use um projetor para as crianças possam ver a função sendo escrita no computador: }}}
+                 @point{@student{Você se lembra de como usar a receita de projeto para resolver problemas descritivos? @bannerline{Passo 1: Assinatura e Declaração de Propósito}
+                                 @activity{ @itemlist[@item{Qual é o @vocab{Nome} desta função?}
+                                                       @item{Qual é o @vocab{Domínio} desta função?}
+                                                       @item{Qual é a @vocab{Imagem} desta função?}
+                                                       @item{O que ela faz? Escreva sua @vocab{Declaração de Propósito} descrevendo o que a função deve fazer com suas palavras.}]}
                                  @code[#:multi-line #t]{
-; double-radius: Number String -> Image
-; makes an outlined circle that's twice the radius}}
-                         @teacher{Review the purpose of Contracts: once we know the Name, Domain, and Range of a function, it's easy to write EXAMPLEs using those datatypes.}}
+; dobro-raio: Numero String -> Figura
+; faz um contorno de círculo que o tamanho é o dobro do raio}}
+                         @teacher{Revise o propósito das Assinaturas: uma vez que sabemos o Nome, Domínio e Imagem de uma função, fica fácil escrever Exemplos usando esses tipos de dados.}}
            
-                 @point{@student{@bannerline{Step 2: Examples} 
-                                  @activity{Using only the Contract and Purpose Statement, see if you can answer the following questions:
-                                            @itemlist[@item{Every Example begins with the name of the function. Where could you find the name of the function?}
-                                                       @item{Every Example has to include sample inputs. Where could you find out how many inputs this function needs, 
-                                                             and what types they are?}
-                                                       @item{Every Example has to include an expression for what the function should do when given an input. Where 
-                                                             could you look to find out what this function does?}
-                                                       @item{Write two Examples on your paper, then circle and label what is changing between them. When labeling,
-                                                             think about what the changing things represent.}]}
-                                  Your examples should look similar to:
+                 @point{@student{@bannerline{Passo 2: Exemplos} 
+                                  @activity{Usando apenas a Assinatura e a Declaração de Propósito, veja se você consegue responder as seguintes questões:
+                                            @itemlist[@item{Todo Exemplo começa com o nome da função. Onde você poderia encontrar o nome da função?}
+                                                       @item{Todo Exemplo precisa incluir entradas de amostra. Onde você poderia descobrir quantas entradas essa função precisa, 
+                                                             e de tipos elas são?}
+                                                       @item{Todo Exemplo deve incluir uma expressão para o que a função deve fazer com a entrada recebida. Onde 
+                                                             você poderia olhar para descobrir o que essa função faz?}
+                                                       @item{Escreva dois Exemplos no papel, e círcule e nomeio o que está mudando entre eles. Quando nomear,
+                                                             pense sobre o que essa coisa representa.}]}
+                                  Seus exemplos devem ser semelhantes a:
                                   @code[#:multi-line #t]{
-(EXAMPLE (double-radius 50 "pink")
+(EXAMPLE (dobro-raio 50 "pink")
          (circle (* 50 2) "outline" "pink"))
 
-(EXAMPLE (double-radius 918 "orange")
+(EXAMPLE (dobro-raio 918 "orange")
          (circle (* 918 2) "outline" "orange"))}}
                          
-                         @teacher{Each one of these answers can be found in the Contract or Purpose Statement. Suggestion: Write these steps on the board, and draw 
-                                  arrows between them to highlight the process. The goal here is to get students into the habit of asking themselves these questions
-                                  each time they write examples, and then using their own work from the previous step to find the answers.}}
-                @point{@student{@bannerline{Step 3: Definition}
-                                Once you know what is changing between our two examples, you can define the function easily. The things that were circled and labeled in
-                                the two examples will be replaced with @vocab{variables} in the function definition. (You don't @bold{always} want to make a pink 
-                                circle whose radius is double 50. You want to be able to change the color and radius.) 
-                                @activity{Underneath your examples, copy everything that @bold{doesn't} change, and replace the changing things with the variable 
-                                          names you used.}  
-           @code[#:multi-line #t]{(define (double-radius radius color)
-                                          (circle (* radius 2) "solid" color))}}
-                @teacher{Check students understanding: Why do we use variables in place of specific values? Why is it important to have descriptive variable
-                         names, as opposed to @code{n} or @code{x}?}}
+                         @teacher{Cada uma das respostas podem ser encontradas na Assinatura ou na Declaração de Propóstito. Sugestão: Escreva esses passos no quadro, e desenhe 
+                                  setas entre eles para destacar o processo. A objetivo aqui é fazer com que os alunos tenham o hábito de fazerem essas perguntas
+                                  por conta própria cada vez que tiverem que escrever exemplos, e em seguida usar seu prórpio trabalho do passo anterior para encontrar as respostas.}}
+                @point{@student{@bannerline{Passo 3: Definição}
+                                Uma vez que voxê sabe o que está mudando entre os dois exemplos, você pode definir a função facilmente. As coisas que estão circuladas e nomeadas
+                                nos dois exemplos serão substituídas por @vocab{variáveis} na definição de função. (Você não irá @bold{sempre} querer fazer um círculo 
+                                cor de rosa onde o raio é o dobro de 50. Você quer ser capaz de mudar a cor e o raio.) 
+                                @activity{Debaixo de seus exemplos, copie tudo o que @bold{não} muda, e substitua as coisas que mudam pelo nome 
+                                          de variáveis que você usou.}  
+           @code[#:multi-line #t]{(define (dobro-raio raio cor)
+                                          (circle (* raio 2) "solid" cor))}}
+                @teacher{Verifique a compreensão dos alunos: Por que usamos variáveis no lugar de valores específicos? Por que é tão importante ter nomes de variáveis
+                         descritivos, em oposição a @code{n} ou @code{x}?}}
                 
                 @point{@student{@activity{Turn to @worksheet-link[#:page 8 #:name "double-width"] in your workbooks. Write a function called @code{double-width}, 
                                                   which takes in a height and a color. The function produces a solid rectangle, which is whatever height and 
