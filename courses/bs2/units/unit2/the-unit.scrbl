@@ -5,11 +5,11 @@
 @declare-tags[management]
 
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt})
+@unit-overview/auto[#:lang-table (list (list "Número" @code{+ - * / sq sqrt})
                                        (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text}))
+                                       (list "Figura"  @code{rectangle circle triangle ellipse star text}))
                                                                                                           ]{
-@unit-descr{Alunos descobrem a necessidade de estruturas de dados e praticam definindo-as, criando exemplos e escrevendo funções que os produzem.}
+@unit-descr{Alunos descobrem a necessidade de estruturas de dados e praticam definindo-as, criando exemplos e escrevendo funções que as produzem.}
 }
 @unit-lessons{
               
@@ -17,17 +17,17 @@
      #:title "Revisão"
      #:duration "20 minutos"
      #:overview ""
-     #:learning-objectives @itemlist[@item{Students will deepen their understanding of function definitions and the Design Recipe}]
+     #:learning-objectives @itemlist[@item{Alunos aprofundarão sua compreenção sobre definições de funções e da Receita de Projeto}]
      #:evidence-statements @itemlist[@item{}]
      #:product-outcomes @itemlist[@item{}]
      #:standards (list)
-     #:materials @itemlist[@item{Pens/pencils for students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}
-                            @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "Workbook"] folders with names on covers, and something to write with}]
-     #:preparation @itemlist[@item{Write Agenda on board}
-                             @item{Display class posters, Language Table, Design Recipe}
-                             @item{Seating arrangements: ideally clusters of desks/tables}]
+     #:materials @itemlist[@item{Lápis/canetas aos alunos, e giz/marcadores de quadro branco aos professores}
+                            @item{Cartazes da turma (Lista de regras, conhecimentos básicos, calendário do curso)}
+                            @item{Tabela da Linguagem(veja abaixo)}
+                            @item{@resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "Apostila"] do aluno com seu nome na capa, e algo para escrever}]
+     #:preparation @itemlist[@item{Escreva a Data no quadro}
+                             @item{Mostre cartazes da turma, Tabela de Linguagem, Receita de Projeto}
+                             @item{Arranjos de assento: preferencialmente aglomerando as mesas}]
      
       #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -44,7 +44,7 @@
                                             @item{Qual é o código em racket que desenha um triangulo, sólido, e verde de tamanho 22?}
                                             @item{Por que é importante escrever ao menos 2 exemplos antes de definir a função?}]}} 
                  
-                 @point{@student{Para ver se o conteúdo da última unidade está fresco em sua mente, enfrente a seguinte atividade: @activity{Vá para @worksheet-link[#:page 7 #:name "double-radius"] em sua apostila. Escreva uma função chamada @code{dobro-raio}, 
+                 @point{@student{Para ver se o conteúdo da última unidade está fresco em sua memória, enfrente a seguinte atividade: @activity{Vá para @worksheet-link[#:page 7 #:name "double-radius"] em sua apostila. Escreva uma função chamada @code{dobro-raio}, 
                                                    que recebe um número e uma cor. Ela produz um contorno de um círculo da cor que ele recebeu, mas seu raio 
                                                    é duas vezes maior do que ele recebeu na entrada.}}
                         @teacher{@management{Se for trabalhar esse exemplo em aula, use um projetor para as crianças possam ver a função sendo escrita no computador: }}}
@@ -55,7 +55,7 @@
                                                        @item{O que ela faz? Escreva sua @vocab{Declaração de Propósito} descrevendo o que a função deve fazer com suas palavras.}]}
                                  @code[#:multi-line #t]{
 ; dobro-raio: Numero String -> Figura
-; faz um contorno de círculo que o tamanho é o dobro do raio}}
+; faz um contorno de círculo, onde o tamanho é o dobro do raio}}
                          @teacher{Revise o propósito das Assinaturas: uma vez que sabemos o Nome, Domínio e Imagem de uma função, fica fácil escrever Exemplos usando esses tipos de dados.}}
            
                  @point{@student{@bannerline{Passo 2: Exemplos} 
@@ -65,7 +65,7 @@
                                                              e de tipos elas são?}
                                                        @item{Todo Exemplo deve incluir uma expressão para o que a função deve fazer com a entrada recebida. Onde 
                                                              você poderia olhar para descobrir o que essa função faz?}
-                                                       @item{Escreva dois Exemplos no papel, e círcule e nomeio o que está mudando entre eles. Quando nomear,
+                                                       @item{Escreva dois Exemplos no papel, e círcule e nomeie o que está mudando entre eles. Quando nomear,
                                                              pense sobre o que essa coisa representa.}]}
                                   Seus exemplos devem ser semelhantes a:
                                   @code[#:multi-line #t]{
@@ -113,11 +113,11 @@
         #:title "Iniciando com Estruturas"
         #:duration "10 minutos"
         #:overview ""
-        #:learning-objectives @itemlist[@item{Students will understand the limitations of atomic datatypes}]
+        #:learning-objectives @itemlist[@item{Alunos entenderão as limitações dos tipos de dados atômicos}]
         #:evidence-statements @itemlist[@item{}]
-        #:product-outcomes @itemlist[@item{Students identify real-world behaviors that require data structures}]
+        #:product-outcomes @itemlist[@item{Alunos indentificam situações do mundo real que precisariam de uma estrutura de dados}]
         #:standards (list )
-        #:materials @itemlist[@item{Structs bags: plastic bags containing eight cards (2 labeled "number", 2 "string", 2 "image", and 2 "boolean")}]
+        #:materials @itemlist[@item{Sacola de Structs: saco plástico contendo oito cards (2 rotulando "número", 2 "string", 2 "figura", e 2 "booleano")}]
         #:preparation @itemlist[@item{}]
         #:prerequisites (list)
         #:pacings (list 
@@ -169,13 +169,13 @@
                     ]
            }
 
-@lesson/studteach[#:title "Autos"
+@lesson/studteach[#:title "Carros"
         #:duration "20 minutos"
         #:overview ""
         #:learning-objectives @itemlist[@item{}]
         #:evidence-statements @itemlist[@item{}]
-        #:product-outcomes @itemlist[@item{Students make use of a complex data structure: @code{Auto}}
-                                     @item{Students define variables bound to autos}]
+        #:product-outcomes @itemlist[@item{Alunos fazem uso de uma estrutura complexa de dados: @code{Carro}}
+                                     @item{Alunos definem variáveis vinculadas à carros}]
         #:standards (list )
         #:materials @itemlist[@item{}]
         #:preparation @itemlist[@item{The Autos file [Autos.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] |  @editor-link[#:public-id "P7qS37u1ZH" "WeScheme"] preloaded on students' machines}]
@@ -231,7 +231,7 @@
                                                                                     @item{O que vem primeiro dentro de uma estrutura carro?}] 
                                               Agora o que você espera que aconteça quando você digitar @code{novo-carro} na janela de interações? Clique em Run e experimente.}             
                                               @code{(define novo-carro (make-carro "Taurus" 300 20 "white" 5000))}}
-                 @teacher{peça aos alunos que o conduzam através do processo de definir uma variável chamada @code{novo-carro} e fazer um carro de qualquer modelo, potência, tamanho rodas, etc. que eles queiram.
+                 @teacher{Peça aos alunos que o conduzam através do processo de definir uma variável chamada @code{novo-carro} e fazer um carro de qualquer modelo, potência, tamanho rodas, etc. que eles queiram.
                           Se eles estão se confundindo em fazer um carro, mande-os checar sua página de assinaturas!}}
                  
                  @point{@student{@activity{Defina duas novas variáveis de seus carros favoritos. Chame eles de [seuNome]-carro (@code{natan-carro}, @code{samuel-carro}, @code{julio-carro}, etc),
@@ -279,12 +279,12 @@
                  
            
 
-@lesson/studteach[#:title "Accessor Functions"
-                  #:duration "10 minutes"
+@lesson/studteach[#:title "Funções de Acesso"
+                  #:duration "10 minutos"
                   #:overview ""
                   #:learning-objectives @itemlist[]
                   #:evidence-statements @itemlist[]
-                  #:product-outcomes @itemlist[@item{Students write code that extracts each field from those autos}]
+                  #:product-outcomes @itemlist[@item{Alunos escrevem um código que extrai cada campo de um carro}]
                   #:standards (list)
                   #:materials @itemlist[]
                   #:preparation @itemlist[]
@@ -323,12 +323,12 @@
                                  partes de dados (como estruturas) mais gerenciáveis.}
                          @teacher{}}]
          }
-@lesson/studteach[#:title "Autobody Shop"
+@lesson/studteach[#:title "Tunning Shop"
         #:duration "25 minutos"
         #:overview ""
-        #:learning-objectives @itemlist[@item{Students will write complex functions that consume, modify and produce structures}]
+        #:learning-objectives @itemlist[@item{Alunos escrevem funções complexas que consomem, modificam e produzem estruturas}]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students define functions that produce an auto}]
+        #:product-outcomes @itemlist[@item{Alunos definem funções que produzem um carro}]
         #:standards (list)
         #:materials @itemlist[]
         #:preparation @itemlist[]
@@ -393,9 +393,9 @@ Depois de substituir as coisas que mudam pelas variáveis, sua definição deve 
                                                                (carro-rodas carro)
                                                                cor
                                                                (carro-valor carro)))}}
-                         @teacher{os alunos podem ser tentados a colocar a @code{cor} entre aspas, porque a cor do carro deve ser uma string. No entanto, o domínio 
+                         @teacher{Os alunos podem ser tentados a colocar a @code{cor} entre aspas, porque a cor do carro deve ser uma string. No entanto, o domínio 
                                   de @code{pintura} nos diz que a função recebe um carro e uma string, então qualquer cor que recebermos já estará 
-                                  entre aspas. Valores resultam neles mesmos, então a string "color" não pode resultar em outra coisa a não ser "color".
+                                  entre aspas. Valores resultam neles mesmos, então a string "cor" não pode resultar em outra coisa a não ser "cor".
                                   Se quisermos que a cor seja uma variável, ou um atalho para "purple", "green", "blue", etc, é preciso que sejam escritas SEM aspas.}}
                  
                  @point{@student{@activity{Vá para @worksheet-link[#:page 10 #:name "turbocharge"] em sua apostila. Quando você coloca turbo em um motor, ele tem
@@ -407,6 +407,7 @@ Depois de substituir as coisas que mudam pelas variáveis, sua definição deve 
                               @item{Defina a função.}]}}
                          @teacher{Dê aos alunos tempo suficiente para praticar o uso das funções acessadoras, extrair partes da Estrutura Carro e modificá-las.}}]
          }
+
 
                                                                                                                                                                                 @lesson/studteach[#:title "Closing"
         #:duration "5 minutos"
@@ -428,8 +429,8 @@ Depois de substituir as coisas que mudam pelas variáveis, sua definição deve 
                                 inimigos diferentes, casa um com sua própria posição e vida, ou muitas fases com diferentes imagens no fundo, o jogo pode ficar 
                                 complicado muito rápido, e as structs são uma ótima maneira de gerenciar e cuidar de todos os dados. Progrmadores podem fazer MUITO com
                                 estruturas de dados, e nas próximas aulas você vai criar suas próprias estruturas para fazer um game personalizado.}
-           @teacher{@management{@itemlist[@item{Have students volunteer what they learned in this lesson}
-                                          @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
+           @teacher{@management{@itemlist[@item{Peça aos alunos o que eles aprenderam nesta lição}
+                                          @item{Comportamentos que você valoriza: trabalho em equipe, fazendo anotações, engajamento, etc}
                                           @item{Pass out exit slips, dismiss, clean up.}]}}
   
            }
