@@ -89,29 +89,29 @@
                 @teacher{Verifique a compreensão dos alunos: Por que usamos variáveis no lugar de valores específicos? Por que é tão importante ter nomes de variáveis
                          descritivos, em oposição a @code{n} ou @code{x}?}}
                 
-                @point{@student{@activity{Turn to @worksheet-link[#:page 8 #:name "double-width"] in your workbooks. Write a function called @code{double-width}, 
-                                                  which takes in a height and a color. The function produces a solid rectangle, which is whatever height and 
-                                                  color were passed in. Its width is twice the height.
-                                         @itemlist[@item{Fill out the @vocab{Contract} for this function.
-                                                        @itemlist[@item{What is the function's Name?}
-                                                                   @item{What is the function's Domain?}
-                                                                   @item{What is the function's Range?}]}
-                                                    @item{Using the Contract you've written, write two @vocab{Examples} for the function.
-                                                          @itemlist[@item{What part of the Contract helps you fill in the left side of an Example?}
-                                                                     @item{What part of the Contract tells you what the function needs as input?}
-                                                                     @item{How can the Range of a function help you write the Example?}]}
-                                                    @item{Looking at those two examples, circle the parts that are @italic{change-able}, then label them with a good @vocab{variable name}.
-                                                          @itemlist[@item{Why is it helpful to choose a variable name before defining the function?}]}]
-                                         Now write the @vocab{function definition}, using the Examples you've written.}}
-                        @teacher{This is very similar to the previous problem, and is meant to get students very comfortable with using the design recipe before delving into more complex problems. 
-                                 Remind students about nested functions: A function whose range is a number can be used inside of a function requiring a number in its domian, as in 
+                @point{@student{@activity{Vá para @worksheet-link[#:page 8 #:name "double-width"] em sua apostila. Escreva uma função chamada @code{dobro-largura}, 
+                                                  que recebe uma largura e uma cor. A função produz um retangulo sólido, seja qual for a medida
+                                                  e a cor recebida. A largura dele é o dobro da altura.
+                                         @itemlist[@item{Preencha a @vocab{Assinatura} para essa função.
+                                                        @itemlist[@item{Qual é o Nome dessa função?}
+                                                                   @item{Qual é o Domínio da função?}
+                                                                   @item{Qual é a Imagem da função?}]}
+                                                    @item{Usando a Assinatura que você fez, escreva dois @vocab{Exemplos} para essa função.
+                                                          @itemlist[@item{Qual parte da Assinatura te ajuda a completar o lado esquerdo de um Exemplo?}
+                                                                     @item{Qual parte da Assinatura te conta o que a função precisa como Entrada?}
+                                                                     @item{Como a Imagem da função te ajuda a escrever um Exemplo?}]}
+                                                    @item{olhando para os dois exemplos, circule as partes que são @italic{mutáveis}, e então nomeie com um bom @vocab{nome de variável}.
+                                                          @itemlist[@item{Por que é útil escolher um nome de variável antes de definir a função?}]}]
+                                         Agora escreva a @vocab{definição da função}, usando os Exemplos que você ja escreveu.}}
+                        @teacher{Este é muito parecido com o problema anterior, e foi pensado para que os alunos sintam-se confortáveis em usar a receita de projeto antes de mergulhar em problemas mais complexos. 
+                                 Lembre os alunos sobre funções aninhadas: Uma função onde a Imagem é um número pode ser usada dentro de uma função que precisa de um número em seu Domínio, como em 
                                  @code{(circle (* 2 25) "solid" "red")}.}}
                                    ]
          }
        
 @lesson/studteach[
-        #:title "Introducing Structs"
-        #:duration "10 minutes"
+        #:title "Iniciando com Estruturas"
+        #:duration "10 minutos"
         #:overview ""
         #:learning-objectives @itemlist[@item{Students will understand the limitations of atomic datatypes}]
         #:evidence-statements @itemlist[@item{}]
@@ -127,50 +127,50 @@
                 )
       ]{
           @points[
-                   @point{@student{@activity{For each of the things below, figure out which datatype you would use to represent it in Racket. 
-                                             Would you use a Number, String, Image, or Boolean for:
-                     @itemlist[@item{a color}
-                               @item{a picture of a circle}
-                               @item{your name}
-                               @item{your age}
-                               @item{whether or not something is correct}
-                               @item{an x-coordinate}
-                               @item{your friend's favorite food}
-                               @item{a picture of ninja cat}
-                               @item{a set of coordinates}]}
-            A set of coordinates requires two numbers: an x and a y. Unfortunately, functions can only return one piece of data at a time. 
-            Can you use a String to return two numbers? Not if you want to add or subtract them! Why do you think you can't use an Image or a Boolean to represent two numbers?}
-             @teacher{You can illustrate the importance of structures with an activity: Pass out bags of datatype cards, and instruct students to take out all of the cards from 
-                      the bags, and set them on the table in front of them. List each thing above that could be returned by a Racket function, and have students hold up a card 
-                      to show what datatype each would be.}}
+                   @point{@student{@activity{Para cada item abaixo, descubra qual tipo de dado você usaria para representar dentro do Racket. 
+                                             Você usaria um Número, String, Figura ou Booleano para:
+                     @itemlist[@item{uma cor}
+                               @item{a figura de um círculo}
+                               @item{seu nome}
+                               @item{sua idade}
+                               @item{se algo está correto ou não}
+                               @item{uma coordanada-x}
+                               @item{a comida favorita do seu amigo}
+                               @item{uma imagem do NinjaCat}
+                               @item{um conjunto de coordenadas}]}
+            Um conjunto de coordenadas precisa de dois números: um x e um y. Infelizmente, funções podem apenas retornar uma parte de dados de cada vez. 
+            Você pode usar uma String para retornar dois números? Não, se você tiver que somar ou subtrair eles! Por que você acha que não podemos usar uma Figura ou Booleano para representar dois Números?}
+             @teacher{Você pode ilustrar a importância de estruturas com uma atividade: Passe sacolas com cards de tipos de dados, e instrua os alunos a retiratem todos os card das 
+                      sacolas, e colocá-los sobre a mesa na frente deles. Liste cada coisa acima, que poderia ser retornada por uma função do Racket, e peça aos alunos para levantar um cartão 
+                      para mostrar qual tipo da dado cada um seria.}}
                     
-                    @point{@student{Every function that you could possibly write or use in Racket can only give back one thing. That is, the range only has one thing in it. 
-                                    You need a new type of data - something that can hold more than one thing at once. Racket actually has a tool to make such a thing, and 
-                                    it's called a @vocab{Data Structure}, or "struct" for short. A struct can hold any number of datatypes. It could have just two numbers, 
-                                    to represent coordinates, or it could hold as many numbers as you want, as well as strings, images, booleans, or even other structs! 
-                                    (We'll talk about nested structures in a later lesson.)}
-                           @teacher{Set aside the two number cards; one for the x and one for the y coordinates. Then pick up your plastic bag. Put the two number cards 
-                                    inside the plastic bag, and then hold it up. "How many @italic{things} am I holding? One!"}}
+                    @point{@student{Toda função que você poderia escrever ou usar no Racket pode apenas te devolver uma coisa. Ou seja, a imagem tem apenas um item nela. 
+                                    Você precisa de um novo tipo de dado - algo que pode conter mais de uma coisa ao mesmo tempo. O Racket na verdade tem uma ferramenta que pode fazer isso, 
+                                    que é chamada @vocab{Estrutura de Dados}, ou apenas "struct". Uma struct pode ter vários tipos de dados. Poderia ter dois números, 
+                                    para representar coordenadas, ou poderia ter quantos números você quiser, como strings, figuras, booleanos e até mesmo outras structs! 
+                                    (Vamos falar sobre estruturas aninhadas na próxima lição.)}
+                           @teacher{Reserve duas cartas númericas; uma representa o x e outra o y de uma coordenada. Em seguida pegue sua sacola. Coloque os dois cards numéricos 
+                                    dentro da sacola, e em seguida segure-o. "Quantas @italic{coisas} eu estou segurando? Uma!"}}
                    
-                    @point{@student{Now imagine that you've put the two numbers that you're using to describe the x and y into a box. If you were to hold up the box, you'd 
-                                    only be holding one thing! In the same way, complex structs can be defined in Racket to hold multiple things. Look at some more examples, 
-                                    but remember that you might need a "struct" to group things together. 
-                                    @activity{Which of the following things can represented using one piece of data (and which @italic{type} is it?), and which ones need a 
-                                              struct to contain multiple pieces of data? 
-                                              @itemlist[@item{the name and the age of a character}
-                                                         @item{a flavor of soup, and whether it is hot or not}
-                                                         @item{how many pets you have}
-                                                         @item{a picture of a shape, with the number of sides and its color}
-                                                         @item{a direction that a plane is traveling, and how fast it is going}]}}
-                            @teacher{In Bootstrap 1, students' games were made by keeping track of only a few numbers: the x-positions of the danger and target, and y-position 
-                                     of the payer. In Bootstrap 2, students' games will be much more complex, and will require many more values to move characters, test conditions, 
-                                     keep track of the score, etc. Data structures simplify code by organizing many different values: You couldn't represent every part of a player 
-                                     (position, health, inventory, etc.) with one number or string, but you can represent all these things with a @vocab{data structure}.}}
+                    @point{@student{Agora imagine que você colocou os dois números que representam as coordenadas x e y numa caixa. Se você fosse segurar a caixa, você 
+                                    estaria segurando apenas uma coisa! Do mesmo modo, estruturas complexas podem ser definidas no Racket para armazenar várias coisas. Olhe mais alguns exemplos, 
+                                    mas lembre-se que você precisa de uma "struct" para agrupar as coisas. 
+                                    @activity{Quais item abaixo podem ser representados usando apenas um dado (e qual @italic{tipo} ele é?), e quais precisam de 
+                                              uma struct para reunir várias partes de dados? 
+                                              @itemlist[@item{o nome e a idade de um personagem}
+                                                         @item{um sabor de sopa, e se está quente ou não}
+                                                         @item{quantos bichos de estimação você tem}
+                                                         @item{a figura de uma forma geométrica, quantos lados ela tem e sua cor}
+                                                         @item{a direção que um avião está voando, e sua velocidade}]}}
+                            @teacher{No Bootstrap 1,os jogos dos alunos foram feitos para manter o controle de alguns números; a posição-x do perigo e do alvo, e a posição-y 
+                                     do personagem principal. No Bootstrap 2, os games serão muito mais complexos, e exigirão muito mais valores para mover personagens, testar condições, 
+                                     ganhar pontos, etc. As Estrutura de Dados simplificam o código organizando muitos valores diferentes: Você não poderia representar cada parte do jogador 
+                                     (posição, vida, inventário, etc.) com só um número ou string, mas você pode representar todas essas coisas com uma @vocab{estrutura de dados}.}}
                     ]
            }
 
 @lesson/studteach[#:title "Autos"
-        #:duration "20 minutes"
+        #:duration "20 minutos"
         #:overview ""
         #:learning-objectives @itemlist[@item{}]
         #:evidence-statements @itemlist[@item{}]
@@ -187,93 +187,93 @@
                 )
       ]{
           @points[
-                   @point{@student{Suppose you want to open up an autobody shop. You take people's cars and trick them out, giving them paint jobs, turbo-charging them, etc. 
-                                   What type of thing is an auto? Is it a number? String? Image? Boolean? You couldn't describe all of the important things 
-                                   about an automobile with any one of those things. However, we could say that we care about a couple of things in our shop that can be
-                                   described with these types.
-                                   @activity{For each of the following aspects of an automobile, think about what datatype you might use to represent it:
-                                             @itemlist[@item{The model of the car. That could be "Prius", "H2", "XTerra", or something else.}
-                                                        @item{How much horsepower the car has.}
-                                                        @item{How large the rims are.}
-                                                        @item{What color the car is.}
-                                                        @item{The value, or price of the car.}
-                                                        @item{What datatype could we use to represent the entire auto?}]}
+                   @point{@student{Vamos suppor que você quer abrir uma Loja de Carros. Você busca e entrega o carro das pessoas, faz pinturas, carrega o turbo deles, etc. 
+                                   Que tipo de coisa é um carro? É um número? String? Booleano? Você não poderia descrever todas as coisas importantes 
+                                   sobre um automóvel com apenas uma dessas coisas. Porem, podemos dizer que nos importamos com algumas coisas em nossa loja que podem ser
+                                   descritas usando essas tipos.
+                                   @activity{Para cada um dos seguintes aspectos de um carro, pense sobre qual tipo de dados você poderia usar para representá-lo:
+                                             @itemlist[@item{O modelo do carro. Que poderia ser "Rize", "H2", "XTitan", ou algo parecido.}
+                                                        @item{Quantos cavalos de potência o carro tem.}
+                                                        @item{De que tamanho são os aros.}
+                                                        @item{De qual cor o carro é.}
+                                                        @item{O valor do carro, quanto custa.}
+                                                        @item{Qual tipo de dado podemos usar para representar o carro todo?}]}
                                    @bitmap{images/car3.png}                                                   
-                                   Let's represent the different parts of a car like so:
-                                   @itemlist[@item{@code{model}: @bold{String}}
-                                              @item{@code{horsepower}: @bold{Number}}
-                                              @item{@code{rims}: @bold{Number}} 
-                                              @item{@code{color}: @bold{String}}
-                                              @item{@code{value}: @bold{Number}}]
-                                   These are the only things that you're going to keep track of in an auto, but you can imagine how you might extend it to include other things.}
-                           @teacher{@management{Copy the fields of an auto struct and their types onto the board.}}}
+                                   Vamos representar as diferentes partes de um carro assim:
+                                   @itemlist[@item{@code{modelo}: @bold{String}}
+                                              @item{@code{potencia}: @bold{Numero}}
+                                              @item{@code{rodas}: @bold{Numero}} 
+                                              @item{@code{cor}: @bold{String}}
+                                              @item{@code{valor}: @bold{Numero}}]
+                                   Essas são as únicas coisas que você vai aompanhar em um carro, mas você pode imaginar como vocẽ pode extendê-lo para incluir outras coisas.}
+                           @teacher{@management{Copie os campos da struct carro e seus tipos no quadro.}}}
                     
-                    @point{@student{Now that you know everything that is part of an auto, you can use a struct to represent the auto itself. (This is the very first time that 
-                                    you're going to use structs, and they're going to play a HUGE part in your videogame.) Let's take a look at how this works.
-                            @activity{Open the @editor-link[#:public-id "P7qS37u1ZH" "Autobody Shop"] file and read the line that starts with 
+                    @point{@student{Agora que você sabe tudo o que é parte de um carro, você pode usar uma struct para representar o próprio carro. (Essa é a primeira vez que 
+                                    você está usando structs, e elas vão aparecer em uma GRANDE parte de seu jogo.) Vamos dar uma olhada em como isso funciona.
+                            @activity{Abra o @editor-link[#:public-id "P7qS37u1ZH" "Autobody Shop"] arquivo e leia a linha que começa com 
                                                @code{(define car1....)}
                                                @code{(define car1 (make-auto "M5" 480 28 "black" 50000))}
-                                               @itemlist[@item{What is the name of this auto?}
-                                                          @item{What is the model of this auto?}
-                                                          @item{What is the horsepower of @code{car1}?}
-                                                          @item{What is the rim size of @code{car1}?}
-                                                          @item{What is the color of @code{car1}?}
-                                                          @item{Finally, what is the value of @code{car1}?}]}
-                            As you can see here, it's really easy to make this auto struct! We have a bit of code which tells the computer which order everything goes 
-                            in...and we'll talk about that shortly. For now, let's practice defining some new autos.}
-                            @teacher{The first line in this file tells the computer that an @code{auto} is a new data structure, and the names of its fields. 
-                                     Below there are three autos defined and assigned to the variables @code{car1}, @code{car2}, and @code{car3}. Ask students 
-                                     questions about these autos to get them thinking about how they would define their own.}}
+                                               @itemlist[@item{Qual é o nome deste carro?}
+                                                          @item{Qual é o modelo deste carro?}
+                                                          @item{Quantos cavalos de potência o @code{car1} tem?}
+                                                          @item{Qual é o tamanho dos aros do @code{car1}?}
+                                                          @item{De qual cor o @code{car1} é?}
+                                                          @item{Finalmente, qual é o valor do @code{car1}?}]}
+                            Como você pode ver, é realmente fácil fazer uma struct carro! Temos um pouco de código que diz ao computador a ordem de tudo o que entra... 
+                            e vamos falar sobre isso em breve. Por agora, vamos praticar definir alguns carros novos.}
+                            @teacher{A primeira linha do arquivo conta ao computador que um @code{carro} é uma nova estrutura, e o nome de seus campos. 
+                                     Abaixo temos três carros definidos e atribuidos às variáveis @code{carro1}, @code{carro2}, e @code{carro3}. Pergunte aos alunos 
+                                     sobre esses carros para que pensem sobre como eles poderiam definir os seus próprios carros.}}
 
-                    @point{@student{@activity{Define another car, called @code{new-car}. To start
-                                                                         @itemlist[@item{how would you define this variable?}
-                                                                                    @item{What function is used to make an auto?}
-                                                                                    @item{Which thing comes first in an auto struct?}] 
-                                              Now what do you expect to happen when you type @code{new-car} into the interactions window? Click Run and try it out.}             
-                                              @code{(define new-car (make-auto "Taurus" 300 20 "white" 5000))}}
-                 @teacher{Have students walk you through the process of defining a variable called @code{new-car} and making an auto with whatever model, hp, rims, etc. they like.
-                          If they struggle with making an auto, have them check their contracts page!}}
+                    @point{@student{@activity{Defina outro carro, chamado @code{novo-carro}. Para começar
+                                                                         @itemlist[@item{como você definiria essa variável?}
+                                                                                    @item{Qual função é usada para construir um carro?}
+                                                                                    @item{O que vem primeiro dentro de uma estrutura carro?}] 
+                                              Agora o que você espera que aconteça quando você digitar @code{novo-carro} na janela de interações? Clique em Run e experimente.}             
+                                              @code{(define novo-carro (make-carro "Taurus" 300 20 "white" 5000))}}
+                 @teacher{peça aos alunos que o conduzam através do processo de definir uma variável chamada @code{novo-carro} e fazer um carro de qualquer modelo, potência, tamanho rodas, etc. que eles queiram.
+                          Se eles estão se confundindo em fazer um carro, mande-os checar sua página de assinaturas!}}
                  
-                 @point{@student{@activity{Define two new variables for each of your favorite cars. Call one [yourname]-car (@code{nathan-car}, @code{sam-car}, @code{jill-car}, etc),
-                                           or whatever name you prefer. You can make any kind of cars that you want, as long as your struct has the right types in the right orders!}}
-                         @teacher{Repetition is key in this lesson. Have students identify each part of the auto struct for every auto they've defined.
-                                  What is the model of their first auto? Its value? Ensure that students are using their inputs in the right order!}}
+                 @point{@student{@activity{Defina duas novas variáveis de seus carros favoritos. Chame eles de [seuNome]-carro (@code{natan-carro}, @code{samuel-carro}, @code{julio-carro}, etc),
+                                           ou outro nome que preferir. Vocẽ pode construir qualquer tipo de carro que quiser, enquanto sua estrutura tiver os tipos certos nas ordens corretas!}}
+                         @teacher{Repetição é o ponto chave nesta lição. Peça aos alunos que identifiquem cada parte da struct carro nos carros que eles definiram.
+                                  Qual é o modelo do primeiro carro? Seu valor? Verifique se seus alunos estão usando as entradas na ordem correta!}}
                     
-                    @point{@student{When you defined these new autos, you used a new function: @code{make-auto}.
-                                    @activity{@itemlist[@item{What is the name of this function?}
-                                                        @item{How about the domain?}
-                                                        @item{How many things are in the domain?}]} The five things in the domain of @code{make-auto} are, in fact, the five 
-                                                              things that we have already listed! So in our workbook, on the Contracts page, we know to write:
+                    @point{@student{Quando vocẽ definiu seus novos carros, você usou uma nova função? @code{make-carro}.
+                                    @activity{@itemlist[@item{Qual o nome dessa função?}
+                                                        @item{E o seu domínio?}
+                                                        @item{Quantas coisas estão em seu domínio?}]} As cinco coisas no domínio de @code{make-carro} são, na verdade, as cinco 
+                                                              coisas que nós já listamos! Em sua apostila, na página de Assinaturas, vamos escrever:
 @code[#:multi-line #t]{
-; make-auto : String Number Number String Number -> ___________________
-; Model, hp, rims, color, value}}
-                            @teacher{Remember to have students copy the contract into their workbooks, and write the contracts yourself on the board.}}
+; make-carro : String Numero Numero String Numero -> ___________________
+; modelo, potencia, rodas, cor, valor}}
+                            @teacher{Lembre os alunos para que copiem as assinaturas em suas apostila, e escreva as assinaturas você mesmo no quadro.}}
                     
-                    @point{@student{With data structures, the order is very important: we always want the first string in @code{make-auto} to be the auto's model, the first number 
-                                    to be its horsepower, etc. 
-                                    @activity{Underneath the contract, write what each part of @code{make-auto}'s domain represents.}}
+                    @point{@student{Nas estruturas de dados, a ordem é muito importante: nós sempre queremos que a primeira string em @code{make-carro} seja o modelo do carro, o primeiro número 
+                                    seja sua potência, etc. 
+                                    @activity{Debaixo da assinatura, escreva o que cada parte do domínio de @code{make-carro} representa.}}
                             @teacher{}}
                     
-                    @point{@student{We know the name and domain, but what's the range? If I give @code{make-auto} a String representing the model of an auto, a number for the hp, 
-                                    another number for the rim size, a string for the color, AND a number for the value, what should I get back? An Auto! But Racket doesn't have a 
-                                    datatype for an Auto. We'll have to use a struct. Racket doesn't have autos built into it, so later on you'll learn about defining your own 
-                                    structures to use in YOUR videogame.}
-                         @teacher{Autos are the first example of defining a new datatype that students will see, but Racket allows you to define any number of new data structures to hold
-                                  any combination of values. The important points to remember about structures is that whenever @code{make-[structure]} is called, it must take in the same 
-                                  number and type of values as in the structure's definition, and its inputs must be in the @italic{same order} as the definition. Unit Three introduces 
-                                  students to even more data structures, and in Unit Four they begin defining their own.}}
+                    @point{@student{Nós sabemos o nome e o domínio, mas e a imagem da função? Se eu der para @code{make-carro} uma String representando o modelo do carro, um número para a potência, 
+                                    outro número para o tamanho das rodas, uma string para a cor, e um número para o valor do carro, o que eu deveria receber devolta? Um Carro! Mas o Racket não tem um tipo 
+                                    de dado para um carro. Vamos ter que usar uma struct. O Racket não tem carros construídos dentro dele, então logo mais você aprenderá a definir suas próprias 
+                                    estruturas para usar em SEU videogame.}
+                         @teacher{Carros são o primeiro exemplo de definição de um novo tipo de dados que os alunos viram, mas o Racket lhe permite definir quantas novas estruturas você precisar para guardar
+                                  qualquer combinação de valores. Os pontos importantes a serem lembrados sobre structs é que qualquer @code{make-[estrutura]} chamada, deve ter o mesmo 
+                                  número de elementos e os mesmos tipos de dados como na sua definição, e suas entradas devem estar na @italic{mesma ordem} da definição. A Unidade 3 introduz 
+                                  os alunos ainda mais nas estruturas, e na Unidade 4 eles começam a definir sua própria struct.}}
               
-                 @point{@student{@activity{After clicking the "Run" button, in WeScheme, type @code{car1} into the interactions window and hit enter. What do you get back?}
-                                  Does this make sense? What happened when you typed just a number into the interactions window? We got that same number back! What about strings? Images? 
-                                  Booleans? If we don't do anything to our input, or use any function on it, we get back exactly what we put in! Here, you put in an auto, and got back that auto!}
-                         @teacher{Remind students that values will always evaluate to themselves. 4 evaluates to 4, the string @code{"pizza"} evaluates to @code{"pizza"}, and @code{car1} evaluates
-                                  to @code{(make-auto "M5" 480 28 "black" 50000)}}}
+                 @point{@student{@activity{Depois de clicar em "Run", no WeScheme, digite @code{carro1} na janela de interações e aperte enter. O que você recebe devolta?}
+                                  Isso faz sentido? O que aconteceu quando você digitouum número na janela de interações? Nós recebemos o mesmo número de volta! E se fosse uma string? Uma figura? 
+                                  Um booleano? Se não fizermos nada com nossa entrada, ou não usamos alguma função nela, nós recebemos exatamente o que digitamos! Se você colocar um carro, você receberá um carro de volta!}
+                         @teacher{Lembre os alunos uqe os valores sempre se resultarão. 4 resulta em 4, a string @code{"pizza"} resulta em @code{"pizza"}, e @code{carro1} resulta em
+                                  @code{(make-carro "M5" 480 28 "black" 50000)}}}
                 
-                  @point{@student{You can see what your cars look like by using the function provided at the bottom of the screen. It's called @code{draw-auto}, and it takes an auto as input and 
-                                  gives you back an Image with your car in it.
-                                  @activity{In the interactions window, type @code{(draw-auto car1)} and see what happens. Use the function with the cars YOU defined!} @bitmap{images/car1.png}}
-                         @teacher{Students will spend lots of time "drawing" their autos. Encourage them to define some new autos, and to alter the color, rim size, value, etc. to see their changes 
-                                  reflected in the images. Don't forget to remind them to click "Run" after making any changes!}}
+                  @point{@student{Você pode ver como são seus carros usando a função fornecida abaixo da tela. É chamada @code{desenha-carro, ela recebe um carro como entrada e 
+                                  te retorna uma Figura com seu carro nela.
+                                  @activity{Na Janela de Interações, digite @code{(desenha-carro carro1)} e veja o que acontece. Use a função com os carros que VOCÊ definiu!} @bitmap{images/car1.png}}
+                         @teacher{Os alunos passarão muito tempo "desenhando" seus carros. Incentive-os a definir alguns carros novos, e alterar sua cor, tamanho das rodas, valor, etc. para verem suas 
+                                  alterações refletidas nas imagens. Não se esqueça de lembrá-los de clicar em "Run" depois de fazer qualquer alteração!}}
                   ]
            }
                  
@@ -295,36 +295,36 @@
                 )
       
       ]{@points[
-                @point{@student{Suppose you want to get the model OUT of @code{new-car}. You don't care about the rim size, or horsepower, or anything else- you just want to 
-                                know the model. Racket has a function for that, called @code{auto-model}. If you give @code{auto-model} an auto, it will return the model 
-                                of that auto. 
-                                @activity{If you type @code{(auto-model new-car)} into the interactions window, what should it evaluate to? Try it out! 
-                                                      @itemlist[@item{What kind of thing did it return: A number, string, image, or struct?}
-                                                                 @item{Practice taking the model out of EVERY auto you have defined, using @code{auto-model}}]}
-                                @activity{In your workbook, flip back to your contract sheet. Think about what kind of thing you gave to the @code{auto-model} function, 
-                                          and what kind of thing you got back.
-                                          @itemlist[@item{What is the name of this function?}
-                                                     @item{What is the domain of this function?}         
-                                                     @item{What about the range?}
-                                                     @item{Write the contract for @code{auto-model} on your contract sheet.}]}
-                                @code{; auto-model : auto -> String}
+                @point{@student{Suponha que você queira OBTER o modelo do @code{novo-carro}. Você não se import com o tamanho das rodas, potência, ou qualquer outra coisa- você só quer 
+                                saber o modelo. O Racket tem uma função para isso, chamada @code{carro-modelo}. Se você der um carro para @code{carro-modelo}, ela retornará modelo 
+                                desse carro. 
+                                @activity{Se você digitar @code{(carro-modelo novo-carro)} na janela de interações, o que deveria resultar? Experimente! 
+                                                      @itemlist[@item{Que tipo de coisa retornou: Um número, string, figura, ou uma estrutura(struct)?}
+                                                                 @item{Pratique pegando o modelo de TODOS os carros que você ja definiu, usando @code{carro-modelo}}]}
+                                @activity{Em sua apostila, volte para a página de assinaturas. Pense em que tipo de coisa você dá para a função @code{carro-modelo}, 
+                                          e que tipo de dado você recebe de volta.
+                                          @itemlist[@item{Qual o nome dessa função?}
+                                                     @item{Qual o domínio dessa função?}         
+                                                     @item{E o seu domínio?}
+                                                     @item{Escreva a assinatura para @code{carro-modelo} em sua folha de assinaturas.}]}
+                                @code{; carro-modelo : carro -> String}
                     
-                                Of course, there are functions to access any part of an auto, not just the model! What do you think the contract for @code{auto-hp} is? 
-                                Write it down in your workbook.
-                                @activity{Write down the contracts for @code{auto-rims}, @code{auto-color} and @code{auto-value}. Then try them out on your autos! Do they do what you expect?}}
-                 @teacher{A way to prompt students to use these functions is to ask: "How do you get the horsepower out of an auto?" "How do you get the color out of an auto?"
-                          Throughout the course you can set up a call and response system with students, where the question "How do you get the X out of a Y?" 
-                          will prompt the name of the accessor function.}}
+                                Claro, existem funções para acessar qualquer parte de um carro, não apenas o modelo! O que você pensa ser a assinatura para @code{carro-potencia}? 
+                                Escreva em sua apostila.
+                                @activity{Escreva as assinaturas para @code{carro-rodas}, @code{carro-cor} e @code{carro-valor}. Em seguida, experimente-os em seus carros! Elas fazer o que você esperou?}}
+                 @teacher{Uma maneira de introduzir os alunos a usar essas funções é perguntar: "Como você obtém a potência de um carro?" "Como vocẽ consegue a cor de um carro?"
+                          Ao longo do curso você pode configurar um sistema de pergunta e resposta com os alunos, onde a pergunta "Como você consegue o X de um Y?" 
+                          irá solicitar o nome da função acessadora.}}
                  
-                 @point{@student{The previous functions are known as @vocab{Accessor Functions}. They allow you to specify what part of a struct you want, without 
-                                 getting back the whole thing. If we want to know if we can afford a certain auto, we probably only care whether the value is less than
-                                 a certain amount. Likewise, if we want to know whether or not a character has died, we only need to know if his health is less than 0: 
-                                 we might not care what his location is, or the color of his armor. Programmers use accessor functions a lot, in order to make large 
-                                 pieces of data (like structures) more manageable.}
+                 @point{@student{As funções anteriores são conhecidas como @vocab{Funções Acessadoras}. Elas permitem que você especifique qual parte da struct você quer, sem 
+                                 receber toda a estrutura de volta. Se quisermos saber se podemos comprar um carro, nós provavelmente vamos ver ser o valor é menor que
+                                 uma certa quantia. Da mesma forma, seu queremos saber se um personagem está morto, só precisamos saber se sua vida é menor do que 0: 
+                                 para saber disso, no memento não é preciso conhecer sua posição no jogo, ou a cor da dua armadura. Programadores usam muito acessadores, para tornar grandes 
+                                 partes de dados (como estruturas) mais gerenciáveis.}
                          @teacher{}}]
          }
-@lesson/studteach[#:title "Autobody Shop"
-        #:duration "25 minutes"
+@lesson/studteach[#:title "Autobody Shop***"
+        #:duration "25 minutos"
         #:overview ""
         #:learning-objectives @itemlist[@item{Students will write complex functions that consume, modify and produce structures}]
         #:evidence-statements @itemlist[]
@@ -340,12 +340,13 @@
       
       ]{
         @points[
-                @point{@student{Now you know all about how to work with automobiles in Racket!
-                                @activity{@itemlist[@item{What function makes an auto?}
-                                                     @item{Which function draws that auto?}
-                                                     @item{How do you get the value out of an auto?}
-                                                     @item{How do you get the color out of an auto?}]}
-                                But you don't just want to take an auto and give it right back. You're running an autobody shop! You'll take people's cars and change 
+                @point{@student{Agora você sabe tudo sobre como trabalhar com carros no Racket!
+                                @activity{@itemlist[@item{Qual função constrói um carro?}
+                                                     @item{Qual função desenha um carro?}
+                                                     @item{Como você consegue obter o valor de um carro?}
+                                                     @item{Como você obtém a cor de um carro?}]}
+                                Mas você não que apenas buscar um carro e devolvê-lo. Você tem uma
+ut you don't just want to take an auto and give it right back. You're running an autobody shop! You'll take people's cars and change 
                                 them, making them better in some way, and then return them to the customer. Let's figure out how to do that.}
                         @teacher{}}
                  
