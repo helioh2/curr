@@ -187,7 +187,7 @@
                 )
       ]{
           @points[
-                   @point{@student{Vamos suppor que você quer abrir uma Loja de Carros. Você busca e entrega o carro das pessoas, faz pinturas, carrega o turbo deles, etc. 
+                   @point{@student{Vamos supor que você quer abrir uma Loja de Carros. Você busca e entrega o carro das pessoas, faz pinturas, carrega o turbo deles, etc. 
                                    Que tipo de coisa é um carro? É um número? String? Booleano? Você não poderia descrever todas as coisas importantes 
                                    sobre um automóvel com apenas uma dessas coisas. Porem, podemos dizer que nos importamos com algumas coisas em nossa loja que podem ser
                                    descritas usando essas tipos.
@@ -205,7 +205,7 @@
                                               @item{@code{rodas}: @bold{Numero}} 
                                               @item{@code{cor}: @bold{String}}
                                               @item{@code{valor}: @bold{Numero}}]
-                                   Essas são as únicas coisas que você vai aompanhar em um carro, mas você pode imaginar como vocẽ pode extendê-lo para incluir outras coisas.}
+                                   Essas são as únicas coisas que você vai acompanhar em um carro, mas você pode imaginar como vocẽ pode extendê-lo para incluir outras coisas.}
                            @teacher{@management{Copie os campos da struct carro e seus tipos no quadro.}}}
                     
                     @point{@student{Agora que você sabe tudo o que é parte de um carro, você pode usar uma struct para representar o próprio carro. (Essa é a primeira vez que 
@@ -264,12 +264,12 @@
                                   os alunos ainda mais nas estruturas, e na Unidade 4 eles começam a definir sua própria struct.}}
               
                  @point{@student{@activity{Depois de clicar em "Run", no WeScheme, digite @code{carro1} na janela de interações e aperte enter. O que você recebe devolta?}
-                                  Isso faz sentido? O que aconteceu quando você digitouum número na janela de interações? Nós recebemos o mesmo número de volta! E se fosse uma string? Uma figura? 
+                                  Isso faz sentido? O que aconteceu quando você digitou um número na janela de interações? Nós recebemos o mesmo número de volta! E se fosse uma string? Uma figura? 
                                   Um booleano? Se não fizermos nada com nossa entrada, ou não usamos alguma função nela, nós recebemos exatamente o que digitamos! Se você colocar um carro, você receberá um carro de volta!}
                          @teacher{Lembre os alunos uqe os valores sempre se resultarão. 4 resulta em 4, a string @code{"pizza"} resulta em @code{"pizza"}, e @code{carro1} resulta em
                                   @code{(make-carro "M5" 480 28 "black" 50000)}}}
                 
-                  @point{@student{Você pode ver como são seus carros usando a função fornecida abaixo da tela. É chamada @code{desenha-carro, ela recebe um carro como entrada e 
+                  @point{@student{Você pode ver como são seus carros usando a função fornecida abaixo da tela. É chamada @code{desenha-carro}, ela recebe um carro como entrada e 
                                   te retorna uma Figura com seu carro nela.
                                   @activity{Na Janela de Interações, digite @code{(desenha-carro carro1)} e veja o que acontece. Use a função com os carros que VOCÊ definiu!} @bitmap{images/car1.png}}
                          @teacher{Os alunos passarão muito tempo "desenhando" seus carros. Incentive-os a definir alguns carros novos, e alterar sua cor, tamanho das rodas, valor, etc. para verem suas 
@@ -295,7 +295,7 @@
                 )
       
       ]{@points[
-                @point{@student{Suponha que você queira OBTER o modelo do @code{novo-carro}. Você não se import com o tamanho das rodas, potência, ou qualquer outra coisa- você só quer 
+                @point{@student{Suponha que você queira OBTER o modelo do @code{novo-carro}. Você não se importa com o tamanho das rodas, potência, ou qualquer outra coisa- você só quer 
                                 saber o modelo. O Racket tem uma função para isso, chamada @code{carro-modelo}. Se você der um carro para @code{carro-modelo}, ela retornará modelo 
                                 desse carro. 
                                 @activity{Se você digitar @code{(carro-modelo novo-carro)} na janela de interações, o que deveria resultar? Experimente! 
@@ -323,7 +323,7 @@
                                  partes de dados (como estruturas) mais gerenciáveis.}
                          @teacher{}}]
          }
-@lesson/studteach[#:title "Autobody Shop***"
+@lesson/studteach[#:title "Autobody Shop"
         #:duration "25 minutos"
         #:overview ""
         #:learning-objectives @itemlist[@item{Students will write complex functions that consume, modify and produce structures}]
