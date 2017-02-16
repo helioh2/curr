@@ -345,72 +345,71 @@
                                                      @item{Qual função desenha um carro?}
                                                      @item{Como você consegue obter o valor de um carro?}
                                                      @item{Como você obtém a cor de um carro?}]}
-                                Mas você não que apenas buscar um carro e devolvê-lo. Você tem uma
-ut you don't just want to take an auto and give it right back. You're running an autobody shop! You'll take people's cars and change 
-                                them, making them better in some way, and then return them to the customer. Let's figure out how to do that.}
+                                Mas você não quer apenas buscar um carro e devolvê-lo. Você tem uma loja de personalização! Você vai buscar o carro das pessoas e modificá-los, 
+                                tornando-os melhor de alguma maneira, e devolvê-lo ao cliente. Vamos descobrir como fazer isso.}
                         @teacher{}}
                  
-                 @point{@student{@activity{Turn to @worksheet-link[#:page 9 #:name "paint-job"] in your workbooks. Write a function called @code{paint-job},
-                                           which changes the color of an automobile.
-                                                   @itemlist[@item{What is the domain for this function? We'll need to get instructions about which auto we're changing, 
-                                                                   AND what color we're making it.}
-                                                              @item{What do you think our autobody shop is going to give back? What would be the range of 
-                                                                    @code{paint-job}?}]}
-               @code[#:multi-line #t]{; paint-job : Auto String -> Auto
-; changes the color of an auto}
-               In your first example, use the original @code{car1} and turn it purple. We know our customer will expect to get an auto back: you wouldn't bring your car
-               into the shop and be OK with only getting a pair of rims back! But we won't be returning the same auto- it will be almost identical, with only the color changed.}
-                         @teacher{It might not be immediately obvious to students that when a function returns an auto, they must use the @code{make-auto} function to 
-                                  produce it. By starting with a "fresh" auto, students are forced to think about every single field in order. Thinking about what exactly
-                                  makes up an auto and going back to the contract for @code{make-auto} gives them lots of practice with the auto struct and accessor 
-                                  functions.}}
+                 @point{@student{@activity{Vá para @worksheet-link[#:page 9 #:name "paint-job"] em sua apostila. Escreva uma função chamada @code{pintura},
+                                           que muda a cor de um automóvel.
+                                                   @itemlist[@item{Qual é o domínio dessa função? precisamos receber a instrução sobre qual carro vamos pintar, 
+                                                                   E qual cor vamos usar.}
+                                                              @item{O que você pensa que nossa loja vai retornar? Qual seria a imagem da função 
+                                                                    @code{pintura}?}]}
+               @code[#:multi-line #t]{; pintura : Carro String -> Carro
+; muda a cor de um carro}
+               Em seu primeiro exemplo, use o original @code{carro1} e pinte-o de roxo(purple). Nós sabemos que o cliente espera receber o carro de volta: você não levaria seu carro
+               em uma loja e estar satisfeito em receber só um par de rodas devolta! Mas não retornaremos o mesmo carro- vai estar quase idêntico, mas apenas a cor mudou.}
+                         @teacher{Pode não ser imediatamente óbvio aos alunos quando uma função retorna um carro, eles devem usar a função @code{make-carro} para 
+                                  produzí-lo. Construir um carro força os alunos a pensar sobre cada campo e sua ordem. Pensar sobre o que exatamente
+                                  compõe um carro e voltar para a assinatura de @code{make-carro} dá a eles muita prática com a estrutura carro e as funções 
+                                  acessadoras.}}
                  
-                 @point{@student{The moment you write @code{make-auto}, you know that you'll need to give it five things: the model, hp, rims, color, and value of that auto. 
-                                 We already know what model this car should be: the same as the given auto! But what if you didn't know exactly what string to use. 
-                                 How could you access JUST the model of @code{car1} and use it in your @code{make-auto} function?
+                 @point{@student{no momento que você escrever @code{make-carro}, você sabe que deve fornecer cinco coisas: o modelo, a potência, tamanho das rodas, cor, e o valor do carro. 
+                                 Nós já sabemos qual modelo o carro deve ter: o mesmo modelo que foi recebido! Mas se vocẽ não soubesse exatamente qual string usar. 
+                                 Como você poderia acessar APENAS o modelo do @code{carro1} e usá-lo em seu @code{make-carro}?
                        
-    @code[#:multi-line #t]{(EXAMPLE (paint-job car1 "purple" (make-auto .....))}
-                                @activity{@itemlist[@item{The horsepower also doesn't change with a paint job. So how do you get the hp out of @code{car1}?}
-                                                     @item{The rim size shouldn't change with a paint job. How do you get the rims out of car1?}
-                                                     @item{What about the color? In this example @code{paint-job} is taking in @code{car1} and the string @code{"purple"}. 
-                                                           So this auto's color will just be @code{"purple".}}]}
-                                Don't forget the last part of the auto struct- the value! The purpose statement for @code{paint-job} doesn't say anything about the value
-                                changing, so how do you get the original value out of car1?
+    @code[#:multi-line #t]{(EXAMPLE (pintura carro1 "purple" (make-auto .....))}
+                                @activity{@itemlist[@item{Os cavalos de potência também não mudam na pintura. Então como você consegue a potência do @code{carro1}?}
+                                                     @item{O tamanho das rodas também não mudam com a pintura. Como você consegue o tamanho das rodas do carro1?}
+                                                     @item{Mas e a cor? Nesse exemplo @code{pintura} está recebendo o @code{carro1} e a string @code{"purple"}. 
+                                                           Assim, a cor desse carro será @code{"purple".}}]}
+                                Não se esqueça da última parte da struct carro- o valor! A declaração de propósito de @code{pintura} não diz nada sobre o valor
+                                do carro mudar, então como você consegue o valor original do carro1?
                                 
-@code[#:multi-line #t]{(EXAMPLE (paint-job car1 "purple") (make-auto (auto-model car1)
-                                                                     (auto-hp car1)
-                                                                     (auto-rims car1)
-                                                                     "purple"
-                                                                     (auto-value car1)))}}
+@code[#:multi-line #t]{(EXAMPLE (pintura carro1 "purple") (make-carro (carro-modelo carro1)
+                                                                      (carro-potencia carro1)
+                                                                      (carro-rodas carro1)
+                                                                      "purple"
+                                                                      (carro-valor carro1)))}}
                          @teacher{}}
                  
-                 @point{@student{@activity{Write one more example for the function @code{paint-job}, this time using it to paint @code{car2} green. 
-                                          @itemlist[@item{Circle and label what changes between the two examples. How many variables will this function need?}
-                                                     @item{Write the definition, using the examples to help you.}]}
+                 @point{@student{@activity{Escreva mais um exemplo para a função @code{pintura}, desta vez usando para pintar o @code{carro2} de verde. 
+                                          @itemlist[@item{Circule e nomeie o que muda entre os dois exemplos. De quantas variáveis essa função precisa?}
+                                                     @item{Escreva a definição, usando os exemplos para te ajudar.}]}
                         
-After replacing the changing things with variables, your definition should look similar to: 
-@code[#:multi-line #t]{(define (paint-job car color) (make-auto (auto-model car)
-                                                                (auto-hp car)
-                                                                (auto-rims car)
-                                                                 color
-                                                                (auto-value car)))}}
-                         @teacher{Students may be tempted to put @code{color} in quotes, because the color of the car must be a string. However, the domain of 
-                                  @code{paint-job} tells us that the function will take in an auto and a string, so whatever color is input will already 
-                                  have quotes around it. Values evaluate to themselves, so the string "color" cannot evaluate to anything other than "color".
-                                  If we want color to be a variable, or shortcut for "purple", "green", "blue", etc. it must be written WITHOUT quotation marks.}}
+Depois de substituir as coisas que mudam pelas variáveis, sua definição deve ser semelhante a essa: 
+@code[#:multi-line #t]{(define (pintura carro cor) (make-carro (carro-modelo carro)
+                                                               (carro-potencia carro)
+                                                               (carro-rodas carro)
+                                                               cor
+                                                               (carro-valor carro)))}}
+                         @teacher{os alunos podem ser tentados a colocar a @code{cor} entre aspas, porque a cor do carro deve ser uma string. No entanto, o domínio 
+                                  de @code{pintura} nos diz que a função recebe um carro e uma string, então qualquer cor que recebermos já estará 
+                                  entre aspas. Valores resultam neles mesmos, então a string "color" não pode resultar em outra coisa a não ser "color".
+                                  Se quisermos que a cor seja uma variável, ou um atalho para "purple", "green", "blue", etc, é preciso que sejam escritas SEM aspas.}}
                  
-                 @point{@student{@activity{Turn to @worksheet-link[#:page 10 #:name "turbocharge"] in your workbooks. When you turbocharge an engine, you get
-                                           more power out of it. Your bodyshop offers a turbocharging job that adds 20 horsepower to any engine, but keeps everything
-                                           else the same. 
-                    @itemlist[@item{Fill out the @vocab{Contract} and @vocab{Purpose Statement} for the function.}
-                              @item{Write two @vocab{Examples} for how one would use @code{turbocharge}.}
-                              @item{Circle and label what varies between those examples and label it with a @vocab{variable} name.}
-                              @item{Define the function.}]}}
-                         @teacher{Give students plenty of time to practice using accessor functions, extracting pieces of the Auto structs and modifying them.}}]
+                 @point{@student{@activity{Vá para @worksheet-link[#:page 10 #:name "turbocharge"] em sua apostila. Quando você coloca turbo em um motor, ele tem
+                                           mais força. Sua loja oferece um serviço de colocar turbo nos carros que aumenta em 20 cavalos a potência, mas todos o 
+                                           resto se mantém igual. 
+                    @itemlist[@item{Preencha a @vocab{Assinatura} e a @vocab{Declaração de Propósito} para a função.}
+                              @item{Escreva dois @vocab{Exemplos} de como você usaria a @code{turbocharge}.}
+                              @item{Circule e nomeie o que varia entre esses exemplos com nomes de @vocab{variáveis}.}
+                              @item{Defina a função.}]}}
+                         @teacher{Dê aos alunos tempo suficiente para praticar o uso das funções acessadoras, extrair partes da Estrutura Carro e modificá-las.}}]
          }
 
                                                                                                                                                                                 @lesson/studteach[#:title "Closing"
-        #:duration "5 minutes"
+        #:duration "5 minutos"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
@@ -424,11 +423,11 @@ After replacing the changing things with variables, your definition should look 
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Structures are a powerful tool for representing complex data in a computer program. Simple videogames, like Pong, might only need to
-                                keep track of a few numbers at once, like the position of the ball, position of each paddle and the score. But if a game has many 
-                                different enemies, each with their own position and health, or multiple levels with their own background image, the game can get 
-                                very complicated very fast, and structs are a great way to manage and make sense of all the data. Programmers can do a LOT with data
-                                structures, and in the upcoming lessons you will create your own structs to make a customized videogame.}
+        @points[@point{@student{Estruturas são uma poderosa ferramenta para representar dados complexos em um programa. Simples jogos, como Pong, precisam apenas
+                                acompanhar alguns números de cada vez, como a posição da bola, posição de cada plataforma e os pontos. Mas se um jogo tem muitos 
+                                inimigos diferentes, casa um com sua própria posição e vida, ou muitas fases com diferentes imagens no fundo, o jogo pode ficar 
+                                complicado muito rápido, e as structs são uma ótima maneira de gerenciar e cuidar de todos os dados. Progrmadores podem fazer MUITO com
+                                estruturas de dados, e nas próximas aulas você vai criar suas próprias estruturas para fazer um game personalizado.}
            @teacher{@management{@itemlist[@item{Have students volunteer what they learned in this lesson}
                                           @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
                                           @item{Pass out exit slips, dismiss, clean up.}]}}
