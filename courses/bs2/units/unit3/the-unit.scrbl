@@ -1,79 +1,79 @@
 #lang curr/lib
 @declare-tags[management]
 
-@title{Unit 3: Structures and Worlds}
+@title{Unidade 3: Estruturas e Mundos}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
+@unit-overview/auto[#:lang-table (list (list "Número" @code{+ - * / sq sqrt expt})
                                        (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
-                                       (list "Auto" @code{make-auto auto-model auto-hp auto-rims auto-color auto-value}))]{
+                                       (list "Figura"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
+                                       (list "Carro" @code{make-carro carro-modelo carro-potencia carro-rodas carro-cor carro-valor}))]{
 
-@unit-descr{Students, having made pre-built data structures in the last lesson (autos), will generalize their understanding by defining various data structures of their own and accessing their fields. Students are introduced to Racket's purely-functional microworld implementation. This requires an understanding of functions, data structures, and an introduction to events-based programming. To accomplish this, students first work with a simple world (a number, representing a dog's x-coordinate). This world is consumed and produced by the update-world function, and drawn by draw-world. To understand events, they act out the World model, actually becoming event handlers and timers, to simulate a running program.}
+@unit-descr{Alunos, tendo pré-construído estruturas de dados na aula passada (carros), vão extender seu entendimento sobre definir várias estruturas de dados próprias e acessarão seus campos. São introduzidos à uma implementação de um mini-mundo puramente-funcional do Racket. Isto exige um conhecimento sobre funções, estruturas de dados, e uma introdução à programação baseada em eventos. Para alcançar isso, os alunos trabalham primeiro com um mundo simples (um número, representando a coordenada-x do cão). Esse mundo é consumido e produzido pela função atualiza-mundo, e desenhado pela desenha-mundo. Para entender eventos, eles encenam um modelo de Mundo, tornando-se controladores de eventos e do tempo, para simular a execução do programa.}
 }
 @unit-lessons{
-@lesson/studteach[#:title "Review: the Autobody Shop"
-        #:duration "20 minutes"
+@lesson/studteach[#:title "Revisão: A Tunning Shop"
+        #:duration "20 minutos"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
-        #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, design recipe, course calendar)}
-                            @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
-                            @item{Language Table}]
-     #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}]
+        #:materials @itemlist[@item{Lápis/canetas aos alunos, e giz/marcadores de quadro branco aos professores}
+                            @item{Cartazes da turma (Lista de regras, conhecimentos básicos, calendário do curso)}
+                            @item{Ambiente de Edição (WeScheme ou DrRacket com o pacote de ensino-bootstrap instalado)}
+                            @item{Tabela da Linguagem}]
+     #:preparation @itemlist[@item{Arranjos de assento: preferencialmente aglomerando as mesas}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{In the last lesson you learned about a new kind of data struct, called an auto. 
-                                @activity{@itemlist[@item{What is an auto? What things are described in an auto struct?}
-                                                    @item{How do you make an auto?}
-                                                    @item{How do you get the model out of an auto? The value? The color?}]}
-     Last time all of these were used to make an autobody shop, where you had functions that would increase the auto's @code{hp}, or paint it a new @code{color}. This next problem 
-     will be even harder, so remember to refer back to the last two functions you wrote in your workbook, in case you need some hints.}
-                        @teacher{Take a few minutes to review structs and autos with your students.}}
-            @point{@student{You may have heard of the show "Pimp My Ride", where the hosts get an old, beat-up car and make it WAY cooler. Let's implement something like this in Racket...
-            @activity{Turn to @worksheet-link[#:page 12 #:name "pimp"] in your workbooks. Write a function called @code{pimp}, which takes in an Auto and returns a new Auto which has an 
-                              extra 100 horsepower, has 30 inch rims, is painted red, and has increased in value by $10,000.
-                              @itemlist[@item{What is the @vocab{contract} for this function?}
-                                         @item{For the first EXAMPLE, let's upgrade @code{car3}. How will you start the example?}
-                                         @item{@code{(EXAMPLE (pimp car3) ...)}}
-                                         @item{According to the contract, we know that the Range of the @code{pimp} function is an auto. How do you make an auto?}
-                                         @item{What's the first part of an auto? The @code{model}. Does the model change, according to the function's @vocab{purpose statement}? 
-                                               How do you get the @code{model} out of @code{car3}?}
-                                         @item{How do you get the @code{hp} out of @code{car3}?}
-                                         @item{Does the horsepower change when we "pimp" our auto? You'll need to get the @code{hp} out of @code{car3}, @italic{and add 100 to it.}}
-                                         @item{According to the @vocab{purpose statement}, every auto that gets pimped will have 30 inch rims. Does it matter what the original rim size was?}
-                                         @item{Likewise, every car will be painted red. Do we need to reference the original color at all?}
-                                         @item{Finally, how do you get the @code{value} out of @code{car3}? Will the @code{value} increase or decrease after the auto is upgraded?}
+        @points[@point{@student{Na lição passada você aprendeu soubre um novo tipo de estrutura de dados, chamado de carro. 
+                                @activity{@itemlist[@item{O que é um carro? Quais itens são descritos em sua estrutura?}
+                                                    @item{Como vocẽ constrói um carro?}
+                                                    @item{Como você obtém o modelo de um carro? O valor? A cor?}]}
+     Na última vez todas essas perguntas foram usadas em sua loja de turbinar carros, onde você tinha funções que aumentavam a @code{potencia} de um carro, ou pintava ele com uma nova @code{cor}. O próximo problema 
+     será ainda mais difícil, então lembre-se de voltar às duas últimas funções que você escreveuem sua apostila, caso precise de algumas dicas.}
+                        @teacher{Tome alguns minutos para revisar structs e carros junto a seus alunos.}}
+            @point{@student{Você pode ter ouvido falar do programa "Pimp My Ride(Lata Velha- Caldeirão do Hulk)", onde algumas pessoas pegam um velho carro, o modificam e o deixam LEGAL. Vamos implementar algo parecido no Racket...
+            @activity{Vá para @worksheet-link[#:page 12 #:name "pimp"] em sua apostila. Escreva uma função chamada @code{tunar}, que recebe um Carro e retorna um novo Carro que tenha 
+                              100 cavalos de poência a mais, rodas de tamanho 30 polegadas, pintado de vermelho, e seu valor aumentado em R$10.000 .
+                              @itemlist[@item{Qual é a @vocab{assinatura} desta função?}
+                                         @item{Para o primeiro Exemplo, vamos reformar o @code{carro3}. Como você iniciaria o exemplo?}
+                                         @item{@code{(EXAMPLE (tunar carro3) ...)}}
+                                         @item{De acordo com a assinatura, sabemos que a Imagem da função @code{tunar} é um Carro. Como você contrói um carro?}
+                                         @item{Qual é a primeira parte de um carro? O @code{modelo}. Seguindo a @vocab{declaração de propósito} da função, o modelo do carro muda? 
+                                               Como você consegue saber o @code{modelo} de @code{carro3}?}
+                                         @item{Como você consegue saber a @code{potencia} do @code{carro3}?}
+                                         @item{A potência do carro muda quando você "tuna" o carro? Vocẽ terá que pegar a @code{potencia} do @code{carro3}, @italic{e adicionar 100.}}
+                                         @item{De acordo com a @vocab{declaração de propósito}, todo carro que é tunado deve ter rodas de 30 polegadas de tamanho. Será que o tamanho original das rodas importa aqui?}
+                                         @item{Da mesma forma, cada carro será pintado de vermelho. Nós precisamos fazer referência a cor original?}
+                                         @item{Finalmente, como você consegue obter o @code{calor} do @code{carro3}? O valor será aumentado ou diminuído depois do carro ser tunado?}
                                        ]}}
-                    @teacher{This is an opportunity for students to practice nested expressions. Not only will they use accessor functions to access the fields of the original auto, 
-                             they will need to modify them according to the problem statement. If they get stuck, have them draw the circle of evaluation for adding 100 to the auto's 
-                             horsepower, 10,000 to the auto's value, etc.}}
-            @point{@student{Putting it all together, the first example should look like:
+                    @teacher{Essa é uma oportunidade para praticar expressões aninhadas. Eles não irão usar paenas as funções de acesso para conseguir o campos originais do carro, 
+                             eles terão que modificá-los de acordo com a descrição do programa. Se eles ficarm presos, peça que desenhem o círculo de avaliação para adicionar 100 aos cavalos 
+                             de força, 10000 ao valor, etc.}}
+            @point{@student{Colocando tudo isso junto, o primeiro exemplo deve ser parecido com:
 
-@code[#:multi-line #t]{(EXAMPLE (pimp car3) (make-auto (auto-model car3)
-                                                    (+ (auto-hp car3) 100)
+@code[#:multi-line #t]{(EXAMPLE (tunar carro3) (make-carro (carro-modelo carro3)
+                                                    (+ (carro-potencia carro3) 100)
                                                         30
                                                         red
-                                                    (+ (auto-value car3) 10000)))}
-@activity{Write one more example, circle what changes, and then define the @code{pimp} function. If you're stuck, look back at the contract and your first example.}}                             
+                                                    (+ (carro-valor carro3) 10000)))}
+@activity{Escreva mais um exemplo, circule o que varia, e então defina a função @code{tunar}. Se você ficar preso, dê uma olhada na assinatura e no seu primeiro exemplo.}}                             
                     @teacher{}}
             ]
          }
                                                                  
 @lesson/studteach[#:title "define-struct"
-        #:duration "5 minutes"
+        #:duration "5 minutos"
         #:overview ""
-        #:learning-objectives @itemlist[@item{Students will generalize their understanding of function constructors and accessors}]
+        #:learning-objectives @itemlist[@item{Os alunos estenderão seu entendimento sobre funções construtoras e funções de acesso}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
-        #:materials @itemlist[@item{The Autos file [Autos.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "P7qS37u1ZH" "WeScheme"] preloaded on students' machines}]
+        #:materials @itemlist[@item{O arquivo Carros [Autos.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "sc7Ag2gKUm" "WeScheme"] pré-carregados nos computadores}]
         #:preparation @itemlist[]
         #:prerequisites (list)
         #:pacings (list 
@@ -81,40 +81,40 @@
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
-      ]{@points[@point{@student{@activity{Open the @editor-link[#:public-id "P7qS37u1ZH" "Autobody Shop"] file, and look at the first two lines at the top. 
-                                                   They start with @code{;an auto is...} and @code{define-struct}.}
-                                @code[#:multi-line #t]{; an auto is a (make-auto String Number Number String Number)
-(define-struct auto (model hp rims color value))}
-In the last unit we skipped over the part of the code that defines the auto struct, or tells the computer what an auto is and what goes into it. Just like we would expect from having
-worked with autos, the @code{define-struct} line says that an auto has five things....a model, hp, rim, color, and value. But how do we know which number is which? Remember that order
-matters! Look at the order of the fields in the @code{define-struct} line. The first string is the model, the first number is the horsepower, the second number is the rim size, and so on.}
-                        @teacher{You can use the given Autos file, or your students' own files from the previous lesson. Stress the importance of being able to define your own datatypes
-                                 to students: no longer are they bound by the single values of numbers, strings, or booleans! Racket allows you to define brand new structures, containing 
-                                 any combination of values. But these structures won't be usable without the @code{(define-struct ...)} line!}}
+      ]{@points[@point{@student{@activity{Abra o arquivo @editor-link[#:public-id "sc7Ag2gKUm" "Tunning Shop"], e olhe para as duas primeiras linhas. 
+                                                   Elas começam com @code{; um carro é...} e @code{define-sctruct}.}
+                                @code[#:multi-line #t]{; um carro é (make-carro String Numero Numero String Numero)
+(define-struct carro (modelo potencia rodas cor valor))}
+Na última unidade, ignoramos parte do código que define a estrutura carro, ou o que diz ao computador o que é um caro e o que temos dentro dele. Tal como esperávamos de ter trabalhado com
+carros, a linha @code{define-struct} diz que um carro possui cinco coisas... um modelo, potencia, rodas, cor, e valor. Mas como sabemos onde cada informação vai? Lembre-se que a ordem
+é importante! Olhe a ordem dos campos na linha do @code{define-struct}. A primeira string é o modelo, o primeiro número é sua potência, o segundo número é o tamanho das rodas, e assim continua.}
+                        @teacher{Você pode usar os Carros dados no arquivo, ou os carros dos próprios alunos da lição passada. Reforçe a importância de ser capaz de definir seus próprios tipos de dados
+                                 aos alunos: eles estão longe de fazerem ligações entre simples valores de números, strings, ou boolenaos! O Racket permite que você crie novas estruturas, contendo 
+                                 qualquer combinação de valores. Mas essas estruturas não serão usadas sem a linha @code{(define-struct ...) !}}}
                  
-            @point{@student{A struct is defined using the @code{define-struct} function, which tells the computer what things make up that struct, and what order and type each 
-                                                          thing is. In return, we get new functions to use. Until we write this @code{define-struct} line, we don't have 
-                                                          @code{make-auto} (to make an auto), @code{auto-model} (to get the model out of the auto), @code{auto-hp}, or any of 
-                                                          the other accessor functions, because Racket doesn't know what an Auto is- @italic{we haven't defined it}.
-            @activity{To check this, type a semi-colon before the line which begins with @code{define-struct}. This comments it out, so that the computer ignores it. Hit run, and see what 
-                                                                                         happens. Then turn to @worksheet-link[#:page 13 #:name "define-struct"] in your workbook, and copy 
-                                                                                         down the define-struct line.}}
-                    @teacher{When the @code{define-struct} line is commented out, Racket returns an error, saying you're trying to use an identifier before its definition. That means that 
-                                      it doesn't know what @code{make-auto} is or does, because we never defined an auto struct. Make sure students understand that @code{define-struct} 
-                                      is needed in order to create and work with any struct.}}
+            @point{@student{Uma estrutura é definida usando a função @code{define-struct}, que conta ao computador os itens que fazer parte dela, a ordem que estão e o tipo de cada 
+                                                          um. Em troca, conseguimos novas funções para usar. Se não escrevemos a linha @code{define-struct}, nós não temos um 
+                                                          @code{make-carro} (para construir um carro), @code{carro-modelo} (para saber o modelo do carro), @code{carro-potencia}, ou qualquer outras 
+                                                          funções de acesso, porque o Racket não sabe o que um Carro é- @italic{nós não o definimos}.
+            @activity{Para verificar isso, digite um ponto-e-vírgula no início da linha que começa com @code{define-struct}. Isso comenta a linha toda, e o computador ignora isso. Clicque em "Run", e veja 
+                                                                                         o que acontece. Depois vá para @worksheet-link[#:page 13 #:name "define-struct"] em sua apostila, e copie 
+                                                                                         a linha define-struct.}}
+                    @teacher{Quando a linha do @code{define-struct} está comentada, o Racket retorna um erro, dizendo que você está usando um identificador antes da sua definição. Isso significa que 
+                                      ele não sabe o que @code{make-carro} é ou faz, porque nós nunca definimos uma struct carro. Certifique-se que os alunos entendam que o @code{define-struct} 
+                                      é necessário para criar e trabalhar com qualquer estrutura.}}
             ]
          }
            
-@lesson/studteach[#:title "The Party Struct"
-        #:duration "30 minutes"
+@lesson/studteach[#:title "A Struct Festa"
+        #:duration "30 minutos"
         #:overview ""
-        #:learning-objectives @itemlist[@item{Write complex functions that consume, modify and produce structures}
-            @item{Deepen their understanding of structures, constructors and accessors by being introduced to two new data structures.}]
+        #:learning-objectives @itemlist[@item{Escrever funções complexas que consomem, modificam e produzem estruturas}
+            @item{Aprofundam seu entendimento sobre estruturas, construtores e funções de acesso introduzindo duas novas estruturas de dados.}]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students define two new complex data structures: party and world}
-          @item{Students will write functions that access fields of an auto, party, or world, and produce new autos, parties, and worlds.}]
+        #:product-outcomes @itemlist[@item{Alunos definem duas novas estruturas de dados complexas: festa e mundo}
+          @item{Alunos escreverão funções que acessam campos de um carro, festa ou mundo, e produzem novos carros, festas, e mundos.}]
         #:standards (list)
-        #:materials @itemlist[@item{The Party Planner file [Party.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "zLYLPQ5d6K" "WeScheme"] preloaded on students' machines}]
+        #:materials @itemlist[@item{O arquivo Organizador de Festas [Party.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "tsBEwjbSbH" "WeScheme"] pré-carregados nos computadores}]
         #:preparation @itemlist[]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -122,67 +122,67 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Now that you know how to define your own structs, let's define another one. Instead of working in an autobody shop, this time you'll be a 
-                                party planner. Data structures will be a useful way to represent each party that you're planning, keeping track of its location, theme, 
-                                and number of guests.
-                                @activity{@itemlist[@item{What datatype could be used to represent the location of the party?}
-                                                     @item{What about the party's theme? (This could be something like @code{"50s"}, or @code{"laser tag"})}
-                                                     @item{How about the number of guests?}]
-                                           Fill out the second struct definition on @worksheet-link[#:page 13 #:name "Party Planner"] in your workbook.}
-@code[#:multi-line #t]{; a party is a (make-party String String Number)
-                       (define-struct party (location theme guests))}}
+        @points[@point{@student{agora que você já sabe como definir suas próprias estruturas, vamos definir mais uma. Invés de trabalhar numa loja de tunning, agora você 
+                                será um organizador de festas. Estruturas de dados serão muito úteis para representar cada festa que você planejar, tenha o controle do local, o tema da festa, 
+                                e o número de convidados.
+                                @activity{@itemlist[@item{Qual tipo de dados poder ser usado para representar o local de uma festa?}
+                                                     @item{E quanto ao tema da festa? (Poderia ser algo como @code{"Anos 50"}, ou @code{"uma festa do pijama"})}
+                                                     @item{E quanto ao número de convidados?}]
+                                           Preencha a segunda definição de estrutura na @worksheet-link[#:page 13 #:name "Party Planner"] em sua apostila.}
+@code[#:multi-line #t]{; uma festa é uma (make-festa String String Numero)
+                       (define-struct festa (local tema convidados))}}
                         @teacher{}}
                  
-                 @point{@student{@activity{Open the @editor-link[#:public-id "zLYLPQ5d6K" "Party Planner"] file. Take a look at the first two 
-                                                    lines in the definitions window. Do they match what you have written?} 
-                                 Now that the party struct is defined, you have access to four new functions: One to make a new party, and three @vocab{accessor functions}
-                                 to get the location, theme, and number of guests out of the party. 
-@activity{Turn to your contracts sheet. @itemlist[@item{What is the @vocab{Name} of the function that @italic{makes a party?}}
-                                                  @item{What is the function's @vocab{Domain}? (What kinds of things are part of a party?)}
-                                                  @item{What is the @vocab{Range} of this function?}
-                                                  @item{How would you get the location out of a party? (Think about how you got the model or color out of an auto.)}
-                                                  @item{Write the contracts for @code{party-location}, @code{party-theme}, and @code{party-guests}.}]}}
+                 @point{@student{@activity{Abra o arquivo @editor-link[#:public-id "tsBEwjbSbH" "Organizador de Festas"]. Dê uma olhada nas primeiras duas 
+                                                    linhas na janela de definições. Elas combinam com o que você escreveu antes?} 
+                                 Agora que a strcut festa está definida, você tem quato novas funções: Uma para construir uma festa, e três @vocab{funções de acesso}
+                                 para saber o local, tema, e o número de convidados de uma festa. 
+@activity{Vá para sua página de assinaturas. @itemlist[@item{Qual é o @code{Nome} da função que @italic{constrói uma festa?}}
+                                                  @item{Qual é o @vocab{Domínio} da função? Quais tipos das coisas que são parte de uma festa?)}
+                                                  @item{Qual é a @vocab{Imagem} dessa função?}
+                                                  @item{Como você consegue saber o local de uma festa? (Pense sobre como você conseguia o modelo ou a cor de um carro.)}
+                                                  @item{Escreva as assinaturas para @code{festa-local}, @code{festa-tema}, e @code{festa-convidados}.}]}}
                          @teacher{}}
                  
-                 @point{@student{@activity{Now define two new party structures of your own. No matter what party you're planning, make sure that it has the right 
-                                           types of things in the right order.}}
-                         @teacher{As with the autos struct, repetition is key: have students identify the fields of each of their parties, and ask them lots of 
-                                  questions: How would you get the @code{theme} out of @code{Halloween}? How would you get the number of guests out of @code{JulyFourth}?}}
+                 @point{@student{@activity{Agora defina duas estruturas festa que vocẽ queira. Não importa qual tipo de festa vocẽ está planejando, certifique-se que ela tenha os tipos 
+                                           corretos de itens e na ordem certa.}}
+                         @teacher{Assim como na struct carro, a repetição é a chave: peça aos alunos que identifiquem cada campo em suas festas, e faça muitas 
+                                  perguntas: Como você conseguiria obter o @code{tema} de um @code{Halloween}? Como você consegue o número de convidados de uma festa @code{4 de Julho(Dia da Independência)}?}}
                  
-                 @point{@student{Now it's time to write some functions using the party struct. Remember, as a party planner you'll need to be able to change 
-                                 information for each party. 
-      @activity{Turn to @worksheet-link[#:page 14 #:name "RSVP"]. Write a function called @code{RSVP}, which takes in a party and adds one to its number of 
-                        guests.
-                        @itemlist[@item{What's the name of the function? Domain? Range?}
-                                   @item{Write the @vocab{contract} and @vocab{purpose statement} on your page.}
-                                   @item{Write your first EXAMPLE for the party @code{Halloween}. How do you start?}
-                                   @item{@code[#:multi-line #t]{(EXAMPLE (RSVP Halloween)....)}}
-                                   @item{What does this function produce? (If you're stuck, look back at your contract.)}
-                                   @item{Which function do we use to make a party?}
-                                   @item{According to the @code{RSVP} function, will the location of this party change? Of course not. So how do you get the @code{location}
-                                         out of a party?}
-                                   @item{@code[#:multi-line #t]{(EXAMPLE (RSVP Halloween) (make-party (party-location Halloween)
+                 @point{@student{Agora é hora de escrever algumas funções usando a estrutura festa. Lembre-se que, como um organizador de festas você precisa ser capaz de mudar 
+                                 a informação para cada festa. 
+      @activity{Vá para @worksheet-link[#:page 14 #:name "RSVP"]. Escreva uma função chamada @code{CP}(Confirmação de Presença de convidados), que recebe uma festa e aumenta 1 no número 
+                        de convidados.
+                        @itemlist[@item{Qual é o nome da função? Domínio? Imagem?}
+                                   @item{Escreva a @vocab{assinatura} e a @vocab{declaração de propósito} em sua folha.}
+                                   @item{Escreva seu primeiro Exemplo para a festa @code{Halloween}. Como você começa?}
+                                   @item{@code[#:multi-line #t]{(EXAMPLE (CP Halloween)....)}}
+                                   @item{O que está função produz? (Se você estiver travado, dê uma olhada em sua assinatura.)}
+                                   @item{Qual função nós usamos para construir uma festa?}
+                                   @item{De acordo com a função @code{CP}, o local da festa muda? Claro que não. Então como você consegue o @code{local}
+                                         de uma festa?}
+                                   @item{@code[#:multi-line #t]{(EXAMPLE (CP Halloween) (make-festa (festa-local Halloween)
 		                               .....))}}
-                               @item{What about the theme? If someone new RSVPs, do we suddenly have to make this a Christmas party? What function gets the @code{theme} 
-                                     out of a party?}
-                               @item{@code[#:multi-line #t]{(EXAMPLE (RSVP Halloween (make-party (party-location Halloween)
-        (party-theme Halloween)
+                               @item{E quanto ao tema? Se alguma nova confirmação aparecer, de repente temos que tornar a festa em Festa de Natal? Qual função você usa para descobrir o @code{tema} 
+                                     de uma festa?}
+                               @item{@code[#:multi-line #t]{(EXAMPLE (CP Halloween (make-festa (festa-local Halloween)
+        (festa-tema Halloween)
 		.....))}}
-                               @item{Lastly, what happens to the number of guests, when someone new RSVPs to the party?}]}
-      The first @code{RSVP} example should be written as: 
-@code[#:multi-line #t]{(EXAMPLE (RSVP Halloween) (make-party (party-location Halloween)
-                                                             (party-theme Halloween)
-                                                          (+ (party-guests Halloween) 1)))}}
-                         @teacher{Every structure will have its own unique accessor functions for each field. Have students practice accessing each part of the Party Struct and altering them (or not!) based on the word problem.}}
-                 @point{@student{@activity{On @worksheet-link[#:page 15 #:name "relocate"], write a function called @code{relocate}, which takes in a party AND the location that
-                                              it's moving to, and makes a new party at that location. Go through each part of the design recipe: contract, examples, and definition.}}
+                               @item{Por último, o que acontece com o número de convidados, quando recebe uma nova confirmação de presença apra a festa?}]}
+      O primeiro exemplo de @code{CP} deve ser escrito como: 
+@code[#:multi-line #t]{(EXAMPLE (CP Halloween) (make-festa (festa-local Halloween)
+                                                             (festa-tema Halloween)
+                                                          (+ (festa-convidados Halloween) 1)))}}
+                         @teacher{Cada estrutura terá suas próprias funções de acesso para cada campo. Peça aos alunos que pratiquem o acessoa cada parte da Estrutura Festa e às alterando (ou não!) com base no problema descrito.}}
+                 @point{@student{@activity{Na @worksheet-link[#:page 15 #:name "relocate"], escreva uma função chamada @code{trocarLugar}que recebe uma festa E um local que a
+                                              festa está mudando, e construa uma nova festa nesse lugar. Vá passo a passo pela receita de projeto: assinatura, exemplos, e definição.}}
                          @teacher{}}
                  ]
          }
 
        
-@lesson/studteach[#:title "Acting Out Ninja World"
-        #:duration "30 minutes"
+@lesson/studteach[#:title "Atuando no Mundo Ninja"
+        #:duration "30 minutos"
         #:overview ""
         #:learning-objectives @itemlist[@item{Discover the event-based microworld implementation of Racket, which uses events to modify the world.}]
         #:evidence-statements @itemlist[]
@@ -190,72 +190,72 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
         #:standards (list)
         #:materials @itemlist[]
         #:preparation @itemlist[@item{The Ninja World 1 file [NW1.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "fW705a0idU" "WeScheme"] preloaded on students' machines}
-                                @item{update-world, big-bang, and draw-world nametags}
-                                @item{cutout image of dog}]
+                                @item{crachás de atualiza-mundo, big-bang, e desenha-mundo}
+                                @item{um recorte da imagem do cachorro do NinjaCat}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Do you remember the Ninja Cat game from Bootstrap 1? In this course, you're going to completely deconstruct the game, and recreate it using 
-                                a world structure to make it more complex. This version of Ninja Cat might look a bit different than you remember: 
-                                @activity{Open the @editor-link[#:public-id "fW705a0idU" "Ninja World 1"] file and press "Run". 
-                                                   @itemlist[@item{What do you see in this game?}
-                                                              @item{Go back to the code and look at the line where the @code{world} structure is defined.}
-                                                              @item{What function defines a struct?}
-                                                              @item{What is the name of the structure defined in this file?}
-                                                              @item{The @code{world} is made up of just one thing: @code{dogX}. What does @code{dogX} represent in the game?
-                                                                    What kind of thing is that?}
-                                                              @item{Take a look at the section labelled @code{;; STARTING WORLD}. There is a variable defined here, called 
-                                                                    @code{START}. What kind of a thing is @code{START}? A number? String? Image? Boolean?}
-                                                              @item{what function makes a @code{world}?}
-                                                              @item{Skip a bit farther down to where it says @code{;; UPDATING FUNCTIONS}. What is the name of the function 
-                                                                    defined here? What's its domain and range?}
-                                                              @item{Think about what the @code{update-world} function is doing. How does it get the @code{dogX} out of the
-                                                                    world? What is it doing to the dog's x-coordinate?}]}
-                                Every time @code{update-world} runs, it makes a new world, adding 10 to the @code{dogX} of the original world.}
+        @points[@point{@student{Você se lembra do jogo NinjaCat do Bootstrap 1? Neese curso você vai desconstruir o jogo completamente, e recriá-lo usando 
+                                uma estrutura mundo para fazê-lo mais complexo. Essa versão do Ninja Cat pode ser um pouco diferente da que você se lembra: 
+                                @activity{Abra o arquivo @editor-link[#:public-id "fW705a0idU" "Ninja World 1"] e clique em "Run". 
+                                                   @itemlist[@item{O que você vê nesse jogo?}
+                                                              @item{Vá até o código e olhe a linha onde a estrutura @code{mundo} é definida.}
+                                                              @item{Qual função define uma estrutura(struct)?}
+                                                              @item{Qual é o nome da estrutura definida nesse arquivo?}
+                                                              @item{O @code{mundo} é feito de apenas uma coisa: @code{dogX}. O que @code{dogX} representa no jogo?
+                                                                    De que tipo de dado ele é?}
+                                                              @item{Dê uma olhada na seção nomeada @code{;; INICIANDO MUNDO}. Existe uma variável definida ali, chamada 
+                                                                    @code{INICIO}. Que tipo de dado o @code{INICIO} é? Um número? String? Figura? BOoleano?}
+                                                              @item{Qual função constrói um @code{mundo}?}
+                                                              @item{Pule um pouco mais para baixo onde diz @code{;; ATUALIZANDO FUNÇÕES}. Qual é o nome da função 
+                                                                    definida ali? Qual o seu domínio e imagem?}
+                                                              @item{pense sobre o que a função @code{atualiza-mundo} está fazendo. Como ela consegue obter o @code{dogX} do
+                                                                    mundo? O que ela está fazendo com a coordenada-x do cão?}]}
+                                Cada vez que @code{atualiza-mundo} é chamada, ela constrói um novo mundo, adicionando 10 ao @code{dogX} do mundo que ela recebeu.}
                                 
-                        @teacher{These activities encourage students to read others' code and think about how it works, looking at the contracts and definitions and 
-                                 piecing together what they already know. Ask a LOT of questions when going through the file: How do we know we need to make a new 
-                                 world in @code{update-world}? (Because the range is a world). Why is @code{dogX} a good variable name for our world? Ask them to
-                                 guess what they think expressions like @activity{(on-tick update-world)} will do in the game.}}
+                        @teacher{Essas atividades estimulam os alunos a ler ocódigo dos outros e a pensar como eles funcionam, analisando as assinaturas e definições e 
+                                 reunindo o que eles já sabem. Faça VÁRIAS perguntas ao passar pelo arquivo: Como sabemos que precisamos construir um novo mundo 
+                                 na @code{atualiza-mundo}? (Porque a imagem é um mundo). Por que @code{dogX} é um bom nome de variável para nosso mundo? Peça-lhes para
+                                 tentar adivinhar o que as expressões como @activity{(on-tick atualiza-mundo)} vai fazer no jogo.}}
                  
-                 @point{@student{@activity{Now skip down to the last function defined in our code: @code{big-bang}. This is a special function that will begin an animation, 
-                                          but it needs help from other functions to update and draw the world. 
-                                          @itemlist[@item{Which world is @code{big-bang} taking in?}
-                                                     @item{In the code, @code{big-bang} is calling on a few different functions. What new functions can you see used in 
+                 @point{@student{@activity{Agora desça até a última função definida em nosso código: @code{big-bang}. Essa é uma função especial que começará uma animação, 
+                                          mas precisa da ajuda de outras funções para atualizar e desenhar o mundo. 
+                                          @itemlist[@item{Qual mundo @code{big-bang} está recebendo?}
+                                                     @item{No código, @code{big-bang} está chamando algumas funções diferentes. Quais novas funções você pode ver que estão sendo usadas dentro do 
                                                                         @code{big-bang}?}]}
-                                  The function @code{on-tick} acts kind of like a timer, and on each "tick", it updates the world. Right now the world struct is 
-                                  just one number, representing the x-coordinate of the dog. @code{(on-tick update-world)} tells the computer to update 
-                                  the world on every tick.
-                                 @activity{@itemlist[@item{How does it do that? think back to what @code{update-world} does to the @code{dogX} of the world.}
-                                                      @item{Try evaluating @code{(big-bang START (on-tick update-world))} in to the interactions window and see what happens.}]}
-                                 The world structure is updating, but this isn't much of a game without images! We need to know how to @italic{draw} the world.}
+                                  A função @code{on-tick} funciona como um relógio, e em cada "tick", ele atualiza o mundo. Até agora e estrutura mundo é 
+                                  apenas um número, representando a coordenada-x do cachorro. @code{(on-tick atualiza-mundo)} conta ao computador para atualizar 
+                                  o mundo em cada tick.
+                                 @activity{@itemlist[@item{Como ele faz isso? Pense sobre o que @code{atualiza-mundo} faz com o @code{dogX} do mundo.}
+                                                      @item{Experimente colocar o código: @code{(big bang INICIO (on-tick atualiza-mundo))} na janela de interações e veja o que acontece.}]}
+                                 A estrutura mundo está atualizando, mas isso não é muito um jogo sem figuras! Nós precisamos saber como @italic{desenhar} o mundo.}
                          @teacher{}}
-                 @point{@student{@activity{Scroll up to where you see @code{;; GRAPHICS FUNCTIONS}. 
-                                                                      @itemlist[@item{What is the name of the function defined here?}
-                                                                                 @item{What is the Domain of this function? The Range?}
-                                                                                 @item{According to the purpose statement, what does this function do?}]}
-                                 Now look at the body of @code{draw-world}. It's using a function you might remember from Bootstrap 1, called @code{put-image}, which takes
-                                 in an image, and then places it on top of another image, using the x- and y-coordinates to determine where to put it. In this example, it 
-                                 is placing the @code{DOG} onto the @code{BACKGROUND}. @activity{What is it using for the dog's x-coordinate? The dog's y-coordinate?}}
-                         @teacher{Once students understand the purpose of these three functions, they need to understand how they work together. Have volunteers act out 
-                                  @code{update-world} and @code{big-bang}, giving them nametags with the function names on them and having them come to the board.
-                                  Have them explain to the class what their contracts are and what they do. Write: "World" on the board, with the number @code{0} beneath it. 
-                                  When you yell "@code{(big bang 0)}", have the class start counting time, yelling "tick!" ever five seconds. On every tick, @code{big-bang} 
-                                  must call on @code{update-world} to update the world written on the board. This results in the number changing over time, starting with 0.
+                 @point{@student{@activity{Role para cima até onde você ver @code{;; FUNÇÕES GRÁFICAS}. 
+                                                                      @itemlist[@item{Qual é o nome da função definida ali?}
+                                                                                 @item{Qual é o Domínio dessa função? E a Imagem?}
+                                                                                 @item{De acordo com a declaração de propósito, oq ue essa função faz?}]}
+                                 Agora olhe para o corpo da função @code{desenha-mundo}. Ela está usando uma função que você pode se lembrar do Bootstrap 1, chamada @code{put-image}, que recebe
+                                 uma imagem, e a coloca em cima de outra imagem, usando as coordenadas x e y para determinar onde será colocada. Neste exemplo, ela 
+                                 está colocando a @code{CACHORRO} sobre o @code{IMAGEMFUNDO}. @activity{Para que a coordenada-x do cachorro é usada? E a coordenada y?}}
+                         @teacher{Uma vez que os alunos entendem o propósito das trẽs funções, eles precisam entender como elas funcionam juntas. Peça que alguns voluntários representem 
+                                  a @code{atualiza-mundo} e o @code{big-bang}, dando a eles "crachás" com o nome das funções e peça que venham até o quadro.
+                                  Peça que expliquem para a turma quais são suas assinaturas e o que eles fazem. Escreva: "Mundo" no quadro, e escreva o número @code{0} abaixo. 
+                                  Quando você gritar "@code{(big-bang 0)}", peça que a turmaconte o tempo, gritando "tick!" a cada cinco segundo. A cada tick, o @code{big-bang} 
+                                  deve chamar a @code{atualiza-mundo} para atualizar o novo mundo escrevendo no quadro. Isso resulta no número mudando o tempo todo, começando com 0.
                                   
-                                  Then have another volunteer be @code{draw-world}, giving them the "draw-world" nametag and the dog cutout. Draw a large 
-                                  rectangle on the board, representing the screen. Now have big-bang call both @code{update-world} and @code{draw-world} on each "tick", 
-                                  causing the number on the board to increase and the dog to move across the screen a little each time. Have the class go through a few 
-                                  iterations of this. By acting out these steps, students are demonstrating exactly how the three functions work together in the code to 
-                                  complete the computer animation.}}
+                                  Peque outro voluntário para ser @code{desenha-mundo}, dê a ele o "crachá" e um recorte do cachorro. Desenhe um grande 
+                                  retângulo no quadro, representado a tela. Agora o big-bang chama o @code{atualiza-mundo} e @code{desenha-mundo} a cada "tick", 
+                                  fazendo com que o número aumente e o cachorro se mova pela tela um pouco de cada vez. Faça a turma passar por algumas 
+                                  iterações disso. Ao atuar essas etapas, os alunos estão demonstrando exatamente como as três funções trabalham juntas no código para 
+                                  completar a animação no computador.}}
                  ]
          }
 
-@lesson/studteach[#:title "Closing"
-        #:duration "5 minutes"
+@lesson/studteach[#:title "Encerramento"
+        #:duration "5 minutos"
          #:overview ""
          #:learning-objectives @itemlist[]
          #:evidence-statements @itemlist[]
@@ -269,14 +269,14 @@ matters! Look at the order of the fields in the @code{define-struct} line. The f
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{If you were to act out these functions, relying on @code{big-bang} to update the world, then using the result of @code{update-world} to 
-                                draw the world, and putting them all together to create an animation, it could get tricky, and the animation wouldn't be as fast as 
-                                what you see on the computer. Fortunately, Racket has the capability to run all these functions and more in a fraction of the time, 
-                                to create and draw a smooth, complete game. In the next few lessons, you'll be using structs to extend this world into an actual, 
-                                complex game, and writing functions for Ninja World AND your own games to make them playable and unique.
+        @points[@point{@student{Se você atuasse essas funções, confiando no @code{big-bang} para atualizar o mundo, depois usar o resultado de @code{atualizar-mundo} para 
+                                desenhar o mundo, e colocando tudos juntos para criar uma animação, poderia ficar complicado, e a animação não seria tão rápida quanto 
+                                você vê no computador. Felizmente, o Racket tem a capacidade de executar todas essas funções e mais algumas em uma fração de tempo, 
+                                para criar e desenhar suavemente, o jogo completo. Nas próximas aulas, você estará usando structs para estender esse mundo, 
+                                em um jogo realmente complexo, e escrever funções para o Mundo Ninja E seus próprios jogos para torná-los mais divertidos e únicos.
                                 }
-                        @teacher{@management{@itemlist[@item{Have students volunteer what they learned in this lesson}
-                                                        @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
+                        @teacher{@management{@itemlist[@item{Peça aos alunos o que eles aprenderam nesta lição}
+                                                        @item{Comportamentos que você valoriza: trabalho em equipe, fazendo anotações, engajamento, etc}
                                                         @item{Pass out exit slips, dismiss, clean up.}]}}
                         }
                         ]}
