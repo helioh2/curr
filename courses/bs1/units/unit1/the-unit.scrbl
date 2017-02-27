@@ -17,7 +17,7 @@
      #:product-outcomes @itemlist[]
      #:standards (list)
      #:materials @itemlist[]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1USFPXkeO5AbGOzm_U0tMv4NV3RrxTMTyg-bqIKUf4q4/edit?usp=sharing" "Warmup activity sheet").}]
+     #:preparation @itemlist[@item{OPCIONAL: Distribua a folha de @(hyperlink "https://docs.google.com/document/d/1WE1ZBi5e8w2rIZ6mAVliKjVDrsbyTnuFGs8LiGJsipU/edit?usp=sharing" "Atividade de Aquecimento").}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -40,15 +40,15 @@
      #:title "Analisando uma Demonstração"
      #:duration "10 minutos"
      #:overview "Jogar um jogo simples, então deixe de lado por um tempo e tente descobrir o que está acontecendo no computador."
-     #:learning-objectives @itemlist[@item{Model a simple videogame}]
-     #:evidence-statements @itemlist[@item{Students will be able to identify the elements of a game and how each one changes during gameplay}]
+     #:learning-objectives @itemlist[@item{Modelar um jogo simples}]
+     #:evidence-statements @itemlist[@item{Alunos serão capazes de identificar os elementos de um jogo e como cada um muda quando o jogo está sendo jogado}]
      #:product-outcomes @itemlist[@item{Nas apostilas, os alunos criam um modelo de dados que descreve um videogame simples.}]
      #:standards (list "BS-M")
      #:materials @itemlist[@item{Ambiente de Edição (WeScheme ou DrRacket com o pacote bootstrap-teachpack instalado)}]
-     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
-                             @item{If using DrRacket, make sure the Ninja.rkt file is loaded}
-                             @item{"NinjaCat" [NinjaCat.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=LyMwExWayT" "WeScheme")] preloaded on students' machines}
-                             @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
+     #:preparation @itemlist[@item{Computador para cada aluno (ou par), executando WeScheme ou DrRacket}
+                             @item{Se estiver usando DrRacket, certifique-se que o arquivo Ninja.rkt está carregado}
+                             @item{"NinjaCat" [NinjaCat.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=LyMwExWayT" "WeScheme")] pré-carregado nas máquinas dos alunos}
+                             @item{@resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "Apostila"] dos alunos com o nome na capa, e algo para escrever}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -87,11 +87,11 @@
 @lesson/studteach[
      #:title "Plano de Coordenadas"
      #:duration "15 minutos"
-     #:overview "Students must use the Cartesian plane to describe the location of characters in a picture."
-     #:learning-objectives @itemlist[@item{Understand the use of number lines in defining locations via coordinates}]
-     #:evidence-statements @itemlist[@item{Students apply the number line as a tool for objectively defining location, first identifying how to apply it to 
-                                           describe the position of a character onscreen in one dimension. This understanding is extended to two dimensions, 
-                                           ultimately motivating the use of a coordinate grid.}]
+     #:overview "Alunos devem usar o Plano Cartesiano para descrever a localização dos personagens em uma imagem."
+     #:learning-objectives @itemlist[@item{Entender o uso da linha numérica na definição de locais via coordenadas}]
+     #:evidence-statements @itemlist[@item{Alunos usam a linha numérica como ferramenta para definir objetivamente a localização, primeiro identificando como aplicá-la 
+                                           para descrever a posição de um personagem na tela em uma dimensão. Este entendimento é estendido para duas dimensões, 
+                                           motivando a utilização de uma grade de coordenadas.}]
      #:product-outcomes @itemlist[@item{Os alunos identificam as coordenadas dos personagens na imagem}]
      #:standards (list "6.NS.5-8" "N-Q" "5.G.1-2")
      #:materials @itemlist[@item{Recortes impressos das figuras ou apenas na tela do @resource-link[#:path "images/ninjacat.png" #:label "NinjaCat"],  @resource-link[#:path "images/dog.png" #:label "Cão"]
@@ -102,9 +102,9 @@
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{Are there locations that can be described using one coordinate system, that cannot be described 
-                                                            using another? Can any valid coordinate system can be perfectly mapped to any other valid 
-                                                            coordinate system?}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{Existem locais que podem ser descritos usando um sistema de coordenadas, que não podem ser descritos 
+                                                            usando outro? Qualquer sistema de coordenadas válido pode ser perfeitamente mapeado para outro sistema 
+                                                            válido de coordenadas?}]}
                 )
         ]{
   @points[
@@ -166,15 +166,15 @@
 @lesson/studteach[
      #:title "Brainstorming"
      #:duration "15 minutes"
-     #:overview "Students select the theme and characters for their videogame"
+     #:overview "Alunos escolhem o tema e os personagens para seu jogo"
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[@item{Os alunos completam a planilha de design do videogame, para projetar seu próprio jogo}]
      #:standards (list)
      #:materials @itemlist[@item{}]
-     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
-                             @item{If using DrRacket, make sure the Ninja.rkt file is loaded}
-                             @item{Student Workbooks, and something to write with}]
+     #:preparation @itemlist[@item{Computador para cada aluno (ou par), executando WeScheme ou DrRacket}
+                             @item{Se estiver usando DrRacket, certifique-se que o arquivo Ninja.rkt está carregado}
+                             @item{Apostila dos alunos, ou algo para fazer anotações}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -204,8 +204,8 @@
                                   para o @italic{seu} jogo, usando seu próprio jogador, alvo e perigo.}}
                 @teacher{@management{Certifique-se de consultar cada equipe. Muitos alunos terão diufculdade em encaixar suas ideias neste 
                                      formato, ou podem se atrapalhar com as orientações. Para ser claro sobre o que pode e não pode ser feito! (e.g. - sem 
-                                     jogos 3d, joysticks, jogos multiplayer, etc. ***Hint: students who have a well-worded description of their
-                                     images will be happier with any images you could find them. Tente pesquisar por "Person" versus "Jogger", ou
+                                     jogos 3d, joysticks, jogos multiplayer, etc. Dica: alunos que tem uma descrição mais sólida de suas 
+                                     imagens serão mais felizes com qualquer imagem que você poderia encontrar. Tente pesquisar por "Person" versus "Jogger", ou
                                      Jogador versus Computador, por exemplo.}}
                 }
         ]}
@@ -217,21 +217,21 @@
                  calculam o resultado. Essa lição indroduz aos alunos o Círculo de Avaliação, que é uma ferramenta de 
                  diagramas para expressões aritméticas. Essa é uma maneira poderosa de entender a Ordem das Operações, pois direciona 
                  o aluno a dar foco na estrutura das expressões do que no resultado em si."
-     #:learning-objectives @itemlist[@item{Understand the structure of arithmetic expressions}
-	                             @item{Understand order of operations in an expression}
-                                     @item{Write expressions as Circles of Evaluation}
-                                     @item{Translate between Circle of Evaluation and arithmetic expressions}
+     #:learning-objectives @itemlist[@item{Entender a estrutura de uma expressão aritmética}
+	                             @item{Entender a ordem das operações em uma expressão}
+                                     @item{Escrever expressões como Círculos de Avaliação}
+                                     @item{Transformar Círculo de Avaliação em expressão aritmática, e vice-versa}
 ]
-     #:evidence-statements @itemlist[@item{Students will be able to explain why arithemetic expressions require structure}
-                                     @item{Students will be able to identify the order of operations in an expression that includes 
-                                           adding, subtracting, multiplying and dividing}                                     
-                                     @item{Given a Circle of Evaluation, students will be able translate the expression into the 
-                                           arithmetic expression it represents}
-                                     @item{Given an arithmetic expression, students will be able to complete a partially-finished Circle
-                                           of Evaluation for the same expression}
-                                     @item{Given a bank of Circles of Evaluation and arithmetic expressions, students will be able to match them}
-                                     @item{Students will be able to translate the structure of an arithmetic expression into a Circle of 
-                                           Evaluation}
+     #:evidence-statements @itemlist[@item{Alunos serão capazes de explicar porque uma expressão aritmética necessita de uma estrutura}
+                                     @item{Alunos serão capazes de identificar a ordem das operações em uma expressão que inclui 
+                                           adição, subtração, multiplicação e divisão}                                     
+                                     @item{Dado um Círculo de Avaliação, alunos serão capazes de traduzir uma expressão para a 
+                                           expressão matemática que a representa}
+                                     @item{Dada uma expressão matemática, alunos serão capazes de completar um Círculo de Avaliação parcialmente feito
+                                           para esta expressão}
+                                     @item{Dada uma lista com vários Círculos de Avaliação e expressões aritméticas, alunos serão capazes de identificar quais combinam entre si}
+                                     @item{Alunos serão capazes de transformar a estrutura de uma expressãõ matemática para um Círculo de 
+                                           Avaliação}
 ]
      #:product-outcomes @itemlist[@item{Os alunos convertem várias expressões aritméticas entre várias representações.}]
      #:standards (list "A-SSE.1-2" "BS-CE" "5.OA.1-2")
@@ -240,20 +240,20 @@
                        (make-exercise-locator "Order-of-Operations" "coe-to-arith1")
                        (make-exercise-locator "Order-of-Operations" "match-arith-coe1"))
      #:materials @itemlist[@item{Ambiente de Edição (WeScheme ou DrRacket com o pacote bootstrap-teachpack instalado)}]
-     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
-                             @item{If using DrRacket, make sure the Ninja.rkt file is loaded}
-                             @item{Student Workbooks, and something to write with}]
+     #:preparation @itemlist[@item{Computador para cada aluno (ou par), executando WeScheme ou DrRacket}
+                             @item{Se estiver usando DrRacket, certifique-se que o arquivo Ninja.rkt está carregado}
+                             @item{Apostila dos alunos, ou algo para fazer anotações}]
      #:pacings (list 
-                @pacing[#:type "remediation"]{@itemlist[@item{Have students practice translating very simple (one-operation) expressions into 
-                                                              simple (one-circle) Circles of Evaluation. By choosing the numbers in these 
-                                                              examples carefully, you can gradually introduce nesting by replacing a number 
-                                                              in one expression with the Circle of Evaluation for another expression that 
-                                                              evaluates to the same number. @italic{Replace the 7 in @code{7+5} with the 
-                                                                                                                     Circle for @code{10-3}.}}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{This is the first opportunity to expose students to core vocabulary words, 
-                                                                so be sure to use words like @bold{function}, @bold{value} and @bold{expression} 
-                                                                carefully and consistently. Ask students to identify the parts of a Circle of 
-                                                                Evaluation, and push them to use the vocabulary as well.}]}
+                @pacing[#:type "remediation"]{@itemlist[@item{Peça que alunos pratiquem transformar expressões bem simples (uma operação) para 
+                                                              Círculos de Avaliação simples (um círculo). Escolhendo os números dos exemplos 
+                                                              com atenção, você pode gradualmente introduzir Aninhamento de expressões substituindo um número 
+                                                              em uma expressão com o Círculo de Avaliação de outra expressão que resulta 
+                                                              neste mesmo número. @italic{Substitua o 7 no @code{7+5} com o 
+                                                                                                                     Círculo de @code{10-3}.}}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{Essa é a primeira oportunidade para expor aos alunos as palavras-chave do vocabulário, 
+                                                                então certifique-se de usar palavras como @bold{função}, @bold{valor} e @bold{expressão} 
+                                                                com atenção e de forma consistente. Peça que os alunos identifiquem as partes do Círculo de 
+                                                                Avaliação, e os estimule para que eles usem o vocabulário também.}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
@@ -262,7 +262,7 @@
                                 "mostarda" e "queijo" para descrever objetos físicos. A matemática possui @vocab{valores}, como números @math{1}, 
                                 @math{2} ou @math{3}, para descrever quantidades. Humanos também usam verbos como "fatiar",  "repartir", "espalhar" e "derreter" 
                                 para descrever ações sobre esses substantivos. A matemática tem @vocab{funções} como adição e subtração, que 
-                                são operações feitas em números. Assim como você pode "fatiar um pão", uma possoa também pode "somar 4 e 5".}
+                                são operações feitas em números. Assim como você pode "fatiar um pão", uma pessoa também pode "somar 4 e 5".}
 
                         @teacher{Alunos devem começar a olhar a matemática como uma @italic{linguagem}. Para ajudar eles, você pode discutir sintaxe e 
                                  gramática da matemática, e sua potencial ambiguidade na ausência de uma ordem fixa de operadores. Ajude 
@@ -270,7 +270,7 @@
                         }
                  @point{@student{Uma @vocab{expressão matemática} é como uma frase: é uma instrução para fazer algo. A 
                                  expressão @math{4+5} nos diz para somar 4 e 5. Para @vocab{calcular} uma expressão, nós seguimos as instruções 
-                                 da expressão. A expressão @math{4+5} ***@vocab{resulta em} @vocab{evaluates to} @math{9}.                         
+                                 da expressão. A expressão @math{4+5} @vocab{resulta} em @math{9}.                         
                         @activity{O que resulta a operação @math{8*4}? E @math{20-16}? Qual o resultado de @math{16-20}?}}
                        @teacher{}}
                  @point{@student{As vezes, precisamos de várias expressões para completar uma tarefa. Se voce escreveu instruções para fazer 
@@ -398,22 +398,22 @@
      #:title "Entrando na Programação"
      #:duration "15 minutos"
      #:overview "Alunos são introduzidos ao ambiente de programação"
-     #:learning-objectives @itemlist[@item{Convert Circles of Evaluation into code}
-                                     @item{Enter and evaluate code expressions for arithmetic on the computer}
-                                     @item{Understand the goal of error messages from the computer}]
-     #:evidence-statements @itemlist[@item{Students will be able to identify the Interactions and Definitions windows}
-                                     @item{Students will be able to enter and evaluate simple arithmetic expressions in the Interactions window}
-                                     @item{Students will be able to convert Circles of Evaluation into correctly-formed programs}
-                                     @item{Students will be able to explain an 'unbounded identifier' error message}
-                                     @item{Students will be able to explain the purpose of error messages}
-                                     @item{Given a Circle of Evaluation, students will be able to complete a partially-written program}
-                                     @item{Given a bank of Circles of Evaluation and programs, students will be able to match them}]
+     #:learning-objectives @itemlist[@item{Converter Círculos de Avaliação em código}
+                                     @item{Digitar e calcular expressões em código para matemática no computador}
+                                     @item{Compreender o objetivos das mensagens de erro do computador}]
+     #:evidence-statements @itemlist[@item{Alunos serão capazes de identificar a Janela de Interações e a de Janela de Definições}
+                                     @item{Alunos serão capazes de degitar e resolver simples expressões matemáticas na Janela de Interações}
+                                     @item{Alunos serão capazes de converter Círculos de Avaliação para programas bem construídos}
+                                     @item{Alunos serão capazes de explicar uma mensagem de erro 'unbounded identifier'}
+                                     @item{Alunos serão capazes de explicar o propósito das mensagens de erro}
+                                     @item{Dado um Círculo de Avaliação, Alunos serão capazes de completar um programa parcialmente-escrito}
+                                     @item{Dada uma lista com vários Círculos de Avaliação e expressões aritméticas, alunos serão capazes de identificar quais combinam entre si}]
      #:product-outcomes @itemlist[]
      #:standards (list "A-SSE.1-2" "N-Q" "BS-CE" "BS-PL.1" "BS-IDE")
      #:materials @itemlist[@item{Ambiente de Edição (WeScheme ou DrRacket com o pacote bootstrap-teachpack instalado)}]
-     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
-                              @item{Student Workbooks, and something to write with}
-                              @item{Overhead projector}]
+     #:preparation @itemlist[@item{Computador para cada aluno (ou par), executando WeScheme ou DrRacket}
+                              @item{Apostila dos alunos, ou algo para fazer anotações}
+                              @item{Retroprojetor}]
      #:prerequisites (list "Order of Operations")
      #:exercises (list (make-exercise-locator "Intro-to-Programming" "complete-code-from-coe1")
                        (make-exercise-locator "Intro-to-Programming" "coe-to-code1")
@@ -447,12 +447,11 @@
                 
                 @point{@student{Um programa é uma @vocab{expressão válida} que, quando calculada porduz um valor. Você tem 
                                                escrito programas usando expressões matemáticas desde que você aprendeu a 
-                                               somar! Com no Português, existem regras que determinam se uma frase 
+                                               somar! Como no Português, existem regras que determinam se uma frase 
                                                faz sentido. Programas também têm regras! Um programa pode ser muito complicado, mas 
                                                ele não precisa ser: os programas mais simples de todos são apenas Números.}
-                        @teacher{@management{Draw students' attention to the Language Table (see Lesson Overview for Unit 1),
-                                             which currently sits empty. Add "Numbers" to the Types section of the language 
-                                             table.}}
+                        @teacher{@management{Chame a atenção dos alunos para a Tabela de Linguagem (veja na Visão Geral da Unidade 1),
+                                             que atualmente está vazia. Adicione "Números" na seção de Tipos da Tabela de Linguagem.}}
                         }
                 @point{@student{@bannerline{Code Rule 1**: Todos os valores são expressões válidas.}
                                  @activity[#:forevidence "BS-IDE&1&1"]{O que você pensa que se digitarmos @code{4}, resultará em que?
@@ -509,7 +508,7 @@
                         @teacher{Diga aos alunos para praticar convertendo simples Círculos de Avaliação em código. Se você que ajudar os alunos 
                                  á entender quando usar parênteses, aqui vai duas explicações que achamos úteis. Primeiro, o parênteses 
                                  se parecem com o Círculo, o Círculo inclui o nome da função e suas entradas. Segundo, usamos 
-                                 mais uma descrição visual de uma formiga que vai ***an ant eating its way through the expression.(percorrendo seu caminho através da expressão.) A formiga come dentro do círculo 
+                                 mais uma descrição visual de uma formiga que vai comendo todo seu caminho através da expressão. A formiga come dentro do círculo 
                                  (um parêntese aberto), e vai para a função no topo, depois para os argumentos da esquerda para a direita, 
                                  e finalmente chega ao final do círculo(um parêntese de fechamento). Se a formiga encontrar outro círculo enquanto estiver escrevendo 
                                  os argumentos, ela precisa abrir outro parênteses, etc.}
@@ -521,12 +520,12 @@
                                                                                         O que o programa deve retornar quando 
                                                                                         você apertar Enter?}
                                                      @item{Pratique convertendo outros Círculos de Avaliação que você já desenhou para código.}]}}
-                        @teacher{@management{Scaffolding for Pair Programming: Talk to students about the roles of @italic{Driver} 
-                                             and @italic{Navigator}. The Driver is the student with their hands on the keyboard - they're 
-                                             in charge of typing, using the mouse, etc. The Navigator should be telling the Driver what to
-                                             type, and pointing out mistakes or suggesting things. It's important to clarify what these 
-                                             roles are (perhaps reinforcing them with a visual), to ensure that both partners are active 
-                                             and talking to one another about the task at hand.}}
+                        @teacher{@management{Preparação para Programação em Pares: Diga aos alunos sobre as tarefas de @italic{Piloto} 
+                                             e do @italic{Navegador}. O Piloto é o aluno com suas mãos no teclado - eles são 
+                                             responsáveis por digitar, usar o mouse, etc. O Navegador deve contar ao Piloto o que
+                                             digitar, observar erros ou sugerir coisas. É importante deixar claro o que essas 
+                                             funções são (talvez reforçando visualmente), para garantir que ambos os parceiros estão ativos 
+                                             e conversando uns com os outros sobre a tarefa em mãos.}}
                         }
                
                 @point{@student{@bannerline{Todas as expressões que são seguidas do nome da função são chamadas de @vocab{argumentos} da 
