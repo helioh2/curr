@@ -2,9 +2,9 @@
 
 @declare-tags[management]
 
-@title{Unit 2: Unidade 2: Assinaturas, Strings e Figuras}
-@unit-overview/auto[#:lang-table (list "Number" @code{+ - * / sq sqrt expt})]{
-@unit-descr{Alunos são  iniciados no mapeamento e na representações de funções, em como o objeto Função
+@title{Unidade 2: Assinaturas, Strings e Figuras}
+@unit-overview/auto[#:lang-table (list "Número" @code{+ - * / sq sqrt expt})]{
+@unit-descr{Alunos são  iniciados no mapeamento e na representação de funções, em como o objeto Função
   existe como um meio de traduzir pontos de um Domínio para uma Imagem. Em conjunto com sua compreensão de
   Círculos de Avaliação, os alunos aprimoram seu entendimento das funções para incluir outros tipos de
   dados, incluindo Strings e Figuras.}
@@ -13,14 +13,14 @@
 @lesson/studteach[
      #:title "Revisão de Círculos de Avaliação"
      #:duration "30 minutos"
-     #:overview "Students practice converting arithmetic expressions into Circles of Evaluation, and then converting those into Code."
+     #:overview "Alunos praticam conversão de expressões para Círculos de Avaliação, e então convertende-os em Código."
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list "A-SSE.1-2" "BS-CE")
      #:materials @itemlist[]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1Qn59Fol2tspqOx6XQV88xm-IYsRGY769cb7MQeknSMA/edit?usp=sharing" "Warmup activity sheet").}
-                              @item{Student Workbooks, and something to write with.}]
+     #:preparation @itemlist[@item{OPCIONAL: Distribua a folha de @(hyperlink "https://docs.google.com/document/d/1Odk9gkTW3zT1-AXLKZDYqJRnK1QNLSqVHRja6_jvyPg/edit?usp=sharing" "Atividade de Aquecimento").}
+                              @item{Apostila dos alunos, e algo para fazer escrever.}]
      #:prerequisites (list "Order of Operations")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -29,36 +29,36 @@
                 )
       ]{
         @points[@point{@student{@activity[#:forevidence (list "BS-CE&1&2" "BS-CE&1&4" "A-SSE.1-2&1&3")]{
-                       Practice the Circles of Evaluation, using the activity sheet on @worksheet-link[#:page 6 #:name "Circles-of-Evaluation-Practice-2"] 
-                       in your workbook.
+                       Pratique Círculos de Avaliação, usando a atividade da @worksheet-link[#:page 6 #:name "Circles-of-Evaluation-Practice-2"] 
+                       em sua apostila.
                        @itemlist[#:style 'compact
-	                         @item{In each row, there is a mathematical expression written on the left-hand column.}
-                                 @item{Go through each of these expressions, and draw the Circle of Evaluation for each one in the second column.}
-                                 @item{Once you've converted each of them, go to the third column and convert each one into a program that can be entered on the computer. Don't forget to check your parentheses, and to be careful about leaving a space between each input.}]}}
-                        @teacher{Make sure students have the opportunity to practice drawing Circles from the outside-in (beginning with a large Circle and filling it in), and from the inside-out (starting with the innermost expression, and building out). @management{This can be done as a team competition, with each round requiring teams of students to fill in each square of the activity sheet. Make sure you review after @bold{every} round, to catch mistakes in understanding early.}}
+	                         @item{em cada linha, há uma expressão matemática escrita na coluna do lado esquerdo.}
+                                 @item{Examine cada uma das expressões, e desenhe o Círculo de Avaliação para cada uma na segunda coluna.}
+                                 @item{Depois de converter todos eles, vá para a terceira coluna e converta cada um em um programa que pode ser escrito no computador. Não se esqueça de verificar seus parênteses, e ter cuidado ao deixar um espaço entre cada entrada.}]}}
+                        @teacher{Certifique-se que os alunos tenham a oportunidade de desenhar Círculos de "fora para dentro"(começando com um grande círculo e preenchendo dentro), e de "dentro para fora"(começado com a expressão mais íntima, e caminhando para fora). @management{Isto pode ser feito como uma competição em equipe, em cada etapa as equipes preenchem um quadro da tarefa da apostila, Certifique-se de revisar depois de @bold{cada} etapa, para pegar erros de compreensão no início.}}
                         }
                  ]
          }
 @lesson/studteach[
      #:title "Strings e Figuras"
      #:duration "20 minutos"
-     #:overview "Students extend the Circle of Evaluation metaphor to include new functions and datatypes."
-     #:learning-objectives @itemlist[@item{Students will be able to use functions that produce Images}
-                                     @item{Students will understand the concept of datatype}
-                                     @item{Students will understand that each value has a datatype}
-				     @item{Students will understand that datatypes describe a function's inputs and outputs}
+     #:overview "Alunos estendem a metáfora do Círculo de Avaliação para incluir novas funções e tipos de dados."
+     #:learning-objectives @itemlist[@item{Alunos serão capazes de usar funções que produzem Figuras}
+                                     @item{Alunos entenderão o conceito de tipo de dado}
+                                     @item{Alunos entenderão que cada valor possui um tipo de dado}
+				     @item{Alunos entenderão que tipos de dados descrevem as entradas e saídas das funções}
                                     ]
-     #:evidence-statements @itemlist[@item{When given Circles of Evaluation for novel expression, functions and datatypes, students will be able to apply the rules for converting Circles of Evaluation into code}
-                                     @item{Students will be able to identify what each argument to an image-producing function means}
-                                     @item{Students will be able to write expressions that generate simple images (triangles, circle, stars, etc)}
-                                     @item{Given a value, students will be able to identify its datatype}
-                                     @item{Given an expression, students will be able to identify the datatype it will evaluate to}
-                                     @item{Students will be able to distinguish between types and values}]
-     #:product-outcomes @itemlist[@item{Students will enter (evaluate) expressions for generating Strings and Images}]
+     #:evidence-statements @itemlist[@item{Quando recebem Círculos de Avaliação para uma nova expressão, funções ou tipos de dados, os alunos serão capazes de aplicar as regras para converter Círculos de Avaliação em código}
+                                     @item{Alunos serão capazes de identificar o que cada argumento representa para produzir a imagem da função}
+                                     @item{Alunos serão capazes de escrever expressões que geram figuras simples (triângulos, círculos, estrelas, etc)}
+                                     @item{Dado um valor, os alunos serão capazes de identificar seu tipo de dado}
+                                     @item{Dada uma expressão, os alunos serão capazes de identificar o tipo de dado de seu resultado}
+                                     @item{Alunos serão capazes de diferenciar entre tipos e valores}]
+     #:product-outcomes @itemlist[@item{Os alunos digitarão (avaliarão) expressões que resultam em Strings e Figuras}]
      #:exercises (list (make-exercise-locator "Strings-and-Images" "many-types-coe-to-code1"))
      #:standards (list "N-Q" "BS-PL.1" "BS-PL.2")
-     #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
-     #:preparation @itemlist[@item{Student Workbooks, and something to write with.}]
+     #:materials @itemlist[@item{Ambiente de Edição (WeScheme ou DrRacket com o pacote bootstrap-teachpack instalado)}]
+     #:preparation @itemlist[@item{Apostila dos alunos, e algo para fazer escrever.}]
      #:prerequisites (list "Intro to Programming")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -123,8 +123,8 @@
                                                  @item{String}
                                                  @item{"hi, mom!"}
                                                  @item{"91"}
-                                                 @item{Number}
-                                                 @item{Image}
+                                                 @item{Número}
+                                                 @item{Figura}
                                                  @item{102}
                                                  ]}
                              }
@@ -134,23 +134,23 @@
 @lesson/studteach[
      #:title "Assinaturas"
      #:duration "35 minutos"
-     #:overview "Students learn to describe functions and their behavior, using formalisms including Contracts (Domain and Range) and Datatypes."
-     #:learning-objectives @itemlist[@item{Students will start to write and use Contracts, which summarize the name, range, and domain of a function}
-                                     @item{Students will learn how to use a function based on the information in its Contract}
+     #:overview "Alunos aprendem a descrever funções e seus comportamentos, usando formalismos incluindo Assinaturas (Domínio e Imagem) e Tipos de Dados."
+     #:learning-objectives @itemlist[@item{Alunos começarão a escrever e usar Assinaturas, que resumem o nome, domínio, e imagem de uma função}
+                                     @item{Alunos aprenderão como usar uma função baseada na informação de sua Assinatura}
                                     ]
-     #:evidence-statements @itemlist[@item{Given an expression, students will be able to identify the name of the function being used}
-                                      @item{Given an expression, students will be able to identify how many arguments are used}
-                                      @item{Given a value, students will be able to identify its type}
-                                      @item{Students will be able to identify the parts of a contract}
-                                      @item{Students will be able to distinguish between contracts and function calls}
-                                      @item{Given an example of a function being applied, students will be able to write a contract for that function}]
-     #:product-outcomes @itemlist[@item{Students will write down Contracts for arithmetic expressions, as well as several image-producing expressions}]
+     #:evidence-statements @itemlist[@item{Dada uma expressão, os alunos serão capazes de identificar o nome de uma função que está sendo utilizada}
+                                      @item{Dada uma expressão, os alunos serão capazes de identificar quantos argumentos são utilizados}
+                                      @item{Dado um valor, os launos serão capazes de identificar seu tipo}
+                                      @item{Alunos serão capazes de identificar as partes de uma assinatura}
+                                      @item{Alunos serão capazes de diferenciar entre assinaturas e chamadas de funções}
+                                      @item{Dado um exemplo de uma função sendo aplicada, os alunos serão capazes de escrever uma assinatura para essa função}]
+     #:product-outcomes @itemlist[@item{Alunos escreverão Assinaturas para expressões aritméticas, bem como para expressões que produzem figuras}]
      #:exercises (list (make-exercise-locator "Contracts" "id-expr-pieces1")
 		       (make-exercise-locator "Contracts" "match-contracts-exprs1"))
      #:standards (list "BS-PL.2" "BS-IDE" "N-Q" "F-IF.1-3")
-     #:materials @itemlist[@item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}]
-     #:preparation @itemlist[@item{Computer for each student (or pair), running WeScheme or DrRacket}
-                              @item{Student Workbooks, and something to write with}]
+     #:materials @itemlist[@item{Ambiente de Edição (WeScheme ou DrRacket com o pacote bootstrap-teachpack instalado)}]
+     #:preparation @itemlist[@item{Computador para cada aluno (ou par), executando WeScheme ou DrRacket}
+                              @item{Apostila dos alunos, e algo para fazer escrever.}]
      #:prerequisites (list "Intro to Programming")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
