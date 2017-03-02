@@ -134,14 +134,14 @@
 }
        
 @lesson/studteach[
-     #:title "Definindo Variáveis (Algebra)"
+     #:title "Definindo Variáveis (Álgebra)"
      #:duration "10 minutos"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list "7.EE.3-4" "A-SSE.1-2")
-     #:materials @itemlist[@item{"Algebra Translation" [@resource-link[#:path "source-files/Algebra.rkt" #:label "DrRacket"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=s2s0tkTgeF" "WeScheme")] preloaded on students' machines, with monitors off.}]
+     #:materials @itemlist[@item{"Transformando Álgebra" [@resource-link[#:path "source-files/Algebra.rkt" #:label "DrRacket"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=BtkXTYFjmg" "WeScheme")] pré-carregadas nas máquinas dos alunos, com os monitores desligados.}]
      #:preparation @itemlist[]
      #:prerequisites (list "Defining Variables")
      #:pacings (list 
@@ -184,8 +184,8 @@
      #:product-outcomes @itemlist[@item{Alunos dão nome aos seus projetos de Jogo}
                                   @item{Alunos modificarão as definições para @code{TITULO, TITULO-COR, CENARIO, JOGADOR, ALVO} e @code{PERIGO}}]
      #:standards (list "BS-PL.3")
-     #:materials @itemlist[@item{{@resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "Apostila"] do aluno com seu nome na capa.}}]
-     #:preparation @itemlist[@item{Create student game files. [See the (teachers-only) @resource-link[#:path "teachers/teachers-guide/teachers-guide.html" #:label "Teachers Guide"]]}
+     #:materials @itemlist[@item{@resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "Apostila"] do aluno com seu nome na capa.}]
+     #:preparation @itemlist[@item{Crie os arquivos de jogo dos alunos. [Veja o (apenas professores)@resource-link[#:path "teachers/teachers-guide/teachers-guide.html" #:label "Teachers Guide"]]}
                               @item{Nas máquinas dos alunos: Arquivos de Jogo dos Alunos (gerados do modelo "Jogo" [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=BvAQt3naEh" "WeScheme")])}]
      #:prerequisites (list "Defining Values" "Strings and Images" "Brainstorming")
      #:pacings (list 
@@ -200,15 +200,15 @@
                                           surgiu está executando o jogo, mas você provavelmente já percebeu que nada se move - mesmo se você 
                                           apertar as setas "para cima" ou "para baixo". Por enquanto, clique no botão "fechar" e volte para o código.}
                                  Este arquivo contém uma lista de definição, onde você você vai começar a definir como seus personagens se parecem, movem, e interagem. Descendo o código, você verá um monte de
-                                 definições falsas que foram preeenchidas. E é aqui que @italic{você} colocará as definições do seu próprio jogo!
+                                 definições falsas que foram preenchidas. E é aqui que @italic{você} colocará as definições do seu próprio jogo!
                                  @activity{Role para a parte inferior da tela, lendo cada uma das coisas que você terá que definir. Pare quando chegar ao fim, onde você vê 
                                            @code{(make_game...)} usado como parte de uma definição. O que você percebe sobre os valores passados para @code{make_game}?}
-                                 @code{make_game} é uma função que foi dada a você, ela recebe todas as suas definições e às monta na execução do jogo. Por trás de tudo isso, @code{make_game} 
+                                 @code{make_game} é uma função que foi dada a você, ela recebe todas as suas definições e ás monta na execução do jogo. Por trás de tudo isso, @code{make_game} 
                                  insere suas definições dentro de uma função gigante que é chamada a cada décimo de segundo, e usa suas definições para decidir o que está acontecendo naquele momento.}
                         @teacher{Você pode lembrar eles que Bootstrap:2 irá mostrar-lhes como escrever esta função, e personalizá-la para criar jogos mais avançados (multiplayer, labirinto, etc).}
                         }
                  @point{@student{Na janela de Definições, você verá que este programa define vários valores: @code{TITULO}, por exemplo, está definido para ser a String @code{"Meu Jogo"}.
-                                @activity[#:forevidence (list "BS-PL.3&1&1")]{@itemlist[@item{Se você digitar @code{TITULO} na janela de Interações, o que você acha que o computador respondera?}
+                                @activity[#:forevidence (list "BS-PL.3&1&1")]{@itemlist[@item{Se você digitar @code{TITULO} na janela de Interações, o que você acha que o computador responderá?}
                                            @item{Quais outras definições você pode ver?}
                                            @item{Quais são seus valores?}
                                            @item{Quais são seus tipos?}
@@ -229,7 +229,7 @@
                                    imagens, leia o @(hyperlink "../../resources/teachers/teachers-guide/teachers-guide.html#addingimages" "Guia do Professor") 
                                    para este curso.}
                          }
-                 @point{@student{Se você quer mudar suas definições para que a imagem fique maior ou menos, você pode usar a função @code{scale}:
+                 @point{@student{Se você quer mudar suas definições para que a imagem fique maior ou menor, você pode usar a função @code{scale}:
                                   @code[#:multi-line #t]{; scale : Numero Figura -> Figura}
                                   Esta função redimensiona a @code{Figura} com base no @code{Numero}. Por exemplo, @code{(scale 10 (triangle 5 "solid" "green"))} fará esse pequeno triângulo dez vezes maior, enquanto @code{(scale 0.5 (rectangle 200 100 "outline" "purple"))} vai diminuir o retângulo pela metade.
                                   @activity{Pratique usando @code{scale} para aumentar e diminuir diferentes figuras. Se você quiser experimentar com mais funções, tente usando as assinaturas abaixo:
@@ -243,10 +243,10 @@
                          @teacher{Se algum aluno encontrar dificuldade, retorne aos Círculos de Avaliação e Assinaturas. Por exemplo, peça aos alunos primeiro desenharem um Círculo de avaliação para @code{rotate}, e deixe eles usarem a Assinatura para demonstrar o que são as entradas. Quando chegarem á segunda entrada(a @code{figura}), peça a eles que tipo de forma eles querem girar. Qualquer que tenha sido a resposta, deixe eles olharem na página de Assinaturas, e desenhe o Círculo de Avaliação @italic{dentro} do círculo do @code{rotate}. Depois que o círculo estiver correto, peça para converterem em código. Quando estiverem confiantes, você pode desafiá-los a aplicar outra operação para toda a expressão, talvez invertendo verticalmente a forma girada anterior.}
                          }
                  @point{@student{Outra definição do programa é o @code{CENARIO}. Esta expressão usa a função @code{put-image} para posicionar uma imagem sobre a outra, usando coordenadas para decidir o lugar de cada imagem. 
-                         @activity{Propagandas de jogos geralmente têm imagens estáticas(chamadas @italic{screeenshots}) do jogo em ação, para as pessoas poderem ver como é jogar ele. Altere as coordenadas usadas na definição de @code{CENARIO} para que você tenha uma imagem do seu jogo. (Lembre-se:a tela é 640 pixels-largura, por 480 pixels de altura!)}}
+                         @activity{Propagandas de jogos geralmente têm imagens estáticas(chamadas @italic{screeenshots}) do jogo em ação, para as pessoas poderem ver como é jogar ele. Altere as coordenadas usadas na definição de @code{CENARIO} para que você tenha uma imagem do seu jogo. (Lembre-se: a tela tem 640 pixels-largura, por 480 pixels de altura!)}}
                          @teacher{Esta pode ser uma boa oportunidade para rever coordenadas, especialmente para alunos que precisarem de prática.}
                         }
-                 @point{@student{Ser capaz de deinir valores em uma linguagem de programação é uma ferramenta poderosa, que permite ao programador simplificar seu código e deixá-lo mais legível e fácil de fazer manutenção. }
+                 @point{@student{Ser capaz de definir valores em uma linguagem de programação é uma ferramenta poderosa, que permite ao programador simplificar seu código e deixá-lo mais legível e fácil de fazer manutenção. }
                          @teacher{}
                          }
              ]
@@ -263,7 +263,7 @@
      #:exercises (list (make-exercise-locator "Defining-Functions" "match-examples-functions1")
                        (make-exercise-locator "Defining-Functions" "create-contracts-examples1"))
      #:standards (list "F-IF.1-3" "F-IF.4-6" "F-BF.1-2" "BS-PL.3" "BS-DR.1" "BS-DR.2" "BS-DR.3")
-     #:materials @itemlist[@item{{@resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "Apostila"] do aluno com seu nome na capa.}}]
+     #:materials @itemlist[@item{@resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "Apostila"] do aluno com seu nome na capa.}]
      #:preparation @itemlist[]
      #:prerequisites (list "Contracts" "Stings and Images" )
      #:pacings (list 
@@ -272,7 +272,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
                  ]{
-                   @points[@point{@student{A definição de um @vocab{valor} é muito útil quando o programa tem muitas expressões idênticas. Porém, as vezes, um programa tem expressões que não são idênticas, mas são apenas @italic{muito parecidas}. Um programas que tem 50 triângulos verdes sólidos pode ser simplificado pela definição de um valor simples, @italic{desde sejam do mesmo tamanho}. Mas e se um programas tem 50 triângulos verdes sólidos de tamanhos diferentes?}
+                   @points[@point{@student{A definição de um @vocab{valor} é muito útil quando o programa tem muitas expressões idênticas. Porém, as vezes, um programa tem expressões que não são idênticas, mas são apenas @italic{muito parecidas}. Um programa que tem 50 triângulos verdes sólidos pode ser simplificado pela definição de um valor simples, @italic{desde sejam do mesmo tamanho}. Mas e se um programa tiver 50 triângulos verdes sólidos de tamanhos diferentes?}
                                    @teacher{}
                                    }
                             @point{@student{Pense sobre funções com Figuras que você já usou, 
@@ -294,7 +294,7 @@
                                             definir @code{tv}.
                                             }
                                     @teacher{Para fazer isto mais concreto, peça a um aluno para "agir" como tv. Para chamar a função, outro aluno diz "tv dez!" 
-                                             (chamando o nome da função e a entrada). O "aluno-função" respode "triangulo dez solido verde", 
+                                             (chamando o nome da função e a entrada). O "aluno-função" respode "triangulo dez sólido verde", 
                                              para representar o trabalho que a função faz quando recebe uma entrada.}
                                     }
                             @point{@student{@bannerline{Passo 1: Escreva a Assinatura}
@@ -305,13 +305,13 @@
                                                          @item{A @vocab{Imagem} de uma função, é o tipo de dados que a função produz: neste caso uma Figura, pois é produzido triângulo verde sólido}]
                                               Aqui a Assinatura de @code{tv} escrita em código. A linha começa com ponto-e-vírgula(;), seguida do nome, dois-pontos(:), o Domínio, uma seta(->), e a Imagem:
                                               @code[#:multi-line ""]{; tv : Numero -> Figura}
-                                              Problemas escritos dão várias pistas sobre o nome, Domínio, e Imagem de uma função. Leia o problema com atenção! Alguns problemas descrevem funções que recebem mais de uma entrada em seu Domínio, ou entradas de tipos diferentes.
+                                              A descrição dos problemas dão várias pistas sobre o nome, Domínio, e Imagem de uma função. Leia o problema com atenção! Alguns problemas descrevem funções que recebem mais de uma entrada em seu Domínio, ou entradas de tipos diferentes.
                                               @activity[#:forevidence (list "BS-DR.1&1&1")]{
                                                               Abra sua apostila em @worksheet-link[#:name "Fast-Functions"], onde diz 
                                                               "funções rápidas", e escreva a Assinatura para a função @code{tv}.}}
                                     @teacher{Muitas vezes é uma boa ideia dar aos alunos diferentes prblemas escritos, e pedir-lhes que façam a 
                                              assinatura para cada um. @(new-paragraph) Assinaturas são escritas como @italic{comentários} no Racket: onde o Racket 
-                                             ver um ponto-e-vírgula, ele ignora o resto da linha depois do ponto-e-vírgula. Isso significa que você nunca reveberá uma 
+                                             ver um ponto-e-vírgula, ele ignora o resto da linha depois do ponto-e-vírgula. Isso significa que você nunca receberá uma 
                                              mensagem de erro do Racket por um comentário mal escrito. Isso também significa que você terá que checar as 
                                              assinaturas de seus alunos mais de perto, porque o computador não olhará nada sobre eles (formato ou conteúdo).}
                                     }
@@ -337,99 +337,99 @@
                                                         @item{Como sabemos a ordem correta das entradas para @code{triangle}? (A assinatura de @code{triangle} nos conta isso)}] 
                                                                                                                                                                           Uma das grandes ideias aqui é que cada passo informa a etapa seguinte. Certifique-se de conectá-los explicitamente para os alunos, apontando que a Assinatura nos dá fortes dicas sobre como escrever cada parte dos exemplos. }
                                     }
-                            @point{@student{Programmers often write several examples for each function. Examples like these are a way for a 
-                                            programmer to think through their work.  Examples also make it easy to look at what parts of the
-                                            expression can change, or @italic{vary}, depending on the inputs.
+                            @point{@student{Programadores muitas vezes escrevem vários exemplos para cada função. Exemplos são uma maneira do 
+                                            programador de pensar através de seu trabalho. Exemplos também tornam fácil olhar para as partes da 
+                                            expressão que podem mudar, ou @italic{variar}, dependendo das entradas.
                                     @activity[#:forevidence (list "BS-DR.2&1&3" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{
-                                                  Write the following examples on paper and circle the parts of the examples that are different:
-                                             @code[#:multi-line ""]{(EXAMPLE (gt   50) (triangle   50 "solid" "green"))
-                                                                    (EXAMPLE (gt  100) (triangle  100 "solid" "green"))}}
+                                                  Escreva os seguintes exemplos no papel e cicule as partes dos exemplos que são diferentes entre si:
+                                             @code[#:multi-line ""]{(EXAMPLE (tv   50) (triangle   50 "solid" "green"))
+                                                                    (EXAMPLE (tv  100) (triangle  100 "solid" "green"))}}
 
-                                    Once you know which parts of the expression change, label the circles with a name that describe their contents.
-                                    For example, in our two @code{gt} examples, we have circled the @italic{size} of the triangle.  Your circled and
-                                    labeled expressions should look like the following diagram: 
+                                    Uma vez que você sabe quais partes da expressão mudam, rotule e nomeie os círculos com um nome que descrevem seu conteúdo.
+                                    Por exemplo, em nossos dois exemplos de @code{tv}, circulamos o @italic{tamanho} do triângulo. Suas expressões circuladas e 
+                                    nomeadas devem se parecer com o seguinte diagrama: 
                                     @bannerline{@bitmap{images/circled-examples.png}}}
-                            @teacher{Pay close attention to what students circle: they should circle something in each part of the Example 
-                                     (the function use on the left and the expression on the right); they should also use the same name for 
-                                     the same concept across the expressions.  Their circles will correspond to the variables in their functions, 
-                                     so the variables should appear in both the left and the right sides of the Example.}
+                            @teacher{Preste muita atenção nos círculos dos alunos: eles devem circundar algo em cada parte do Exemplo 
+                                     (no uso da função à esquerda e na expressão à direita); eles devem usar também o mesmo nome para 
+                                     o mesmo conceito através das expressões. Seus círculos vão corresponder com as variáveis em suas funções, 
+                                     então as variáveis devem aparecer em ambos os lados, direito e esquerdo do Exemplo.}
                                     }
-                            @point{@student{@bannerline{Step 3: Define the function}
-                                             After writing the Contract, two Examples, and the labeled circles, defining the function itself is 
-                                             relatively simple.
-                                             @itemlist[@item{Copy everything that stays the same (everything that wasn't circled) in one of your
-                                                             EXAMPLE lines (onto paper or into your editor)}
-                                                       @item{In place of each circle, write the label you gave to that circle}
-                                                       @item{Change @code{EXAMPLE} to @code{define}}]
-                                             @code[#:multi-line ""]{; gt : Number -> Image
-(EXAMPLE (gt   50) (triangle   50 "solid" "green"))
-(EXAMPLE (gt  100) (triangle  100 "solid" "green"))
-(define  (gt size) (triangle size "solid" "green"))}}
-                                    @teacher{This can be a good opportunity to point out that the parts of the examples that were changeable 
-                                             (or @italic{vary-able}) are what determines when we need to use the @italic{variable}.}
+                            @point{@student{@bannerline{Passo 3: Defina a função}
+                                             Depois de escrever a Assinatura, dois Exemplos, e nomear os círculos, definir a própria função é 
+                                             relativamente simples.
+                                             @itemlist[@item{Copie tudo que permanecer igual (tudo o que não foi circulado) em algum dos seus
+                                                             Exemplos (no papel ou em seu editor)}
+                                                       @item{No lugar de cada círculo, escreva o nome que você deu para este círculo}
+                                                       @item{Troque @code{EXAMPLE} para @code{define}}]
+                                             @code[#:multi-line ""]{; tv : Numero -> Figura
+(EXAMPLE (tv   50) (triangle   50 "solid" "green"))
+(EXAMPLE (tv  100) (triangle  100 "solid" "green"))
+(define  (tv tamanho) (triangle tamanho "solid" "green"))}}
+                                    @teacher{Essa pode ser uma boa oportunidade para apontar que as partes dos exemplos que eram mutáveis 
+                                             (ou @italic{variáveis}) são o que determinam quando precisamos usar uma @italic{variável}.}
                                     }
                             @point{@student{@activity[#:forevidence (list "BS-PL.3&1&3" "BS-DR.3&1&1" "F-IF.1-3&1&2")]{
-                                               @itemlist[@item{On your paper, define the @code{gt} function, then type the @vocab{Contract}, @vocab{Examples} 
-                                                               and @code{Definition} into the Definitions window.}
-                                                         @item{Click "Run", to have the computer read this definition.}
-                                                         @item{Use the function you've defined, by typing @code{(gt 100)} in the Interactions window.}
-                                                         @item{Try using the function with different Numbers}]}
-                                    @editor-link[#:definitions-text "; gt : Number -> Image
-(EXAMPLE (gt 50) (triangle 50 \"solid\" \"green\"))
-(EXAMPLE (gt 95) (triangle 95 \"solid\" \"green\"))
-(define (gt size) (triangle size \"solid\" \"green\"))"
-                                                 "Your answer should look something like this."]
+                                               @itemlist[@item{Em sua folha, defina a função @code{tv}, e então digite a @vocab{Assinatura}, @vocab{Exemplos} 
+                                                               e a @code{Definição} na Janela de Definições.}
+                                                         @item{Clique em "Run", para que o computador leia essa definição.}
+                                                         @item{Use a função que você definiu, digitando @code{(tv 100)} na janela de Interações.}
+                                                         @item{Experimente usar a função com diferentes Números}]}
+                                    @editor-link[#:definitions-text "; tv : Numero -> Figura
+(EXAMPLE (tv 50) (triangle 50 \"solid\" \"green\"))
+(EXAMPLE (tv 95) (triangle 95 \"solid\" \"green\"))
+(define (tv tamanoh) (triangle tamanho \"solid\" \"green\"))"
+                                                 "Sua resposta deve ser algo parecido com isto."]
                                     }
                                     @teacher{}
                                     }
-                            @point{@student{These steps are knows as the @vocab{Design Recipe}, which is a powerful tool for defining functions based on word problems.
-                                            @bannerline{Practice: Write a function @code{bc}, which takes in a Number and produces a solid, blue circle of the given size.}
+                            @point{@student{Esses passos são conhecidos como @vocab{Receita de Projeto}, que é uma poderosa ferramente para definir funções baseadas na descrição de problemas.
+                                            @bannerline{Prática: Escreva uma função @code{ca}, que recebe um número e produz um círculo azul sólido, do tamanho dado.}
                                             @activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{
-                                                      In your workbook (still on @worksheet-link[#:name "Fast-Functions"]), fill out the @vocab{Contract} 
-                                                      for this function.
-                                                      @itemlist[@item{What is the function's Name?}
-                                                                 @item{What is the function's Domain?}
-                                                                 @item{What is the function's Range?}]
-                                                      Using the Contract you've written, write two @vocab{Examples} for the function.
-                                                      @itemlist[@item{What part of the Contract helps you fill in the left side of an Example?}
-                                                                 @item{What part of the Contract tells you what the function needs as an input?}
-                                                                 @item{How can the Range of a function help you write the Example?}]
-                                                      Looking at those two examples, circle the parts that are @italic{change-able}, then label them with a good @vocab{variable name}.
-                                                      @itemlist[@item{Is the variable name you chose the same as the one you chose for @code{gt}? Why or why not?}
-                                                                 @item{Why is it helpful to choose a variable name before defining the function?}]
-                                                      Now write the @vocab{function definition}, using the Examples you've written.}
+                                                      Em sua apostila (ainda na @worksheet-link[#:name "Fast-Functions"]), preencha a @vocab{Assinatura} 
+                                                      para essa função.
+                                                      @itemlist[@item{Qual é o Nome dessa função?}
+                                                                 @item{Qual é o Domínio dessa função?}
+                                                                 @item{Qual é a Imagem dessa função?}]
+                                                      Usando a Assinatura que você escreveu, escreva dois @vocab{Exemplos} para a função.
+                                                      @itemlist[@item{Qual parte da Assinatura o ajuda a preencher o lado esquerdo de um Exemplo?}
+                                                                 @item{Qual parte da Assinatura lhe diz o que a função precisa receber como entrada?}
+                                                                 @item{Como a Imagem da função te ajuda a escrever um Exemplo?}]
+                                                      Olhando para esses exemplos, circule as partes que são @italic{mutáveis}, e então rotule com um bom @vocab{nome de variável}.
+                                                      @itemlist[@item{O nome de variável que você escolheu é o mesmo que você colocaou em @code{tv}? Por que ou por que não?}
+                                                                 @item{Por que é útil escolher um nome de variável antes de definir a função?}]
+                                                      Agora escreva a @vocab{definição da função}, usando os Exemplos que você já escreveu.}
                                             }
-                                    @teacher{You will want to explicitly connect each step in the Design Recipe to every other step. Ask students to justify 
-                                             each part of their @bold{Contract} by referring back to the Word Problem, to justify each step of their 
-                                             @bold{Examples} by referring back to the Word Problem @italic{and} Contract, and finally to justify each 
-                                             step of the @bold{definition} by referring to the Examples. The same variable name can be used in multiple
-                                             functions, just as in math (where many functions use @code{x} as the variable name, for example)}
+                                    @teacher{Você vai querer conectar explicitamente cada passo da Receita com o próximo passo. Peça aos alunos que justifiquem 
+                                             cada aprte de sua @bold{Assinatura} referindo-se à Descrição do Problema, para justificada cada parte de seus 
+                                             @bold{Exemplos} olhando para a Descrição do Problema @italic{e para} a Assinatura, e finalmente justificar cada parte 
+                                             da @bold{definição} referenciando os Exemplos. O mesmo nome de variável pode ser usado em várias
+                                             funções, assim como na matemática (onde muitas funções usam o @code{x} como nome de variável, por exemplo)}
                                     }
-                            @point{@student{Thinking through the word problem step-by-step, we arrive at:
-                                             @code[#:multi-line ""]{; bc : Number -> Image
-(EXAMPLE (bc     16) (circle     16 "solid" "blue"))
-(EXAMPLE (bc    421) (circle    421 "solid" "blue"))
-(define  (bc radius) (circle radius "solid" "blue"))}
+                            @point{@student{Pensando na Descrição do Problema passo-a-passo, chegamos em:
+                                             @code[#:multi-line ""]{; ca : Numero -> Figura
+(EXAMPLE (ca     16) (circle     16 "solid" "blue"))
+(EXAMPLE (ca    421) (circle    421 "solid" "blue"))
+(define  (ca raio) (circle raio "solid" "blue"))}
                                             }
                                     @teacher{}
                                     }
-                             @point{@student{@bannerline{Practice: Write a function @code{dot}, which takes in a Color and produces a solid circle of the given color, with a radius of 20.}
+                             @point{@student{@bannerline{Prática: Escreva a função chamada @code{mancha}, que recebe uma Cor e produz um círculo sólido da cor recebida, com o raio de tamanho 20.}
                                             @activity[#:forevidence (list  "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{
-                                                    In your workbook (still on @worksheet-link[#:name "Fast-Functions"]), fill out the @vocab{Contract} for this function.
-                                                      @itemlist[@item{What is the function's Name?}
-                                                                 @item{What is the function's Domain?}
-                                                                 @item{What is the function's Range?}]
-                                                      Using the Contract you've written, write two @vocab{Examples} for the function, then circle and label the variables.
-                                                      @itemlist[@item{What part of the Contract helps you fill in the left side of an Example?}
-                                                                 @item{What part of the Contract tells you what the function needs as input?}
-                                                                 @item{How can the Range of a function help you write the Example?}
-                                                                 @item{What is a good variable name for what changes between these Examples.}]
-                                                      Now write the @vocab{function definition}, using the Examples you've written.}
-                                            Thinking through the word problem step-by-step, we arrive at:
-                                             @code[#:multi-line ""]{; dot : String -> Image
-(EXAMPLE (dot  "red") (circle 15 "solid"  "red"))
-(EXAMPLE (dot "blue") (circle 15 "solid" "blue"))
-(define  (dot  color) (circle 15 "solid"  color))}
+                                                    Em sua apostila (ainda na @worksheet-link[#:name "Fast-Functions"]), preencha a @vocab{Assinatura} para essa função.
+                                                      @itemlist[@item{Qual é o Nome dessa função?}
+                                                                 @item{Qual é o Domínio da função?}
+                                                                 @item{Qual é a Imagem da função?}]
+                                                      Usando a Assinatura que você escreveu, escreva dois @vocab{Exemplos} para a função, e então circule e nomeie as variáveis.
+                                                      @itemlist[@item{Qual parte da Assinatura te ajuda a preencher o lado esquerdo de um Exemplo?}
+                                                                 @item{Qual a parte da Assinatura que lhe diz o que a função precisa receber de entrada?}
+                                                                 @item{Como a Imagem de uma função lhe ajuda a escrever o Exemplo?}
+                                                                 @item{Qual seria um bom nome de variável para o que muda entre esses Exemplos?}]
+                                                      Agora escreva a @vocab{definição da função}, usando os Exemplos que você já escreveu.}
+                                            Pensando na Descrição do Problema passo-a-passo, chegamos em:
+                                             @code[#:multi-line ""]{; mancha : String -> Figura
+(EXAMPLE (mancha  "red") (circle 15 "solid"  "red"))
+(EXAMPLE (mancha "blue") (circle 15 "solid" "blue"))
+(define  (mancha  cor) (circle 15 "solid"  cor))}
                                             }
                                     @teacher{}
                                     }]
@@ -437,8 +437,8 @@
 
 
 @lesson/studteach[
-     #:title "Defining Functions (Algebra)"
-     #:duration "20 minutes"
+     #:title "Definindo Funções (Álgebra)"
+     #:duration "20 minutos"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -452,26 +452,26 @@
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
-      ]{@points[@point{@student{You've seen many functions defined in Racket, for example: 
+      ]{@points[@point{@student{Você tem visto muitas funções definidas no Racket, por exemplo: 
                                 @code{(define (f x) (+ x 1))}
-                        @activity[#:forevidence (list  "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{@itemlist[@item{What is the name of this function?}
-                                             @item{How many variables does it take?}
-                                             @item{What is the name of the variable(s)?}
-                                             @item{What does this function do to the variable @code{x}?}
-                                             @item{Define a function @code{g}, which takes in a variable @code{q} and multiplies it by 20.}]}}
-                        @teacher{Make sure students understand that the function is named @italic{f}, and not "fx" or "f of x". Have students practice other function definitions, to make sure they're comfortable translating a verbal description into Racket syntax.}
+                        @activity[#:forevidence (list  "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.4-6&1&1")]{@itemlist[@item{Qual é o nome desta função?}
+                                             @item{Quantas variáveis ela recebe?}
+                                             @item{Qual é o nome da(s) variável(is)?}
+                                             @item{O que a função faz com a variável @code{x}?}
+                                             @item{Defina a função @code{g}, que recebe uma variável @code{q} e multiplica ela por 20.}]}}
+                        @teacher{Certifique-se que os alunos entenderam que a função é nomeada @italic{f}, e não "fx" ou "f de x". Peça que os alunos pratiquem outras definições de funções, para sentirem-se confortáveis transformando uma descrição verbal para a sintaxe do Racket.}
                         }
-                 @point{@student{To translate these functions into algebra, we do something similar to what we did with the values. Here is the same function @code{f}, written in algebra syntax: @math{f(x) = x + 1}                                                                                                      @activity{Translate the function @code{g} into algebra, using the translation of @code{f} as a model. Once that is complete try defining a function @math{h}, which takes in a variable @code{x} and divides it by 2.}}
-                         @teacher{Have students practice this translation with a few other functions, again translating from a verbal description (rather than Racket syntax).}}
-                 @point{@student{@activity{Translate the rest of the functions, listed on @worksheet-link[#:page 35 #:name "Translating-to-Algebra"].}}
+                 @point{@student{Para traduzir essas funções para álgebra, fazemos algo semelhante ao que fizemos com os valores. Aqui está a mesma função @code{f}, escrita na forma de álgebra: @math{f(x) = x + 1}                                                                                                      @activity{Traduza a função @code{g} para álgebra, usando a tradução de @code{f} como modelo. Quando estiver completa, experimente definir a função @math{h}, que recebe uma variável @code{x} e a divide por 2.}}
+                         @teacher{Peça que os alunos pratiquem traduzindo algumas outras funções, traduzindo novamente de uma descrição verbal (em vez da sintaxe do Racket).}}
+                 @point{@student{@activity{Traduza o restante das funções, listadas na @worksheet-link[#:page 35 #:name "Translating-to-Algebra"].}}
                          @teacher{}
                          }]
          }
                  
                  
 @lesson/studteach[
-     #:title "Closing"
-     #:duration "5 minutes"
+     #:title "Encerramento"
+     #:duration "5 minutos"
      #:overview ""
      #:learning-objectives @itemlist[]
      #:evidence-statements @itemlist[]
@@ -485,10 +485,10 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{In this unit, you learned how to name values and define functions.  You will use named values to provide images for your game elements.  You will use functions to make your game elements move.  As you will see soon, functions are critical to making games.  You'll do a bit more practice with them in the next unit, including writing your first function that makes something move across the screen.}
-                        @teacher{@management{@itemlist[@item{Have students volunteer what they learned in this lesson}
-                                                        @item{Reward behaviors that you value: teamwork, note-taking, engagement, etc}
-                                                        @item{Pass out exit slips, dismiss, clean up.}]}}
+        @points[@point{@student{Nesta unidade você aprendeu como definir nomear valores e definir funções. Você usará esses valores nomeados para fornecer imagens para seus elementos do jogo. Você usará funções para fazer os elementos do jogo se moverem. Como você verá em breve, as funções são partes críticas para fazer jogos. Você vai fazer um pouco mais de prática com elas na próxima semana, incluindo escrever sua primeira função que faz algo se mover pela tela.}
+                        @teacher{@management{@itemlist[@item{Peça aos alunos o que eles aprenderam nesta lição}
+                                                        @item{Comportamentos que você valoriza: trabalho em equipe, fazendo anotações, engajamento, etc}
+                                                        @item{Dê os recados de saída, despense-os e coloque em ordem.}]}}
                         }
                         ]}
 }
