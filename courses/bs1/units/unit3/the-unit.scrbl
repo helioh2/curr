@@ -3,9 +3,9 @@
 
 @title{Unidade 3: Iniciando com Definições}
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sqr sqrt expt})
+@unit-overview/auto[#:lang-table (list (list "Número" @code{+ - * / sqr sqrt expt})
                                        (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
+                                       (list "Figura"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
   @unit-descr{Alunos são apresentados à Janela de Definições, e aprendem a sintaxe de definir valores de vários tipos. Eles também são iniciados a sintaxe de definição de funções e criam exemplos.}
 }
 @unit-lessons{
@@ -17,10 +17,10 @@
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list "BS-PL.2" "6.NS.5-8" "F-IF.1-3")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1FN2uLBnwdk3N4Ci6-qf1n6z-M8KpToo27wqZmRlS5as/edit?usp=sharing" "Warmup activity sheet").}]
+     #:materials @itemlist[@item{Lápis/canetas aos alunos, e giz/marcadores de quadro branco aos professores}
+                            @item{Cartazes da turma (Lista de regras, conhecimentos básicos, calendário do curso)}
+                            @item{Tabela da Linguagem(veja abaixo)}]
+     #:preparation @itemlist[@item{OPCIONAL: Distribua a folha de @(hyperlink "https://docs.google.com/document/d/1tfT5qRjJsYoqUWiHOAUq-Qf3VGnhAmAiDY5zyiMRQ8I/edit?usp=sharing" "Atividade de Aquecimento").}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -52,10 +52,10 @@
                                       @item{Students will be able to explain what happens when the "Run" button is pressed.}]
      #:product-outcomes @itemlist[]
      #:standards (list "BS-PL.3" "BS-IDE")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
-                            @item{Language Table (see below)}]
+     #:materials @itemlist[@item{Lápis/canetas aos alunos, e giz/marcadores de quadro branco aos professores}
+                            @item{Cartazes da turma (Lista de regras, conhecimentos básicos, calendário do curso)}
+                            @item{Ambiente de Edição (WeScheme ou DrRacket com o pacote bootstrap-teachpack instalado)}
+                            @item{Tabela da Linguagem(veja abaixo)}]
      #:preparation @itemlist[]
      #:prerequisites (list "Intro to Programming" "Contracts")
      #:pacings (list 
@@ -64,35 +64,35 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-  @points[@point{@student{Suponde que queremos fazer uma imagem que tem 50 triângulos, sólidos e idênticos. Você teria que escrever 
-                                @code{(triangle 50 "solid" "red")} cinquenta vezes! Para piorar a situação, qualquer alteração a esses triãngulos 
+  @points[@point{@student{Supondo que queremos fazer uma imagem que tem 50 triângulos, sólidos e idênticos. Você teria que escrever 
+                                @code{(triangle 50 "solid" "red")} cinquenta vezes! Para piorar a situação, qualquer alteração a esses triângulos 
                                 teria que ser repetida a todos as cinquenta expressões! Bons programadores sabem que seu esforço é melhor gasto em 
                                 outro lugar, então eles fizeram com que as linguagens de programação evitassem toda essa repetição. 
                                 Eles escrevem algo uma vez, e definem um atalho na linguagem, e então usam esse atalho onde quiserem.}
                        @teacher{}}
                 @point{@student{Nós nomeamos valores em nossa linguagem usando a declaração @vocab{define}. Vamos ver 
-                               @editor-link[#:definitions-text "(define shape1 (triangle 50 \"solid\" \"red\"))\n"
+                               @editor-link[#:definitions-text "(define forma1 (triangle 50 \"solid\" \"red\"))\n"
                                                                #:interactions-text ""
                                                                "um exemplo de uma definição"]
-                               , que define @code{shape1} para ser um triângulo sólido vermelho. Quando você clicar em "Run", você pode digitar @code{shape1} 
-                               na Janela de Iterações e o computador mostrará a você um triângulo vermelho. O que você pensa que aconteceria se você 
-                               digitasse @code{shape1} @italic{sem clicar} em "Run"?
+                               , que define @code{forma1} para ser um triângulo sólido vermelho. Quando você clicar em "Run", você pode digitar @code{forma1} 
+                               na Janela de Interações e o computador mostrará a você um triângulo vermelho. O que você pensa que aconteceria se você 
+                               digitasse @code{forma1} @italic{sem clicar} em "Run"?
                                }
-                        @teacher{Certifique-se que os alunos vejam o que acontece quando @code{shape1} é executada sem clicar primeiro em "Run", para que 
-                                 eles possam ler e entender o erro. Da mesma forma, peça para modificarem a definição e calcular @code{shape1} 
+                        @teacher{Certifique-se que os alunos vejam o que acontece quando @code{forma1} é executada sem clicar primeiro em "Run", para que 
+                                 eles possam ler e entender o erro. Da mesma forma, peça para modificarem a definição e calcular @code{forma1} 
                                  novamente - ainda sem clicar em "Run". É importante para eles entenderem que executar um programa 
-                                 faz com que o computador @italic{leia as definições}, e que qualquer mudança precisar abriga a ser lidos novamente.
+                                 faz com que o computador @italic{leia as definições}, e que qualquer mudança exige que o computador leia novamente o códigp.
                                  }
                         }
                 @point{@student{Definições vão na parte esquerda da tela(ao lado da Janela 
-                               de Iterações); que é chamada de @vocab{Janela de Definições}.        
+                               de Interações); que é chamada de @vocab{Janela de Definições}.        
                                @activity[#:forevidence (list "BS-PL.3&1&1")]{
-                                     @itemlist[@item{Digite a definição de @code{shape1} na @vocab{Janela de Definições}.}
+                                     @itemlist[@item{Digite a definição de @code{forma1} na @vocab{Janela de Definições}.}
                                                 @item{Clique "Run" para que o computador leia a definição.}
-                                                @item{O que você pensa que vai acontecer quando você digita @code{shape1} na Janela de Iterações?}
-                                                @item{Adicione uma nova linha na janela de definições, logo abaixo da definição de @code{shape1}. Adicione uma nova 
-                                                      definição chamada @code{shape2}, e defina para ser um círculo sólido azul, de tamanho de raio 20.}
-                                                @item{Clique "Run", e tente calcular @code{shape2}.}
+                                                @item{O que você pensa que vai acontecer quando você digita @code{forma1} na Janela de Interações?}
+                                                @item{Adicione uma nova linha na janela de definições, logo abaixo da definição de @code{forma1}. Adicione uma nova 
+                                                      definição chamada @code{forma2}, e defina para ser um círculo sólido azul, de tamanho de raio 20.}
+                                                @item{Clique "Run", e tente calcular @code{forma2}.}
                                                 @item{Na próxima linha, defina um novo valor chamado @code{idade} para ser o quantos anos você tem.}
                                                 @item{Na próxima linha, defina um novo valor chamado @code{nome} para ser uma String que representa seu nome.}]
                                       }
@@ -105,24 +105,24 @@
                 @point{@student{@activity[#:forevidence (list "BS-PL.3&1&1" "BS-IDE&1&2")]{
                                     Uma nova linha na Janela de Definições, defina um valor chamado @code{cor-dos-olhos} para ser a cor dos seus olhos.
                                     Não clique "Run" ainda! 
-                                    @itemlist[@item{Vá para a Janela de Iterações e tente calcular @code{cor-dos-olhos}. Você deve receber uma mensagem de
+                                    @itemlist[@item{Vá para a Janela de Interações e tente calcular @code{cor-dos-olhos}. Você deve receber uma mensagem de
                                                     erro que o computador não sabe sobre @code{cor-dos-olhos}, porque você não clicou em "Run" 
                                                     depois de adicionar a definição.}
                                               @item{Clique em "Run".}
-                                              @item{Digite @code{cor-dos-olhos} novamente na janela de Iterações. Desta vez você não deve receber uma mensagem de erro.}]}
+                                              @item{Digite @code{cor-dos-olhos} novamente na janela de Interações. Desta vez você não deve receber uma mensagem de erro.}]}
                                  Definiçẽs são úteis porque podemos reutilizá-las em outras expressões. Por exemplo, podemos usar @code{cor-dos-olhos} 
                                  dentro de outra expressão, como em @code{(circle 10 "solid" cor-dos-olhos)}. Vamos praticar usando as definições dentro de outras expressões.
                                  }
                         @teacher{}
                         }
                 @point{@student{@activity[#:forevidence (list "BS-PL.3&1&1" "BS-IDE&1&1")]{
-                                    Crie as definições a seguir na Janela de Definições, e verifique-as na Janela de Iterações: 
+                                    Crie as definições a seguir na Janela de Definições, e verifique-as na Janela de Interações: 
                                     @itemlist[@item{Defina um valor chamado @code{premio} para ser uma estrela sólida amarela (você pode escolher o tamanho).}
                                               @item{Defina uma valor chamado @code{grande} que usa @code{scale} para fazer seu @code{premio} três vezes maior.}
                                               @item{Defina uma valor chamado @code{girar} que usa @code{rotate} para girar sua grande estrela amarela por @code{45} graus.}
-                                              @item{Digite @code{girar} na Janela de Iterações, e certifique-se de obter uma grande e inclinada estrela amarela.}
+                                              @item{Digite @code{girar} na Janela de Interações, e certifique-se de obter uma grande e inclinada estrela amarela.}
                                               @item{Acontece que as estrelas verdes são mais populares em prêmios que as amarelas. Altere a definição de seu @code{premio} para fazer a estrela verde ao invés da amarela. Clique "Run" para que o computador leia sua nova definição.}
-                                              @item{Agora digite @code{girar} na janela de Iterações novamente. De que cor a estrela apareceu? Se você definiu as expressões @code{grande} e @code{girar} para usar suas definições, você deve conseguir uma estrela verde inclinada! Se você não conseguiu uma estrela verde, tente consertar suas definições para fazer isso acontecer.}
+                                              @item{Agora digite @code{girar} na janela de Interações novamente. De que cor a estrela apareceu? Se você definiu as expressões @code{grande} e @code{girar} para usar suas definições, você deve conseguir uma estrela verde inclinada! Se você não conseguiu uma estrela verde, tente consertar suas definições para fazer isso acontecer.}
                                              ]
                                    }
                           }
@@ -162,9 +162,9 @@
                                           @math{y = 4+9}
                                           @math{z = x \times 2}}
                              @activity[#:forevidence (list "7.EE.3-4&1&4" "A-SSE.1-2&1&1")]{Convera as próximas três definições de Álgebra para definições no Racket:
-                                       @itemlist[@item{@math{dólares = 16.50}}
-                                                 @item{@math{pés = 2 \times 3}}
-                                                  @item{@math{polegadas = pés \times 12}}]
+                                       @itemlist[@item{@math{dolares = 16.50}}
+                                                 @item{@math{pes = 2 \times 3}}
+                                                  @item{@math{polegadas = pes \times 12}}]
                                        }}
                      @teacher{Para esta atividade escreva todas as expressões em Racket em um lado do quadro, e todas de álgebra do outro.
                               Tente deixar as definições de uma maneira próxima uma da outra, para reforçar a ligação entre as duas linguagens.}
@@ -184,9 +184,9 @@
      #:product-outcomes @itemlist[@item{Alunos dão nome aos seus projetos de Jogo}
                                   @item{Alunos modificarão as definições para @code{TITULO, TITULO-COR, CENARIO, JOGADOR, ALVO} e @code{PERIGO}}]
      #:standards (list "BS-PL.3")
-     #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
+     #:materials @itemlist[@item{{@resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "Apostila"] do aluno com seu nome na capa.}}]
      #:preparation @itemlist[@item{Create student game files. [See the (teachers-only) @resource-link[#:path "teachers/teachers-guide/teachers-guide.html" #:label "Teachers Guide"]]}
-                              @item{On student machines: Student Game Files (generated from "Game" template [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/view?publicId=Y36jKsvXsZ" "WeScheme")])}]
+                              @item{Nas máquinas dos alunos: Arquivos de Jogo dos Alunos (gerados do modelo "Jogo" [Game.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=BvAQt3naEh" "WeScheme")])}]
      #:prerequisites (list "Defining Values" "Strings and Images" "Brainstorming")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -195,24 +195,24 @@
                 )
       ]{
         @points[@point{@student{@activity{Abra os arquivos do jogo(Game.rkt de @resource-link[#:path "source-files.zip" #:label "source-files.zip"]
-                                          ou @editor-link[#:public-id "Q1X9Y8ZayX" "o modelo online"] de modo que você pode ver o código,
-                                          e clique "Run". (Talvez vocẽ precise esperar alguns segundo para carregar as imagens!) A janela que 
-                                          surgiu está executando o jogo, mas você provavelmente ja percebeu que nada se move - mesmo se você 
+                                          ou @editor-link[#:public-id "BvAQt3naEh" "o modelo online"] de modo que você pode ver o código,
+                                          e clique "Run". (Talvez você precise esperar alguns segundos para carregar as imagens!) A janela que 
+                                          surgiu está executando o jogo, mas você provavelmente já percebeu que nada se move - mesmo se você 
                                           apertar as setas "para cima" ou "para baixo". Por enquanto, clique no botão "fechar" e volte para o código.}
-                                 Este arquivo contém uma lista de definição, onde você você vai começar a definir como seus personagens se parece, movem, e interagem. Descendo o código, você verá um monte de
+                                 Este arquivo contém uma lista de definição, onde você você vai começar a definir como seus personagens se parecem, movem, e interagem. Descendo o código, você verá um monte de
                                  definições falsas que foram preeenchidas. E é aqui que @italic{você} colocará as definições do seu próprio jogo!
-                                 @activity{Role para a parte inferior da tela, lendo cada uma das coisas que vocẽ terá que definir. Pare quando chegar ao fim, onde você vê 
+                                 @activity{Role para a parte inferior da tela, lendo cada uma das coisas que você terá que definir. Pare quando chegar ao fim, onde você vê 
                                            @code{(make_game...)} usado como parte de uma definição. O que você percebe sobre os valores passados para @code{make_game}?}
                                  @code{make_game} é uma função que foi dada a você, ela recebe todas as suas definições e às monta na execução do jogo. Por trás de tudo isso, @code{make_game} 
                                  insere suas definições dentro de uma função gigante que é chamada a cada décimo de segundo, e usa suas definições para decidir o que está acontecendo naquele momento.}
                         @teacher{Você pode lembrar eles que Bootstrap:2 irá mostrar-lhes como escrever esta função, e personalizá-la para criar jogos mais avançados (multiplayer, labirinto, etc).}
                         }
-                 @point{@student{Na janela de Definições, vocẽ verá que este programa define vários valores: @code{TITULO}, por exemplo, está definido para ser a String @code{"Meu Jogo"}.
-                                @activity[#:forevidence (list "BS-PL.3&1&1")]{@itemlist[@item{Se você digitar @code{TITULO} na janela de Iterações, o que você acha que o computador respondera?}
+                 @point{@student{Na janela de Definições, você verá que este programa define vários valores: @code{TITULO}, por exemplo, está definido para ser a String @code{"Meu Jogo"}.
+                                @activity[#:forevidence (list "BS-PL.3&1&1")]{@itemlist[@item{Se você digitar @code{TITULO} na janela de Interações, o que você acha que o computador respondera?}
                                            @item{Quais outras definições você pode ver?}
                                            @item{Quais são seus valores?}
                                            @item{Quais são seus tipos?}
-                                           @item{Tente calcular cada um desses valores na janela de Iterações, começando com @code{CENARIO}}]}
+                                           @item{Tente calcular cada um desses valores na janela de Interações, começando com @code{CENARIO}}]}
                                 }
                         @teacher{@management{Até agora, você deve ter gráficos criados e 
                                              @(hyperlink "../../resources/teachers/teachers-guide/teachers-guide.html#addingimages" "adicionados ao arquivo)").}
@@ -232,7 +232,7 @@
                  @point{@student{Se você quer mudar suas definições para que a imagem fique maior ou menos, você pode usar a função @code{scale}:
                                   @code[#:multi-line #t]{; scale : Numero Figura -> Figura}
                                   Esta função redimensiona a @code{Figura} com base no @code{Numero}. Por exemplo, @code{(scale 10 (triangle 5 "solid" "green"))} fará esse pequeno triângulo dez vezes maior, enquanto @code{(scale 0.5 (rectangle 200 100 "outline" "purple"))} vai diminuir o retângulo pela metade.
-                                  @activity{Pratiquee usando @code{scale} paa aumentar e diminuir diferentes figuras. Se você quizer experimentar com mais funções, tente usando as assinaturas abaixo:
+                                  @activity{Pratique usando @code{scale} para aumentar e diminuir diferentes figuras. Se você quiser experimentar com mais funções, tente usando as assinaturas abaixo:
                                                            @code[#:multi-line #t]{; flip-vertical : Figura -> Figura
                                                                                   ; flip-horizontal : Figura -> Figura
                                                                                   ; rotate : Numero Figura -> Figura}
@@ -240,7 +240,7 @@
                                                                            "Tente praticar com este exemplo"]
                                                            }
                                   }
-                         @teacher{Se algum aluno encontrar dificuldade, retorne aos Círculos de Avaliação e Assianturas. Por exemplo, peça aos alunos primeiro desenha um Círculo de avaliação para @code{rotate}, e deixe eles usarem a Assinatura para demonstrar o que são as entradas. Quando ele chegar á segunda entrada(a @code{figura}), peça a eles que tipo de forma eles querem girar. Qualquer que tenha sido a resposta, deixe eles olharem na página de Assinaturas, e desenhe o Círculo de Avaliação @italic{dentro} do círculo do @code{rotate}. Depois que o círculo estiver correto, peça para converterem em código. Quando estiverem confiantes, você pode desafiá-los a aplicar outra operação para toda a expressão, talvez invertendo verticalmente a forma girada anterior.}
+                         @teacher{Se algum aluno encontrar dificuldade, retorne aos Círculos de Avaliação e Assinaturas. Por exemplo, peça aos alunos primeiro desenharem um Círculo de avaliação para @code{rotate}, e deixe eles usarem a Assinatura para demonstrar o que são as entradas. Quando chegarem á segunda entrada(a @code{figura}), peça a eles que tipo de forma eles querem girar. Qualquer que tenha sido a resposta, deixe eles olharem na página de Assinaturas, e desenhe o Círculo de Avaliação @italic{dentro} do círculo do @code{rotate}. Depois que o círculo estiver correto, peça para converterem em código. Quando estiverem confiantes, você pode desafiá-los a aplicar outra operação para toda a expressão, talvez invertendo verticalmente a forma girada anterior.}
                          }
                  @point{@student{Outra definição do programa é o @code{CENARIO}. Esta expressão usa a função @code{put-image} para posicionar uma imagem sobre a outra, usando coordenadas para decidir o lugar de cada imagem. 
                          @activity{Propagandas de jogos geralmente têm imagens estáticas(chamadas @italic{screeenshots}) do jogo em ação, para as pessoas poderem ver como é jogar ele. Altere as coordenadas usadas na definição de @code{CENARIO} para que você tenha uma imagem do seu jogo. (Lembre-se:a tela é 640 pixels-largura, por 480 pixels de altura!)}}
@@ -263,7 +263,7 @@
      #:exercises (list (make-exercise-locator "Defining-Functions" "match-examples-functions1")
                        (make-exercise-locator "Defining-Functions" "create-contracts-examples1"))
      #:standards (list "F-IF.1-3" "F-IF.4-6" "F-BF.1-2" "BS-PL.3" "BS-DR.1" "BS-DR.2" "BS-DR.3")
-     #:materials @itemlist[@item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers.}]
+     #:materials @itemlist[@item{{@resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "Apostila"] do aluno com seu nome na capa.}}]
      #:preparation @itemlist[]
      #:prerequisites (list "Contracts" "Stings and Images" )
      #:pacings (list 
@@ -304,38 +304,38 @@
                                                          @item{O @vocab{Domínio} de uma função, é o tipo de dados que a função espera receber: neste caso, apena um Número.}
                                                          @item{A @vocab{Imagem} de uma função, é o tipo de dados que a função produz: neste caso uma Figura, pois é produzido triângulo verde sólido}]
                                               Aqui a Assinatura de @code{tv} escrita em código. A linha começa com ponto-e-vírgula(;), seguida do nome, dois-pontos(:), o Domínio, uma seta(->), e a Imagem:
-                                              @code[#:multi-line ""]{; gt : Numero -> Figura}
-                                              Problemas dão várias pistas sobre o nome, Domínio, e Imagem de uma Função. Leia o problema com atenção! Alguns problemas descrevem funções que recebem mais de uma entrada em seu Domínio, ou entradas de tipos diferentes.
+                                              @code[#:multi-line ""]{; tv : Numero -> Figura}
+                                              Problemas escritos dão várias pistas sobre o nome, Domínio, e Imagem de uma função. Leia o problema com atenção! Alguns problemas descrevem funções que recebem mais de uma entrada em seu Domínio, ou entradas de tipos diferentes.
                                               @activity[#:forevidence (list "BS-DR.1&1&1")]{
                                                               Abra sua apostila em @worksheet-link[#:name "Fast-Functions"], onde diz 
                                                               "funções rápidas", e escreva a Assinatura para a função @code{tv}.}}
-                                    @teacher{It is often a good idea to give students examples of different word problems, and have them pick out the 
-                                             contract for each one. @(new-paragraph) Contracts are written as @italic{comments} in Racket: whenever Racket 
-                                             sees a semicolon, it ignores the rest of the line after the semicolon.  This means that you will never get an 
-                                             error message from Racket for a malformed comment.  That also means that you have to check your students' 
-                                             contracts more closely, because the computer will not check anything about them (format or contents).}
+                                    @teacher{Muitas vezes é uma boa ideia dar aos alunos diferentes prblemas escritos, e pedir-lhes que façam a 
+                                             assinatura para cada um. @(new-paragraph) Assinaturas são escritas como @italic{comentários} no Racket: onde o Racket 
+                                             ver um ponto-e-vírgula, ele ignora o resto da linha depois do ponto-e-vírgula. Isso significa que você nunca reveberá uma 
+                                             mensagem de erro do Racket por um comentário mal escrito. Isso também significa que você terá que checar as 
+                                             assinaturas de seus alunos mais de perto, porque o computador não olhará nada sobre eles (formato ou conteúdo).}
                                     }
-                            @point{@student{@bannerline{Step 2: Give Examples}
-                                             It's always a good idea to think through a few examples before defining the function. Examples show 
-                                             the shortcut that a function is trying to provide.  This programming language provides a special 
-                                             construct, called @code{EXAMPLE}, which helps you write down how the function is used and what it 
-                                             should compute. You can see two such examples here, written under the contract:
-                                             @code[#:multi-line ""]{; gt : Number -> Image
-                                                                    (EXAMPLE (gt   50) (triangle   50 "solid" "green"))
-                                                                    (EXAMPLE (gt  100) (triangle  100 "solid" "green"))}
-                                             These examples tell the computer that writing @code{(gt 50)} should produce the same result as
-                                             @code{(triangle 50 "solid" "green")}, and that @code{(gt 100)} is equivalent to 
-                                             @code{(triangle 100 "solid" "green")}. The word problem specifies that the examples @italic{must} 
-                                             use the name 'gt', and must all produce solid, green triangles.
+                            @point{@student{@bannerline{Passo 2: Dê Exemplos}
+                                             É sempre uma boa ideia pensar em alguns exemplos antes de definir uma função. Exemplos mostram 
+                                             o atalho que a função está tentando fornecer. Essa linguagem de programação fornece uma construção 
+                                             especial, chamada @code{EXAMPLE}, que ajuda você a escrever como a função é usada, e o que ela 
+                                             deve fazer. Você pode ver dois exemplos aqui, escritos abaixo da assinatura:
+                                             @code[#:multi-line ""]{; tv : Numero -> Figura
+                                                                    (EXAMPLE (tv   50) (triangle   50 "solid" "green"))
+                                                                    (EXAMPLE (tv  100) (triangle  100 "solid" "green"))}
+                                             Esses exemplos dizem ao computador que escrever @code{(tv 50)} deve produzir o mesmo resultado de
+                                             @code{(triangle 50 "solid" "green")}, e que @code{(tv 100)} é equivalente a 
+                                             @code{(triangle 100 "solid" "green")}. O problema descrito especifica que os exemplos @italic{devem} 
+                                             usar o nome 'tv', e todos devem produzir triangulos verdes sólidos.
                                              @activity[#:forevidence (list "BS-PL.3&1&2" "BS-DR.2&1&1" "F-BF.1-2&1&1" "F-IF.1-3&1&2" "F-IF.1-3&1&4")]{
-                                                       In your workbook, write two examples of your own for this function.}}
-                                    @teacher{@bold{Be sure to point out that EXAMPLE is capitalized, and that all examples are written in the definitions window.} Many students will follow along here without really understanding, simply by pattern-matching. Be sure to ask them lots of questions, to have them justify each step:
-                                             @itemlist[@item{Why does the example have to start with gt? (Because it's the Name of the function, specified in the contract)}
-                                                        @item{How do we know @code{gt} requires only one number? (Because it's the Domain of the function, specified in the contract)}
-                                                        @item{How do we know to use @code{triangle}? (Because the word problem tells us what shape it has to produce)}
-                                                        @item{How do we know the triangle has to be solid and green? (Because the word problem tells us what shape it has to produce)}
-                                                        @item{How do we know the correct order for the inputs to @code{triangle}? (The contract for @code{triangle} tells us)}] 
-                                                                                                                                                                          One of the big ideas here is that each step informs the subsequent step. Make sure to explicitly connect them for students, pointing out that the Contract gives strong hints about how to write each part of the examples. }
+                                                       Em sua apostila, escreva dois exemplos por conta própria para esta função.}}
+                                    @teacher{@bold{Certifique-se de exaltar que EXAMPLE é maiúsculo, e que todos os exemplos são escritos na janela de definições.} Muitos alunos seguirão aqui sem realmente entender, simplismente por correspondência de padrões. Certifique-se de fazer várias perguntas, para que justifiquem cada passo:
+                                             @itemlist[@item{Por que o exemplo deve começar com tv? (Porque é o Nome da função, especificada na assinatura)}
+                                                        @item{Como sabemos que @code{tv} precisa apenas de um número? (Porque está no Domínio da função, especificado na assinatura)}
+                                                        @item{Como sabemos que temos que usar @code{triangle}? (Porque o problema nos diz qual forma deve ser produzida)}
+                                                        @item{Como sabemos que o triângulo deve ser sólido e verde? (Porque a descrição do problema nos diz que forma deve ser produzida)}
+                                                        @item{Como sabemos a ordem correta das entradas para @code{triangle}? (A assinatura de @code{triangle} nos conta isso)}] 
+                                                                                                                                                                          Uma das grandes ideias aqui é que cada passo informa a etapa seguinte. Certifique-se de conectá-los explicitamente para os alunos, apontando que a Assinatura nos dá fortes dicas sobre como escrever cada parte dos exemplos. }
                                     }
                             @point{@student{Programmers often write several examples for each function. Examples like these are a way for a 
                                             programmer to think through their work.  Examples also make it easy to look at what parts of the
