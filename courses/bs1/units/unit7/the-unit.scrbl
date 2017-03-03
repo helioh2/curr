@@ -6,29 +6,29 @@
 @unit-overview/auto[#:lang-table (list (list "Numero" @code{+ - * / sq sqrt expt}) 
                                        (list "String" @code{string-append string-length})                          
                                        (list "Figura" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
-                                       (list "Boolean" @code{= > < string=? and or}))]{
-  @unit-descr{Os alunos usam geometria e desvios condicionais para moverem seus personagens em resposta à teclas pressionadas.}
+                                       (list "Booleano" @code{= > < string=? and or}))]{
+  @unit-descr{Os alunos usam geometria e desvios condicionais para moverem seus personagens em resposta às teclas pressionadas.}
    }
 
 @unit-lessons{
 @lesson/studteach[
-     #:title "Pizza do Luigi" 
+     #:title "Pizzaria do Luigi" 
      #:duration "20 min"
      #:overview "Alunos analizam o comportamento de uma função segmentada"
-     #:learning-objectives @itemlist[@item{Students learn the concept of piecewise functions}
-                                     @item{Students learn about conditionals (how to write piecewise functions in code)}
+     #:learning-objectives @itemlist[@item{Alunos aprendem o conceito de funções segmentadas}
+                                     @item{Alunos aprender sobre condicionais(como escrever funções segmentadas em código)}
                                     ]
-     #:evidence-statements @itemlist[@item{Students will understand that functions can perform different computations based on characteristics of their inputs}
-                                     @item{Students will begin to see how Examples indicate the need for piecewise functions}
-                                     @item{Students will understand that @code{cond} statements capture pairs of questions and answers when coding a piecewise function}
+     #:evidence-statements @itemlist[@item{Alunos compreenderão que funções podem realizar diferentes ações baseadas nas características de suas entradas}
+                                     @item{Alunos começarão a ver como os Exemplos indicam a necessidade de funções segmentadas(divididas em funções menores)}
+                                     @item{Alunos compreenderão que o condicionais @code{cond} capturam pares de perguntas e respostas ao codificar uma função segmentada}
                                     ]
      #:product-outcomes @itemlist[]
      #:standards (list "BS-DR.1" "BS-DR.2" "BS-DR.3" "BS-PL.4")
      #:materials @itemlist[@item{Computadores com DrRacket ou WeScheme}
-                           @item{Canetas/lápis para os alunos, e giz/canetão aos professores}
-                           @item{Tabela da Linguagem}
+                           @item{Lápis/canetas aos alunos, e giz/marcadores de quadro branco aos professores}
+                           @item{Tabela da Linguagem(veja abaixo)}
                           ]
-     #:preparation @itemlist[@item{"Pizza do Luigi" [LuigisPizza.rkt from @(resource-link #:path "source-files.zip" 
+     #:preparation @itemlist[@item{"Pizzaria do Luigi" [LuigisPizza.rkt from @(resource-link #:path "source-files.zip" 
                                                                                        #:label "source-files.zip") |
 @(hyperlink "http://www.wescheme.org/openEditor?publicId=Am9KC0nqpr" "WeScheme")] pré-carregado nas máquinas dos alunos, e no projetor}
                               @item{NECESSÁRIO: Distribua a @(hyperlink "https://docs.google.com/document/d/1nJih797yEq6BBNgkXdH_K4IGz0dNJWqYauUcyDGFtZI/edit?usp=sharing" "Atividade - Pizzaria do Luigi").}]
@@ -42,7 +42,7 @@
   @points[
      @point{@student{@activity[#:forevidence (list "BS-DR.1&1&1" "BS-DR.2&1&1" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
                            Para iniciar essa lição, complete o desafio @(hyperlink "https://docs.google.com/document/d/1nJih797yEq6BBNgkXdH_K4IGz0dNJWqYauUcyDGFtZI/edit?usp=sharing" 
-                                      "Pizza do Luigi").}}
+                                      "Pizzaria do Luigi").}}
             @teacher{Revise as respostas dos alunos. Você pode ver um video de demonstração de introdução à condições nesses links: @(video-link (hyperlink "http://www.youtube.com/watch?v=2ckWSjWum-8" "1")),
                      @(video-link (hyperlink "http://www.youtube.com/watch?v=iTrY-N3MLRY#t=3m8s" "2"))}
            }
@@ -69,12 +69,12 @@
                                 @item{@code{atualizar-perigo} sempre soma ou subtrai o mesmo valor.}
                                 @item{e assim por diante...}]
                      Isso ficou evidente quando se passa os Exemplos para a definição: circulando o que muda sempre resulta 
-                     na definição, e o número de variáveis sempre coincidiu o o número de coisas no Domínio.
+                     na definição, e o número de variáveis sempre coincidiu com o número de coisas no Domínio.
                      @activity{Vá para a página @worksheet-link[#:page 23 #:name "Pizza-Cost"], e preencha a Assinatura e Exemplos para esta função,
                                e então circule e nomeie o que muda.}}
             @teacher{Pode ser útil ter alguns Exemplos e definições escritos no quadro, para que os alunos possam acompanhar.}
            }
-     @point{@student{A função @code{custo} é especial, porque diferentes sabeores resultam em diferentes expressões para calcular.
+     @point{@student{A função @code{custo} é especial, porque diferentes sabores resultam em diferentes expressões para calcular.
                      Se você tivesse que circular tudo o que muda no exemplo, você teria que circular os sabores @italic{e o preço}.
                      Essas são duas coisas que mudam, mas o Domínio da função tem somente um item - por isso, não podemos ter duas variáveis.}
             @teacher{}
@@ -87,7 +87,7 @@
                      abreviado no código como @code{cond}.}
              @teacher{}
              }
-     @point{@student{Cada condicional tem pelo menos uma @vocab{condição}. Cada condição tem uma pergunta Booleana e um resultado. Na função do Luigi, Existe uma condição para queijo, outra para calabresa, e etc. Se a condição é @code{verdadeira}, a expressão é calculada e retorna um valor. Se a condição é falsa, o computador pula para a próxima condição. 
+     @point{@student{Cada condicional tem pelo menos uma @vocab{condição}. Cada condição tem uma pergunta Booleana e um resultado. Na função do Luigi, existe uma condição para queijo, outra para calabresa, e etc. Se a condição é @code{verdadeira}, a expressão é calculada e retorna um valor. Se a condição é falsa, o computador pula para a próxima condição. 
                      @activity[#:forevidence (list "BS-PL.4&1&1")]{
                                Dê uma olhada na função @code{custo}: 
                                @itemlist[@item{Quantas condições existem para a função @code{custo}?}
@@ -107,12 +107,12 @@
                        dependendo se alguma variável @code{x} é maior do que @code{5}, é melhor para iniciantes escrever duas condições 
                        @code{(> x 5)} e @code{(<= x 5)} em vez de ter a segunda condição sendo @code{else}. Questões explícitas tornam os programas 
                        fáceis de ler e fazer manutenção. Quando você usa @code{else}, alguém tem que ler todas as condições anteriores para saber com qual condição 
-                       o @code{else} se corresponde: eles não podem voltar e fuçar nas condições anteriores para encontrar uma que combina com laguma situação. Isso pode 
-                       ser um pouco contra-intuitivo para aqueles com alguma expreiência anterior em programação, mas ajuda a tornar o código mais legível e compreensível.}
+                       o @code{else} se corresponde: eles não podem voltar e fuçar nas condições anteriores para encontrar uma que combina com alguma situação. Isso pode 
+                       ser um pouco contra-intuitivo para aqueles com alguma experiência anterior em programação, mas ajuda a tornar o código mais legível e compreensível.}
            }
      @point{@student{Funções que usam condicionais são chamadas @vocab{funções segmentadas}, porque cada condição define uma
                      @italic{parte} separada da função. Porque funções segmentadas são úteis? Pense sobre o personagem principal em seu jogo: você gostaria que 
-                     ele se mova de uma maneira se você aperta a seta "para cima", e de outra maneira de você apertar a tecla "para baixo". Se mover para cima e se mover para baixo precisa 
+                     ele se movesse de uma maneira se você aperta a seta "para cima", e de outra maneira de você apertar a tecla "para baixo". Se mover para cima e se mover para baixo precisam 
                      de duas funções diferentes! Sem o @code{cond}, você poderia apenas escrever uma função que sempre move o personagem para cima, ou sempre o mova para 
                      baixo, mas não os dois juntos.}
             @teacher{}
@@ -154,9 +154,9 @@
                                            @item{E depois que o jogador se mover? 
                                                  @itemlist[@item{Quais são as novas coordenadas x e y?}
                                                            @item{O que mudou e quanto mudou?}
-                                                           @item{O que acontece quando apretamos a tecla seta "para baixo"?}
+                                                           @item{O que acontece quando apertamos a tecla seta "para baixo"?}
                                                            @item{Quais devem ser as novas coordenadas?}
-                                                           @item{O que deve acontecer se o usuário pressionar @italic{alguma outra} tecla que não é seta "para cima" e seta "para baixo"?  }]}]}
+                                                           @item{O que deve acontecer se o usuário pressionar @italic{alguma outra} tecla que não é seta "para cima" ou seta "para baixo"?  }]}]}
                       }
               @teacher{Desenhe uma tela no quadro, e coloque coordenadas para o personagem, alvo e perigo. Circule todos os dados associados com o personagem Jogador.}
               }
@@ -171,7 +171,7 @@
                                     Na @worksheet-link[#:page 24 #:name "Design-Recipe-Update-Player"] de sua apostila, 
                                     você encontrará um problema para @code{atualizar-jogador}.}
                            (Se você não gostar de usar as setas de direção para fazer o jogador mover-se para cima e baixo, 
-                           você pode facilmente mudá-los para trabalhar com "w" e "x"!)
+                           você pode facilmente mudá-los para trabalhar com "w" e "s"!)
                            }
                @teacher{Certifique-se de verificar os EXAMPLEs e Assinaturas dos alunos durante esse exercício, especialmente quando for hora 
                         de circular e nomear o que é variável entre os exemplos. Este é um passo fundamental na Receita de Projeto onde eles 
@@ -217,9 +217,9 @@
                                 O que ainda está faltando? Nada acontece quando o jogador se encontra com o alvo e o perigo também! 
                                 Nós vamos corrigir isso nas próximas lições, e trabalhar na arte e história de nossos games, 
                                 então fique ligado!}
-                        @teacher{@management{@itemlist[@item{Peça a alunos voluntário o que eles aprendeream nessa lição}
-                                                       @item{Comportamentos que você valoriza: trabalho em equipe, tomar notas, engajamento, etc}
-                                                       @item{Pass out exit slips, dismiss, clean up.}]}}
+                        @teacher{@management{@itemlist[@item{Peça aos alunos o que eles aprenderam nesta lição}
+                                                       @item{Comportamentos que você valoriza: trabalho em equipe, fazendo anotações, engajamento, etc}
+                                                       @item{Dê os recados de saída, despense-os e coloque o local em ordem.}]}}
                         }
                         ]}
 }
