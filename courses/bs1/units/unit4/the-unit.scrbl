@@ -1,12 +1,12 @@
 #lang curr/lib
 @declare-tags[management]
 
-@title{Unit 4: A Receita de Projeto}
+@title{Unidade 4: A Receita de Projeto}
 
 @unit-overview/auto[#:lang-table (list (list "Número" @code{+ - * / sq sqrt expt})
                                        (list "String" @code{string-append string-length})
                                        (list "Figura"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
-@unit-descr{Alunos continuam a praticar a Design Recipe aplicando-a em problemas simples.}
+@unit-descr{Alunos continuam a praticar a Receita de Projeto aplicando-a em problemas simples.}
  }
 @unit-lessons{
 @lesson/studteach[
@@ -14,29 +14,29 @@
      #:duration "25 minutos"
      #:overview "Os alunos são formalmente apresentados aos passos da Design Recipe."
      #:learning-objectives @itemlist[@item{Os alunos praticam usando Assinaturas para criar exemplos de funções}
-                                     @item{Students learn to abstract over examples to create functions}]
-     #:evidence-statements @itemlist[@item{Given a definition, students will be able to identify the Name, Type and Value that is defined.}
-                                     @item{Given a contract and purpose statement for a simple, one-variable function, students will be able to write two Examples}
-                                      @item{Given two examples for a simple function, students will be able to identify the variable}
-                                      @item{Given two examples for a simple function, students will be able to write the definition}]
+                                     @item{Os alunos aprendem a abstrair de exemplos para criar funções}]
+     #:evidence-statements @itemlist[@item{Dada uma definição, os alunos serão capazes de identificar o Nome, Tipo e Valor dos que está sendo definido}
+                                     @item{Dados uma assinatura e declaração de propósito, e uma função com uma variável, os alunos serão capazes de escrever dois Exemplos}
+                                      @item{Dados dois exemplos de uma função simples, os alunos serão capazes de identificar a variável}
+                                      @item{Dados dois exemplos de uma função simples, os alunos serão capazes de escrever a definição}]
      #:product-outcomes @itemlist[@item{Estudantes usarão a Receita de Projeto para definir uma função, que será usada para fazer o foguete voar.}]
      #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "BS-DR.1" "BS-DR.2" "BS-DR.3" "8.F.1-3")
-     #:materials @itemlist[@item{Caneta/lápis para os alunos, giz fresquinho para professores}
-                            @item{***Class poster (List of rules, language table, course calendar)}
-                            @item{***Language Table (see below)}
+     #:materials @itemlist[@item{Lápis/canetas aos alunos, e giz/marcadores de quadro branco aos professores}
+                            @item{Cartazes da turma (Lista de regras, conhecimentos básicos, calendário do curso)}
+                            @item{Tabela da Linguagem(veja abaixo)}
                             @item{@resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "Apostila"] com nome na capa, e algo para escrever}]
      #:preparation @itemlist[@item{Escreva o plano da aula no quadro}
-                              @item{Mostre Cartazes da Classe, Language Table, Receita de Projeto}
+                              @item{Mostre Cartazes da Classe, Tabela da Linguagem, Receita de Projeto}
                               @item{"Rocket" [Rocket.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=Ch6uiaeAwi" "WeScheme")] précarregado na máquina dos alunos}
-                              @item{Arranjos de assento: idealmente formando grupos}
-                              @item{OPCIONAL: Entregue @(hyperlink "https://docs.google.com/document/d/134VD2NShK_VxDog4VG4lMm4jTbpxm2H2cSXqZbHwwSg/edit?usp=sharing" "atividade de Aquecimento").}]
+                              @item{Arranjos de assento: preferencialmente formando grupos}
+                              @item{OPCIONAL: Entregue @(hyperlink "https://docs.google.com/document/d/1_HTKofE8atWDfjdJoOrgJ_cYkBQ_mWKuG4S5wMqr5Ls/edit?usp=sharing" "atividade de Aquecimento").}]
      #:prerequisites (list "Defining Functions")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
-                @pacing[#:type "misconception"]{@itemlist[@item{Watch out for students confusing the rocket's height and time - many students will assume that the @code{rocket-height} function produces the time the rocket has been flying, rather than how high it is.}]}
-                @pacing[#:type "challenge"]{@itemlist[@item{Can students make the rocket fly faster?}
-                                                       @item{Can students make the rocket sink, instead of fly?}
-                                                       @item{Can students make the rocket fly faster over time?}]}
+                @pacing[#:type "misconception"]{@itemlist[@item{Preste atenção se os alunos confundem a altura do foguete com o tempo - muitos alunos assumirão que a função @code{altura-foguete} produz o tempo que o foguete esteve voando, ao invés de quão alto ele está.}]}
+                @pacing[#:type "challenge"]{@itemlist[@item{Os alunos podem fazer o foguete voar mais rápido?}
+                                                       @item{Os alunos podem fazer o foguete aterrissar, ao invés de voar?}
+                                                       @item{Os alunos podem fazer o foguete voar mais rápido com o passar do tempo?}]}
                 )
       ]{
         @points[ @point{@student{Funções são um ponto chave na animação de programas de computador. Uma função que desenha uma figura estática de um gato,
@@ -58,21 +58,21 @@
                          @bannerline{O foguete decola, viajando 7 metros por segundo. Escreva uma função chamada @code{altura-foguete} que recebe 
                      o número de segundos que se passaram desde que ele decolou, e que produza a altura que o foguete está no momento.}
                          @activity[#:forevidence (list "BS-M&1&1" "BS-DR.1&1&1" "F-IF.1-3&1&1" "F-IF.4-6&1&1")]{
-                                    @itemlist[@item{O que a fução @code{altura-foguete} recebe como entrada? Essa entrada é de qual tipo de dado?}
+                                    @itemlist[@item{O que a função @code{altura-foguete} recebe como entrada? Essa entrada é de qual tipo de dado?}
                                               @item{O que a função produz como saída? De que tipo de dados ela é?}
                                               @item{Quais são as três partes da @vocab{Assinatura}?}
                                               @item{Qual o @vocab{Nome} da função que você está sendo convidado a definir?}
                                               @item{Qual o @vocab{Domínio} da função?}
                                               @item{Qual a @vocab{Imagem} da função?}]}}
-                         @teacher{Verifique a compreensão do aluno com cuidado, para garantir que os alunos leiam cuidadosamente o problema. Pode ser útil desenhar um diagrama ou tablea para mostrar a mudança de posição do foguete na placa, e que os alunos andem verbalmente através de alguns exemplos.}
+                         @teacher{Verifique a compreensão do aluno com cuidado, para garantir que os alunos leiam cuidadosamente o problema. Pode ser útil desenhar um diagrama ou tabela para mostrar a mudança de posição do foguete na placa, e que os alunos percorram verbalmente através de alguns exemplos.}
                          }
-                 @point{@student{A Assinatura é uma forma de pensar sobre a função de um modo geral, sem ter que se preocupar como exatamente ela vai funcionar ou como ela será usada. Começando com uma simples questão como essa, os próximos passos ficam mais fáceis de se pensar. Contudo, a Assinatura nem sempre tem informção suficiente! O Domínio de @code{star}, por exemplo, especifica que a função recebe como entrada um Número e duas Strings, mas não menciona que a primeira String deve ser @code{"solid"} ou @code{"outline"}. Para adicionar essa informação, programadores escrevem @vocab{Declarações de Propósito}, que são frases simples que explicam o que a função faz.
+                 @point{@student{A Assinatura é uma forma de pensar sobre a função de um modo geral, sem ter que se preocupar como exatamente ela vai funcionar ou como ela será usada. Começando com uma simples questão como essa, os próximos passos ficam mais fáceis de se pensar. Contudo, a Assinatura nem sempre tem informação suficiente! O Domínio de @code{star}, por exemplo, especifica que a função recebe como entrada um Número e duas Strings, mas não menciona que a primeira String deve ser @code{"solid"} ou @code{"outline"}. Para adicionar essa informação, programadores escrevem @vocab{Declarações de Propósito}, que são frases simples que explicam o que a função faz.
                                  @activity[#:forevidence (list "BS-DR.1&1&2" "F-IF.1-3&1&5")]{Abaixo da Assinatura, copie a seguinte Declaração de Propósito para @code{altura-foguete}.}
                                  @code[#:multi-line #t]{; altura-foguete : Numero -> Numero
                                                         ; multiplica o número de segundos por 7 para encontrar a altura}}
-                         @teacher{Essa é uma oportunidade de falar da importância da escrita, clareza e concisão. Wual informação é essencial para a declaração de propósito? Qual informação não é tão importante? Uma boa declaração de propósito nos diz o que é computado e como a entrada é usada; ela deve ir além da informação dada na assinatura e implícita no nome da função.}
+                         @teacher{Essa é uma oportunidade de falar da importância da escrita, clareza e concisão. Qual informação é essencial para a declaração de propósito? Qual informação não é tão importante? Uma boa declaração de propósito nos diz o que é computado e como a entrada é usada; ela deve ir além da informação dada na assinatura e implícita no nome da função.}
                          }
-                 @point{@student{Em posse da Assinatura e da Declaração de Propósito, torna-se fácil escrever um @code{EXEMPLO}. Todo exemplo começa com o nome da função e uma entrada de exemplo, ambos escritos na Assinatura. Neste caso, você sabe que a função é chamada de @code{altura-foguete} e ela espera receber apenas um número como entrada. A Declaração de Propósito vai além, dizendo a você que a entrada é multiplicada por 7. Podemos usar isso para escrever exemplos, com diferentes números de segundos como Entrada.
+                 @point{@student{Em posse da Assinatura e da Declaração de Propósito, torna-se fácil escrever um @code{EXAMPLE}. Todo exemplo começa com o nome da função e uma entrada de exemplo, ambos escritos na Assinatura. Neste caso, você sabe que a função é chamada de @code{altura-foguete} e ela espera receber apenas um número como entrada. A Declaração de Propósito vai além, dizendo a você que a entrada é multiplicada por 7. Podemos usar isso para escrever exemplos, com diferentes números de segundos como Entrada.
                                 @code[#:multi-line #t]{; altura-foguete : Numero -> Numero
                                                        ; multiplica o número de segundos por 7 para encontrar a altura
                                                        (EXAMPLE (altura-foguete 11) 
@@ -97,7 +97,7 @@
                                                        (define (altura-foguete segundos)
                                                                 (* segundos 7))}
                                   }
-                         @teacher{Como nos Exemplos, peça que os alunos justifiquem cada parte da difinição. Neste caso, o nome da função pode ser conseguido na Assinatura, e nome da variável e corpo da função podem vir dos Exemplos.}}
+                         @teacher{Como nos Exemplos, peça que os alunos justifiquem cada parte da definição. Neste caso, o nome da função pode ser conseguido na Assinatura, e nome da variável e corpo da função podem vir dos Exemplos.}}
                  @point{@student{A Receita de Projeto permite que programadores se concentrem em um passo do problema de cada vez, e usar as estapas anteriores para ajudar a completar o próximo passo.
                                  @activity{@itemlist[@item{O que a @vocab{Assinatura} diz ao programador sobre a função?}
                                                       @item{O que a @vocab{Declaração de Propósito} diz ao programador sobre a função?}
@@ -141,20 +141,20 @@
      #:duration "40 minutos"
      #:overview "Alunos usam a Receita de Projeto para definir simples funções (de uma ou duas variáveis), dando vários problemas para resolver"
      #:learning-objectives @itemlist[]
-     #:evidence-statements @itemlist[@item{Given a contract and purpose statement for a simple function, students will be able to write two Examples.}
-                                      @item{Given two examples for a simple function, students will be able to identify the variable}
-                                      @item{Given two examples for a simple function, students will be able to write the definition}]
+     #:evidence-statements @itemlist[@item{Dados uma assinatura e declaração de propósito de uma função simples, os alunos serão capazes de escrever dois Exemplos.}
+                                      @item{Dados dois exemplos de uma função simples, os alunos serão capazes de identificar a variável}
+                                      @item{Dados dois exemplos de uma função simples, os alunos serão capazes de escrever a definição}]
      #:product-outcomes @itemlist[@item{Os alunos escreverão funções para resolver problemas simples usando a Receita de Projeto}]
      #:exercises (list (make-exercise-locator "Practicing-the-Design-Recipe" "examples-same-contracts1")
                        (make-exercise-locator "Practicing-the-Design-Recipe" "match-contracts-examples1"))
      #:standards (list "A-SSE.1-2" "F-IF.1-3" "F-IF.4-6" "BS-DR.1" "BS-DR.2" "BS-DR.3")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table}
-                            @item{Student @resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "workbook"] folders with names on covers, and something to write with}]
-     #:preparation @itemlist[@item{Write agenda on board}
-                              @item{Display Class posters, Language Table, Design Recipe}
-                              @item{Seating arrangements: ideally clusters of desks/tables}]
+     #:materials @itemlist[@item{Lápis/canetas aos alunos, e giz/marcadores de quadro branco aos professores}
+                            @item{Mostre Cartazes da Classe, Tabela da Linguagem, Receita de Projeto}
+                            @item{Tabela da Linguagem}
+                            @item{@resource-link[#:path "workbook/StudentWorkbook.pdf" #:label "Apostila"] com nome na capa, e algo para escrever}]
+     #:preparation @itemlist[@item{Escreva a data no quadro}
+                              @item{Mostre Cartazes da Classe, Tabela da Linguagem, Receita de Projeto}
+                              @item{Arranjos de assento: preferencialmente formando grupos}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{This is the first time they've seen abstraction over image functions, and students are likely to think that @code{red-square} needs to take in other arguments, such as "solid" and "red".}]}
@@ -163,7 +163,7 @@
                                                        @item{}]}
                 )
       ]{
-        @points[@point{@student{A Receita de Projeto é um guia para definir funções, na qual programadores usam para ter certeza que o código que eles escrevem fará aquilo que eles querem. Cada passo deve ser o mais simples possível, dessa maneira erros podem ser detectados no inicio da atividade. Esse guia tem uma série de passos:
+        @points[@point{@student{A Receita de Projeto é um guia para definir funções, na qual programadores usam para ter certeza que o código que eles escrevem fará aquilo que eles querem. Cada passo deve ser o mais simples possível, dessa maneira erros podem ser detectados no início da atividade. Esse guia tem uma série de passos:
                                 @itemlist[@item{Transformar um problema descrito para uma Assinatura}
                                            @item{Escrever Exemplos baseados na Assinatura}
                                            @item{Definir uma função que combine com os exemplos}]
@@ -180,7 +180,7 @@
                  @point{@student{A Assinatura é a base para uma função, que dá ao programador informação suficiente para usá-las: o nome da função, os tipos de dados que espera receber e o tipo de dado que ela retorna.
                                  @activity[#:forevidence (list "BS-DR.2&1&1" "8.F.1-3&1&3" "F-IF.1-3&1&4")]{
                                           Agora que você completou as Assinaturas de todos os quatro problemas, tente criar dois Exemplos para cada um deles.}}
-                         @teacher{Desafie seus alunos a defender seus Exemplos(Nome da função, número de entradas, seus tipos e o valor de retorno). Esteja certo de que os dois Exemplos tenham @italic{diferentes valores de entrada}! Para cada uma dessas perguntas, os alunos devem ser capazes de apontar para a parte específica de dua Assinatura como justificativa de seu Exemplo.}}
+                         @teacher{Desafie seus alunos a defender seus Exemplos(Nome da função, número de entradas, seus tipos e o valor de retorno). Esteja certo de que os dois Exemplos tenham @italic{diferentes valores de entrada}! Para cada uma dessas perguntas, os alunos devem ser capazes de apontar para a parte específica de sua Assinatura como justificativa de seu Exemplo.}}
                  @point{@student{Uma vez que você tenha dois Exemplos ou mais, deve ser fácil identificar o que muda entre eles. Na verdade, o número de itens que mudam deve ser o número de itens do Domínio: se o Domínio tem um Número e uma String, então esses dois valores deve ser o que muda entre seus Exemplos.
                                  @activity[#:forevidence (list "BS-DR.2&1&3" "BS-DR.2&1&3" "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4")]{
 Identifique o que muda entre seus Exemplos do mesmo desafio, e use essas informações para definir suas quatro funções.}}
@@ -215,7 +215,7 @@ Identifique o que muda entre seus Exemplos do mesmo desafio, e use essas informa
                  @point{@student{Ao digitar a definição de função, certifique-se de digitar as três partes: A Assinatura e a Declaração de Propósito,
                                  os Exemplos e a Definição. Quando "Run" for clicado, o computador irá ler a definição, testar seus
                                  Exemplos para ter certeza de que funcionam corretamente, e então irá adicionar a definição da função na
-                                 linguagem dele. Uma vez adicionado, ***você pode usar essa função como se fosse construída no seu computador.
+                                 linguagem dele. Uma vez adicionado, você pode usar essa função como se fosse construída no seu computador.
                                  @activity[#:forevidence (list "BS-IDE&1&1")]{
                                              @editor-link[#:definitions-text "; quadrado-vermelho : Numero -> Figura
 ; desenha um quadrado sólido de cor vermelha, usando o tamanho dado
@@ -251,7 +251,7 @@ Identifique o que muda entre seus Exemplos do mesmo desafio, e use essas informa
          }
          
 @lesson/studteach[
-     #:title "A Receita de Projeto (Algebra)"
+     #:title "A Receita de Projeto (Álgebra)"
      #:duration "40 minutos"
      #:overview ""
      #:learning-objectives @itemlist[]
@@ -281,16 +281,16 @@ Identifique o que muda entre seus Exemplos do mesmo desafio, e use essas informa
                                 dá-nos a Assinatura:
                                  @bannerline{@math{distancia : Numero \rightarrow Numero}}
                                  Assim como antes, a Assinatura nos dá uma forte dica de como escrever Exemplos. Aqui está um Exemplo, escrito em
-                                 Racket:  @code{(EXEMPLE (distancia 5) (* 5 80))}  E aqui o mesmo exemplo, escrito em algebra:
+                                 Racket:  @code{(EXEMPLE (distancia 5) (* 5 80))}  E aqui o mesmo exemplo, escrito em álgebra:
                                  @math{distancia(5) = 5 \times 80}
                                  @activity[#:forevidence (list "F-IF.1-3&1&2" "F-IF.1-3&1&4" "F-IF.1-3&1&5" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.2&1&1")]{
                                      Escreva mais dois Exemplos, usando notação Algébrica.}
                                  }
-                         @teacher{Destaque que a Assinatura @italic{não mudou em nada} entre Racket e Algebra. 
+                         @teacher{Destaque que a Assinatura @italic{não mudou em nada} entre Racket e Álgebra. 
                                   @management{Se os alunos estão lutando com a mudança de sintaxe, deixe-os primeiro escrever os Exemplos em racket, e 
-                                              então converta-os em Algebra seguindo o modelo mostrado aqui.}}
+                                              então converta-os em Álgebra seguindo o modelo mostrado aqui.}}
                          }
-                 @point{@student{Assim como antes, as variáveis da função podem ser identificadas escrevendo dois Exemplos, e olhando p que muda entre eles.
+                 @point{@student{Assim como antes, as variáveis da função podem ser identificadas escrevendo dois Exemplos, e olhando o que muda entre eles.
                                  @activity[#:forevidence (list "A-SSE.1-2&1&1" "A-SSE.1-2&1&2" "7.EE.3-4&1&4" "BS-DR.2&1&3" "BS-DR.3&1&1")]{
                                            Usando os Exemplos que você escreveu, identifique as variável(eis) da função.
                                            Então defina a função @italic{usando o estilo Algébrico}.}
@@ -319,7 +319,7 @@ Identifique o que muda entre seus Exemplos do mesmo desafio, e use essas informa
                     @teacher{}
                     }
             @point{@student{Uma vez definida sua função, é fácil inserir valores e receber os resultados de volta. @italic{Como na maioria dos problemas, a parte mais difícil é a definição da função.} Felizmente, a Receita de Projeto torna essa configuração muito mais fácil! Nós acabamos de usá-la para configurar duas funções diferentes, que podem ser usadas para nos dar respostas em termos de distância e tempo. Definição de funções é como construir ferramentas, que podem ser usadas para resolver problemas simples ou combinadas juntas para resolver os mais complexos.
-                    @activity{Suponha que você queira saber quanto o foguete viajou em 6 segundos: qual das duas funções você usaria? E se você quizer saber quanto tempo demora para o foguete viajar mil quilômetros?}}
+                    @activity{Suponha que você queira saber quanto o foguete viajou em 6 segundos: qual das duas funções você usaria? E se você quiser saber quanto tempo demora para o foguete viajar mil quilômetros?}}
             @teacher{Peça aos alunos a identificar qual função eles usariam para responder uma variedade de diferentes questões.}
             }
             @point{@student{@activity{Vá para @worksheet-link[#:page 38 #:name "Math-Rocket-Collision"] em sua apostila, e leia a questão atentamente: 
@@ -332,7 +332,7 @@ Identifique o que muda entre seus Exemplos do mesmo desafio, e use essas informa
                                                                @item{Caso essa função exista, qual seria um bom nome para ela?}]}}
                                    @teacher{Na última análise, o problema está pedindo aos alunos uma relação entre distância e tempo-de-colisão.}
                                    }
-                            @point{@student{Se tivéssemos uma função que calcula tempo-de-colisao, seria fácil responder essa pergunta apenas conectando a distância entre Terra e Marte. Ao invés de começar a se preocupar com a criação de uma equação, vocẽ pode usar a Receita de Projeto para construir a sua própria função!
+                            @point{@student{Se tivéssemos uma função que calcula tempo-de-colisao, seria fácil responder essa pergunta apenas conectando a distância entre Terra e Marte. Ao invés de começar a se preocupar com a criação de uma equação, você pode usar a Receita de Projeto para construir a sua própria função!
                                             @activity[#:forevidence (list "F-IF.1-3&1&1" "F-IF.4-6&1&3" "A-SSE.1-2&1&1" "BS-DR.2&1&1")]{
                                                    Escreva a assinatura para essa função, e então escreva dois Exemplos usando diferentes distâncias.}}
                                     @teacher{}
@@ -342,7 +342,7 @@ Identifique o que muda entre seus Exemplos do mesmo desafio, e use essas informa
                                                          @math{colisao(0) = ...}}}
                                     @teacher{}
                                     }
-                             @point{@student{Então agora precisamos descobrir que cálculos vão depois do sinal de igual. Felizmente nós temos uma dica: Nós sabemos que qualquer que seja a entrada, a distancia se reduzirá à zero, então quando chegarem a esta distância eles irão colidir.
+                             @point{@student{Então agora precisamos descobrir que cálculos vão depois do sinal de igual. Felizmente nós temos uma dica: Nós sabemos que qualquer que seja a entrada, a distância se reduzirá à zero, então quando chegarem a esta distância eles irão colidir.
                                              @activity{Se o fuguete está a 80 quilômetros/segundo, e o asteróide a 70 quilômetros/segundo, @italic{quanto eles se aproximam a cada segundo?}}}
                                      @teacher{}
                                      }
@@ -353,7 +353,7 @@ Identifique o que muda entre seus Exemplos do mesmo desafio, e use essas informa
                                      }
                              @point{@student{Aqui você pode ja pode ter visto o quadro geral: a distância dada neste problema pode ser ligada a função sem ter que definir uma função para ela. Às vezes a Receita de Projeto te dá a resposta mesmo sem ter chegado ao fim! Outras vezes, você pode não ver o quadro geral até que tenha quebrado o problema em partes pequenas, cada uma com sua própria função.
                                              @activity{Abra sua apostila na @worksheet-link[#:page 39 #:name "Math-Blank-Recipe"], e pratique usando a Receita de Projeto para resolver outros problemas.}}
-                                     @teacher{Você pode adicionar quantas páginas quiser em sua apostila, usando qualquer questão de algebra que quiser. Nós recomendamos usar questões de algebra a partir do livro de algebra dos seus alunos, ou questões padronizadas, fique a vontade!}
+                                     @teacher{Você pode adicionar quantas páginas quiser em sua apostila, usando qualquer questão de álgebra que quiser. Nós recomendamos usar questões de álgebra a partir do livro de álgebra dos seus alunos, ou questões padronizadas, fique a vontade!}
                                      }]
          }
        
@@ -374,9 +374,9 @@ Identifique o que muda entre seus Exemplos do mesmo desafio, e use essas informa
                 )
       ]{
         @points[@point{@student{Nesta unidade, você começou a ver como funções podem ser úteis em construir animações: funções ajudam a produzir informação(como a altura de um foguete) que pode ser usada para criar cenas em um jogo. Com prática extra na escrita de funções e usando a Receita de Projeto, agora você está preparado para começar a escrever funções que irão mover os elemento dentro do seu próprio jogo.}
-                        @teacher{@management{@itemlist[@item{Peça que alunos digam voluntariamente o que aprenderam nesta lição}
-                                                        @item{Comportamentos de recompensa que você valoriza: trabalho em equipe, fazer anotações, engajamento, etc}
-                                                        @item{***Pass out exit slips, dismiss, clean up.}]}}
+                   @teacher{@management{@itemlist[@item{Peça aos alunos o que eles aprenderam nesta lição}
+                                                        @item{Comportamentos que você valoriza: trabalho em equipe, fazendo anotações, engajamento, etc}
+                                                        @item{Dê os recados de saída, despense-os e coloque o local em ordem.}]}}
                         }
                         ]}
 }
