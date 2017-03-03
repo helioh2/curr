@@ -18,10 +18,10 @@
      #:evidence-statements @itemlist[]
      #:product-outcomes @itemlist[]
      #:standards (list)
-     #:materials @itemlist[@item{Caneta/lápis para os alunos, giz fresquinho para professores}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1WvlflsKM28IOwgyV2HttnGxul3sAUnL0-KOZhvb6C2s/edit?usp=sharing" "Warmup activity sheet").}]
+     #:materials @itemlist[@item{Lápis/canetas aos alunos, e giz/marcadores de quadro branco aos professores}
+                            @item{Cartazes da turma (Lista de regras, conhecimentos básicos, calendário do curso)}
+                            @item{Tabela da Linguagem(veja abaixo)}]
+     #:preparation @itemlist[@item{OPCIONAL: Distribua a @(hyperlink "https://docs.google.com/document/d/1MUFoGYpftF5rzk0-Gp2eoE7ryvsCoIEtXyVuC4FltTI/edit?usp=sharing" "Atividade de Aquecimento").}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
@@ -38,17 +38,17 @@
 @lesson/studteach[
      #:title "Booleanos"
      #:duration "10 minutos"
-     #:overview "Students are introduced to a new type (Boolean), and practice using it with Circles of Evaluation, Contracts and Code."
-     #:learning-objectives @itemlist[@item{Students learn about Boolean values and functions that manipulate them}]
-     #:evidence-statements @itemlist[@item{Students will know the two Boolean values (true and false)}
-                                     @item{Students will write Circles of Evaluation for Boolean-producing functions}
-                                     @item{Students learn how to use arithmetic operators (like @code{<} and @code{>}) that produce Booleans}
+     #:overview "Alunos ão apresentados a um novo tipo (Booleano), e praticam os usando e mconjunto com Círculos de Avaliação, Assinaturas e Código."
+     #:learning-objectives @itemlist[@item{Alunos aprendem sobre valores Booleanos e funções que os manipulam}]
+     #:evidence-statements @itemlist[@item{Alunos vão conhecer sobre os dois valores Booleanos(true/verdadeiro e false/falso)}
+                                     @item{Alunos escreverão Círculos de Avaliação para funções que produzem o tipo Booleano}
+                                     @item{Alunos aprendem como usar operadores aritméticos (como @code{<} e @code{>}) que produzem Booleanos}
                                     ]
      #:product-outcomes @itemlist[]
      #:standards (list "7.EE.3-4" "BS-IDE" "BS-PL.1" "BS-PL.2")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}]
+     #:materials @itemlist[@item{Lápis/canetas aos alunos, e giz/marcadores de quadro branco aos professores}
+                            @item{Cartazes da turma (Lista de regras, conhecimentos básicos, calendário do curso)}
+                            @item{Tabela da Linguagem(veja abaixo)}]
      #:preparation @itemlist[]
      #:prerequisites (list "Intro to Programming" "Contracts")
      #:pacings (list 
@@ -66,23 +66,23 @@
                         }
                  @point{@student{A última expressão, @code{(< 3 4)},
 usa uma nova função que @italic{compara Números}, retornando
-@code{verdadeiro} se 3 é menor do que 4. O que você acha que a expressão retornaria se os números forem trocados de lugar?
+@code{verdadeiro} se 3 for menor do que 4. O que você acha que a expressão retornaria se os números forem trocados de lugar?
                                  @activity[#:forevidence (list "BS-IDE&1&1")]{
                                         A função @code{<} testa se o primeiro número é menor que o outro. Você pode pensar em alguns outros testes? 
-                                                 Experimente-os na Janela de Iterações.}
+                                                 Experimente-os na Janela de Interações.}
                          Funções como @code{<}, @code{>} e @code{=} sempre recebem dois números em seu Domínio, e produzem um valor especial chamado 
                          de @vocab{Booleano} como sua Imagem. Booleanos são respostas para perguntas do tipo sim/não, e funções Booleanas são usadas para realizar testes.
                          Em um videogame, você pode testar se um jogador tem caminhado sobre uma parede, ou se sua vida é igual à zero. Uma máquina em um consultório médico 
                          pode usar Booleanos para testar se a frequência cardíaca de um paciente está acima ou abaixo de determinado nível.
                                                 @bannerline{Valores Booleanos podem ser apenas @code{verdadeiro} ou @code{falso}.}
-                                                @activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&1")]{Tente digitar um Número na Janela de Iterações e aperte Enter. O que você espera receber de volta? E quanto a uma String? Agora tente um Booleano, como @code{false}. Assim como todos estes valores, Booleanos retornam eles mesmos. Círculos de Avaliação podem serem usados com Booleanos: tente converter cada uma das expressões em Círculo de Avaliação, e então converta os Círculos em código:
+                                                @activity[#:forevidence (list "BS-IDE&1&1" "BS-PL.1&1&1")]{Tente digitar um Número na Janela de Interações e aperte Enter. O que você espera receber de volta? E quanto a uma String? Agora tente um Booleano, como @code{false}. Assim como todos estes valores, Booleanos retornam eles mesmos. Círculos de Avaliação podem serem usados com Booleanos: tente converter cada uma das expressões em Círculo de Avaliação, e então converta os Círculos em código:
                                    @itemlist[@item{@math{10 = 16.1}}
                                          @item{@math{-13 \gt 5}}
                                          @item{@math{40-1 \lt 90*2}}
                                          @item{@math{0 = -5 + 10}}]}}
                         @teacher{Dê aos alunos muita prática aqui! Você pode ver um video de demonstração de Introdução em @(video-link (hyperlink "http://www.youtube.com/watch?v=X7gAXxpBhUo" "Video Aula: Intro to Booleans/Introdução a Booleanos"))}
                         }
-                 @point{@student{Existem muitas outras funções que produzem Booleanos. Aqui está uma que pode ser usada para comparar duas @vocab{Strings}: @code[#:multi-line #t]{(string=? "apples" "oranges")}
+                 @point{@student{Existem muitas outras funções que produzem Booleanos. Aqui está uma que pode ser usada para comparar duas @vocab{Strings}: @code[#:multi-line #t]{(string=? "bananas" "laranjas")}
                                  @activity[#:forevidence (list "BS-PL.2&1&1" "BS-PL.2&1&3")]{Certifique-se de escrever a @vocab{Assinatura} completa destas quatro funções Booleanas.}}
                          @teacher{Certifique-se de que os alunos estão confortáveis usando Booleanos para comparar subexpressões mais complexas, em vez de apenas comparar dois Números.}
                          }
@@ -92,19 +92,19 @@ usa uma nova função que @italic{compara Números}, retornando
      #:title "esta-na-tela? 1.0"
      #:duration "25 minutos"
      #:overview "Alunos usam a Receita de Projeto para escrever uma simples função que produz Booleanos"
-     #:learning-objectives @itemlist[@item{Students use Booleans to determine whether a game element is partly visible onscreen}
-                                     @item{Students write functions that use other functions they have written to compute answers}
+     #:learning-objectives @itemlist[@item{Alunos usam Booleanos para determinar quando um elemento do jogo está parcialmente visível na tela}
+                                     @item{Alunos escrevem funções que usam outras funções já feitas anteriormente para calcular as respostas}
                                     ]
-     #:evidence-statements @itemlist[@item{Students can write functions that consume a single-axis coordinate and determine whether it is within the boundary of a fixed screen size}
-                                     @item{Students can use one function they have written to compute the answer for another function}
+     #:evidence-statements @itemlist[@item{Alunos podem escrever funções que consomem uma única coordenada de eixo e determinar se ela está dentro do limite de um tamanho fixo na tela}
+                                     @item{Alunos podem usar uma função que já escreveram anteriormente para calcular a resposta para outra função}
 ]
      #:product-outcomes @itemlist[]
      #:standards (list "BS-DR.2" "BS-DR.3" "F-IF.1-3" "F-IF.4-6" "7.EE.3-4" "8.F.1-3")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}]
-     #:preparation @itemlist[@item{"Cage" [Cage.rkt from @(resource-link #:path "source-files.zip" #:label "source-files.zip") | @(hyperlink "http://www.wescheme.org/openEditor?publicId=bM6VNiLdkv" "WeScheme")] preloaded on student machines.}]
+     #:materials @itemlist[@item{Lápis/canetas aos alunos, e giz/marcadores de quadro branco aos professores}
+                            @item{@(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "Apostila do aluno")}
+                            @item{Cartazes da turma (Lista de regras, conhecimentos básicos, calendário do curso)}
+                            @item{Tabela da Linguagem(veja abaixo)}]
+     #:preparation @itemlist[@item{"Gaiola" [Cage.rkt from @(resource-link #:path "source-files.zip" #:label "source-files.zip") | @(hyperlink "http://www.wescheme.org/openEditor?publicId=kXgsH8Hd7f" "WeScheme")] pré-carregado nas máquinas dos alunos.}]
      #:prerequisites (list "Booleans" "The Design Recipe")
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -112,18 +112,18 @@ usa uma nova função que @italic{compara Números}, retornando
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Abra o programa "Gaiola"(Gaiola.rkt de @(resource-link #:path "source-files.zip" #:label "source-files.zip") ou no @editor-link[#:public-id "bM6VNiLdkv" "WeScheme"]) em seu computador,
+        @points[@point{@student{Abra o programa "Gaiola"(Gaiola.rkt de @(resource-link #:path "source-files.zip" #:label "source-files.zip") ou no @editor-link[#:public-id "kXgsH8Hd7f" "WeScheme"]) em seu computador,
                                                                        e clique "Run". A tela que aparece contém uma borboleta, que você pode mover usando as setas do seu teclado. O nome da borboleta é Sam, e a tela em que ela está é seu quintal. Assim como a tela de um videogame, este quintal tem 640 pixels de largura e 480 de altura! Como você pode ver, Sam é livre para andar livre pelo quintal, e suas coordenadas aparecem no topo da tela nos dizem sua localização.}
                         @teacher{Esta pode ser uma boa oportunidade para rever coordenadas, para estudantes que precisam praticar.}
                         }
                  @point{@student{@bitmap{images/buffer.png}A mãe de Sam disse que ela pode sair do quintal, mas por uma curta distância! Especificamente, ela quer ter certeza de que sempre pode vê-la, ao menos uma parte dela. Sam está segura @italic{desde que alguma parte dela esteja na tela}. Isso significa que ela pode ir um pouco além do zero pela esquerda, ou passar um pouco de 640 pela direita - mas quão longe ela @italic{pode} ir?
-                                @activity[#:forevidence (list "7.EE.3-4&1&5" "A-CED.1-4&1&1")]{Vá para @worksheet-link[#:page 17 #:name "Protecting-Sam"], e leia a metado superior da página. Usando as setas de direção, veja quanto Sam pode ir para a esquerda @italic{ainda aparecendo na tela}. Você encontrará que Sam está na tela enquanto sua coordenada-x for @italic{maior que} -50, que é exatamente o código que está preenchido no primeiro problema da página.
+                                @activity[#:forevidence (list "7.EE.3-4&1&5" "A-CED.1-4&1&1")]{Vá para @worksheet-link[#:page 17 #:name "Protecting-Sam"], e leia a metade superior da página. Usando as setas de direção, veja quanto Sam pode ir para a esquerda @italic{ainda aparecendo na tela}. Você encontrará que Sam está na tela enquanto sua coordenada-x for @italic{maior que} -50, que é exatamente o código que está preenchido no primeiro problema da página.
                                                   @itemlist[@item{Descubra o quão longe Sam pode ir pela direita ainda aparecendo na tela.}
                                                              @item{Preencha o código do segundo problema.}
                                                              @item{Converta as duas expressões em Círculos de Avaliação, usando os círculos vazios na parte de baixo da página.}]}}
                          @teacher{Preste muita atenção nos casos de canto: Sam aparece na tela em 690? E em 680?}
                          }
-                 @point{@student{Infelizmente, até agora não existe nada que impeça que Sam saia do quintal! Olhando para o código encontramos três definições de funções:
+                 @point{@student{Infelizmente, até agora não existe nada que impeça a Sam de sair do quintal! Olhando para o código encontramos três definições de funções:
                                   @itemlist[@item{@code{esquerda-salvo?}, que recebe a coordenada-x de Sam e verifica se Sam está segura do lado esquerdo da tela. Neste momento a função sempre retornará @code{true}.}
                                              @item{@code{direita-salvo?}, recebe a coordenada-x de Sam e verifica se Sam está segura do lado direito da tela. Neste momento a função sempre retornará @code{true}.}
                                              @item{@code{esta-na-tela?}, recebe a coordenada-x de Sam e verifica se pelo menos uma parte dela está visível na tela. Neste momento, essa função somente @italic{pergunta para @code{esquerda-salvo?} se a coordenada-x recebida é segura.}}]
@@ -141,7 +141,7 @@ usa uma nova função que @italic{compara Números}, retornando
                                                  esta função, de modo a função @code{esquerda-salvo} receba a coordenada-x de Sam e retorne @code{true} ou @code{false}
                                                  dependendo se ela for @italic{maior que -50}.}
                                            Depois de ter digitado Exemplos e a definição para @code{esquerda-salvo?}, clique em "Run" e veja se Sam está impedida
-                                           de voar para fora do lado esquerdo da tela. Certifique-se de testar sua função na Janela de iterações, por exemplo:
+                                           de voar para fora do lado esquerdo da tela. Certifique-se de testar sua função na Janela de interações, por exemplo:
                                   @code[#:multi-line #t]{(esquerda-salvo? 50)
                                                          (esquerda-salvo? -100)
                                                          (esquerda-salvo? 50)
@@ -161,10 +161,10 @@ usa uma nova função que @italic{compara Números}, retornando
                                   }
                          @teacher{Depois de passear por @code{direita-salvo?} seção por seção, os alunos devem ser capazes de completar esta atividade por conta própria. 
                                   Se eles estão se dando bem com a programação, você pode discutir se comparar a coordenada-x com @code{690} ou com 
-                                  @code{(+ 640 50); ambos produzem o mesmo resultado, mas o segundo revela ce onde o 690 vem(comprimento da tela mais 50).}
+                                  @code{(+ 640 50), ambos produzem o mesmo resultado, mas o segundo revela onde o 690 vem(comprimento da tela mais 50).}
                                   }
                          }
-                 @point{@student{Depois de ter digitado Exemplos e a definição para @code{direita-salvo?}, clique "Run" e veja se Sam está impedida de voar para fora do lado direito. Você pode se surpreender com o que acontece! Tese sua função na Janela de Iterações:
+                 @point{@student{Depois de ter digitado Exemplos e a definição para @code{direita-salvo?}, clique "Run" e veja se Sam está impedida de voar para fora do lado direito. Você pode se surpreender com o que acontece! Tese sua função na Janela de Interações:
                                   @code[#:multi-line #t]{(direita-salvo? 50)
                                                          (direita-salvo? 810)
                                                          (esta-na-tela? 50)
@@ -190,9 +190,9 @@ usa uma nova função que @italic{compara Números}, retornando
      #:product-outcomes @itemlist[]
      #:exercises (list (make-exercise-locator "AndOr" "boolean-coe-to-code1"))
      #:standards (list)
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}]
+     #:materials @itemlist[@item{Lápis/canetas aos alunos, e giz/marcadores de quadro branco aos professores}
+                            @item{Cartazes da turma (Lista de regras, conhecimentos básicos, calendário do curso)}
+                            @item{Tabela da Linguagem(veja abaixo)}]
      #:preparation @itemlist[]
      #:prerequisites (list "Booleans" "Contracts")
      #:pacings (list 
@@ -205,20 +205,20 @@ usa uma nova função que @italic{compara Números}, retornando
                                 @activity{Considere as seguintes afirmações - elas são verdadeiras ou falsas?:
                                            @itemlist[@item{Açucar é doce}
                                                       @item{Gelo é quente}
-                                                      @item{Açucar é doce @bold{e} Gelo é frio}
-                                                      @item{Açucar é doce @bold{e} Gelo é quente}
-                                                      @item{Açucar é doce @bold{ou} Gelo é frio}
-                                                      @item{Açucar é doce @bold{ou} Gelo é quente}]}
+                                                      @item{Açucar é doce @bold{and/e} Gelo é frio}
+                                                      @item{Açucar é doce @bold{and/e} Gelo é quente}
+                                                      @item{Açucar é doce @bold{or/ou} Gelo é frio}
+                                                      @item{Açucar é doce @bold{or/ou} Gelo é quente}]}
                                 }
                        @teacher{Desafiar os alunos em suas respostas aqui - pedir-lhes para explicar porque escolheram "verdadeiro" ou "falso" para as afirmações, especialmente se a estrutura for composta de uma mistura de verdadeiro e falso.}
                        }
                 @point{@student{@code{and} e @code{or} são duas novas funções.
                                  @bannerline{@code{and} retornará "true/verdadeiro" apenas se @italic{as duas entradas} são verdadeiras. @code{or} retornará "true/verdadeiro" se @italic{pelo menos uma} entrada for verdadeira.}
                                  @code[#:multi-line #t]{
-; and: Boolean Boolean -> Boolean
+; and: Booleano Booleano -> Booleano
 ; Retorna verdadeiro se AMBAS as entradas forem verdadeiras
                                       
-; or: Boolean Boolean -> Boolean  
+; or: Booleano Booleano -> Booleano  
 ; Retorna verdadeiro se PELO MENOS UMA entrada for verdadeira}
                                  @activity{Complete a @worksheet-link[#:page 20 #:name "AND-and-OR"] em sua apostila.}}
                         @teacher{}
@@ -232,17 +232,17 @@ usa uma nova função que @italic{compara Números}, retornando
      #:learning-objectives @itemlist[@item{Alunos serão capazes de compor resultados de funções Booleanas usando @code{and} e @code{or}}
                                      @item{Alunos entenderão como Booleanos e funções Booleanas são usadas para controlar o comportamento de elementos do jogo}
                                      @item{Alunos vão começar a apreciar do porque de programas serem compostos de várias funções menores}]
-     #:evidence-statements @itemlist[@item{Students will be able to write functions that combine screen-boundary tests using @code{and} and @code{or}}
-                                     @item{Students will understand why @code{and} is necessary to check for two boundaries}
-                                     @item{Students will be able to explain why re-using existing functions is better than reproducing their computations}
-                                     @item{Students will understand how they use Booleans and conditional to control how game elements behave at the screen boundaries}
+     #:evidence-statements @itemlist[@item{Alunos serão capazes de escrever funções que combinam testes de limite da tela usando @code{and} e @code{or}}
+                                     @item{Alunos compreenderão porque @code{and} é necessário para verificar dois limites}
+                                     @item{Alunos serão capazes de explicar porque re-usar funções existentes é melhor do que copiar seus cálculos}
+                                     @item{Alunos entenderão como usar Booleanos e condicionais para controlar o comportamento dos elementos do jogo dentro dos limites da tela}
 ]
      #:product-outcomes @itemlist[@item{Estudantes detectam quando elementos do jogo movem-se para fora da tela (então podem reaparecer no outro lado da tela)}]
      #:standards (list "A-CED.1-4" "F-IF.4-6" "A-SSE.1-2" "BS-DR.2")
-     #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Student @(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "workbook")}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}]
+     #:materials @itemlist[@item{Lápis/canetas aos alunos, e giz/marcadores de quadro branco aos professores}
+                            @item{@(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "Apostila do aluno")}
+                            @item{Cartazes da turma (Lista de regras, conhecimentos básicos, calendário do curso)}
+                            @item{Tabela da Linguagem(veja abaixo)}]
      #:preparation @itemlist[]
      #:prerequisites (list "onscreen? 1.0" "and/or")
      #:pacings (list 
@@ -268,7 +268,7 @@ usa uma nova função que @italic{compara Números}, retornando
                                 Tem diferença entre usar uma das duas?}
                        @teacher{}
                        }
-                @point{@student{Há mais em ser um escritor do que apenas ter uma boa ortografia e gramática. Há muito mais em ser um arquiteto ou um artista do que apenas construir uma ponte ou pintar uma tela. Todas essas atividades envolvem um elemento de @italic{design}. Da mesma forma, há mais em ser um programador do que apenas escrever código. Você se tornou bom em escreve código, e agora você é capaz de escrever programas sofisticados que incluem várias funções - parabéns! Mas isso também significa que você está pronto para considerar o que significa @italic{projetar} o código que você escreve.}
+                @point{@student{Há mais em ser um escritor do que apenas ter uma boa ortografia e gramática. Há muito mais em ser um arquiteto ou um artista do que apenas construir uma ponte ou pintar uma tela. Todas essas atividades envolvem um elemento de @italic{design}. Da mesma forma, há mais em ser um programador do que apenas escrever código. Você se tornou bom em escrever código, e agora você é capaz de escrever programas sofisticados que incluem várias funções - parabéns! Mas isso também significa que você está pronto para considerar o que significa @italic{projetar} o código que você escreve.}
                        @teacher{}
                        }
                 @point{@student{Suponha que você acabou de construir um carro, mas ele não está funcionando direito. O que deve ser feito? O ideal, você gostaria de testar cada parte do carro(o motor, transmissão, etc) @italic{uma de cada vez}, para ver qual está quebrada. O mesmo vale para o código! Se você tem um erro, é mais fácil de encontrar quando cada função é simples e fácil de testar, e as únicas funções complexas serão construídas a partir das funções simples. Neste exemplo, você pode testar a @code{esquerda-salvo?} e @code{direita-salvo?} de forma independente, antes de colocar elas para trabalharem juntas na @code{esta-na-tela?}.}
@@ -281,7 +281,7 @@ usa uma nova função que @italic{compara Números}, retornando
                                 @activity{Você pode listar três outros motivos para ter várias funções simples, ao invés de ter uma única função complexa?}}
                        @teacher{}
                        }
-                @point{@student{O cídgo de detecção de limites que você escreveu (através de @code{esquerda-salvo?} e @code{direita-salvo?}) é muito usado em videogames. Ele pode ser usado para parar um personagem que iria atravessar uma parede, ou recolocar um personagem na tela quando ele saísse dos limites. @activity{Abra o arquivo do jogo, e role para baixo passando pelas funções @code{update-} até ver as definições de @code{esquerda-salvo?}, @code{direita-salvo?} e @code{esta-na-tela?}. Agora todas elas retornam verdadeiro, desde que sua tela de jogo tenha as mesmas dimensões do quintal de Sam(640x480), você pode usar o mesmo código para cada uma das trẽs funções! Certifique-se de incluir Exemplos, para que seu código possa ser testado separadamente.}}
+                @point{@student{O código de detecção de limites que você escreveu (através de @code{esquerda-salvo?} e @code{direita-salvo?}) é muito usado em videogames. Ele pode ser usado para parar um personagem que iria atravessar uma parede, ou recolocar um personagem na tela quando ele saísse dos limites. @activity{Abra o arquivo do jogo, e role para baixo passando pelas funções @code{atualiza-} até ver as definições de @code{esquerda-salvo?}, @code{direita-salvo?} e @code{esta-na-tela?}. Agora todas elas retornam verdadeiro, desde que sua tela de jogo tenha as mesmas dimensões do quintal de Sam(640x480), você pode usar o mesmo código para cada uma das três funções! Certifique-se de incluir Exemplos, para que seu código possa ser testado separadamente.}}
                        @teacher{}
                        }
                 ]}
