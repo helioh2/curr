@@ -14,14 +14,14 @@
      #:title "Caça aos Bugs"
      #:duration "20 minutos"
      #:overview ""
-     #:learning-objectives @itemlist[@item{Gain more experience understanding and correcting programming errors}]
-     #:evidence-statements @itemlist[@item{Students will be able to read error messages for basic syntax errors}
-                                     @item{Students will be able to edit programs to eliminate basic syntax errors}]
+     #:learning-objectives @itemlist[@item{Ganho de experiência na compreensão e na correção de erros de programação}]
+     #:evidence-statements @itemlist[@item{Alunos serão capazes de ler mensagens de erro de erros básicos de sintaxe}
+                                     @item{Alunos serã ocapazes de editar programas para eliminar erros básicos de sintaxe}]
      #:product-outcomes @itemlist[]
      #:standards (list "BS-PL.1" "BS-PL.2" "BS-PL.3" "BS-IDE")
-     #:materials @itemlist[@item{Canetas/lápis para os alunos, giz/canetão para professores}
-                            @item{Cartazes da turma (Lista de Regras, language table, calendário do curso)}
-                            @item{Language Table (see below)}
+     #:materials @itemlist[@item{Lápis/canetas aos alunos, e giz/marcadores de quadro branco aos professores}
+                            @item{Cartazes da turma (Lista de regras, conhecimentos básicos, calendário do curso)}
+                            @item{Tabela da Linguagem(veja abaixo)}
                             @item{Caça aos Bugs [Bugs.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @(hyperlink "http://www.wescheme.org/openEditor?publicId=HAu5aCVhFP" "WeScheme")] arquivo pré-carregado nas máquinas dos alunos.}]
      #:preparation @itemlist[]
      #:prerequisites (list "Defining Functions")
@@ -44,18 +44,18 @@
      #:title "Movimento do Perigo e do Alvo"
      #:duration "30 minutos"
      #:overview "Alunos planejam a animação no plano cartesiano, e escrevem uma simples função linear que anima seu Perigo."
-     #:learning-objectives @itemlist[@item{Alunos aprendem a mover elementos do jogo através defunções que calculam atributos de um quadro com base no quadro anterior}]
+     #:learning-objectives @itemlist[@item{Alunos aprendem a mover elementos do jogo através de funções que calculam atributos de um quadro com base no quadro anterior}]
      #:evidence-statements @itemlist[@item{Alunos serão capazes de escrever funções que recebem o valor de uma coordenada de um elemento e produz o valor da próxima coordenada naquela dimensão}
                                      @item{Alunos vão aprender como controlar a velocidade de movimento através de funções}]
      #:product-outcomes @itemlist[@item{Os alunos vão adicionar movimentos ao perigo}
                                   @item{Os alunos vão adicionar movimentos ao alvo}]
      #:standards (list "F-IF.1-3" "F-LE.5" "BS-DR.2" "BS-DR.3")
-     #:materials @itemlist[@item{Canetas/lápis para os alunos, e giz/canetão aos professores}
+     #:materials @itemlist[@item{Lápis/canetas aos alunos, e giz/marcadores de quadro branco aos professores}
                             @item{@(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "Apostila do Aluno")}
                             @item{Todos os computadores dos alunos devem ter seu modelo de jogo pré-carregado, com seus arquivos de imagens}
-                            @item{Class poster (List of rules, language table, course calendar)}
-                            @item{Language Table (see below)}]
-     #:preparation @itemlist[@item{OPTIONAL: Hand out @(hyperlink "https://docs.google.com/document/d/1VGSW8kmjFikwZhZzH9JOyddqBqgDl1vkVcPlbxEGCC4/edit?usp=sharing" "Atividade de Aquecimento").}]
+                            @item{Cartazes da turma (Lista de regras, conhecimentos básicos, calendário do curso)}
+                            @item{Tabela da Linguagem(veja abaixo)}]
+     #:preparation @itemlist[@item{OPCIONAL: Distribua esta @(hyperlink "https://docs.google.com/document/d/1VGSW8kmjFikwZhZzH9JOyddqBqgDl1vkVcPlbxEGCC4/edit?usp=sharing" "Atividade de Aquecimento").}]
      #:prerequisites (list "Game Images" "The Design Recipe")
      #:pacings (list 
                 @pacing[#:type "remediation"]{At this point, students should be very comfortable with the Design Recipe. If they are struggling, try reviewing the Contract with them first, then having a student act out the function. Ask that student what their name is, what they are expecting to be given, and what they will produce. Have them simulate a function call by calling out their name ("update-danger") and giving them an x-coordinate (they should produce a number that is 50 fewer than what they were given). Then refer back to this skit when writing Examples: the call-and-response is exactly how the code should behave, with students only having to write the code for whatever work your volunteer was doing in their head.}
@@ -104,9 +104,9 @@
      #:title "Movimento do Projétil (Opcional)"
      #:duration "15 minutos"
      #:overview "OPCIONAL: os alunos descobrem que as definições de \"misterio\" são na verdade usadas para adicionar projéteis, e adaptar essas definições para adicionar projéteis personalizados e animação dos projéteis no game."
-     #:learning-objectives @itemlist[@item{Alunos aprendem a mover elementos do game através de funções que calculam atributos de um quado com base no quadro anterior}]
+     #:learning-objectives @itemlist[@item{Alunos aprendem a mover elementos do game através de funções que calculam atributos de um quadro com base no quadro anterior}]
      #:evidence-statements @itemlist[@item{Alunos são capazes de escrever funções que recebem como entrada uma coordenada de um elemento e produz o próximo valor da coordenada desta dimensão}]
-     #:product-outcomes @itemlist[@item{Alunos vão adiconar movimentos dos projéteis em seus jogos}]
+     #:product-outcomes @itemlist[@item{Alunos vão adiconar o movimento dos projéteis em seus jogos}]
      #:standards (list "F-IF.1-3" "F-LE.5" "BS-DR.3")
      #:materials @itemlist[]
      #:preparation @itemlist[]
@@ -145,10 +145,10 @@
                                 @itemlist[@item{O jogador não se move}
                                            @item{Quando o Alvo ou o Perigo saem da tela, eles nunca voltam}
                                            @item{Nada acontece quando o Jogador se choca com o Perigo ou com o Alvo}]
-                                As próximas lições irão estender o que você sabe sobre funções, de modo que você pode definir funções para implementar cada um desses recursos.}
-                        @teacher{@management{@itemlist[@item{Peça aos alunos para que voluntáriamente digam o que aprenderam nesta lição}
-                                                        @item{Comportamentos que você valoriza: trabalho em equipe, fazer anotações no caderno, engajamento, etc}
-                                                        @item{Pass out exit slips, dismiss, clean up.}]}}
+                                As próximas lições vocês irão estender o que você sabe sobre funções, de modo que você pode definir funções para implementar cada um desses recursos.}
+                        @teacher{@management{@itemlist[@item{Peça aos alunos o que eles aprenderam nesta lição}
+                                                        @item{Comportamentos que você valoriza: trabalho em equipe, fazendo anotações, engajamento, etc}
+                                                        @item{Dê os recados de saída, despense-os e coloque o local em ordem.}]}}
                         }]
          }
 }
