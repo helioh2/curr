@@ -22,9 +22,9 @@
      #:standards (list "BS-PL.3" "BS-PL.4" "6.NS.5-8")
      #:materials @itemlist[@item{Computadores com DrRacket ou WeScheme}
                            @item{@(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "Apostila") do aluno}
-                           @item{Canetas/lápis aos alunos, e giz/canetão para os professores}
-                           @item{***Class posters (List of rules, basic skills, course calendar)}
-                           @item{Tabela de Linguagem (veja abaixo)}
+                           @item{Lápis/canetas aos alunos, e giz/marcadores de quadro branco aos professores}
+                           @item{Cartazes da turma (Lista de regras, conhecimentos básicos, calendário do curso)}
+                           @item{Tabela da Linguagem(veja abaixo)}
                           ]
      #:preparation @itemlist[]
      #:prerequisites (list "Luigi's Pizza" "Coordinate Planes")
@@ -34,11 +34,11 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
      ]{
-       @points[@point{@student{Supondo que dois objetos estão se movendo pelo cenário, cada um com suas próprias coordenadas (x, y). Quando é que suas bordas começam a se sobrepor? Elas certamente irão se sobrepor quando suas coordenadas forem idênticas (x1=x2, y1=y2), mas e se suas coordenadas estiverem separas por uma pequena distância? Quanto pequena esta distãncia precisa ser para que suas bordas se toquem?}
+       @points[@point{@student{Supondo que dois objetos estão se movendo pelo cenário, cada um com suas próprias coordenadas (x, y). Quando é que suas bordas começam a se sobrepor? Elas certamente irão se sobrepor quando suas coordenadas forem idênticas (x1=x2, y1=y2), mas e se suas coordenadas estiverem separas por uma pequena distância? O quão pequena essa distância precisa ser para que suas bordas se toquem?}
                        @teacher{Auxílios visuais são fundamentais aqui: certifique-se de desenhar isto no quadro!}
                        }
-                @point{@student{@bitmap{images/numberline.png}Em uma dimensão, é fácil calcular quando dois objetos se sobrepoem. Neste exemplo, o círculo vermelho possui 1cm de Raio, e o círculo azul tem 1.5cm. Os círculos irão se sobrepôr se a distância @italic{entre seus centros} for @italic{menor que a soma de seus Raios} (1+1.5 = 2.5). Como a distância entre os centros é calculada? Neste exemplo, seus centros estão 3cm separados, porque 4-1=3. @activity{Será que a distância entre eles mudaria se os círculos trocassem de lugar um com o outro? Porque sim ou porque não?}}
-                       @teacher{Trabalhe com uma série de exemplos, usando uma linha numérica no quadro e peça aos alunos como eles calculam a distância entre os pontos. Tendo alunos encenando isto pode funcionar muito bem: desenhe uma linha numérica, tendo dois alunos em diferentes pontos da linha, usando seus braços para mostrar seu alcançe(bordas do círculo)***. Mova os alunoas ao longo da linha até se tocarem, então calcula a distância na linha numérica(?)***. Os primeiros segundos @(hyperlink "http://www.youtube.com/watch?v=leP3tQ_GZL8&feature=player_embedded" "deste vídeo") mostra o exemplo em ação.}
+                @point{@student{@bitmap{images/numberline.png}Em uma dimensão, é fácil calcular quando dois objetos se sobrepõem. Neste exemplo, o círculo vermelho possui 1cm de Raio, e o círculo azul tem 1.5cm. Os círculos irão se sobrepôr se a distância @italic{entre seus centros} for @italic{menor que a soma de seus Raios} (1+1.5 = 2.5). Como a distância entre os centros é calculada? Neste exemplo, seus centros estão 3cm separados, porque 4-1=3. @activity{Será que a distância entre eles mudaria se os círculos trocassem de lugar um com o outro? Porque sim ou porque não?}}
+                       @teacher{Trabalhe com uma série de exemplos, usando uma linha numérica no quadro e peça aos alunos como eles calculam a distância entre os pontos. Tendo alunos encenando isto pode funcionar muito bem: desenhe uma linha numérica, tendo dois alunos em diferentes pontos da linha, usando seus braços para mostrar seu alcançe(bordas do círculo). Mova os alunos ao longo da linha até se tocarem, então calcule a distância na linha numérica)***. Os primeiros segundos @(hyperlink "http://www.youtube.com/watch?v=leP3tQ_GZL8&feature=player_embedded" "deste vídeo") mostra o exemplo em ação.}
                        }
                 @point{@student{Seu arquivo de jogo fornece uma função chamada @code{tamanho-linha} que calcula a diferença entre dois pontos em uma linha numérica. Especificamente, @code{tamanho-linha} recebe dois números como entrada e determina a distância entre eles.
                        @activity[#:forevidence (list "BS-PL.3&1&3" "BS-PL.4&1&1" "6.NS.5-8&1&6")]{Que respostas você espera da cada um dos seguintes usos da função @code{tamanho-linha}:
@@ -81,10 +81,10 @@
      #:materials @itemlist[@item{Computadores com DrRacket ou WeScheme}
                            @item{@(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "Apostila") do aluno}
                            @item{Todos os computadores dos alunos devem ter o modelo de seu jogo pré-carregado, com seus arquivos e figuras}
-                           @item{Recorte os pacotes do Teorema de Pitágoras [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1 para cada grupo de alunos que trabalham juntos}
-                           @item{Canetas/lápis aos alunos, e giz/canetão para os professores}
-                           @item{***Class posters (List of rules, basic skills, course calendar)}
-                           @item{Tabela de Linguagem (veja abaixo)}
+                           @item{Recorte os pacotes do Teorema de Pitágoras [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1 para cada grupo de alunos que trabalhem juntos}
+                           @item{Lápis/canetas aos alunos, e giz/marcadores de quadro branco aos professores}
+                           @item{Cartazes da turma (Lista de regras, conhecimentos básicos, calendário do curso)}
+                           @item{Tabela da Linguagem(veja abaixo)}
                           ]
      #:preparation @itemlist[ @item{NECESSÁRIO: Distribua esta @(hyperlink "https://docs.google.com/document/d/1k8UiHsMukSH5CKPS9Zal8g-VnradcQo3Zcik-rf9Wlo/edit?usp=sharing" "Atividade de Preparação").}]
      #:prerequisites (list "1D Distance")
@@ -140,9 +140,9 @@
      #:materials @itemlist[@item{Computadores com DrRacket ou WeScheme}
                            @item{@(resource-link #:path "workbook/StudentWorkbook.pdf" #:label "Apostila") do aluno}
                            @item{Todos os computadores dos alunos devem ter o modelo de seu jogo pré-carregado, com seus arquivos e figuras}
-                           @item{Canetas/lápis aos alunos, e giz/canetão para os professores}
-                           @item{***Class posters (List of rules, basic skills, course calendar)}
-                           @item{Tabela de Linguagem (veja abaixo)}
+                           @item{Lápis/canetas aos alunos, e giz/marcadores de quadro branco aos professores}
+                           @item{Cartazes da turma (Lista de regras, conhecimentos básicos, calendário do curso)}
+                           @item{Tabela da Linguagem(veja abaixo)}
                           ]
      #:prerequisites (list "2D Distance" "and/or")
      #:pacings (list 
@@ -164,7 +164,7 @@
                        @teacher{Você pode passar um tempo a mais neste ponto para ter alunos a pensar sobre distancia de colisão com objetos de diferentes formas. O resto do Bootstrap não exige isso, mas isso pode ser um bom ponto para integrar geometria adicional se você está a ensinar matemática.}}
                 @point{@student{A menos que as imagens quevocê escolheu são muito pequenas, 50 é geralmente distância suficiente para detectar uma colisão entre seu personagem e o perigo. Se você está usando imagens muito pequenas, você pode querer detectar uma colisão quando a distância entre os dois personagens for abaixo que 20.
                               @activity[#:forevidence (list "8.G.6-8&1&3")]{Como você iria checar se a distância entre (320, 240) e (400, 159), é @italic{menor que 50?} Como você verifica se essa distância entre os pontos é menor que 20?}}
-                       @teacher{Nós estamos sendo intencionalmente vagos sobre unidades de medida aqui. As unidade estão em pixels, que é uma noção de distância em uma tela de computador. Se você quer explicar pixels para seus alunos, pode começar a falar em termos como "50 pixels". Caso contrário, pode volta à usar a linha numérica se você quer explicar unidades de distância. @(new-paragraph) Se você quer que seus alunos calculem a distãncia de maneira limiar(graficamente), você pode usar as funções @code{image-height} e @code{image-width}, que recebe uma imagem e retorna um número. O número retornado é o comprimento máximo da imagem correspondente(diâmetro de um círculo, largura ou altura de um retângulo ou uma imagem bitmap/url). Você pode ter alunos a desenvolver código e experimentar com expressões como @math{(widthA + widthB)/2} para calcular a distância horizontal entre os centros de dois objetos(onde @math{widthA} representa a largura do primeiro objeto, etc). Este é um significante exercício computacional em si, que poderia servir de base para exercícios extra-classe ou lição da casa extendida.}
+                       @teacher{Nós estamos sendo intencionalmente vagos sobre unidades de medida aqui. As unidade estão em pixels, que é uma noção de distância em uma tela de computador. Se você quer explicar pixels para seus alunos, pode começar a falar em termos como "50 pixels". Caso contrário, pode volta à usar a linha numérica se você quer explicar unidades de distância. @(new-paragraph) Se você quer que seus alunos calculem a distância de maneira limiar(graficamente), você pode usar as funções @code{image-height} e @code{image-width}, que recebe uma imagem e retorna um número. O número retornado é o comprimento máximo da imagem correspondente(diâmetro de um círculo, largura ou altura de um retângulo ou uma imagem bitmap/url). Você pode ter alunos a desenvolver código e experimentar com expressões como @math{(widthA + widthB)/2} para calcular a distância horizontal entre os centros de dois objetos(onde @math{widthA} representa a largura do primeiro objeto, etc). Este é um significante exercício computacional em si, que poderia servir de base para exercícios extra-classe ou lição da casa extendida.}
                        }
                 @point{@student{@activity[#:forevidence (list "8.F.1-3&1&1" "8.F.1-3&1&3")]{Vá para @worksheet-link[#:page 29 #:name "collide?"] em sua apostila,e use a Receita de Projeto para escrever uma função que produz @code{true} se a distância entre duas coordenadas for menor que 50. DICA: Você deve usar sua função @code{distancia}!}
                                 @activity{Coloque a definição de sua função @code{colisao?} no seu arquivo do jogo. Jogue, e faça seu personagem colidir com o perigo. Seu jogo agora faz algo diferente que ele não fazia antes de você escrever @code{colisao?}?}
@@ -197,14 +197,14 @@
                                           de que está legível, limpo e fácil de ser entendido por outras pessoas. Um carro que funciona bem pode ser bom,
                                           mas não vale a pena se é impossível para o mecânico consertá-lo! Tenha certeza que seu código é bonito, por dentro e por fora.
                                           @itemlist[@item{Será que todas a funções tiveram sua assinatura escritas corretamente?}
-                                                     @item{Será quecada função tem uma declaração de propósitoque desceve com precisão o que ela faz?}
+                                                     @item{Será que cada função tem uma declaração de propósitoque desceve com precisão o que ela faz?}
                                                      @item{Será que cada função tem pelo menos dois exemplos?}
                                                      @item{Quando você clicar em "Run", todos os seus Exemplos irão passar no teste?}
                                                      ]}
                                 }
                         @teacher{@management{@itemlist[@item{Peça aos alunos o que eles aprenderam nesta lição}
                                                        @item{Comportamentos que você valoriza: trabalho em equipe, fazendo anotações, engajamento, etc}
-                                                       @item{Pass out exit slips, dismiss, clean up.}]}}
+                                                       @item{Dê os recados de saída, despense-os e coloque o local em ordem.}]}}
                         }
                         ]}
  }
