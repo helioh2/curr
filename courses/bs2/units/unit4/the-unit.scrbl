@@ -1,135 +1,135 @@
 #lang curr/lib
 
-@title{Unit 4: Welcome to the World}
+@title{Unidade 4: Bem vindo ao Mundo}
 @declare-tags[management]
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
+@unit-overview/auto[#:lang-table (list (list "Numero" @code{+ - * / sq sqrt expt})
                                        (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
-                                       (list "Auto" @code{make-auto auto-model auto-hp auto-rims auto-color auto-value})
-                                       (list "Party" @code{make-party party-theme party-location party-guests}))]{
-@unit-descr{Students return to the Ninja World game, and codewalk through the 'update-world' and 'draw-world' functions. Making minimal changes to these functions, they are 
-            able to modify the dog's speed, add static clouds, etc. They then modify the world to include the ruby's x-coordinate, and systematically update each function in
-            the source code to accommodate this new world. If time allows, additional iterations are possible by adding more sets of coordinates to the World.
-Students brainstorm their videogames, and derive the structure for their game world.}
+                                       (list "Figura"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
+                                       (list "Carro" @code{make-carro carro-modelo carro-potencia carro-rodas carro-cor carro-valor})
+                                       (list "Festa" @code{make-festa festa-tema festa-local festa-convidados}))]{
+@unit-descr{Alunos reotrnam ao jogo Mundo Ninja, e caminham através das funções 'atualiza-mundo' e 'desenha-mundo'. fazendo pequenas mudanças nessas funções, elas são 
+            capazes de modificar a velocidade do cão, adicionar nuvens paradas, etc. Elas então modificam o mundo para incluir a coordenada-x do rubi, e sistematicamente atualizar cada função no
+            código fonte para acomodar este novo mundo. Se o tempo permitir, iterações adicionais são possíveis adicionando mais conjuntos de coordenadas no Mundo(World).
+Alunos trabalham em seus jogos, e derivam a estrutura mundo de seus jogos.}
 }
 @unit-lessons{
-@lesson/studteach[#:title "Review"
-        #:duration "5 minutes"
+@lesson/studteach[#:title "Revisão"
+        #:duration "5 minutos"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
-        #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, design recipe, course calendar)}
-                            @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
-                            @item{Language Table}]
-     #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}]
+        #:materials @itemlist[@item{Lápis/canetas aos alunos, e giz/marcadores de quadro branco aos professores}
+                            @item{Cartazes da turma (Lista de regras, conhecimentos básicos, calendário do curso)}
+                            @item{Ambiente de Edição (WeScheme ou DrRacket com o pacote bootstrap-teachpack instalado)}
+                            @item{Tabela da Linguagem(veja abaixo)}]
+     #:preparation @itemlist[@item{Arranjos de assento: preferencialmente aglomerando as mesas}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{You have had a lot of practice with structs over the past few lessons, so now it's time for a challenge. 
-                                @activity{Turn to @worksheet-link[#:page 19 #:name "Intro-unit4"] in your workbook. Fill in the blanks with the 
-                                                  information you know about @code{auto}, @code{party}, and @code{world} structs.}}
-                        @teacher{Refresh students' memories about the Structs they have already seen, in preparation for defining their own.}}
+        @points[@point{@student{Você teve muita prática sobre structs nas últimas lições, então agora é hora de um desafio. 
+                                @activity{Vá para @worksheet-link[#:page 19 #:name "Intro-unit4"] em sua apostila. Preencha os espaços em brnaco com a  
+                                                  informação que você sabe sobre as estruturas @code{carro}, @code{festa}, e @code{mundo}.}}
+                        @teacher{Refresque a memória dos alunos sobre Structs que eles já viram, como preparação para definirem suas próprias.}}
                  ]
          }
-@lesson/studteach[#:title "Codewalking"
-        #:duration "20 minutes"
+@lesson/studteach[#:title "Caminhando pelo código"
+        #:duration "20 minutos"
         #:overview ""
-        #:learning-objectives @itemlist[@item{Deepen their understanding of structures, constructors and accessors by being introduced to a third data structure.}
-                                        @item{Discover the event-based microworld implementation of Racket, which uses events to modify the world.}]
+        #:learning-objectives @itemlist[@item{Aprofundar sua compreensão sobre estruturas, construtores e acessadores introduzindo uma terceira estrutura de dados.}
+                                        @item{Descubra a implementação do Racket para eventos baseados em pequenos mundos, que usam eventos para modificarem o mundo.}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
         #:materials @itemlist[]
-        #:preparation @itemlist[@item{The Ninja World 2 file [NW2.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "nQq3AAg5nn" "WeScheme"] preloaded on students' machines}]
+        #:preparation @itemlist[@item{O arquivo do Mundo Ninja World 2 [NW2.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "UcChQltYSx" "WeScheme"] pré-carregado nas máquinas dos alunos}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{Open up @editor-link[#:public-id "nQq3AAg5nn" "Ninja World 2"] and click "Run". 
-                                          What happens? Does it do the same thing as in the simulation last unit?}
+        @points[@point{@student{@activity{Abra o @editor-link[#:public-id "UcChQltYSx" "Mundo Ninja 2"] e clique em "Run". 
+                                          O que acontece? Será que ele faz a mesma coisa como na simulação da unidade passada?}
                                 
-                                 Let's walk through it and figure out what's wrong. At the top of the screen, you see the @code{;; DATA} section. 
-                                 This is where we define everything we need to keep track of during the animation. As you can see, 
-                                 @code{define-struct} is used to define the World structure here.
-                                 @activity{@itemlist[@item{What is in the world structure?}
-                                                      @item{Take a look at the section labelled @code{;; STARTING WORLD}. What is the name of the 
-                                                            first variable defined here?}
-                                                      @item{What kind of thing is it?}
-                                                      @item{How would you get the @code{dogX} out of the @code{START} world?}
-                                                      @item{As in the last Ninja World, if the dog is moving ten pixels to the right each time, 
-                                                            what should the world be in the next frame?}
-                                                      @item{Underneath the @code{START} world, define another world called @code{NEXT}. What will
-                                                            the value of @code{dogX} be in the @code{NEXT} world?}]}
+                                 Vamos caminhar pelo código e descobrir o que está errado. No início da tela, vocẽ vê a seção @code{;; DADOS}. 
+                                 Aqui é onde definimos tudo o que precisamos acompanhar durante a animação. Como você pode ver, 
+                                 @code{define-struct} é usada para definir a estrutura Mundo aqui.
+                                 @activity{@itemlist[@item{O que está na estrutura mundo?}
+                                                      @item{Dê uma olhada na seção nomeada como @code{;; INICIANDO MUNDO}. Qual é o nome da 
+                                                            primeira variável definida aqui?}
+                                                      @item{Que tipo de coisa ela é?}
+                                                      @item{Como você conseguiria @code{caoX} do @code{INICIO}?}
+                                                      @item{Como no último Mundo Ninja, se o Cachorro está se movendo dez pixels para a direita de cada vez, 
+                                                            o que o mundo deveria ser no próximo momento?}
+                                                      @item{Abaixo do mundo @code{INICIO}, defina outro mundo chamado @code{PROXIMO}. Qual seria
+                                                            o valor de @code{caoX} nesse @code{PROXIMO} mundo?}]}
                                  
-                                 There are also a number of values for images, defined below, which will be used in the game. What are they 
-                                 images of? 
-                                 @activity{Type in their names in the interactions window to find out.}}
-                        @teacher{World structures will be used to define every @italic{changing} value within the game world. At the moment, the 
-                                 game contains only one changing thing, the dog's x-coordinate.}}
+                                 Há também alguns valores para as figuras, definidas logo abaixo, que serão usadas no jogo. Elas são  
+                                 imagens do que? 
+                                 @activity{Digite seus nomes na janela de Interações e descubra.}}
+                        @teacher{Estruturas mundo serão usadas para definir todo valor que @italic{muda} dentro do mundo do jogo. No momento, o 
+                                 jogo contém apenas uma coisa se modificando, a posição x do cachorro.}}
                  
-                 @point{@student{Now that we have a world structure, we need to know how to draw it.
-                                 @activity{Scroll down until you see @code{;; GRAPHICS FUNCTIONS}. What is the name of this function? What 
-                                          is the Domain? The Range?}
-                                 As in the last lesson, the @code{draw-world} function is using @code{put-image} to place the @code{DOG} onto the
-                                 @code{BACKGROUND} at some coordinates. @activity{What is it using for the dog's x-coordinate? The dog's 
-                                                                                  y-coordinate?}}
+                 @point{@student{Agora que temos uma estrutura mundo, precisamos saber como desenhá-la.
+                                 @activity{Desça até você ver @code{;; FUNCOES GRAFICAS}. Qual é o nome da função? Qual seu 
+                                          Domínio? E sua Imagem?}
+                                 Como na última lição a função @code{desenha-mundo} está usando a função @code{put-image} para colocar o @code{CACHORRO}(perigo) sobre o
+                                 @code{CENARIO} em algumas coordenadas. @activity{Algo está usando a coordenada-x do cachorro? E a 
+                                                                                  coordenada-y do cachorro?}}
                          @teacher{}}
-                 @point{@student{Think for a moment about how the Ninja World "game" worked in the last lesson. On each "tick"
-                                 @code{draw-world} would take in the current world and extract the @code{dogX} before using it to draw dog.
-                                 But  this @code{draw-world} function never looks at the current world! If the function isn't 
-                                 looking at the world it's taking in, so it has no way to change the position of the dog.
-                                 @activity{@itemlist[@item{How would you get the @code{dogX} out of the world?}
-                                                      @item{Which world is going to be used? (Which world is @code{update-world} taking in?)}
-                                                      @item{@code{(world-dogX w)}}
-                                                      @item{Now where do you need to put this @code{(world-dogX w)}? Which number here represents
-                                                            the x-coordinate of the @code{DANGER} on the @code{BACKGROUND}?}]}}
-                         @teacher{This @code{draw-world} function will always draw the dog at (0, 400) on the screen. Even through the world is 
-                                  being updated and passed to @code{draw-world}, students should understand that unless the image of the dog is 
-                                  drawn at the UPDATING x-coordinate (@code{dogX}), the game will not animate.}}
+                 @point{@student{pense um momento sobre como o "jogo" Mundo Ninja funcionava na lição anterior. Em cada "tick"
+                                 @code{desenha-mundo} pegava o mundo atual e extraía a @code{caoX} antes de usá-la para desenhar o cachorro.
+                                 Mas essa função @code{desenha-mundo} nunca olha para o mundo atual! Se a função não está 
+                                 olhando para o que o mundo tem dentro dele, então não tem como mudar a posição do cachorro.
+                                 @activity{@itemlist[@item{Como você conseguiria pegar o valor de @code{caoX} do mundo?}
+                                                      @item{Qual mundo está sendo usado? (Qual mundo @code{atualiza-mundo} está recebendo?)}
+                                                      @item{@code{(mundo-caoX m)}}
+                                                      @item{Agora onde você precisa colocar este @code{(mundo-caoX m)}? Qual número representa aqui a
+                                                            coordenada-x do @code{PERIGO} sobre o @code{CENARIO}?}]}}
+                         @teacher{Essa função @code{desenha-mundo} está sempre desenhando o cachorro em (0, 400) na tela. Mesmo o mundo sendo 
+                                  atualizado e repassado para @code{desenha-mundo}, os alunos devem entender que a menos que a figura do cachorro seja 
+                                  desenhada na coordenada-x ATUALIZADA de (@code{caoX}), o jogo não ficará animado.}}
                  
-                 @point{@student{Suppose you want to add the @code{CLOUD} image to the game at the position (500, 400). How could you use
-                                 @code{put-image} to stick them on the @code{BACKGROUND}?
-@code[#:multi-line #t]{;; draw-world: world -> Image
-;; place DANGER onto BACKGROUND at the right coordinates
-(define (draw-world w)
-  (put-image CLOUD 
+                 @point{@student{Suponde que queremos adicionar a imagem de uma @code{NUVEM} no jogo na posição (500, 400). Como você poderia usar
+                                 @code{put-image} para colocá-la no @code{CENARIO}?
+@code[#:multi-line #t]{;; desenha-mundo: mundo -> Figura
+;; coloque o PERIGO sobre o CENARIO nas seguintes coordenadas
+(define (desenha-mundo m)
+  (put-image NUVEM 
                500 400
-               (put-image DANGER
-                            (world-dogX w) 200
-                             BACKGROUND)))}
+               (put-image PERIGO
+                            (mundo-caoX m) 200
+                             CENARIO)))}
 @bitmap{images/NWorld2.png}
 }                                                   
-                         @teacher{Since this is their first time using @code{put-image} themselves, write the code with the kids. They'll have 
-                                  time to practice on their own later. Point uot the "staircase" pattern that develops when you put images on
-                                  top of one another. Once they've put the image onto the background, have them click "Run" and 
-                                  take a look at that cloud!}}
+                         @teacher{Esta é a primeira vez que eles estão usando @code{put-image}, escreva o código com as crianças. Eles terão 
+                                  tempo para praticar por conta própria mais tarde. Evidencia o padrão "escadas" que desenvolvemos quando você coloca figuras
+                                  sobre outra. Uma vez que eles colocarem a figura sobre a cenário, pqça que cliquem em "Run" e 
+                                  dê uma olhada na nuvem!}}
                  
-                 @point{@student{Now scroll down until you see @code{;; UPDATING FUNCTIONS}. This code is responsible for changing the World.
-                                  @activity{@itemlist[@item{What does @code{update-world} DO to the world?}
-                                                       @item{@code{update-world} will make a new world and add 10 to the @code{dogX} of that world.
-                                                              How will this make the dog move? Does it go to the right, left, up, down?}
-                                                       @item{If the dog is at 100, where will it be next? After that?}
-                                                       @item{How could you make the dog move faster? Slower? Backwards?}
-                                                       @item{Write two @vocab{examples} for @code{update-world}, using the @code{START} world and the 
-                                                                       @code{NEXT} world you already defined.}]}}
-                         @teacher{Each of these three functions work together to create the game that students see. @code{define-struct world} tells the 
-                                  computer what a world contains, @code{draw-world} draws the images onto the screen, and @code{update-world} changes the 
-                                  world, according to the rules of the game. Point out to students that without all of these functions, the game would not be 
-                                  playable.}
+                 @point{@student{Agora desça até você ver @code{;; FUNÇÕES ATUALIZADORAS}. Esse código é responsável pelas mudanças no Mundo.
+                                  @activity{@itemlist[@item{O que @code{atualiza-mundo} Faz com o mundo?}
+                                                       @item{@code{atualiza-mundo} fará um novo mundo e adicionará 10 ao @code{caoX} daquele mundo.
+                                                              Como isso fará com que o cão se mova? Ele vai para a direita, para a esquerda, para cima, para baixo?}
+                                                       @item{Se o cachorro está na posição 100, onde ele estará na próxima posição? E depois?}
+                                                       @item{Como você poderia fazer o cachorro de mover mais rápido? Mais devagar? Andar para trás?}
+                                                       @item{Escreva dois @vocab{exemplos} para @code{atualiza-mundo}, usando a mundo @code{INICIO} e o 
+                                                                       mundo @code{PROXIMO} que você já definiu.}]}}
+                         @teacher{Cada uma dessas três funções trabalham juntas para criar o jogo que os alunos vêem. @code{define-struct mundo} diz ao  
+                                  computador o que mundo contém, @code{desenha-mundo} desenha as imagens sobre a tela, e @code{atualiza-mundo} muda o 
+                                  mundo, de acordo com as regras do jogo. Mostre aos alunos que sem todas essas funções, o jogo não seria 
+                                  jogável.}
                          }
                  ]
          }
 @lesson/studteach[#:title "Extending the World"
-        #:duration "15 minutes"
+        #:duration "15 minutos"
         #:overview ""
         #:learning-objectives @itemlist[@item{Students will modify draw-world to add clouds and a ruby}
                                          @item{Students will iteratively expand the World structure, and trace these changes throughout their program}]
@@ -144,95 +144,95 @@ Students brainstorm their videogames, and derive the structure for their game wo
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Let's make this game more exciting: 
-                                @activity{If you wanted to draw the @code{TARGET} into the world, at the coordinates (500, 300), What will 
-                                                                    you need to modify?}
-                                If the @code{TARGET} isn't moving, then nothing new will be changing in the game, so we don't need to 
-                                change the world structure. The @code{draw-world} function will need to change, however, if we want 
-                                the @code{TARGET} to show up in the game.
-                                @activity{Using @code{put-image}, place the @code{TARGET} image on top of everything you have already, 
-                                          so that it shows up when you click "Run".}
-@code[#:multi-line #t]{;; draw-world: world -> Image
-;; place DANGER onto BACKGROUND at the right coordinates
-(define (draw-world w)
-  (put-image TARGET
+        @points[@point{@student{Vamos fazer esse jogo mais interessante: 
+                                @activity{Se você quiser desenhar o @code{ALVO} no mundo, nas coordenadas (500, 300), o que você 
+                                                                    precisaria modificar?}
+                                Se a @code{ALVO} não está se movendo, então nada de novo estará mudando no jogo, então não precisamos 
+                                mudar a estrutura do mundo. A função @code{desenha-mundo} precisará mudar, se você quiser que 
+                                o @code{ALVO} apareça no jogo.
+                                @activity{Usando @code{put-image}, coloque a figura do @code{ALVO} sobre tudo o que você tem, 
+                                          para que ela apareça quando você clicar em "Run".}
+@code[#:multi-line #t]{;; desenha-mundo: mundo -> Figura
+;; coloca o PERIGO sobre o CENARIO nas coordenadas abaixo
+(define (desenha-mundo m)
+  (put-image ALVO
              500 300
-             (put-image CLOUD 
+             (put-image NUVEM 
                         500 400
-                       (put-image DANGER
-                                 (world-dogX w) 200
-                                   BACKGROUND)))}}
-                        @teacher{This section requires that you walk through and model each one of the changes to the code, with students
-                                 following along on their own computers. You can write the code on the board or use a projector to show the
-                                 code, and use cutouts of the dog and ruby to model their behavior.}}
+                       (put-image PERIGO
+                                 (mundo-caoX m) 200
+                                   CENARIO)))}}
+                        @teacher{Essa seção exige que você percorra e modele cada uma das alterações no código, com os alunos
+                                 acompanhando em seus próprios computadores. Você pode escrever o código no quadro ou use um projetor para mostrar o
+                                 código, e use recortes do cão e do rubi para esboçar seus comportamentos.}}
                  
-                 @point{@student{Now suppose the @code{TARGET} is flying across the screen, moving left slowly at 5 pixels each frame. 
-                                 The ruby's position will be changing, so this time the world DOES need to be modified.
-                                 @activity{@itemlist[@item{What specifically will be changing about the ruby?}
-                                                      @item{How does the world struct need to change?}
-                                                      @item{What is a good variable name to represent the ruby's x-coordinate? How about 
-                                                            @code{rubyX}?}
-                                                      @item{How has the contract for @code{make-world} changed? Update it on your 
-                                                                                     contracts sheet}
-                                                      @item{Now that the world structure includes a @code{rubyX}, What new function 
-                                                            do you now have access to? Write it in your contracts page.}]}
-                                 @code{; world-rubyX :  world -> Number}}
+                 @point{@student{Agora, supondo que o @code{ALVO} está voando pela tela, movendo-se lentamente em 5 pixels por quadro. 
+                                 A posição do rubi vai mudar, então desta vez o mundo precisa SER modificado.
+                                 @activity{@itemlist[@item{O que especificamente está mudando sobre o rubi?}
+                                                      @item{Como a estrutura mundo precisa ser modificada?}
+                                                      @item{Qual seria um bom nome de variável para representar a coordenada-x do rubi? O que você acha de 
+                                                            @code{rubiX}?}
+                                                      @item{Como a assinatura para @code{make-mundo} mudou? Atualize-a na sua 
+                                                                                     folha de assinaturas}
+                                                      @item{Agora que a estrutura mundo inclui @code{rubiX}, qual nova função 
+                                                            você tem acesso agora? Escreva em sua página de assinaturas.}]}
+                                 @code{; mundo-rubiX :  mundo -> Numero}}
                          @teacher{}}
                  
-                 @point{@student{Because the world structure is different, we need to go through the code, line-by-line, and change every
-                                 @code{world} we find. Look at the @code{START} variable - It uses @code{make-world}, which now requires 
-                                 two inputs in its Domain. 
-                                 @activity{@itemlist[@item{What should the ruby's x-coordinate be when the simulation starts? Include 
-                                                           this number in the @code{START} world.}
-                                                      @item{Now change the definition of @code{NEXT}. Don't forget to think about how 
-                                                           the ruby's x-coordinate will change from the @code{START} world to the @code{NEXT} world}
-                                                      @item{Do the definitions of the image variable need to change? Why not?}
-                                                      @item{What about @code{draw-world}? Does its contract change? The contract says it 
-                                                            takes a World as its Domain, and it still does. The only thing that has changed 
-                                                            is @italic{what a world contains}. Does @code{draw-world} still produce an Image?}
-                                                      @item{What needs to change about the body of @code{draw-world}? Right now the ruby is being 
-                                                            drawn at the coordinates (500, 300) every time, but we want the position (namely, its 
-                                                            x-coordinate) to change. How do you get the @code{rubyX} out of the world? Place the
-                                                            image of the TARGET at that x-coordinate.}]}
-@code[#:multi-line #t]{(define (draw-world w)
-                               (put-image TARGET
-                                          (world-rubyX w) 300
-                                          (put-image CLOUD ....)))}}
+                 @point{@student{Como a estrutura mundo está diferente agora, precisamos percorrer o código, linha-por-linha, e mudar todo
+                                 @code{mundo} que encontrarmos. Olhe para a variável @code{INICIO} - ela usa @code{make-mundo}, que agora exige 
+                                 duas entradas em seu Domínio. 
+                                 @activity{@itemlist[@item{Qual deve ser a coordenada-x do rubi quando a simulação começar? Inclua 
+                                                           esse número no mundo @code{INICIO}.}
+                                                      @item{Agora mude a definição de @code{PROXIMO}. Não se esqueça de pensar sobre como 
+                                                           a coordenada-x do rubi será modificada do mundo @code{INICIO} para o @code{PROXIMO} mundo}
+                                                      @item{As definições de Figuras precisam mudar? Por que não?}
+                                                      @item{E quanto a @code{desenha-mundo}? Sua assinatura muda? A assinatura diz que 
+                                                            ela recebe um Mundo em seu Domínio, e ainda faz isso. A única coisa que mudou 
+                                                            é @italic{o que o mundo contém}. @code{desenha-mundo} ainda produz uma Figura?}
+                                                      @item{O que precisa mudar sobre o corpo da @code{desenha-mundo}? Até agora o rubi foi 
+                                                            desenhado nas coordenadas (500, 300) o tempo todo, mas nós queremos a posição (ou seja, sua 
+                                                            coordenada-x) mude. Como você consegue obter o @code{rubiX} para fora do mundo? Coloque a
+                                                            figura do ALVO naquela coordenada-x.}]}
+@code[#:multi-line #t]{(define (desenha-mundo m)
+                               (put-image ALVO
+                                          (mundo-rubiX m) 300
+                                          (put-image NUVEM ....)))}}
                          @teacher{}}
                  
-                 @point{@student{What about @code{update-world}? Does the contract change, now that the world structure is different? Why or why 
-                                 not? @activity{Get rid of the function body of @code{update-world} completely, because a lot needs to change 
-                                                here. Don't delete the Contract - we're not going to change the Domain or Range of the function!}
-                                 Once again, the contract tells you a LOT about how to write the function. Here's a quick tip: if the range is 
-                                 a World, you know that you'll have to make a world at some point. @activity{How do you make a world?}}
+                 @point{@student{E quanto a @code{atualiza-mundo}? Sua assinatura muda agora que a estrutura mundo está diferente? Por quê ou por que 
+                                 não? @activity{Livre-se completamente do corpo da função @code{atualiza-mundo}, por que muita coisa precisa mudar 
+                                                aqui. Não apague a Assinatura - não vamos modificar o Domínio ou a Imagem da função!}
+                                 Novamente, a assinatura lhe diz MUITO sobre como escrever a função. Aqui vai uma dica: se a imagem é 
+                                 um Mundo, você sabe que terá que fazer um mundo em algum momento. @activity{Como você faz um mundo?}}
                          @teacher{}}
-                 @point{@student{The moment you write @code{make-world}, your instincts should kick in right away: Every world contains a @code{dogX}
-                                 and a @code{rubyX}, so you can write them down automatically.
-                                 Now you can ask yourself: What happens to @code{dogX} be? In the game, the dog will still be moving to the right by 
+                 @point{@student{No momento que você for escrever @code{make-mundo}, seus instintos devem apontar para algo: Todo mundo contem um @code{caoX}
+                                 e um @code{rubiX}, então você pode escrevê-los automáticamente.
+                                 Agora você pode se pergunar: O que acontece com @code{caoX}? No jogo, o cão ainda estará se movendo para a direita em 
                                  10 pixels. 
-                                 @activity{@itemlist[@item{How will you update the x-position of the dog? How do you get the @code{dogX} out of the world?}
-                                                      @item{How would you add ten to that?}
-                                                      @item{We said we wanted the ruby to move to the left by 5 pixels. How do you get the @code{rubyX} 
-                                                            out of the world?}
-                                                      @item{If it's moving to the left, will you add or subtract from the position?}
-                                                      @item{Which world are you pulling the @code{dogX} and @code{rubyX} out of?}
-                                                      @item{Do the examples for @code{update-world} need to change?}
-                                                      @item{Look at the first example: how many things are being passed into @code{make-world}? How 
-                                                            many should there be? Hint: look at its domain.}
-                                                      @item{The ruby's x-coordinate needs to be added. Where does it begin, in the @code{START} world? 
-                                                            If it goes left by 5 pixels, where should it end up in the first example?}
-                                                      @item{Fix the second example in the same way, adding the ruby's x-coordinate.}]}
+                                 @activity{@itemlist[@item{Como você atualizaria a posição-x do cao? Como você obtém um @code{caoX} de algum mundo?}
+                                                      @item{Como você adicionaria dez a ele?}
+                                                      @item{Nós dissemos que queremos que o rubi se mova para a esquerda em 5 pixels de velocidade. Como você obtém @code{rubiX} 
+                                                            de algum mundo?}
+                                                      @item{Se ele está se movendo para a esquerda, você adiciona ou subtrai de sua posição?}
+                                                      @item{Em qual mundo você está obtendo @code{caoX} e @code{rubiX}?}
+                                                      @item{Os exemplos de @code{atualiza-mundo} precisam mudar?}
+                                                      @item{Olhe para o primeiro exemplo: Quantas coisas estão sendo passadas para @code{make-mundo}? Quantas 
+                                                            deveriam estar ali? DIca: olhe no domínio.}
+                                                      @item{A coordenada-x do rubi precisa ser adicionada. Onde o rubi começa, no mundo @code{INICIO}? 
+                                                            Se ele for 5 pixels para a esquerda, onde ele deveria estar no final do primeiro exemplo?}
+                                                      @item{Ajuste o segundo exemplo do mesmo modo, adicionando a coordenada-x do rubi.}]}
                                  }          
-                         @teacher{Every time the world (or @italic{any} structure) changes, every single instance of @code{make-world} (or @code{make-auto},
-                                  @code{make-party}, etc.) will need to change to reflect that. Have students find instance of @code{make-world} and 
-                                  incorporating the @code{rubyX} into the new world. Any time they add something new to their game they will need to do 
-                                  the same thing, so make sure they understand that every change to the world structure requires careful reading 
-                                  and editing of their world functions.}}
+                         @teacher{Toda vez que o mundo (ou @italic{qualquer} struct) mudar, cada instância de @code{make-mundo} (ou @code{make-carro},
+                                  @code{make-festa}, etc.) precisará mudar para refletir isso. Peça aos alunos para encontrarem uma instância de @code{make-mundo} e 
+                                  incorporem o @code{rubiX} dentro do novo mundo. Toda vez que adicionar algo novo em seu jogo, eles precisam fazer 
+                                  a mesma coisa, então certifique-se de que eles compreendam que cada mudança na estrutura mundo requer uma leitura atenciosa 
+                                  e editar suas funções mundo.}}
                          ]
          }
 
 @lesson/studteach[#:title "Game Brainstorming"
-        #:duration "15 minutes"
+        #:duration "15 minutos"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
@@ -246,30 +246,30 @@ Students brainstorm their videogames, and derive the structure for their game wo
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{You have been working with structures for the last three lessons, and you've gotten really good at defining, making and 
-                                accessing them. Now, you're going to define the World structure for YOUR GAME! 
-                                @activity{Suppose I have a racing game, where my player is at the bottom of the screen, sitting in their car. In front 
-                                          of them, I have two lanes, with cars coming at me as I catch up to them. To move out of the way, I need to 
-                                          change into the left or right lane of the road. 
-                                          @itemlist[@item{What are all the things I need to keep track of in my game?}
-                                                     @item{@code{PlayerX} - a number}
-                                                     @item{@code{CarY} - a number}
-                                                     @item{@code{Car2Y} (if I want another car) - a number}
-                                                     @item{@code{Score} - a number}
-                                                     @item{How would I define this world?}
-                                                     @item{How do I get the playerX out of my word? My CarY? My Car2Y? The score?}
-                                                     @item{What if I wanted the player's car to change color as the score goes up? How would my world 
-                                                           structure need to change?}
-                                                     @item{Now think about YOUR game - what will be @italic{changing} in your world?}]}} 
+        @points[@point{@student{Você esteve trabalhando com estruturas nas últimas lições, e você tornou-se realmente bom em definir, construir e 
+                                accessá-las. Agora, você irá definir a estrutura Mundo para o SEU JOGO! 
+                                @activity{Suponde que fosse um jogo de corrida, onde meu personagem está na parte de baixo da tela, dentro de seu carro. Na frente 
+                                          dele, Vejo duas estradas, **with cars coming at me as I catch up to them(com carros indo como vindo)**. Para percorrer o caminho, eu preciso 
+                                          mudar da faixa da esquerda para a direita da estrada. 
+                                          @itemlist[@item{Quais são todas a coisas que eu preciso manter controle nesse jogo?}
+                                                     @item{@code{JogadorX} - um número}
+                                                     @item{@code{CarroY} - um número}
+                                                     @item{@code{Carro2Y} (Se eu quiser outro carro) - um numero}
+                                                     @item{@code{Pontos} - um numero}
+                                                     @item{Como eu definiria esse mundo?}
+                                                     @item{Como eu consigo o jogadorX do meu mundo? Meu CarroY? Meu Carro2Y? Os Pontos?}
+                                                     @item{E se eu quisesse que o carro do jogador mudasse de cor á medida que os pontos sobem? Como minha estrutura mundo 
+                                                           precisa mudar?}
+                                                     @item{Agora pense sobre o SEU jogo - o que estaria @italic{mudando} em seu mundo?}]}} 
                                                                                                                                         
-                  @teacher{Make sure they are collaborating with their partner(s) to brainstorm a game that they will both be happy with. Make sure 
-                           you force them to think about their world structures, and start simple: Limit their world structure to no more than five
-                           things, initially. Pass out some scratch paper. They will need it to brainstorm on}}
+                  @teacher{Certifique-se que eles estão colaborando com seu parceiro(s) para chegarem a um jogo que ambos fiquem felizes. Certifique-se de 
+                           forcá-los a pensar em suas estruturas mundo, e começar simples: Limite sua estrutura mundo para não mais do que cinco
+                           coisas nela, inicialmente. Passe algum palel de rascunho. Eles precisarão de um para mostrar suas ideias}}
                    ]
          }
                   
 @lesson/studteach[#:title "Game Design!"
-        #:duration "10 minutes"
+        #:duration "10 minutos"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
