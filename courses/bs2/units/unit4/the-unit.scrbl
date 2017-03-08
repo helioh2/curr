@@ -8,7 +8,7 @@
                                        (list "Figura"  @code{rectangle circle triangle ellipse star text scale rotate put-image})
                                        (list "Carro" @code{make-carro carro-modelo carro-potencia carro-rodas carro-cor carro-valor})
                                        (list "Festa" @code{make-festa festa-tema festa-local festa-convidados}))]{
-@unit-descr{Alunos reotrnam ao jogo Mundo Ninja, e caminham através das funções 'atualiza-mundo' e 'desenha-mundo'. fazendo pequenas mudanças nessas funções, elas são 
+@unit-descr{Alunos retornam ao jogo Mundo Ninja, e caminham através das funções 'atualiza-mundo' e 'desenha-mundo'. fazendo pequenas mudanças nessas funções, elas são 
             capazes de modificar a velocidade do cão, adicionar nuvens paradas, etc. Elas então modificam o mundo para incluir a coordenada-x do rubi, e sistematicamente atualizar cada função no
             código fonte para acomodar este novo mundo. Se o tempo permitir, iterações adicionais são possíveis adicionando mais conjuntos de coordenadas no Mundo(World).
 Alunos trabalham em seus jogos, e derivam a estrutura mundo de seus jogos.}
@@ -33,7 +33,7 @@ Alunos trabalham em seus jogos, e derivam a estrutura mundo de seus jogos.}
                 )
       ]{
         @points[@point{@student{Você teve muita prática sobre structs nas últimas lições, então agora é hora de um desafio. 
-                                @activity{Vá para @worksheet-link[#:page 19 #:name "Intro-unit4"] em sua apostila. Preencha os espaços em brnaco com a  
+                                @activity{Vá para @worksheet-link[#:page 19 #:name "Intro-unit4"] em sua apostila. Preencha os espaços em branco com a  
                                                   informação que você sabe sobre as estruturas @code{carro}, @code{festa}, e @code{mundo}.}}
                         @teacher{Refresque a memória dos alunos sobre Structs que eles já viram, como preparação para definirem suas próprias.}}
                  ]
@@ -47,17 +47,17 @@ Alunos trabalham em seus jogos, e derivam a estrutura mundo de seus jogos.}
         #:product-outcomes @itemlist[]
         #:standards (list)
         #:materials @itemlist[]
-        #:preparation @itemlist[@item{O arquivo do Mundo Ninja World 2 [NW2.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "UcChQltYSx" "WeScheme"] pré-carregado nas máquinas dos alunos}]
+        #:preparation @itemlist[@item{O arquivo do Mundo Ninja World 2 [NW2.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "Rd1zUYP70f" "WeScheme"] pré-carregado nas máquinas dos alunos}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{Abra o @editor-link[#:public-id "UcChQltYSx" "Mundo Ninja 2"] e clique em "Run". 
+        @points[@point{@student{@activity{Abra o @editor-link[#:public-id "Rd1zUYP70f" "Mundo Ninja 2"] e clique em "Run". 
                                           O que acontece? Será que ele faz a mesma coisa como na simulação da unidade passada?}
                                 
-                                 Vamos caminhar pelo código e descobrir o que está errado. No início da tela, vocẽ vê a seção @code{;; DADOS}. 
+                                 Vamos caminhar pelo código e descobrir o que está errado. No início da tela, você vê a seção @code{;; DADOS}. 
                                  Aqui é onde definimos tudo o que precisamos acompanhar durante a animação. Como você pode ver, 
                                  @code{define-struct} é usada para definir a estrutura Mundo aqui.
                                  @activity{@itemlist[@item{O que está na estrutura mundo?}
@@ -83,7 +83,7 @@ Alunos trabalham em seus jogos, e derivam a estrutura mundo de seus jogos.}
                                  @code{CENARIO} em algumas coordenadas. @activity{Algo está usando a coordenada-x do cachorro? E a 
                                                                                   coordenada-y do cachorro?}}
                          @teacher{}}
-                 @point{@student{pense um momento sobre como o "jogo" Mundo Ninja funcionava na lição anterior. Em cada "tick"
+                 @point{@student{Pense um momento sobre como o "jogo" Mundo Ninja funcionava na lição anterior. Em cada "tick"
                                  @code{desenha-mundo} pegava o mundo atual e extraía a @code{caoX} antes de usá-la para desenhar o cachorro.
                                  Mas essa função @code{desenha-mundo} nunca olha para o mundo atual! Se a função não está 
                                  olhando para o que o mundo tem dentro dele, então não tem como mudar a posição do cachorro.
@@ -96,7 +96,7 @@ Alunos trabalham em seus jogos, e derivam a estrutura mundo de seus jogos.}
                                   atualizado e repassado para @code{desenha-mundo}, os alunos devem entender que a menos que a figura do cachorro seja 
                                   desenhada na coordenada-x ATUALIZADA de (@code{caoX}), o jogo não ficará animado.}}
                  
-                 @point{@student{Suponde que queremos adicionar a imagem de uma @code{NUVEM} no jogo na posição (500, 400). Como você poderia usar
+                 @point{@student{Supondo que queremos adicionar a imagem de uma @code{NUVEM} no jogo na posição (500, 400). Como você poderia usar
                                  @code{put-image} para colocá-la no @code{CENARIO}?
 @code[#:multi-line #t]{;; desenha-mundo: mundo -> Figura
 ;; coloque o PERIGO sobre o CENARIO nas seguintes coordenadas
@@ -128,11 +128,11 @@ Alunos trabalham em seus jogos, e derivam a estrutura mundo de seus jogos.}
                          }
                  ]
          }
-@lesson/studteach[#:title "Extending the World"
+@lesson/studteach[#:title "Estendendo o Mundo"
         #:duration "15 minutos"
         #:overview ""
-        #:learning-objectives @itemlist[@item{Students will modify draw-world to add clouds and a ruby}
-                                         @item{Students will iteratively expand the World structure, and trace these changes throughout their program}]
+        #:learning-objectives @itemlist[@item{Os alunos modificarão desenha-mundo para adicionar nuvens e um rubi}
+                                         @item{Os alunos vão repetidamente expandir a estrutura Mundo, e rastrear essas mundanças ao longo de seu programa}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
@@ -206,8 +206,8 @@ Alunos trabalham em seus jogos, e derivam a estrutura mundo de seus jogos.}
                                  Novamente, a assinatura lhe diz MUITO sobre como escrever a função. Aqui vai uma dica: se a imagem é 
                                  um Mundo, você sabe que terá que fazer um mundo em algum momento. @activity{Como você faz um mundo?}}
                          @teacher{}}
-                 @point{@student{No momento que você for escrever @code{make-mundo}, seus instintos devem apontar para algo: Todo mundo contem um @code{caoX}
-                                 e um @code{rubiX}, então você pode escrevê-los automáticamente.
+                 @point{@student{No momento que você for escrever @code{make-mundo}, seus instintos devem apontar para algo: Todo mundo contém um @code{caoX}
+                                 e um @code{rubiX}, então você pode escrevê-los automaticamente.
                                  Agora você pode se pergunar: O que acontece com @code{caoX}? No jogo, o cão ainda estará se movendo para a direita em 
                                  10 pixels. 
                                  @activity{@itemlist[@item{Como você atualizaria a posição-x do cao? Como você obtém um @code{caoX} de algum mundo?}
@@ -215,11 +215,11 @@ Alunos trabalham em seus jogos, e derivam a estrutura mundo de seus jogos.}
                                                       @item{Nós dissemos que queremos que o rubi se mova para a esquerda em 5 pixels de velocidade. Como você obtém @code{rubiX} 
                                                             de algum mundo?}
                                                       @item{Se ele está se movendo para a esquerda, você adiciona ou subtrai de sua posição?}
-                                                      @item{Em qual mundo você está obtendo @code{caoX} e @code{rubiX}?}
+                                                      @item{De qual mundo você está obtendo @code{caoX} e @code{rubiX}?}
                                                       @item{Os exemplos de @code{atualiza-mundo} precisam mudar?}
                                                       @item{Olhe para o primeiro exemplo: Quantas coisas estão sendo passadas para @code{make-mundo}? Quantas 
-                                                            deveriam estar ali? DIca: olhe no domínio.}
-                                                      @item{A coordenada-x do rubi precisa ser adicionada. Onde o rubi começa, no mundo @code{INICIO}? 
+                                                            deveriam estar ali? Dica: olhe no domínio.}
+                                                      @item{A coordenada-x do rubi precisa ser adicionada. Onde o rubi começa no mundo @code{INICIO}? 
                                                             Se ele for 5 pixels para a esquerda, onde ele deveria estar no final do primeiro exemplo?}
                                                       @item{Ajuste o segundo exemplo do mesmo modo, adicionando a coordenada-x do rubi.}]}
                                  }          
@@ -248,8 +248,8 @@ Alunos trabalham em seus jogos, e derivam a estrutura mundo de seus jogos.}
       ]{
         @points[@point{@student{Você esteve trabalhando com estruturas nas últimas lições, e você tornou-se realmente bom em definir, construir e 
                                 accessá-las. Agora, você irá definir a estrutura Mundo para o SEU JOGO! 
-                                @activity{Suponde que fosse um jogo de corrida, onde meu personagem está na parte de baixo da tela, dentro de seu carro. Na frente 
-                                          dele, Vejo duas estradas, **with cars coming at me as I catch up to them(com carros indo como vindo)**. Para percorrer o caminho, eu preciso 
+                                @activity{Supondo que fosse um jogo de corrida, onde meu personagem está na parte de baixo da tela, dentro de seu carro. Na frente 
+                                          dele, vejo duas estradas, com carros indo e vindo. Para percorrer o caminho, eu preciso 
                                           mudar da faixa da esquerda para a direita da estrada. 
                                           @itemlist[@item{Quais são todas a coisas que eu preciso manter controle nesse jogo?}
                                                      @item{@code{JogadorX} - um número}
@@ -273,7 +273,7 @@ Alunos trabalham em seus jogos, e derivam a estrutura mundo de seus jogos.}
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Student will define their World structures}]
+        #:product-outcomes @itemlist[@item{O Aluno definirá suas próprias estruturas Mundo}]
         #:standards (list)
         #:materials @itemlist[]
         #:preparation @itemlist[]
@@ -283,21 +283,21 @@ Alunos trabalham em seus jogos, e derivam a estrutura mundo de seus jogos.}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{It's time to start work on your game!
-           @activity{Turn to @worksheet-link[#:page 20 #:name "Game Design 1"] in your workbooks. First, you're going to draw a rough sketch of what your
-                             game should look like when the user clicks "Run".
-           @itemlist[@item{Keep your @code{world} structure limited to five or fewer things to begin with - you can add more things to make it more complex later on.}
-                     @item{Make a list of all the images you'll need in your game.}
-                     @item{Make a list of everything that changes in your game - if something moves, will you need to keep track of it's
-                           x-coordinate? y? both?}]}}
-                        @teacher{Many students will want to create ambitious games at first, with many values in their world structure. Make sure they start
-                                 simple at first: Once they have a simple game working, they can add more elements and features to make it more advanced.
-                                 Check their work: Does each pair's world structure correspond to the things that are changing in their game?}}
+        @points[@point{@student{É hora de começar a trabalhar no seu jogo!
+           @activity{Vá para a @worksheet-link[#:page 20 #:name "Game Design 1"] em suas apostilas. Primeiramente, você vai desenhar um esboço a grosso modo de como seu
+                             jogo deve se parecer quando o usuario clicar em "Run".
+           @itemlist[@item{Mantenha sua estrutura @code{mundo} limitada a cinco coisas ou menos para iniciar - você pode adicionar mais coisas para fazê-lo mais complexo mais tarde.}
+                     @item{Faça uma lista de todas as imagens que você precisará em seu jogo.}
+                     @item{Faça uma lista de tudo o que muda em seu jogo - se algo se move, você precisará acompanhar sua
+                           coordenada-x? Sua coordenada-y? As duas?}]}}
+                        @teacher{Muitos alunos vão querer criar jogos ambiciosos no início, com muitos valores em sua estrutura mundo. Certifique-se de que comecem
+                                 simples no iníco: Quando tiverem um jogo simples funcionando, eles podem adicionar mais elementos e recursos para torná-lo mais avançado.
+                                 Cheque o trabalho deles: A estrutura mundo das duplas correspondem ao que está mudando em seu jogo?}}
                  ]
          }
 
-@lesson/studteach[#:title "Defining the World"
-        #:duration "20 minutes"
+@lesson/studteach[#:title "Definindo o Mundo"
+        #:duration "20 minutos"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
@@ -311,17 +311,17 @@ Alunos trabalham em seus jogos, e derivam a estrutura mundo de seus jogos.}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Now that you've gotten a list of everything that changes, it's time to turn them into a World structure.
-            @activity{Turn to @worksheet-link[#:page 21 #:name "Game Design 2"] in your workbooks, and define your world structure. When you're done, 
-                              write down all of the contracts that you need to work with your structures. 
-                              @itemlist[@item{Define an example world called START, which is how your world should look a split-second after the
-                                              game begins. Write it in on the bottom of @worksheet-link[#:page 21 #:name "Game Design 2"].}]}}
-                        @teacher{Review each team's structure and make sure it accurately models their world. Also be sure to check their 
-                                 contracts, which should include @code{make-world}, and functions to access every part of their world structure.}}
+        @points[@point{@student{Agora que você tem uma lista de tudo o que muda, é o momento de transformá-la em um estrutura Mundo.
+            @activity{Vá para a @worksheet-link[#:page 21 #:name "Game Design 2"] em sua apostila, e defina sua estrutura mundo. Quando tiver acabado, 
+                              escreva todas as assinaturas que você precisa para trabalhar com suas estruturas. 
+                              @itemlist[@item{Defina um mundo exemplo chamado INICIO, que é como o mundo deve se parecer em uma fração de segundo
+                                              quando ele é iniciado. Escreva-o na parte de baixo da @worksheet-link[#:page 21 #:name "Game Design 2"].}]}}
+                        @teacher{Revise a estrutura de cada equipe e certifique-se de que ele modele com precisão seu mundo. Não se esqueça de olhar suas 
+                                 assinaturas, que devem incluir @code{make-mundo}, e funções de acesso para cada parte de sua estrutura mundo.}}
                  ]
          }
-@lesson/studteach[#:title "Closing"
-        #:duration "5 minutes"
+@lesson/studteach[#:title "Encerramento"
+        #:duration "5 minutos"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
@@ -335,17 +335,17 @@ Alunos trabalham em seus jogos, e derivam a estrutura mundo de seus jogos.}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Now you have the basic building blocks of your game and an understanding of how @code{draw-world}, 
-                               @code{update-world}, and @code{big-bang} work together to create an animation in Racket. In the next unit you'll
-                               use your world structure to write the @code{draw-world} and @code{update-world} functions for your own game.}
-                       @teacher{Have the class take turns telling their peers about their games: Who the player is, what their danger, target, etc. 
-                                will be. Most importantly, have them tell the class what they have in their World structure.
-@itemlist[@item{Make sure student names are on page 20}
-                   @item{Take page 20 itself, or take photos of page 20, to prep game images for the next unit.}
-                   @item{Images should be in PNG or GIF format. Background images should be 640x480, and character images should generally be 
-                         no larger than 200px in either dimension. Make sure that the character images have transparent backgrounds!}
-                   @item{TIP: use animated GIFs for the characters - not only does the animation make the game look a lot better, but these 
-                         images usually have transparent backgrounds to begin with.}]}
+        @points[@point{@student{Agora você tem os blocos básicos de construção de seu jogo e uma compreensão de como @code{desenha-mundo}, 
+                               @code{atualiza-mundo}, e o @code{big-bang} trabalham juntos para criar uma animação no Racket. Na próxima lição você vai
+                               usar sua estrutura mundo para escrever as funções @code{desenha-mundo} e @code{atualiza-mundo} do seu próprio jogo.}
+                       @teacher{Peça à turma que revezem as duplas falando sobre seu jogo a todos: Quem é o jogador, qual será o perigo, o alvo, etc. 
+                                Mais importante ainda, peça o que eles têm dentro da sua sua estrutura Mundo.
+@itemlist[@item{Certifique-se que os nomes dos alunos estão na página 20}
+                   @item{Pegue a página 20, ou tire fotos dela, para preparar as imagens do jogo para a próxima unidade.}
+                   @item{Imagens devem ser em PNG ou GIF. As imagens de fundo devem ser 640x480, e as imagens do personagem devem geralmente ser 
+                         menores que 200px em ambas as dimensões. Certifique-se que as imagens possuem fundo transparente!}
+                   @item{DICA: use gifs animadas para os personagens - não é apenas a animação que faz o jogo parecer melhor, mas essas 
+                         imagens geralmente têm fundos transparentes para começar a brincar.}]}
                        }
                  ]
          }
