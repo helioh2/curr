@@ -24,7 +24,7 @@
                             @item{Tabela da Linguagem}]
      #:preparation @itemlist[@item{Arranjos de assento: preferencialmente aglomerando as mesas}
                              @item{Protetor de folha de plático transparente: coloque as imagens 20 & 21 na parte da frente da apostila para facilitar a identificação}
-                             @item{O arquivo Mundo Ninja 3 [NW3.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "iQTSgnpSRp" "WeScheme"] pré-carregado nas máquinas dos alunos}
+                             @item{O arquivo Mundo Ninja 3 [NW3.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "2iasby92mn" "WeScheme"] pré-carregado nas máquinas dos alunos}
                              @item{BS:2 Modelo Jogo [GameTemplate.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "mZCRewT44l" "WeScheme"] pré-carregado nas máquinas dos alunos com as imagens incluídas.}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -32,7 +32,7 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{Abra o @editor-link[#:public-id "iQTSgnpSRp" "Mundo Ninja"], e olhe 
+        @points[@point{@student{@activity{Abra o @editor-link[#:public-id "2iasby92mn" "Mundo Ninja"], e olhe 
                                           no @code{mundo} definido no início.
             @itemlist[@item{Quantas coisas estão nesse mundo? Quais são?}
                       @item{O que @code{caoX} representa? E @code{rubiX}? @bitmap{images/gameimage.png}}
