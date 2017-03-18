@@ -1,83 +1,83 @@
 #lang curr/lib
 
-@title{Unit 5: Building your World}
+@title{Unidade 5: Construindo seu Mundo}
 
 @declare-tags[management]
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
+@unit-overview/auto[#:lang-table (list (list "Número" @code{+ - * / sq sqrt expt})
                                        (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
-                                                                  @unit-descr{After thinking about their World, students practice building, drawing and animating it.}
+                                       (list "Figura"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
+                                                                  @unit-descr{Depois de pensarem sobre seus Mundos, os alunos praticam construindo, desenhando e animando-o.}
 }
 @unit-lessons{
-@lesson/studteach[#:title "Introduction"
-        #:duration "5 minutes"
+@lesson/studteach[#:title "Introdução"
+        #:duration "5 minutos"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
-        #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, design recipe, course calendar)}
-                            @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
-                            @item{Student workbooks}
-                            @item{Language Table}]
-     #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
-                             @item{Clear plastic sheet protectors: put pages 20 & 21 at the front of the workbook for ease of reference}
-                             @item{The Ninja World 3 file [NW3.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "t77yPXKDWs" "WeScheme"] preloaded on students' machines}
-                             @item{BS:2 Blank Game Template [GameTemplate.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "ZcK2dqANbT" "WeScheme"] preloaded on students' machines with student images included.}]
+        #:materials @itemlist[@item{Lápis/canetas aos alunos, e giz/marcadores de quadro branco aos professores}
+                            @item{Cartazes da turma (Lista de regras, conhecimentos básicos, calendário do curso)}
+                            @item{Ambiente de Edição (WeScheme ou DrRacket com o pacote bootstrap-teachpack instalado)}
+                            @item{Apostila dos Alunos}
+                            @item{Tabela da Linguagem}]
+     #:preparation @itemlist[@item{Arranjos de assento: preferencialmente aglomerando as mesas}
+                             @item{Protetor de folha de plático transparente: coloque as imagens 20 & 21 na parte da frente da apostila para facilitar a identificação}
+                             @item{O arquivo Mundo Ninja 3 [NW3.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "iQTSgnpSRp" "WeScheme"] pré-carregado nas máquinas dos alunos}
+                             @item{BS:2 Modelo Jogo [GameTemplate.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "mZCRewT44l" "WeScheme"] pré-carregado nas máquinas dos alunos com as imagens incluídas.}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{Open the @editor-link[#:public-id "t77yPXKDWs" "Ninja World"] file, and look 
-                                          at the @code{world} defined at the top.
-            @itemlist[@item{How many things are in this world? What are they?}
-                      @item{What does @code{dogX} represent? @code{rubyX}? @bitmap{images/gameimage.png}}
-                      @item{What function makes a world?}
-                      @item{Scroll down a bit in the code. What function updates the world?}
-                      @item{What function draws the world?}
-                      @item{How fast is the dog moving from left to right? How fast is the ruby moving right to left across the screen?}
-                      @item{Now turn to @worksheet-link[#:page 21 #:name "Game Design"] in your workbook. What are the things in your world? What datatypes are they?}]}}
-                        @teacher{Make sure that all students can list the names and types of everything in the @code{world} struct. In addition,
-                                 make sure they can answer some questions about accessor functions, such as "how do you get the alien's speed out of
-                                 the world?"}}
+        @points[@point{@student{@activity{Abra o @editor-link[#:public-id "iQTSgnpSRp" "Mundo Ninja"], e olhe 
+                                          no @code{mundo} definido no início.
+            @itemlist[@item{Quantas coisas estão nesse mundo? Quais são?}
+                      @item{O que @code{caoX} representa? E @code{rubiX}? @bitmap{images/gameimage.png}}
+                      @item{Qual função constrói um mundo?}
+                      @item{Desça um pouco pelo código. Qual função atualiza o mundo?}
+                      @item{Qual função desenha o mundo?}
+                      @item{O quão rápido o cachorro está se movendo da esquerda para a direita? A que velocidade o rubi está se movendo da direita para a esquerda na tela?}
+                      @item{Vá para @worksheet-link[#:page 21 #:name "Game Design"] em sua apostila. Quais são as coisas no seu mundo? De que tipo de dados elas são?}]}}
+                        @teacher{Certifique-se que todos os alunos podem listar o nome e os tipos de tudo que está em sua estrutura @code{mundo}. Além disso,
+                                 certifique-se que eles podem responder algumas perguntas sobre as funções de acesso, como em "como você consegue saber a velocidade do alien de fora
+                                 do mundo?"}}
                  
-                 @point{@student{Now it's time to start programming YOUR videogame. 
-                                 @activity{Open the @editor-link[#:public-id "ZcK2dqANbT" "BS:2 blank game file"].} In Bootstrap 1,
-                                 you started with the shell of a game, with some sample images and functions defined. In this class the game template is just
-                                 a collection of comments, telling you how to organize your functions and variables. You'll be writing @italic{every line} of 
-                                 code yourself. Let's begin: 
-                                 @activity{At the top of the file, where it says @code{;; The World is a:}, define the world struct for your game. 
-                                          (Check @worksheet-link[#:page 21 #:name "Game Design"] to jog your memory.) Once you have the world struct, scroll 
-                                          down to where it says @code{;; STARTING WORLD} and define your first example world: name it @code{START}.}}
+                 @point{@student{Agora é hora de programar o SEU jogo. 
+                                 @activity{Abra o @editor-link[#:public-id "mZCRewT44l" "BS:2 Modelo Jogo"].} No Bootstrap 1,
+                                 você começou com a casca de um jogo, com algumas imagens de exemplo e funções definidas. Nesta aula o modelo de jogo é só
+                                 uma coleção de comentários, contando a você como organizar suas funções e variáveis. Você estará escrevendo @italic{cada linha} do 
+                                 código por conta própria. Vamos começar: 
+                                 @activity{No início do arquivo, onde diz @code{;; O Mundo é:}, defina a estrutura mundo do seu jogo. 
+                                          (Olhe a @worksheet-link[#:page 21 #:name "Game Design"] para refrescar sua memória.) Uma vez que você tem a estrutura mundo, desça 
+                                          até onde mostra @code{;; INICIANDO MUNDO} e defina o seu primeiro exemplo de mundo: nomeie como @code{INICIO}.}}
                          @teacher{}}
                  
-                 @point{@student{So now you have your world, and you know what's in it: but what do those things look like? You'll have to add some images.
-                                 Do you remember the @code{bitmap/url} function from Bootstrap one? It takes in the URL of any image online (given as a 
-                                 string) and returns that image. @code{; bitmap/url : String -> Image}
-                                 @activity{@itemlist[@item{Look back at @worksheet-link[#:page 20 #:name "Game Design"] in your workbook. How many things 
-                                                           in your game will need their own image?}
-                                                      @item{Using Google Image Search or a similar tool, find images for the background and for each of 
-                                                            the characters in your game.}
-                                                      @item{Define a new variables for your images, (i.e. @code{PLAYER}, @code{DANGER}, etc. and use
-                                                            the @code{bitmap/url} function to put them into your game file.}]}
-                                 Some hints for finding images: Your images should be in PNG or GIF format, and the url should contain the file type
-                                 (i.e. .png or .gif) at the end. Background images should be 640x480, and character images should generally be no 
-                                 larger than 200px in either dimension. Make sure that the character images have transparent backgrounds! TIP: use 
-                                 animated GIFs for the characters - not only does the animation make the game look a lot better, but these images 
-                                 usually have transparent backgrounds to begin with.} 
-                        @teacher{Find students' images ahead of before class to save time, and use the @code{bitmap/url} function to put them into a 
-                                  blank game file for each pair of students.}}
+                 @point{@student{Então agora que você tem seu mundo, e sabe o que está nele: mas como são essas coisas? Você terá que adicionar algumas imagens.
+                                 Você se lembra da função @code{bitmap/url} do Bootstrap 1? Ela recebe a URL de qualquer imagem online (dada como 
+                                 string) e retorna a figura. @code{; bitmap/url : String -> Figura}
+                                 @activity{@itemlist[@item{Olhe novamente na @worksheet-link[#:page 20 #:name "Game Design"] em sua apostila. Quantas coisas 
+                                                           em seu jogo precisará de uma imagem própria?}
+                                                      @item{Usando a pesquisa do Google Imagens ou uma ferramenta similar, encontre figuras para o cenário e para cada um dos  
+                                                            personagens de seu jogo.}
+                                                      @item{Defina novas variáveis para suas figuras, (i.e @code{JOGADOR}, @code{PERIGO}, etc.) e use
+                                                            a função @code{bitmap/url} para colocá-las dentro do arquivo do seu jogo.}]}
+                                 Algumas dicas para encontrar figuras: Suas figuras devem ser no formato PNG  ou GIF, e a url deve conter o tipo do arquivo
+                                 (.png ou .gif) no final. Figuras do cenário de fundo devem ser 640x480, e figuras do personagem não devem ser maiores
+                                 de 200px nas duas dimensões. Certifique-se que as imagens dos personagem devem ter fundo transparente! DICA: use 
+                                 GIFs animadas para os personagens - não é apenas a animação que faz o jogo parecer melhor, mas essas figuras 
+                                 geralmente têm fundos transparentes para começar.} 
+                        @teacher{Encontre as figuras dos alunos antes da aula para economizar tempo, e use a função @code{bitmap/url} para colocá-las dentro de 
+                                  um arquivo em branco para cada dupla de alunos.}}
                  ]
          }
 
-@lesson/studteach[#:title "Drawing the World"
-        #:duration "40 minutes"
+@lesson/studteach[#:title "Desenhando o Mundo"
+        #:duration "40 minutos"
         #:overview ""
-        #:learning-objectives @itemlist[@item{Students will define draw-world, and hook it up to an event handler}]
+        #:learning-objectives @itemlist[@item{Os alunos vão definir desenha-mundo, e à ligam em um manipulador de eventos}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
@@ -89,63 +89,63 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Now that we have our world structure, we need to know how to draw it. 
-                                @activity{Turn to  @worksheet-link[#:page 23 #:name "Drawing START"], and fill in your @code{START} world at the bottom.
-                                                   @itemlist[@item{According to your world struct, where should everything be when the game starts?}
-                                                              @item{Draw a simple sketch of your @code{START} world in the space provided.}]}
-                                Next put your images in order. We know we have to stack images, so you're going to have to use @code{put-image}. 
-                                @activity{Using the chart on @worksheet-link[#:page 23 #:name "Drawing START"], figure out which image goes on top,
-                                                          which goes second, and so on. Make a list from top to bottom in the column on the left. 
-                                                          Then write each image's coordinates in the right column.}}
+        @points[@point{@student{Agora que temos nossa estrutura mundo, precisamos saber como desenhá-la. 
+                                @activity{Vá para  @worksheet-link[#:page 23 #:name "Drawing START"], e preencha seu mundo @code{INICIO} logo abaixo.
+                                                   @itemlist[@item{De acordo com sua estrutura mundo, onde tudo deve estar quando o jogo começar?}
+                                                              @item{Desenhe um simples esboço de seu mundo @code{INICIO} no espaço indicado.}]}
+                                Em seguida coloque as imagens em ordem. Nós sabemos que devemos empilhar as figuras, então vamos usar a função @code{put-image}. 
+                                @activity{Usando o desenho da @worksheet-link[#:page 23 #:name "Drawing START"], descubra qual imagem vai em cima,
+                                                          qual vai em segundo lugar, e assim por diante. Faça uma lista de cima para baixo na coluna da esquerda 
+                                                          Depois escreva cada coordenada das imagens na coluna da direita.}}
                         @teacher{}}
-                 @point{@student{Let's set up one more example. This will help when you begin writing your function that draws the world, you're ready to 
-                                go. On @worksheet-link[#:page 24 #:name "Drawing NEXT"] there's a page nearly identical to page 23. You've already written a 
-                                @code{START} world, which has everything where it will be when the game starts. Now do the same for a world called
-                                @code{NEXT}. This world represents the game in the NEXT FRAME after START.
-                                @activity{@itemlist[@item{Fill in the world struct, and sketch the @code{NEXT} world.}
-                                                     @item{Now put the images in the same order as in the @code{START} world. (We don't want them to 
-                                                           be switching around in the middle of the game!) Then write the NEW coordinates beside them.}]}}
-                        @teacher{These workbook pages help students organize their thinking before writing their own @code{draw-world} function. The order of
-                                 images determines which game images appear above the others. (Does it make more sense to have the ruby appear to be flying 
-                                 @italic{behind} the cloud, or in front of it?)}}
+                 @point{@student{Vamos criar mais um exemplo. Isso ajudará quando você for escrever sua função que desenha o mundo, você está pronto para 
+                                seguir. Na @worksheet-link[#:page 24 #:name "Drawing NEXT"] temos uma página quase idêntica à página 23. Você já escreveu o 
+                                mundo @code{INICIO}, que tem tudo o que o jogo começa. Agora faça o mesmo para o mundo chamado 
+                                @code{PROXIMO}. Esse mundo representa o jogo no PRÓXIMO QUADRO depois do INICIO.
+                                @activity{@itemlist[@item{Preencha na estrutura mundo, e esboce o mundo @code{PROXIMO}.}
+                                                     @item{Agora coloque as imagens na mesma ordem que o mundo @code{INICIO}. (Não queremos que elas 
+                                                           troquem de posição no meio do jogo!) Então escreva as NOVAS coordenadas ao lado delas.}]}}
+                        @teacher{Essas páginas da apostila ajudam os alunos a organizar seu pensamento antes de escrever sua própria função @code{desenha-mundo}. A ordem das
+                                 figuras determinam quais figuras aparecem por cima das outras. (Isto faz mais sentido ter o rubi aparecer voando 
+                                 @italic{atrás} da nuvem, ou na frente dela?)}}
                  
-                        @point{@student{@activity{Which function is used to draw the world?} Just like @code{draw-auto}, and the @code{draw-world} 
-                                         function in Ninja World, @code{draw-world} takes in a struct and produces an Image. 
-                                         @activity{@itemlist[@item{What is the Domain of this function? The Range?}
-                                                              @item{At the top of @worksheet-link[#:page 25 #:name "draw-world"], write the
-                                                                    contract for @code{draw-world}.}
-                                                              @item{Fill in the function header for @code{draw-world}.}]}}
+                        @point{@student{@activity{Qual função é usada para desenhar o mundo?} Assim com na @code{desenha-carro} e a função @code{desenha-mundo} 
+                                         no Mundo Ninja, @code{desenha-mundo} recebe uma estrutura e produz uma Figura. 
+                                         @activity{@itemlist[@item{Qual é o Domínio dessa função? E a Imagem da função?}
+                                                              @item{No início da @worksheet-link[#:page 25 #:name "draw-world"], escreva a
+                                                                    assinatura para @code{desenha-mundo}.}
+                                                              @item{Preencha o cabeçalho da função para @code{desenha-mundo}.}]}}
                                 @teacher{}}
-                        @point{@student{Below the function header, there is a sort of 'staircase' pattern using @code{put-image}, just like in 
-                                         Ninja World. Do you remember the contract for @code{put-image}? It takes in an image, the coordinates for 
-                                         where to put the image, and another image, on top of which the first image is placed.
-@code[#:multi-line #t]{; put-image : Image Number Number Image -> Image
-                       ; places the first image at the given x and y-coordinates on top of the second image}
-                                        @activity{@itemlist[@item{Start out on the bottom of this 'staircase' by putting one of your
-                                                                  images onto the background.}
-                                                             @item{If you wanted the image to be centered on the scene, what are the x- and 
-                                                                   y-coordinates you'll need?}
-                                                             @item{But you probably don't want your image to be at the center of the background.
-                                                                   Look back at your @code{START} world picture. You made a note of which
-                                                                   coordinates where you wanted that image to be, laid on top of the background.}]}
-                                        Start with something that looks like this, substituting YOUR image and coordinates:
-@code[#:multi-line #t]{(put-image IMAGE
+                        @point{@student{Abaixo da definição da função, temos um caso padrão 'escada' usando @code{put-image}, assim como no 
+                                         Mundo Ninja. Você se lembra da assinatura para @code{put-image}? Ela recebe uma figura, as coordenadas para 
+                                         onde colocar a figura, e outra figura que ficará por baixo.
+@code[#:multi-line #t]{; put-image : Figura Numero Numero Figura -> Figura
+                       ; coloca a primeira figura nas coordenadas x e y recebidas sobre a segunda figura}
+                                        @activity{@itemlist[@item{Comece do fundo da 'escada' colocando uma de suas
+                                                                  figuras para o fundo.}
+                                                             @item{Se você quiser que alguma figura fique centralizada na cena, quais são as coordenadas x e 
+                                                                   y que você precisaria?}
+                                                             @item{Mas você provavelmente não vai querer sua figura esteja no centro da tela.
+                                                                   Olhe na página anterior na figura do seu mundo @code{INICIO}. Você fez uma anotação de quais
+                                                                   coordenadas onde você quer quer as figuras fossem colocadas em cima do fundo.}]}
+                                        Comece com algo que pareça com isso, substituindo SUA figura e coordenadas:
+@code[#:multi-line #t]{(put-image IMAGEM
                                   320 240
-                                  BACKGROUND)}
-                                         @activity{@itemlist[@item{Place another one of your images on top of the one that this 
-                                                                   staircase-shaped expression has created.}
-                                                              @item{Keep adding to it, until you have a stack of all of the images in your game.}]}
+                                  CENARIO)}
+                                         @activity{@itemlist[@item{Coloque alguma de suas imagens sobre aquela imagem que essa expressão em 
+                                                                   forma de 'escada' criou.}
+                                                              @item{Continue aumentado a função, até você ter uma pilha com todas as imagens do seu jogo.}]}
 }
-                                @teacher{Work with small groups to complete this section. When students finish writing draw-world, have them type their 
-                                         NEXT world and draw-world into their games, in the @code{;; GRAPHICS} section. If they type @code{(draw-world START)}
-                                         into the interactions window, they can see a screenshot of their games.}}
+                                @teacher{Trabalhe em pequenos grupos para completar essa seção. Quando os alunos terminarem de escrever desenha-mundo, peça que digitem seu 
+                                         mundo PROXIMO e desenha-mundo dentro de seu jogo, na seção de @code{;; IMAGENS}. Se eles digitarem @code{(desenha-mundo INICIO)}
+                                         na janela de interações, eles podem ver uma captura de tela do jogo.}}
                         ]
          }
 
-@lesson/studteach[#:title "Updating the World"
-        #:duration "40 minutes"
+@lesson/studteach[#:title "Atualizando o Mundo"
+        #:duration "40 minutos"
         #:overview ""
-        #:learning-objectives @itemlist[@item{Students will define a simple update-world function, and hook it up to on-tick}]
+        #:learning-objectives @itemlist[@item{Os alunos definem uma simples função atualiza-mundo, à relacionam com o evento on-tick}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
@@ -157,24 +157,24 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Scroll down until you see @code{;; UPDATING FUNCTIONS}. This code is responsible for changing the World. 
-                                @activity{What function do you see here? What's in its Domain? Its Range?}
-                                @code{update-world} takes a world, and then returns a new one that's been updated. Think of this function 
-                                as the one that generates the next page of a flipbook.
-            @activity{@itemlist[@item{Look back at the difference between your @code{START} and @code{NEXT} worlds. What has changed?}
-                                @item{On @worksheet-link[#:page 26 #:name "update-world"], make a list of what changed and how it changed
-                                         as a problem statement for writing @code{update-world}, using the design recipe. Be sure to fill
-                                         out the @vocab{Contract} and two EXAMPLEs before defining the function.}]}}
-                        @teacher{@code{update-world} is the function that will handle the logic of the student' games. It determines what changes
-                                 from one second to the next, and updates the world accordingly. Make sure students are making a new world with
-                                 @code{make-world}, and using their accessor functions to change the values of each world fields according to 
-                                 their game's behavior. @management{Work with small groups to complete this section as needed. When they are
-                                 finished, have the students type @code{update-world} into their games.}}}
+        @points[@point{@student{Desça pelo código até você ver @code{;; FUNCOES DE ATUALIZACAO}. Esse código é responsável por modificar o Mundo. 
+                                @activity{Qual função você vê aqui? Qual é o Domínio dela? E a Imagem da função?}
+                                @code{atualiza-mundo} recebe um mundo, e então retorna um novo mundo que foi atualizado. Pense nesta função 
+                                como a que gera a próxima página de um flipbook(livreto que tem as páginas desenhadas, passando rápidamente nos dá a sensação de movimento).
+            @activity{@itemlist[@item{Dê uma olhada na diferença entre os mundos @code{INICIO} e @code{PROXIMO}. O que mudou?}
+                                @item{Na @worksheet-link[#:page 26 #:name "update-world"], faça uma lista do que mudou e como isso foi mudado
+                                         com uma descrição do problema para escrever @code{atualiza-mundo}, usando a receita de projeto. Tenha certeza de preencher
+                                         a @vocab{Assinatura} e dois EXAMPLEs antes de definir a função.}]}}
+                        @teacher{@code{atualiza-mundo} é uma função que vai cuidar da lógica do jogo dos alunos. Ela determina o que muda
+                                 de um segundo para o outro, e atualiza o mundo de acordo. Certifique-se que os alunos estão fazendo um novo mundo com
+                                 @code{make-mundo}, e usando suas funções de acesso para mudar os valores de cada campo do mundo de acordo com 
+                                 o comportamento de seu jogo. @management{Trabalhe com pequenos grupos para completar essa seção confome necessário. Quando eles
+                                 tiverem terminado, peça que os alunos digitem @code{atualiza-mundo} dentro de seus jogos.}}}
                  ]
          }
 
-@lesson/studteach[#:title "Closing"
-        #:duration "5 minutes"
+@lesson/studteach[#:title "Encerramento"
+        #:duration "5 minutos"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
@@ -188,14 +188,14 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Now you have the basic shell of your videogame, with your character-images placed onto the background 
-                                and moving. However, we still haven't written any functions to take input from the user. If you want the 
-                                PLAYER to move, you'll need to learn about how to make the game respond to keypresses, 
-                                which is what you'll learn in the next unit.}         
-                       @teacher{Have students show each other their their animated games! @management{At this point in the course 
-                                students will have very different games and world structures. The Ninja World examples serve as templates
-                                and guides for what students should be adding to their games at each step, but most will require a 
-                                lot of individual attention to make their unique games behave the way they want.}}
+        @points[@point{@student{Agora você tem o esqueleto básico do seu jogo, com suas figuras de personagens sobre a imagem de fundo 
+                                e movendo-se. Entretanto, ainda não escrevemos nenhuma função que recebe uma ação do usuário. So você quiser que o 
+                                JOGADOR se mova, você precisará aprender como fazer o jogo responder aos pressionamentos de teclas, 
+                                que é o que você aprenderá na próxima unidade.}         
+                       @teacher{Peça aos alunos que mostrem uns aos outros seus jogos animados! @management{Neste momento do curso 
+                                os alunos terão jogos e estruturas Mundo muito diferentes. Os exemplos do Mundo Ninja servem como modelos
+                                e guias para o que os alunos devem adicionar aos seus jogos a cada passo, mas a maioria vai exigir 
+                                muita atenção individual para fazer seus jogos únicos se comportarem da maneira que eles querem.}}
                        }
                  ]
          }
