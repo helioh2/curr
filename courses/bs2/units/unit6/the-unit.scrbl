@@ -1,16 +1,16 @@
 #lang curr/lib
 
-@title{Unit 6: Key Events}
+@title{Unidade 6: Eventos de Tecla}
 @declare-tags[management]
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt})
+@unit-overview/auto[#:lang-table (list (list "Número" @code{+ - * / sq sqrt expt})
                                        (list "String" @code{string-append string-length})
-                                       (list "Image"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
+                                       (list "Figura"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
                                                                   @unit-descr{Students return to the subject of partial functions, this time defining a key-event handler that modifies their world when certain keys are pressed.}
 }
 @unit-lessons{
-@lesson/studteach[#:title "Introduction"
-        #:duration "15 minutes"
+@lesson/studteach[#:title "Introdução"
+        #:duration "15 minutos"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
@@ -24,27 +24,27 @@
                             @item{Signs for kids, entitled "update-world", "draw-world" and "big-bang"}
                             @item{Cutout images of the dog and ruby}]
      #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
-                             @item{The Ninja World 3 file [NW3.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "t77yPXKDWs " "WeScheme"] projected onto the board}]
+                             @item{O arquivo Ninja World 3 [NW3.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "2iasby92mn" "WeScheme"] projetado sobre o quadro}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{So far, we've been working with three main functions to make our game and animate our world: @code{update-world}, 
-                                @code{draw-world}, and @code{big-bang}. At this point, your game might use a few more functions than these, but 
-                                Ninja World is still as basic as you remember it. 
-                                @activity{@itemlist[@item{Open the @editor-link[#:public-id "t77yPXKDWs" "Ninja World 3"]
-                                                         file and press "Run", to watch the dog and the ruby fly across the screen.}
-                                                     @item{What is the contract for each of the functions in this game? What do they do?}
-                                                     @item{Each time @code{update-world} is called, What changes about the dog? How does it change?
-                                                                     What about the ruby?}
-                                                     @item{Where on the screen does @code{draw-world} put the image of the dog? the ruby? The clouds?}
-                                                     @item{If you were to call @code{update-world} on @code{(make-world 0 640)}, What would you get back? 
-                                                                               What is the world that is produced? Where are the dog and ruby after that 
-                                                                               world is evaluated?}]}
-                                In this version of Ninja World, both the dog and the ruby are moving as they should. But that's old news: you've already 
-                                made the characters in your game move on their own. Let's add more.}
+        @points[@point{@student{Até agora temos trabalhado com três principais funções para construir nosso jogo e animar nosso mundo: @code{atualiza-mundo}, 
+                                @code{desenha-mundo}, e @code{big-bang}. Até o momento, seu jogo pode usar algumas funções a mais que estas, mas 
+                                o Mundo Ninja ainda é básico da mesma maneira que você se lembra. 
+                                @activity{@itemlist[@item{Abra o aquivo do @editor-link[#:public-id "2iasby92mn" "Ninja World 3"]
+                                                         e clique em "Run", para ver o cachoro e o rubi voarem pela tela.}
+                                                     @item{Qual é a assinatura para cada função nesste jogo? O que elas fazem?}
+                                                     @item{Cada vez que @code{atualiza-mundo} é chamada, o que muda no cachorro? Como isso acontece?
+                                                                     E sobre o rubi?}
+                                                     @item{Em qual lugar da tela a função @code{desenha-mundo} coloca a imagem do cachorro? E do rubi? E as nuvens?}
+                                                     @item{Se você chamou @code{atualiza-mundo} no mundo @code{(make-mundo 0 640)}, o que você recebeu de volta? 
+                                                                               Qual é o mundo que foi produzido? Onde o cachorro e o rubi estão depois que 
+                                                                               o mundo foi atualizado?}]}
+                                Nesta versão do Mundo Ninja, ambos o cachorro e o rubi estão se movendo como deveriam. Mas isso nós já sabemos: você já 
+                                fez os personagens do seu jogo se moverem por conta própria. Vamos adicionar mais.}
                         
                         @teacher{This lesson is another opportunity to have students"act out the three main functions in Ninja World. Draw a box on the 
                                  board with @code{(make-world 0 640)} in it, labelled "world". Ask for a volunteer, and given them the @code{update-world}
