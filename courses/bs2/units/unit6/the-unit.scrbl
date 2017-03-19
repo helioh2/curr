@@ -16,14 +16,14 @@
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
-        #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, design recipe, course calendar)}
-                            @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
-                            @item{Student workbooks}
-                            @item{Language Table}
+        #:materials @itemlist[@item{Lápis/canetas aos alunos, e giz/marcadores de quadro branco aos professores}
+                            @item{Cartazes da turma (Lista de regras, conhecimentos básicos, calendário do curso)}
+                            @item{Ambiente de Edição (WeScheme ou DrRacket com o pacote bootstrap-teachpack instalado)}
+                            @item{Apostila dos alunos}
+                            @item{Tabela da Linguagem}
                             @item{Signs for kids, entitled "update-world", "draw-world" and "big-bang"}
-                            @item{Cutout images of the dog and ruby}]
-     #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
+                            @item{Recortes das figuras do cachorro e do rubi}]
+     #:preparation @itemlist[@item{Arranjos de assento: preferencialmente aglomerando as mesas}
                              @item{O arquivo Ninja World 3 [NW3.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "2iasby92mn" "WeScheme"] projetado sobre o quadro}]
      #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
@@ -36,7 +36,7 @@
                                 o Mundo Ninja ainda é básico da mesma maneira que você se lembra. 
                                 @activity{@itemlist[@item{Abra o aquivo do @editor-link[#:public-id "2iasby92mn" "Ninja World 3"]
                                                          e clique em "Run", para ver o cachoro e o rubi voarem pela tela.}
-                                                     @item{Qual é a assinatura para cada função nesste jogo? O que elas fazem?}
+                                                     @item{Qual é a assinatura para cada função neste jogo? O que elas fazem?}
                                                      @item{Cada vez que @code{atualiza-mundo} é chamada, o que muda no cachorro? Como isso acontece?
                                                                      E sobre o rubi?}
                                                      @item{Em qual lugar da tela a função @code{desenha-mundo} coloca a imagem do cachorro? E do rubi? E as nuvens?}
@@ -46,53 +46,53 @@
                                 Nesta versão do Mundo Ninja, ambos o cachorro e o rubi estão se movendo como deveriam. Mas isso nós já sabemos: você já 
                                 fez os personagens do seu jogo se moverem por conta própria. Vamos adicionar mais.}
                         
-                        @teacher{This lesson is another opportunity to have students"act out the three main functions in Ninja World. Draw a box on the 
-                                 board with @code{(make-world 0 640)} in it, labelled "world". Ask for a volunteer, and given them the @code{update-world}
-                                 nametag to wear. Ask for @code{update-world}'s Contract and Purpose Statement. Go through a few iterations of having 
-                                 @code{update-world} evaluate the world on the board, and each subsequent world that they update. 
-                                 @management{Make sure to call them by name, i.e. "@code{(update-world (make-world 0 640))}"} (In the first example, 
-                                 the student should erase the 0 and write a 10, and erase the 640 and write a 635. If they are stuck, refer them back 
-                                 to the code.) Take another student, and give them the @code{big-bang} sign. They'll start the whole 
-                                 animation, and will have a timer. Instruct the class to yell "tick!" every five seconds, and when they do, 
-                                 @code{big-bang} will give the current world to @code{update-world}, who will then update it and replace it with the new 
-                                 world. Let this go on for a few iterations, so the rest of the class can see the world structure being changed while 
-                                 they count down. Finally, give the @code{draw-world} sign to another volunteer, along with the cutouts 
-                                 of the dog and ruby. As before, ask for their name, domain, range. 
-                                 When they are called, they will be given a @code{world} structure and will place the image of the dog and the ruby at the 
-                                 appropriate spots on the board. Change the value of the world back to @code{(make-world 0 640)}. Call on @code{draw-world}
-                                 a few times with different worlds, so the class can see the dog and ruby moving accross the screen. When each 
-                                 volunteer has practiced, put all the functions together: On each "tick" the class makes, @code{big-bang} will call on 
-                                 @code{update-world} to update the current world, and then @code{draw-world} to draw that updated world. Again, go 
-                                 through a few iterations, so the class can see the world structure changing and characters moving in as a result.}}
+                        @teacher{Esta lição é outra oportunidade para que os alunos atuem como as três funções principais do Mundo Ninja. Desenhe uma caixa no 
+                                 quadro com @code{(make-mundo 0 640)} nela, nomeie como "mundo". Solicite um voluntário, e dê a ele um crachá com o
+                                 nome @code{atualiza-mundo} para usar. Pergunte pela Assinatura de Decla\ração de Propósito de @code{atualiza-mundo}. Passe por algumas iterações de ter 
+                                 @code{atualiza-mundo} calculando o mundo no quadro, em cada vez atualizando ele 
+                                 @management{Certifique-se de chamá-los pelo nome, i.e. "@code{(atualiza-mundo (make-mundo 0 640))}"} (No primeiro exemplo, 
+                                 o aluno deve apagar o 0 e escrever 10, e apagar o 640 e escrever 635. Se eles ficarem presos, faça referência 
+                                 código anterior.) Peça outro voluntário, e dê o crachá @code{big-bang}. Eles vão iniciar toda a 
+                                 animação, e terão um contador de tempo. Instrua a classe para gritar "tick!" a cada cinco segundos, e quando eles gritarem, 
+                                 o @code{big-bang} passará o mundo atual para @code{atualiza-mundo}, que vai atualizar e substituir ele com um novo 
+                                 mundo. Deixem que façam algumas iterações, então o resto da turma pode ver a estrutura mundo sendo modificada enquanto 
+                                 eles fazem a contagem. Finalmente, dê para outro voluntário o crachá de @code{desenha-mundo}, junto com os recortes 
+                                 do cachorro e do rubi. Como antes, pergunte o nome, o domínio e a imagem da função. 
+                                 Quando eles forem chamados, eles receberão uma estrutura @code{mundo} e substituirão a imagem do cachorro e do rubi nos 
+                                 pontos apropriados no quadro. Mude o valor do mundo de volta para @code{(make-mundo 0 640)}. Chame @code{desenha-mundo}
+                                 algumas vezes com diferentes mundos, então a turma poderá ver o cachorro e o rubi se movendo pela tela. Quando cada 
+                                 voluntário tiver praticado, coloque todas as funções juntas: Em cada "tick" qua a turma fizer, o @code{big-bang} irá chamar 
+                                 @code{atualiza-mundo} para atualizar o mundo atual, e então @code{desenha-mundo} desenhará o mundo atualizado. De novo, passe por 
+                                 algumas iterações, então a turma poderá ver a estrutura mundo mudando e os personagens se movensp como resultado.}}
                  
-                 @point{@student{The time is nigh: we need to get that ninja cat onto the screen so that our game is playable. She'll be able to move up and down. 
-                                 @activity{@itemlist[@item{Do we need to change anything in the code to make this work?}
-                                        @item{What part of the game will we need to keep track of if Ninja Cat is moving up and down? What would be a 
-                                              good @vocab{variable} name for this?}]}
-                                 We need to keep track of the cat's y-coordinate, so let's add a @code{catY} to the world.  
-                                 @activity{@itemlist[@item{Where in the code is the world struct defined?}
-                                                      @item{If the cat is in the center of the screen, what should the value of @code{catY} be?}
-                                                      @item{Add another number to the world struct, representing the cat's y-coordinate.}]}}
+                 @point{@student{A hora está próxima: precisamos colocar o gato ninja na tela para que o jogo fique interessante. Ela será capaz de se mover para cima e para baixo. 
+                                 @activity{@itemlist[@item{Nós precisamos mudar alguma coisa no código para fazer isso funcionar?}
+                                        @item{Qual parte do jogo será necessária para manter o controle se o Gato Ninja está se movendo para cima e para baixo? Qual seria um 
+                                              bom nome de @vocab{variável} para isso?}]}
+                                 Nós precisamos manter o controle da coordenada-y do gato, então vamos adicionar o campo @code{gatoY} no mundo.  
+                                 @activity{@itemlist[@item{Onde a estrutura mundo está definida no código?}
+                                                      @item{Se o gato estiver no meio da tela, qual deveria ser o valor de @code{gatoY}?}
+                                                      @item{Adicione outro número na estrutura mundo, representando a coordenada-y do gato.}]}}
                          @teacher{}}
-                 @point{@student{Right now, even though the cat's y-coordinate has been added to the world struct, there's no function to take in keypresses and
-                                 make it move. This is what we're going to write next. But before we figure out how to write the function to move the cat,
-                                 we need to actually add her into the game. 
-                                 @activity{Which functions will need to change, now that the world structure is different?}
-                                 Since the world now contains three things, you'll need to change every single @code{make-world} in the code.
-                                 @activity{@itemlist[@item{Starting from the first line, go through the code and look for every instance of 
-                                                           @code{make-world}, changing it to reflect the new world struct.}
-                                                      @item{How do you get the @code{catY} out of the world?}                                       
-                                                      @item{We said that we'll be writing another function to handle keypresses and moving the cat, so just 
-                                                            add the @code{catY} to @code{update-world}. Don't worry about changing its value.}
-                                            @item{Inside  @code{draw-world}, use the @code{put-image} function to place the image of Ninja Cat on top of 
-                                                          the other images in the game. If she starts in the center of the screen, on what x-coordinate 
-                                                          will she be placed? What about her y-coordinate?}]}}
-                         @teacher{After the @code{catY} is added to the world struct, but before any of the functions have changed, try running the 
-                                  simulation again, giving the ninja cat cutout to the @code{draw-world} volunteer. The world now has three things in it
-                                  (@code{dogX}, @code{rubyX}, and @code{catY}), but the updating and drawing functions will change only the dog and ruby's 
-                                  positions. When @code{big-bang} starts the animation, only the @code{dogX} and @code{rubyX} will be updated. After a few 
-                                  iterations, tell the volunteers that you've pressed the "up" key. If @code{draw-world} begins moving the ninja cat cutout,
-                                  refer them back to the code. You haven't programmed anything to change @code{catY} yet.}}
+                 @point{@student{Até agora, mesmo que a coordenada-y do gato tenha sido adicionada na struct mundo, não temos nenhuma função que recebe as teclas pressionadas e
+                                 faz o gato se mover. Isso é o que vamos escrever a seguir. Mas antes de descobrir como escrever a função que move o gato,
+                                 precisamos realmente adicionar gatoY ao jogo. 
+                                 @activity{Quais funções precisamos mudar, agora que a estrutura mundo está diferente?}
+                                 Agora que o mundo contém três coisas, você precisará mudar cada @code{make-mundo} no código.
+                                 @activity{@itemlist[@item{Começando pela primeira linha, percorra o código e procure por cada lugar onde aparece 
+                                                           @code{make-mundo}, e mude-o para refletir a nova estrutura de mundo.}
+                                                      @item{Como você acessa o campo @code{gatoY} de fora do mundo?}                                       
+                                                      @item{Dissemos que estaremos escrevendo outra função para receber as teclas pressionadas e mover o gato, então é so 
+                                                            adicionar @code{gatoY} em @code{atualiza-mundo}. Não se preocupe em mudar valor.}
+                                            @item{Dentro do @code{desenha-mundo}, use a função @code{put-image} para colocar a figura do Gato Ninja sobre as 
+                                                          outras figuras do jogo. Se ela começar no centro da tela, em qual coordenada-x 
+                                                          ela seria colocada? E em qual coordenada-y?}]}}
+                         @teacher{Depois que @code{gatoY} foi adicionado à estrutura mundo, mas antes que qualquer função tenha sido modificada, experimente fazer a 
+                                  simulação novamente, dando o recorte do gato ninja para o voluntário do @code{desenha-mundo}. O mundo tem agora três coisas nele
+                                  (@code{caoX}, @code{rubiX}, e @code{gatoY}), mas as funções de atualizar e desenhar mudam apenas as posicoes do cachorro e 
+                                  do rubi. Quando o @code{big-bang} começa a animação, apenas o @code{caoX} e @code{rubiX} serão atualizados. Depois de algumas 
+                                  iterações, peça aos voluntários se você tivesse apertado a tecla "para cima". se o @code{desenha-mundo} começar a mover o recorte do gato ninja,
+                                  referencie o código escrito. Você não programou nada que muda o @code{gatoY} ainda.}}
                  ]
          }
                                          
