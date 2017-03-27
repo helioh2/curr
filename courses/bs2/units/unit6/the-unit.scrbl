@@ -97,7 +97,7 @@
          }
                                          
 @lesson/studteach[#:title "Keypress"
-        #:duration "35 minutes"
+        #:duration "35 minutos"
         #:overview ""
         #:learning-objectives @itemlist[@item{Students will extend their understanding of events to cover key-events}
             @item{Students will deepen their knowledge of conditionals, by combining them with struct accessor and constructor functions.}]
@@ -112,126 +112,126 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Now that the world structure is consistant across all the functions in Ninja World, we're ready to make the cat move.
-                                @activity{Open your workbook to @worksheet-link[#:page 28 #:name "Keypress"]. Using the Design Recipe, write the
-                                                                function @code{keypress} for the Ninja World game.} 
-                                @bannerline{Step 1 - Contract and Purpose Statement}
-                                The word problem tells us that the function's name will be @code{keypress}. What about the Domain? Think about what
-                                the function needs to know in order to handle a keypress: it needs the World, otherwise it wouldn't know what to 
-                                update. But it also needs to know what key was pressed (either @code{"up"} or @code{"down"}).
-                                @activity{@itemlist[@item{What datatypes are @code{"up"} and @code{"down"}?}
-                                                     @item{What is the Domain of @code{keypress}? The Range?}
-                                                     @item{What is a good Purpose Statement for this function?}]}   
-          @code[#:multi-line #t]{; keypress : World String -> World
-                                 ; Given a world and key pressed, updates the world's catY}}
+        @points[@point{@student{Agora que a estrutura mundo está consistente em todas as funções do Mundo Ninja, estamos prontos para fazer o gato se mover.
+                                @activity{Abra sua apostila na @worksheet-link[#:page 28 #:name "Keypress"]. Usando a Receita de Projeto, escreva a
+                                                                função @code{keypress} para o jogo do Mundo Ninja.} 
+                                @bannerline{Passo 1 - Assinatura e Declaração de Propósito}
+                                A descrição do mundo nos diz que o noma de função será @code{keypress}. E sobre o Domínio? Pense sobre o que
+                                a função precisa saber comol lidar com um keypress: ela precisa de um Mundo, senão ela não saberia o que 
+                                atualizar. Mas ela também precisa saber qual tecla foi pressionada (se foi @code{"up/para cima"} ou @code{"down/para baixo"}).
+                                @activity{@itemlist[@item{De que tipos são @code{"up"} e @code{"down"}?}
+                                                     @item{Qual é o Domínio de @code{keypress}? E a Imagem?}
+                                                     @item{Qual seria uma boa Declaração de Propósito para esta função?}]}   
+          @code[#:multi-line #t]{; keypress : Mundo String -> Mundo
+                                 ; Dado um mundo e uma tecla pressionada, atualiza o gatoY do mundo}}
                         @teacher{}}
-                 @point{@student{@bannerline{Step 2 - Examples}
-                               @activity{Write an example using the @code{START} world, when the user presses @code{"up"}.
-                                                                    @itemlist[@item{@code{(EXAMPLE (keypress START "up") ...)}}
-                           @item{What should you get back? (HINT: Look at the Range)}
-                           @item{What function makes a world? What things are part of this world?}
-                           @item{@code[#:multi-line #t]{(EXAMPLE (keypress START "up") 
-                                                                 (make-world ...dogX...rubyX...catY))}}
-                           @item{Does the @code{dogX} change when the user presses @code{"up"}? How do you get the old @code{dogX} out of the @code{START} world?}
-                           @item{@code[#:multi-line #t]{(EXAMPLE (keypress START "up")
-                                                                 (make-world (world-dogX START)...rubyX...catY))}}
-                           @item{Does the @code{rubyX} change when the user presses @code{"up"}? How do you get the old @code{rubyX} out of the @code{START} world?}
+                 @point{@student{@bannerline{Passo 2 - Examplos}
+                               @activity{Escreva um exemplo usando mundo @code{INICIO}, então o usuário pressiona @code{"up"}.
+                                                                    @itemlist[@item{@code{(EXAMPLE (keypress INICIO "up") ...)}}
+                           @item{O que você deveria receber de volta? (DICA: Olhe para a Imagem da Função)}
+                           @item{Qual função constrói um mundo? Quais coisas fazem parte de um mundo?}
+                           @item{@code[#:multi-line #t]{(EXAMPLE (keypress INICIO "up") 
+                                                                 (make-mundo ...caoX...rubiX...gatoY))}}
+                           @item{O @code{caoX} muda quando o usuário apertar @code{"up"}? Como você recebe o antigo @code{caoX} do mundo @code{INICIO}?}
+                           @item{@code[#:multi-line #t]{(EXAMPLE (keypress INICIO "up")
+                                                                 (make-mundo (mundo-caoX INICIO)...rubiX...gatoY))}}
+                           @item{O @code{rubiX} muda quando o usuário pressiona @code{"up"}? Como você consegue saber o antigo @code{rubiX} do mundo @code{INICIO}?}
 @item{@code[#:multi-line #t]{
-(EXAMPLE (keypress START "up") (make-world (world-dogX START)
-                                             (world-rubyX START)
-                                              ...catY...))}}
-                           @item{What about the @code{catY}? How much should it change if the user presses @code{"up"}? Let's say 10 pixels.}
-                           @item{Should you add or subtract from the @code{catY} if the @code{"up"} key is pressed? Why?}]}
+(EXAMPLE (keypress INICIO "up") (make-mundo (mundo-caoX INICIO)
+                                             (mundo-rubiX INICIO)
+                                              ...gatoY...))}}
+                           @item{E o @code{gatoY}? Quanto ele deveria mudar se o usuário pressionar @code{"up"}? Vamos dizer 10 pixels.}
+                           @item{Você deve somar ou subtrair do @code{gatoY} se @code{"up"} for a tecla pressionada? Por que?}]}
                 
-Your first example should look like: 
+Seu primeiro exemplo deve se parecer com isso: 
 @code[#:multi-line #t]{
-(EXAMPLE (keypress START "up") (make-world (world-dogX START)
-                                           (world-rubyX START) 
-                                        (+ (world-catY START) 10)))}}
+(EXAMPLE (keypress INICIO "up") (make-mundo (mundo-caoX INICIO)
+                                           (mundo-rubiX INICIO) 
+                                        (+ (mundo-gatoY INICIO) 10)))}}
                          @teacher{}}
-                 @point{@student{@activity{Write one more example for @code{keypress} using the @code{START} world and the @code{"down"} key. Think about how the @code{catY} will change this time}
-@code[#:multi-line #t]{(EXAMPLE (keypress START "down") (make-world (world-dogX START) 
-                                         (world-rubyX START) 
-                                         (- (world-catY START) 10)))}
-@activity{Next, carefully go through your examples and circle @italic{everything} that changes. Does this function behave like the functions you've been working with?}}
+                 @point{@student{@activity{Escreva mais um exemplo para @code{keypress} usando o mundo @code{INICIO} e a tecla @code{"down"}(para baixo). Pense sobre como @code{gatoY} deve mudar desta vez}
+@code[#:multi-line #t]{(EXAMPLE (keypress INICIO "down") (make-mundo (mundo-caoX INICIO) 
+                                         (mundo-rubiX INICIO) 
+                                         (- (mundo-gatoY INICIO) 10)))}
+@activity{Depois, cuidadosamente olhe seus exemplos e circule @italic{tudo} que muda. Esta função se comporta como as outras funções que você já fez?}}
                          @teacher{}}
-                 @point{@student{@bannerline{Step 3 - Definition}
-                @activity{What goes into the function header? What are some good variable names for the world and string (representing the key pressed) in the Domain?}
-                 @code[#:multi-line #t]{(define (keypress w key)
+                 @point{@student{@bannerline{Passo 3 - Definição}
+                @activity{O que vai dentro da chamada da função? Quais são bons nomes de variáveis para o mundo e a string (representando a tecla apertada) no Domínio?}
+                 @code[#:multi-line #t]{(define (keypress m tecla)
 	                                              ...)}
-                 What now? This is a test of your programming intuition: you have two different examples, where you add 10 to @code{catY} in one case
-                 but subtract 10 in another. How can a function behave so differently? It has multiple conditions, with a different response to each.
-                 You've already seen this before, back in Bootstrap:1 - @code{cond}.
-                 @code{cond} is a special function, which signals to the computer that the function will have multiple conditions: it behaves differently 
-                 depending on what input(s) it gets. This is also known as a @vocab{piecewise function}.}
-                        @teacher{Be sure to check students’ Contracts and EXAMPLEs during this exercise, especially when it’s time for them to circle and
-                                 label what changes between examples. This is the crucial step in the Design Recipe where they should discover the need 
-                                 for @code{cond}.}}
-                 @point{@student{Each @vocab{piecewise function} has at least one @vocab{clause}. Each clause has a Boolean question and a result. In 
-                                      your @code{keypress} function, there is a clause for the @code{"up"} key, and another for the @code{"down"} key.
-                                      If the question evaluates to true, the expression gets evaluated and returned. If the question is false, the computer 
-                                      will skip to the next @vocab{clause}. To write a function with multiple conditions, start with @code{cond} and use
-                                      square brackets to add a branch. We know that every branch has a test and a result, making a @vocab{clause}. 
-                                      @code[#:multi-line #t]{(define (keypress w key)
+                 O que fazer agora? Este é um teste para sua intuição de programação: você têm dois exemplos diferentes, onde você soma 10 em @code{gatoY} em um caso
+                 mas diminiu 10 em outro caso. Como uma função pode se comportar tão diferente? Ela tem multiplas condições, com uma resposta diferente para cada uma.
+                 Você já viu isso antes, no Bootstrap:1 - @code{cond}.
+                 @code{cond} é uma função especial, que mostra ao computador que a função terá multiplas condições: ela se comporta de maneira diferente 
+                 dependendo do que recebe em sua entrada(s). Isso também é chamado de @vocab{piecewise function}.}
+                        @teacher{Certifique-se de verificar as Assinatiras e EXAMPLES dos alunos durante esse exercício, especialmente quando é hora deles circularem e
+                                 nomearem o que está mudando entre os exemplos. Esse é um passo crucial na Receita de Projeto onde eles devem descobrir a necessidade(**need) 
+                                 do @code{cond}.}}
+                 @point{@student{Toda @vocab{piecewise function} tem pelo menos uma @vocab{cláusula}(**pergunta). Cada cláusula tem uma pergunta Booleana e uma resposta. Em 
+                                      sua função @code{keypress}, existe uma cláusula para a tecla @code{"up"}, e outra para a tecla @code{"down"}.
+                                      Se a pergunta retornar verdadeiro(true), a expressão é avaliada e retorna o valor. Se a pergunta for falso(false), o computador 
+                                      irá pular para a próxima @vocab{cláusula}. Para escrever uma função com múltiplas condições, inicie com @code{cond} e use
+                                      cochetes para adicionar um (branch**). Nós sabemos que cada branch** tem um teste e um resultado, formando uma @vocab{cláusula}. 
+                                      @code[#:multi-line #t]{(define (keypress m tecla)
 	                                   (cond
-		                                 [...test...  ...result...]))}}
+		                                 [...teste...  ...resultado...]))}}
                          @teacher{}}
-                 @point{@student{Let's start the first branch. It will test if the @code{key} pressed is equal to @code{"up"}. @activity{What function can we use to test if two strings are equal?}
-@code[#:multi-line #t]{(define (keypress w key)
+                 @point{@student{Vamos começar com o primeiro branch**. Isto testará se a @code{tecla} pressionada é igual a @code{"up"}. @activity{Qual função podemos usar para testar se duas strings são iguais?}
+@code[#:multi-line #t]{(define (keypress m tecla)
 	(cond
-		[(string=? key "up")  ...result...]))}}
-                         @teacher{Square brackets enclose the question (a statement returning a boolean) and answer for each clause. There can only be one
-                                  expression in each answer.}}
-                 @point{@student{What is the result if the key is @code{"up"}? (HINT: Look back at your EXAMPLES for help.) You can copy in the example 
-                                 for @code{"up"}, and change all instances of @code{START} to the @vocab{variable}, @code{w}:
-@code[#:multi-line #t]{(define (keypress w key)
+		[(string=? tecla "up")  ...resultado...]))}}
+                         @teacher{Colchetes encapsulam(**enclose) a pergunta (uma condiçoã que retorna um booleano) e a resposta de cada cláusula. Pode ter apenas uma
+                                  expressão em cada resposta.}}
+                 @point{@student{Qual é o resultado se a tecla for @code{"up"}? (DICA: Olhe novamente seus EXAMPLES para ajudar.) Você pode copiar do exemplo 
+                                 de @code{"up"}, e mudar todas as instâncias de @code{INICIO} para a @vocab{variável}, @code{m}:
+@code[#:multi-line #t]{(define (keypress m tecla)
 	(cond
-		[(string=? key "up")  (make-world (world-dogX w) 
-                                                  (world-rubyX w) 
-                                               (+ (world-catY w) 10))]))}
-@activity{What is the second condition that needs to be considered? What expression will test that condition? Write the second branch of the @code{keypress} function.}}
+		[(string=? tecla "up")  (make-mundo (mundo-caoX m) 
+                                                  (mundo-rubiX m) 
+                                               (+ (mundo-gatoY m) 10))]))}
+@activity{Qual é a sengunda condição que precisa ser considerada? Qual expressão testára essa condição? Escreva o segundo branch** da função @code{keypress}.}}
                          @teacher{}}
-                 @point{@student{We also need to test whether the user pressed the @code{"down"} key:
-                 @code[#:multi-line #t]{(define (keypress w key)
+                 @point{@student{Precisamos também testar se o usuário apertou a tecla @code{"down"}(para baixo):
+                 @code[#:multi-line #t]{(define (keypress m tecla)
 	(cond
-                [(string=? key "up")  (make-world (world-dogX w) 
-                                                  (world-rubyX w) 
-                                               (+ (world-catY w) 10))]
+                [(string=? tecla "up")  (make-mundo (mundo-caoX m) 
+                                                    (mundo-rubiX m) 
+                                                 (+ (mundo-gatoY m) 10))]
                                                        
-		[(string=? key "down")  (make-world (world-dogX w) 
-                                                    (world-rubyX w) 
-                                                 (- (world-catY w) 10))]))}
-                               Now the computer knows what to do when either @code{"up"} or @code{"down"} is pressed, but there are lots of other keys on your keyboard. 
-                               @activity{Type the above code into the Ninja Cat game and click "Run". Ninja Cat moves when you press the "up" and "down" 
-                                         arrow keys. What happens if you press a different key? You should get an error...can you guess why?}}
+		     [(string=? tecla "down")  (make-mundo (mundo-caoX m) 
+                                                      (mundo-rubiX m) 
+                                                   (- (mundo-gatoY m) 10))]))}
+                               Agora o computador sabe o que fazer quando as tecla @code{"up"} ou @code{"down"} forem pressionadas, mas existem muitas teclas em seu teclado. 
+                               @activity{Digite o código acima dentro do Mundo Ninja e clique em "Run". O Gato Ninja se move quando você pressiona a setas para cima("up") e 
+                                         para baixo("down"). O que acontece se você apertar uma tecla diferente? Você deve receber um erro... você pode adivinhar o porquê?}}
                          @teacher{}}
-                 @point{@student{Racket doesn't know what to do if any other key is pressed, because we haven't told it what to do. 
-                               @activity{@itemlist[@item{Should the world change if the user hits the spacebar, or the @code{"r"} key?}
-                                                    @item{Which world should be returned if any other key is pressed?}]}
-Instead of enumerating all the values of the original world, we can use the variable, @code{w}: 
-@code[#:multi-line #t]{(define (keypress w key)
+                 @point{@student{O Racket não sabe o que fazer se receber outra tecla, porque não não dissemos à ele o que fazer. 
+                               @activity{@itemlist[@item{O mundo deveria mudar se o usuário apartar a barra de expaço, ou a tecla @code{"r"}?}
+                                                    @item{Qual mundo deve ser retornado se qualquer outra tecla for pressionada?}]}
+Ao invés de enumerar todos os campos do mundo original, nós podemos usar a variável, @code{m}: 
+@code[#:multi-line #t]{(define (keypress m tecla)
 	(cond
-                [(string=? key "up")  (make-world (world-dogX w) 
-                                                  (world-rubyX w) 
-                                               (+ (world-catY w) 10))]
+                [(string=? tecla "up")  (make-mundo (mundo-caoX m) 
+                                                  (mundo-rubiX m) 
+                                               (+ (mundo-gatoY m) 10))]
                                                       
-		[(string=? key "down")  (make-world (world-dogX w) 
-                                                    (world-rubyX w) 
-                                                 (- (world-catY w) 10))]
-                [else w]))}
+		[(string=? tecla "down")  (make-mundo (mundo-caoX m) 
+                                                    (mundo-rubiX m) 
+                                                 (- (mundo-gatoY m) 10))]
+                [else m]))}
                  
-The last clause in a conditional can be an @code{else} clause, which gets evaluated if all the previous clauses were @code{false}.}
-                         @teacher{@code{else} clauses are best used as a catch-all for cases that you can’t otherwise enumerate. If you can state a precise 
-                                   question for a clause, write the precise question instead of else. For example, if you have a function that does
-                                   different things depending on whether some variable @code{x} is larger than @code{5}, it is better for beginners to
-                                   write the two questions @code{(> x 5)} and @code{(<= x 5)} rather than have the second question be @code{else}. 
-                                   Explicit questions make it easier to read and maintain programs. When you use @code{else}, someone has to read
-                                   all the previous questions to know what condition else corresponds to: they can’t just skim all the questions 
-                                   to find the one that matches their situation. This makes code more readable and understandable.}}
+A última cláusula em um condicional pode ser uma cláusula @code{else}, que é calculada se todas as cláusulas anteriores forem @code{falsas}.}
+                         @teacher{Cláusulas @code{else} são melhores usadas como um catch-all* para casos que você não pode enumerar. (If you can state a precise 
+                                   question for a clause), escreva uma pergunta precisa no lugar de um else. Por exemplo, se você tem um função que faz
+                                   diferentes coisas dependendo de quanto a variável @code{x} é maior que @code{5}, é melhor para os iniciantes
+                                   escreverem duas perguntas @code{(> x 5)} e @code{(<= x 5)}, do que ter a segunda questão sendo um @code{else}. 
+                                   Questões explicitas tornam os programas fáceis de ler e de manter. Quando você usar um @code{else}, alguém terá que ler
+                                   todas as questões anteriores para saber com qual condição o else corresponde: eles não podem apenas (skim all the questions 
+                                   para encontrar uma que combina com a situação**(to find the one that matches their situation. Isso torna o código mais legível e mais fácil de entender.}}
                  ]
          }     
-@lesson/studteach[#:title "Keypresses in Your Game"
-        #:duration "35 minutes"
+@lesson/studteach[#:title "Keypresses no Seu Jogo"
+        #:duration "35 minutos"
         #:overview ""
         #:learning-objectives @itemlist[@item{Using conditionals, students will write a function to handle different keypresses in their game.}]
         #:evidence-statements @itemlist[]
@@ -245,42 +245,42 @@ The last clause in a conditional can be an @code{else} clause, which gets evalua
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{In Ninja World, the player can only press two keys: @code{"up"} or @code{"down"}. 
-                                @activity{@itemlist[@item{What field in the World changes when the player presses @code{"up"}? 
-                                                         How does it change?}
-                                                     @item{Think about the person playing your game. How will they control the game? What
-                                                           key will make YOUR player move up? Down? What else can they do? Move side-to-side? 
-                                                           Jump? Teleport? Shoot a projectile?}
-                                                     @item{Turn to @worksheet-link[#:page 27 #:name "Lesson 6"] in your workbooks.
-                                                                   Write down the various keys that the user can hit to control the game. 
-                                                                   For each one, write down the field in your world struct that changes, 
-                                                                   and how it changes.}]}}
-                        @teacher{Review students' workbook pages, and check for understanding: could they change multiple things in their game
-                                 with one keypress?}}
-                 @point{@student{@activity{Turn to @worksheet-link[#:page 30 #:name "Keypress-in-Game"] in your workbooks. Choose 3 
-                                           keys that control the game, and go through the design recipe: Write EXAMPLES for what should 
-                                           happen to your START world depending on which key was pressed. Then define your function. Once
-                                           you've completed the Design Recipe, type your @code{keypress} function into your games.}
+        @points[@point{@student{No Mundo Ninja, o jogador pode apenas apertar duas teclas: @code{"up"} ou @code{"down"}. 
+                                @activity{@itemlist[@item{Qual campo do Mundo muda quando a jogador pressiona @code{"up"}(para cima)? 
+                                                         Como ele muda?}
+                                                     @item{Pense na pessoa que está jogando seu jogo. Como ela irá controlar o jogo? Qual
+                                                           tecla fará SEU jogador se mover para cima? E para baixo? O que mais eles pode fazer? Andar de um lado para o outro? 
+                                                           Pular? Teleportar? Atirar um projétil?}
+                                                     @item{Vá para a @worksheet-link[#:page 27 #:name "Lesson 6"] em sua apostila.
+                                                                   Escreva as várias teclas que o usuário pode apertar para controlar o jogo. 
+                                                                   Para cada uma, escreva o campo que é modificado na sua estrutura mundo, 
+                                                                   e como ele muda.}]}}
+                        @teacher{Revise as páginas da apostila dos alunos, e verifique para **undestanding: eles podem mudar coisas múltiplas no jogo
+                                 com apenas uma tecla?}}
+                 @point{@student{@activity{Vá para @worksheet-link[#:page 30 #:name "Keypress-in-Game"] em sua apostila. Escolha 3 
+                                           teclas que controlam o jogo, e ande pela Receita de Projeto: Escreva EXAMPLES para o que deve 
+                                           acontecer com seu mundo INICIO dependendo de qual tecla for pressionada. Depois defina sua função. Uma vez
+                                           que você completou a Receita de Projeto, digite sua função @code{keypress} em seus jogos.}
 
-                                  Of course, keypresses can do a lot more in a videogame than just move a character up and down. By using what
-                                  your learned about Boolean functions, you can add more advanced movement. Here are some ideas:
+                                  Claro, funções keypress podem fazer muito mais em jogos que apenas mover um personagem para cima e para baixo. Usando o que
+                                  você aprendeu sobre funções Booleanas, você pode adicionar movimentos mais avançados. Aqui vai algumas ideias:
 @itemlist[
-          @item{@bold{Warping:} instead of having the player’s y-coordinate change by adding or subtracting, replace it with a Number to 
-                 have the player suddenly appear at that location. (For example, hitting the @code{"c"} key causes your player to warp back
-                 to the center of the screen, at y=240.)}
-          @item{@bold{Boundary-detection:} Change the condition for moving up so that the player only moves up if @code{key} = @code{"up"} 
-                 AND the player's y-coordinate is less than @code{480}. Likewise, change the condition for @code{"down"} to also check 
-                 that the player's y-coordinate is greater than 0.}
-          @item{@bold{Wrapping:} Add a condition (before any of the keys) that checks to see if the player’s y-coordinate is above 
-                 the screen @code{(> y 480)}. If it is, have the player warp to the bottom. Add another condition so that the player 
-                 warps back up to the top of the screen if it moves below the bottom.}
-          @item{@bold{Challenge:} Have a character hide when the @code{"h"} key is pressed, only to re-appear when it is pressed again.}]
+          @item{@bold{Warping**:} ao invés de ter a coordenada-y do jogador se modificada somando ou diminuindo, substitua com um Número para 
+                 que seu jogador apareça derrepente nesse local. (Por exemplo, apertando a tecla @code{"c"} faz seu jogador **wrap back
+                 para o centro da tela, em y=240.)}
+          @item{@bold{Boundary-detection:} Mude a condição de se mover para cima para que o jogdor apenas se mova para cima se a @code{tecla} = @code{"up"} 
+                 E a coordenada-y do jogador for menos que @code{480}. Da mesma maneira, mude a condição para @code{"down"} para também checar 
+                 se a coordenada-y do jogador é maior do que 0.}
+          @item{@bold{Wrapping**:} Adicione uma condição (antes de qualque tecla) para verificar se a coordenada-y do jogador está acima 
+                 da tela @code{(> y 480)}. Se estiver, mova o jogador para baixo?(**have the player warp to the bottom). Adicione outra condição para que o jogador 
+                 **warps back up para o topo da tela se ele se mover abaixo do chao.}
+          @item{@bold{Desafio:} Tenha um personagem escondido quando você apertar a tecla @code{"h"}, e apenas re-apareça quando a tecla for pressionada novamente.}]
 }
-                         @teacher{Hint for the challenge: multiply by -1!}}
+                         @teacher{Dica para o desafio: multiplique por -1!}}
                  ]
          }       
-@lesson/studteach[#:title "Closing"
-        #:duration "5 minutes"
+@lesson/studteach[#:title "Encerramento"
+        #:duration "5 minutos"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
@@ -294,12 +294,12 @@ The last clause in a conditional can be an @code{else} clause, which gets evalua
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{With @vocab{conditionals} and @vocab{piecewise functions}, you can make a lot of things happen in your 
-                                     game with just a few lines of code, like controlling the movement of characters. Speaking of 
-                                     controlling characters, what happens in Ninja World when the dog and ruby go off the screen? 
-                                     They keep going, but don't come back - the same problem we had in Bootstrap:1, and if you 
-                                     need a refresher on how to fix it, that's what we'll be covering in the next unit.}
-                       @teacher{Have students show each other their (controllable games).}}
+        @points[@point{@student{Com @vocab{condicionais} e @vocab{(funções segmentadas)**piecewise functions}, você pode fazer muitas coisas acontecerem no seu 
+                                     jogo com poucas linhas de código, como controlar o movimento dos personagens. Falando em 
+                                     controlar personagens, o que acontece no Mundo Ninja quando o cachorro e o rubi saem da tela? 
+                                     Eles continuam indo, mas não voltam - o mesmo problemas que vimos no Bootstrap:1, e se você 
+                                     precisa de uma ajuda em como concertar isso, é o que vamos cobrir na pŕoxima unidade.}
+                       @teacher{Peça aos alunos para que mostrem uns aos outros seus (jogos controláveis).}}
                  ]
          }
        }
