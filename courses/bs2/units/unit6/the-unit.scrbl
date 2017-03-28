@@ -163,24 +163,24 @@ Seu primeiro exemplo deve se parecer com isso:
                  mas diminiu 10 em outro caso. Como uma função pode se comportar tão diferente? Ela tem multiplas condições, com uma resposta diferente para cada uma.
                  Você já viu isso antes, no Bootstrap:1 - @code{cond}.
                  @code{cond} é uma função especial, que mostra ao computador que a função terá multiplas condições: ela se comporta de maneira diferente 
-                 dependendo do que recebe em sua entrada(s). Isso também é chamado de @vocab{piecewise function}.}
+                 dependendo do que recebe em sua entrada(s). Ela também é chamada de @vocab{função segmentada}.}
                         @teacher{Certifique-se de verificar as Assinatiras e EXAMPLES dos alunos durante esse exercício, especialmente quando é hora deles circularem e
-                                 nomearem o que está mudando entre os exemplos. Esse é um passo crucial na Receita de Projeto onde eles devem descobrir a necessidade(**need) 
+                                 nomearem o que está mudando entre os exemplos. Esse é um passo crucial na Receita de Projeto onde eles devem descobrir a necessidade 
                                  do @code{cond}.}}
-                 @point{@student{Toda @vocab{piecewise function} tem pelo menos uma @vocab{cláusula}(**pergunta). Cada cláusula tem uma pergunta Booleana e uma resposta. Em 
-                                      sua função @code{keypress}, existe uma cláusula para a tecla @code{"up"}, e outra para a tecla @code{"down"}.
+                 @point{@student{Toda @vocab{função segmentada} tem pelo menos uma @vocab{condição}. Cada condição tem uma pergunta Booleana e uma resposta. Em 
+                                      sua função @code{keypress}, existe uma condição para a tecla @code{"up"}, e outra para a tecla @code{"down"}.
                                       Se a pergunta retornar verdadeiro(true), a expressão é avaliada e retorna o valor. Se a pergunta for falso(false), o computador 
-                                      irá pular para a próxima @vocab{cláusula}. Para escrever uma função com múltiplas condições, inicie com @code{cond} e use
-                                      cochetes para adicionar um (branch**). Nós sabemos que cada branch** tem um teste e um resultado, formando uma @vocab{cláusula}. 
+                                      irá pular para a próxima @vocab{condição}. Para escrever uma função com múltiplas condições, inicie com @code{cond} e use
+                                      cochetes para adicionar um ramo(branch**). Nós sabemos que cada ramo tem um teste e um resultado, formando uma @vocab{cláusula}. 
                                       @code[#:multi-line #t]{(define (keypress m tecla)
 	                                   (cond
 		                                 [...teste...  ...resultado...]))}}
                          @teacher{}}
-                 @point{@student{Vamos começar com o primeiro branch**. Isto testará se a @code{tecla} pressionada é igual a @code{"up"}. @activity{Qual função podemos usar para testar se duas strings são iguais?}
+                 @point{@student{Vamos começar com o primeiro ramo. Isto testará se a @code{tecla} pressionada é igual a @code{"up"}. @activity{Qual função podemos usar para testar se duas strings são iguais?}
 @code[#:multi-line #t]{(define (keypress m tecla)
 	(cond
 		[(string=? tecla "up")  ...resultado...]))}}
-                         @teacher{Colchetes encapsulam(**enclose) a pergunta (uma condiçoã que retorna um booleano) e a resposta de cada cláusula. Pode ter apenas uma
+                         @teacher{Colchetes encapsulam a pergunta (uma condição que retorna um booleano) e a resposta de cada cláusula. Pode ter apenas uma
                                   expressão em cada resposta.}}
                  @point{@student{Qual é o resultado se a tecla for @code{"up"}? (DICA: Olhe novamente seus EXAMPLES para ajudar.) Você pode copiar do exemplo 
                                  de @code{"up"}, e mudar todas as instâncias de @code{INICIO} para a @vocab{variável}, @code{m}:
@@ -189,7 +189,7 @@ Seu primeiro exemplo deve se parecer com isso:
 		[(string=? tecla "up")  (make-mundo (mundo-caoX m) 
                                                   (mundo-rubiX m) 
                                                (+ (mundo-gatoY m) 10))]))}
-@activity{Qual é a sengunda condição que precisa ser considerada? Qual expressão testára essa condição? Escreva o segundo branch** da função @code{keypress}.}}
+@activity{Qual é a sengunda condição que precisa ser considerada? Qual expressão testára essa condição? Escreva o segundo ramo da função @code{keypress}.}}
                          @teacher{}}
                  @point{@student{Precisamos também testar se o usuário apertou a tecla @code{"down"}(para baixo):
                  @code[#:multi-line #t]{(define (keypress m tecla)
@@ -226,8 +226,8 @@ A última cláusula em um condicional pode ser uma cláusula @code{else}, que é
                                    diferentes coisas dependendo de quanto a variável @code{x} é maior que @code{5}, é melhor para os iniciantes
                                    escreverem duas perguntas @code{(> x 5)} e @code{(<= x 5)}, do que ter a segunda questão sendo um @code{else}. 
                                    Questões explicitas tornam os programas fáceis de ler e de manter. Quando você usar um @code{else}, alguém terá que ler
-                                   todas as questões anteriores para saber com qual condição o else corresponde: eles não podem apenas (skim all the questions 
-                                   para encontrar uma que combina com a situação**(to find the one that matches their situation. Isso torna o código mais legível e mais fácil de entender.}}
+                                   todas as questões anteriores para saber com qual condição o else corresponde: eles não podem apenas passar sobre todas as questões 
+                                   para encontrar uma que combina com a situação. Isso torna o código mais legível e mais fácil de entender.}}
                  ]
          }     
 @lesson/studteach[#:title "Keypresses no Seu Jogo"
@@ -255,7 +255,7 @@ A última cláusula em um condicional pode ser uma cláusula @code{else}, que é
                                                                    Escreva as várias teclas que o usuário pode apertar para controlar o jogo. 
                                                                    Para cada uma, escreva o campo que é modificado na sua estrutura mundo, 
                                                                    e como ele muda.}]}}
-                        @teacher{Revise as páginas da apostila dos alunos, e verifique para **undestanding: eles podem mudar coisas múltiplas no jogo
+                        @teacher{Revise as páginas da apostila dos alunos, e verifique a compreensão: eles podem mudar coisas múltiplas no jogo
                                  com apenas uma tecla?}}
                  @point{@student{@activity{Vá para @worksheet-link[#:page 30 #:name "Keypress-in-Game"] em sua apostila. Escolha 3 
                                            teclas que controlam o jogo, e ande pela Receita de Projeto: Escreva EXAMPLES para o que deve 
@@ -265,15 +265,15 @@ A última cláusula em um condicional pode ser uma cláusula @code{else}, que é
                                   Claro, funções keypress podem fazer muito mais em jogos que apenas mover um personagem para cima e para baixo. Usando o que
                                   você aprendeu sobre funções Booleanas, você pode adicionar movimentos mais avançados. Aqui vai algumas ideias:
 @itemlist[
-          @item{@bold{Warping**:} ao invés de ter a coordenada-y do jogador se modificada somando ou diminuindo, substitua com um Número para 
-                 que seu jogador apareça derrepente nesse local. (Por exemplo, apertando a tecla @code{"c"} faz seu jogador **wrap back
+          @item{@bold{Teletransporte:} ao invés de ter a coordenada-y do jogador se modificada somando ou diminuindo, substitua com um Número para 
+                 que seu jogador apareça derrepente nesse local. (Por exemplo, apertando a tecla @code{"c"} faz seu jogador teleportar
                  para o centro da tela, em y=240.)}
-          @item{@bold{Boundary-detection:} Mude a condição de se mover para cima para que o jogdor apenas se mova para cima se a @code{tecla} = @code{"up"} 
+          @item{@bold{Detecção de Limites:} Mude a condição de se mover para cima para que o jogdor apenas se mova para cima se a @code{tecla} = @code{"up"} 
                  E a coordenada-y do jogador for menos que @code{480}. Da mesma maneira, mude a condição para @code{"down"} para também checar 
                  se a coordenada-y do jogador é maior do que 0.}
-          @item{@bold{Wrapping**:} Adicione uma condição (antes de qualque tecla) para verificar se a coordenada-y do jogador está acima 
-                 da tela @code{(> y 480)}. Se estiver, mova o jogador para baixo?(**have the player warp to the bottom). Adicione outra condição para que o jogador 
-                 **warps back up para o topo da tela se ele se mover abaixo do chao.}
+          @item{@bold{Não deixe fugir:} Adicione uma condição (antes de qualque tecla) para verificar se a coordenada-y do jogador está acima 
+                 da tela @code{(> y 480)}. Se estiver, mova o jogador para baixo. Adicione outra condição para que o jogador 
+                 apareça no topo da tela se ele se mover abaixo do chao.}
           @item{@bold{Desafio:} Tenha um personagem escondido quando você apertar a tecla @code{"h"}, e apenas re-apareça quando a tecla for pressionada novamente.}]
 }
                          @teacher{Dica para o desafio: multiplique por -1!}}
@@ -294,7 +294,7 @@ A última cláusula em um condicional pode ser uma cláusula @code{else}, que é
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Com @vocab{condicionais} e @vocab{(funções segmentadas)**piecewise functions}, você pode fazer muitas coisas acontecerem no seu 
+        @points[@point{@student{Com @vocab{condicionais} e @vocab{funções segmentadas}, você pode fazer muitas coisas acontecerem no seu 
                                      jogo com poucas linhas de código, como controlar o movimento dos personagens. Falando em 
                                      controlar personagens, o que acontece no Mundo Ninja quando o cachorro e o rubi saem da tela? 
                                      Eles continuam indo, mas não voltam - o mesmo problemas que vimos no Bootstrap:1, e se você 
