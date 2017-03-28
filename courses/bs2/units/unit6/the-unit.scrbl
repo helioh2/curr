@@ -6,7 +6,7 @@
 @unit-overview/auto[#:lang-table (list (list "Número" @code{+ - * / sq sqrt expt})
                                        (list "String" @code{string-append string-length})
                                        (list "Figura"  @code{rectangle circle triangle ellipse star text scale rotate put-image}))]{
-                                                                  @unit-descr{Students return to the subject of partial functions, this time defining a key-event handler that modifies their world when certain keys are pressed.}
+                                                                  @unit-descr{Os alunos retomam o assunto de funções divididas em partes, desta vez definindo um manipulador de eventos de tecla que modifica seu mundo quando certa tecla é pressionada.}
 }
 @unit-lessons{
 @lesson/studteach[#:title "Introdução"
@@ -21,7 +21,7 @@
                             @item{Ambiente de Edição (WeScheme ou DrRacket com o pacote bootstrap-teachpack instalado)}
                             @item{Apostila dos alunos}
                             @item{Tabela da Linguagem}
-                            @item{Signs for kids, entitled "update-world", "draw-world" and "big-bang"}
+                            @item{Crachás para as crianças, entitulados "atualiza-mundo", "desenha-mundo" e "big-bang"}
                             @item{Recortes das figuras do cachorro e do rubi}]
      #:preparation @itemlist[@item{Arranjos de assento: preferencialmente aglomerando as mesas}
                              @item{O arquivo Ninja World 3 [NW3.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "2iasby92mn" "WeScheme"] projetado sobre o quadro}]
@@ -99,8 +99,8 @@
 @lesson/studteach[#:title "Keypress"
         #:duration "35 minutos"
         #:overview ""
-        #:learning-objectives @itemlist[@item{Students will extend their understanding of events to cover key-events}
-            @item{Students will deepen their knowledge of conditionals, by combining them with struct accessor and constructor functions.}]
+        #:learning-objectives @itemlist[@item{Alunos irão ampliar sua compreensão sobre eventos vindos de eventos de tecla}
+            @item{Alunos vão aprofundar seu conhecimento sobre condicionais, combinando-os com funções de acesso e funções construtoras.}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
@@ -125,7 +125,7 @@
           @code[#:multi-line #t]{; keypress : Mundo String -> Mundo
                                  ; Dado um mundo e uma tecla pressionada, atualiza o gatoY do mundo}}
                         @teacher{}}
-                 @point{@student{@bannerline{Passo 2 - Examplos}
+                 @point{@student{@bannerline{Passo 2 - Exemplos}
                                @activity{Escreva um exemplo usando mundo @code{INICIO}, então o usuário pressiona @code{"up"}.
                                                                     @itemlist[@item{@code{(EXAMPLE (keypress INICIO "up") ...)}}
                            @item{O que você deveria receber de volta? (DICA: Olhe para a Imagem da Função)}
