@@ -1,53 +1,53 @@
 #lang curr/lib
 
-@title{Unit 7: Complex update-world}
+@title{Unidade 7: atualiza-mundo Modificada}
 @declare-tags[management]
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt}) 
+@unit-overview/auto[#:lang-table (list (list "Número" @code{+ - * / sq sqrt expt}) 
                                        (list "String" @code{string-append string-length})                          
-                                       (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image}))]{
-@unit-descr{Students continue to combine their use of Cond and Data Structures, this time identifying ways in which the World structure might change without any user input.}
+                                       (list "Figura" @code{rectangle circle triangle ellipse radial-star scale rotate put-image}))]{
+@unit-descr{Os alunos continuam a combinar o uso de Cond com Estruturas de Dados, desta vez identificando maneiras pelas quais a estrutura Mundo pode mudar sem qualquer entrada do usuário.}
 }     
 @unit-lessons{
-@lesson/studteach[#:title "Introduction"
-        #:duration "5 minutes"
+@lesson/studteach[#:title "Introdução"
+        #:duration "5 minutos"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
-        #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, design recipe, course calendar)}
-                            @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
-                            @item{Student workbooks}
-                            @item{Language Table}
-                            @item{The Ninja World 4 file [NW4.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "gbz2w2pCTu" "WeScheme"] preloaded on students' machines}]
-        #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}
-                                @item{Write the Ninja World version of update-world towards the bottom of the board, with room to transform it into a cond branch under the function header.}]
+        #:materials @itemlist[@item{Lápis/canetas aos alunos, e giz/marcadores de quadro branco aos professores}
+                            @item{Cartazes da turma (Lista de regras, conhecimentos básicos, calendário do curso)}
+                            @item{Ambiente de Edição (WeScheme ou DrRacket com o pacote bootstrap-teachpack instalado)}
+                            @item{Apostila do aluno}
+                            @item{Tabela da Linguagem}
+                            @item{Arquivo do Mundo Ninja 4 [NW4.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "tYeLoTuxpd" "WeScheme"] pré-carregado nas máquinas dos alunos}]
+        #:preparation @itemlist[@item{Arranjos de assento: preferencialmente aglomerando as mesas}
+                                @item{Escreva a versão de atualiza-mundo do Mundo Ninja, com espaço para transformá-al em um ramos cond depois do cabeçalho da função.}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{@activity{@itemlist[@item{Open the @editor-link[#:public-id "gbz2w2pCTu" "Ninja World 4"] file.}
-                                          @item{What is in the world structure?}
-                                          @item{What does the @code{update-world} function do?}
-                                          @item{What is @code{dogX} when the dog is in the center of the screen? According to the code, what will the 
-                                                next @code{dogX} be?}
-                                          @item{What is @code{dogX} when the dog is on the right-hand edge? What will the next @code{dogX} be? And 
-                                                 the next? And the next?}
-                                          @item{What happens when the dog reaches the edge of the screen? What SHOULD happen?}]}
-                                 Right now the dog disappears off the side of the screen and never comes back. It's time to fix that. }
-                        @teacher{@management{Be sure to give students lots of positive reinforcement at this point - the game is
-                                             really taking shape!}}}
+        @points[@point{@student{@activity{@itemlist[@item{Abra o arquivo do @editor-link[#:public-id "tYeLoTuxpd" "Ninja World 4"].}
+                                          @item{O que temos dentro da estrutura mundo?}
+                                          @item{O que a função @code{atualiza-mundo} faz?}
+                                          @item{Qual é o valor de @code{caoX} quando o cachorro está no centro da tela? De acordo com o código, qual seria a 
+                                                próxima posição do @code{caoX}?}
+                                          @item{Qual é o valor de @code{caoX} quando o cachorro estiver na borda direita da tela? Qual seria o próximo valor de @code{caoX}? E 
+                                                 o próximo? E o próximo?}
+                                          @item{O que acontece quando o cachorro atinge a borda da tela? O que DEVERIA acontecer?}]}
+                                 Até agora o cão está sainda da tela e nunca mais volta. É hora de arrumar isso. }
+                        @teacher{@management{Certifique-se de dar aos alunos muito reforço positivo neste momento - o jogo está
+                                             realmente tomando forma!}}}
                  ]
          }                               
-@lesson/studteach[#:title "Protecting the Boundaries"
-        #:duration "20 minutes"
+@lesson/studteach[#:title "Protegendo os Limites"
+        #:duration "20 minutos"
         #:overview ""
-        #:learning-objectives @itemlist[@item{Add detail to their undertsanding of the update-world function}
-                                         @item{Identify possible sub-domains which require different behavior of the function}]
+        #:learning-objectives @itemlist[@item{Adicionado detalhes á sua compreensão da função atualiza-mundo}
+                                         @item{Identificar possíveis sub-domínios que exigem um comportamento diferente da função}]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
@@ -59,156 +59,156 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Just as in Bootstrap 1, we need to write a function that checks whether the dog has gone off the right side 
-                                of the screen. First, let's review a few things:
-                                @activity{@itemlist[@item{@code{true} and @code{false} are examples of what datatype?}
-                                                     @item{What function takes two numbers and checks if the first number is 
-                                                           @italic{greater than} the second?}
-                                                     @item{What function checks if a number is @italic{less than} another?}
-                                                     @item{What function checks if two numbers are @italic{equal}?}]}
-                                Here is the contract for the greater than function:
-@code[#:multi-line #t]{; > : Number Number -> Boolean
-                     ; Checks whether the first number is greater than the second}
-                               @activity{Copy this into your Contracts page and write down the contracts for the other two Boolean functions.}}
-                        @teacher{@management{Review Booleans and Boolean functions, including @code{>}, @code{<}, @code{=}, @code{and}, and 
-                                             @code{or}. Make sure students copy the contracts into their workbook.}}}
+        @points[@point{@student{Assim como no Bootstrap 1, precisamos escrever uma função que verifica se o cachorro saiu da tela pelo lado 
+                                direito. Primeiro, vamos analisar algumas coisas:
+                                @activity{@itemlist[@item{@code{true}(verdadeiro) e @code{false}(falso) são exemplo de qual tipo de dado?}
+                                                     @item{Qual função recebe dois números como entrada e verifica se o primeiro número é 
+                                                           @italic{maior que} o segundo?}
+                                                     @item{Qual função verifica se um número é @italic{menor que} outro?}
+                                                     @item{Qual função verifica se dois números são @italic{iguais}?}]}
+                                Aqui está uma assinatura da função maior que:
+@code[#:multi-line #t]{; > : Numero Numero -> Booleano
+                     ; Verifica se o primeiro número é maior que o segundo}
+                               @activity{Copie isso na sua Página de Assinaturas e escreva as assinaturas para outras duas funções Booleanas.}}
+                        @teacher{@management{Revise Booleanos e funções Booleanas, incluindo @code{>}, @code{<}, @code{=}, @code{and}(e), e 
+                                             @code{or}(ou). Certifique que os alunos copiaram as assinaturas em suas apostilas.}}}
                  
-                 @point{@student{@activity{@itemlist[@item{Turn to @worksheet-link[#:page 33 #:name "Boundary Checks"] in your workbook.}
-                                                      @item{What is the name of the first function on this page?}
-                                                      @item{@code{off-right?} will return @code{true} if a character goes off the right side 
-                                                             of the screen. How large can the x-coordinate be before a character goes off 
-                                                             the screen? (Hint: How large is the screen?)}
-                                                      @item{Write the @vocab{Contract} for this function.}]}
-@code[#:multi-line #true]{; off-right? : Number -> Boolean
-                     ; returns true if the given number is greater than 640}
-                                 Now let's pick a few examples of coordinates to write our EXAMPLEs: 
-                                 @activity{@itemlist[@item{What x-coordinate would put a character at the center of the screen?}
-                                                      @item{How do you check whether it's off the right hand side?}
-                                                      @item{Any x-coordinate greater than 640 is off the right side of the screen, so how 
-                                                            would you determine whether or not the example number is @italic{greater than} 640?}]}
-                                 @code{(EXAMPLE (off-right? 320) (> 320 640))}
-                                 @activity{Write another EXAMPLE for a coordinate that is off the screen on the right side, circle what 
-                                           changes, and write your function definition.}}
-                         @teacher{Remind students about Sam the butterfly from Bootstrap 1. This function does the same thing as @code{safe-right},
-                                  to determine whether the character has gone off the screen based on its x-coordinate.@management{Ensure that students
-                                  are using the full name of @code{off-right?}, including the question mark. Question marks are often used in functions
-                                  that return booleans as a convention: The function asks a question (Is the character off the right side of the screen?)
-                                  and receives either @code{true} or @code{false} as an answer.}}}
+                 @point{@student{@activity{@itemlist[@item{Vá para a @worksheet-link[#:page 33 #:name "Boundary Checks"] em sua apostila.}
+                                                      @item{Qual é o nome da primeira função nesta página?}
+                                                      @item{@code{saiu-direita?} retornará @code{true} se um personagem sair da tela pelo lado direito 
+                                                             da tela. Até quanto a coordenada-x do personagem pode ir antes dele sair 
+                                                             da tela? (Dica:Qual é o tamanho da tela?)}
+                                                      @item{Escreva a @vocab{Assinatura} para esta função.}]}
+@code[#:multi-line #true]{; saiu-direita? : Numero -> Booleano
+                     ; retorna true(verdadeiro) se o número recebido for maior que 640}
+                                 Agora vamos pegar alguns exemplos de coordenadas para escrever nossos Exemplos: 
+                                 @activity{@itemlist[@item{Qual coordenada-x colocaria um personagem no meio da tela?}
+                                                      @item{Como você verifica se ele está fora do lado direito?}
+                                                      @item{Qualquer coodernada-x maior que 640 está além do limite do lado direito da tela, então como 
+                                                            você determinaria se o número de exemplo é @italic{maior que} 640?}]}
+                                 @code{(EXAMPLE (saiu-direita? 320) (> 320 640))}
+                                 @activity{Escreva outro EXAMPLE de uma coordenada que está fora da tela pelo lado direito, circule o que 
+                                           é mutável, e escreva sua definição de função.}}
+                         @teacher{Relembre os alunos da Borboleta Sam do Bootstrap 1. Esta função faz a mesma coisa que @code{direita-salvo},
+                                  determina se um personagem saiu da tela baseado em sua coordenada-x.@management{Garanta que os alunos
+                                  estão usando o nome inteiro de @code{saiu-direita?}, incluindo o ponto de interrogação. Pontos de interrogação são usados com frequência em funções
+                                  que retornam booleanos como conveção: A função faz uma pergunta (O personagem está além do limite direito da tela?)
+                                  e recebe ou @code{true} ou @code{false} como resposta.}}}
                  
-                 @point{@student{You now have a function to check whether an object has run off the right side of the screen. But think
-                                 about Ninja World: if the Ruby is moving to the left, do you care whether the ruby goes off the right side? 
-                                 @activity{@itemlist[@item{Complete the design recipe for @code{off-left?} on
-                                                           @worksheet-link[#:page 33 #:name "Boundary Checks"]. Instead of checking if 
-                                                           a number is greater than 640, what will you need to check?}
-                                                      @item{When finished, copy your functions into your 
-                                                            @editor-link[#:public-id "gbz2w2pCTu" "Ninja World 4"] 
-                                                            file, where it says @code{;; TESTS FOR COND}.}]}}
+                 @point{@student{Agora você tem uma função que verifica se um objeto correu para fora do lado direito. Mas pense
+                                 sobre o Mundo Ninja: se o Rubi está se movendo para a esquerda, ele irá sair pelo lado direito da tela? 
+                                 @activity{@itemlist[@item{Complete a receita para @code{saiu-esquerda?} na
+                                                           @worksheet-link[#:page 33 #:name "Boundary Checks"]. Ao invés de verificar se 
+                                                           um número é maior do que 640, o que você precisa checar?}
+                                                      @item{Quando terminar, copie suas funções em seu arquivo do 
+                                                            @editor-link[#:public-id "tYeLoTuxpd" "Ninja World 4"] 
+                                                            , onde diz @code{;; TESTES DE CONDIÇÃO}.}]}}
                          @teacher{}}
-                 @point{@student{Now we have a way to check whether something has gone off the right OR the left of the screen, but we still
-                                 haven't told the game what to do when it does. In Ninja World, after the dog goes off the right side of the
-                                 screen, he should reappear on the left-hand side. 
-                                 @activity{In this situation, what would the next @code{dogX} be after 640?}
-                                 We want to change @code{update-world} so that it behaves the old way most of the time, but it sets
-                                 @code{dogX} to zero when @code{dogX} is greater than 640. 
-                                 @activity{What can we use that makes a function behave one way for some inputs but another way for 
-                                           different inputs?}
-                                 For now there are two different @italic{conditions}: when @code{dogX} is greater than 640 and then 
-                                 the rest of the time. Let's work on the code for this:
- @code[#:multi-line #t]{(define (update-world w)
+                 @point{@student{Agora temos um meio de verificar se algo saiu pela direita OU pela esquerda da tela, mas ainda
+                                 não dissemos ao jogo o que fazer quando isso acontece. No Mundo Ninja, depois do cachorro sair pelo lado direito
+                                 da tela, ele deve reaparecer no lado esquerdo. 
+                                 @activity{Nessa situação, qual seria o próximo @code{caoX} depois de 640?}
+                                 Nós queremos mudar o @code{atualiza-mundo} para que ele se comporte da maneira antiga na maior parte do tempo, mas muda
+                                 @code{caoX} para zero quando @code{caoX} for maior que 640. 
+                                 @activity{O que você pode usar para fazer uma função se comportar de uma maneira para algumas entradas mas de outra maneira para 
+                                           entradas diferentes?}
+                                 Por enquanto temos duas @italic{condições diferentes}: quando @code{caoX} for maior que 640 e o 
+                                 resto do tempo. Vamos trabalhar no código para isso:
+ @code[#:multi-line #t]{(define (atualiza-mundo m)
 	(cond
-		[...test...  ...result...]
-		[else  (make-world  (+ (world-dogX w) 10) 
-				    (- (world-rubyX w) 5)
-				       (world-catY w))]))}}
-                         @teacher{Remind students that each @code{cond} branch will contain a test and a result, which is evaluated if its test returns @code{true}.}}
-                 @point{@student{We still want our original code to be there. It's now going to be used in the @code{else} clause, 
-                                  because when @code{dogX} is not off the right side of the screen, we want the world to update normally.
-                                  @activity{Think about the first condition. What is the test that tells you if a number is greater than 640?}
-                                  You could use the greater than function(@code{>}) and compare two numbers, but you've already written a
-                                  function that takes in only one number and tells you whether or not it is greater than 640. 
-                                  @code{off-right?} @italic{does the work for you}. But how would you determine whether or not the dog is off 
-                                  the right? You'll need to pull the dog's x-coordinate out of the world... 
-                                  @activity{@itemlist[@item{What function do we use for that?}
-                                                       @item{So what will the input to @code{off-right?} be?}
-                                                       @item{Add this to your @code{update-world} function:}]}
- @code[#:multi-line #t]{(define (update-world w)
+		[...teste...  ...resultado...]
+		[else  (make-mundo  (+ (mundo-caoX m) 10) 
+				    (- (mundo-rubiX m) 5)
+				       (mundo-gatoY m))]))}}
+                         @teacher{Relebre os alunos que todo ramo de @code{cond} deve ter um teste e um resultado, que é calculado quando o teste retorna @code{true}(verdadeiro).}}
+                 @point{@student{Nós queremos ainda que nosso código original fique ali. Ele será usado no caso @code{else}, 
+                                  porque quando @code{caoX} não tiver ultrapassado o limite direito da tela, queremos que o mundo se atualize normalmente.
+                                  @activity{Pense sobre a primeira condição. O que o teste lhe diz se o número for maior que 640?}
+                                  Você poderia usar a função maior que(@code{>}) e comparar dois números, mas você já escreveu uma
+                                  função que recebe apenas um número e lhe diz se é ou não é maior que 640. 
+                                  @code{saiu-direita?} @italic{faz o trabalho para você}. Mas como você vai determinar se o cachorro está dentro ou fora 
+                                  do limite da direita? Você precisará pegar a coordenada-x do cachorro de dentro do mundo... 
+                                  @activity{@itemlist[@item{Qual função nós usamos para isso?}
+                                                       @item{Então na função @code{saiu-direita?}, qual a entrada para ela?}
+                                                       @item{Adicione isso na sua função @code{atualiza-mundo}:}]}
+ @code[#:multi-line #t]{(define (atualiza-mundo m)
 	(cond
-		[(off-right? (world-dogX w)) ...result...]
-		[else  (make-world  (+ (world-dogX w) 10) 
-				    (- (world-rubyX w) 5)
-				       (world-catY w))]))}}
+		[(saiu-direita? (mundo-caoX m)) ...resultado...]
+		[else  (make-mundo  (+ (mundo-caoX m) 10) 
+				    (- (mundo-rubiX m) 5)
+				       (mundo-gatoY m))]))}}
                          @teacher{}}
-                 @point{@student{The first clause tests whether the dog's x-coordinate is off the right side of the screen. If the test 
-                                   returns @code{true}, what should the result be? We know that we need to return a World, since the Range
-                                   of @code{update-world} is a World. That means we can immediately write @code{(make-world...)}: 
- @code[#:multi-line #t]{(define (update-world w)
+                 @point{@student{A primeira cláusula testa se a coordenada-x do cachorro está fora do limite direito da tela. Se o teste 
+                                   retornar @code{true}(verdadeiro), o que deveria ser o resultado? Sabemos que precisamos retornar um Mundo, pois a Imagem
+                                   de @code{atualiza-mundo} é um Mundo. Isso significa que podemos escrever imediatamente @code{(make-mundo...)}: 
+ @code[#:multi-line #t]{(define (atualiza-mundo m)
 	(cond
-		[(off-right? (world-dogX w)) 
-			(make-world ...dogX...
-				    ...rubyX...
-				    ...catY...)]
-		[else  (make-world  (+ (world-dogX w) 10) 
-				    (- (world-rubyX w) 5)
-				       (world-catY w))]))}
-                                  How should @code{dogX} change in this condition? We said we want to move the dog back to the left side 
-                                  of the screen.
-                                  @activity{@itemlist[@item{What will the new value of @code{dogX} be, if it, moves back to the 
-                                                            left side of the screen?}
-                                                       @item{Does @code{rubyX} change if the dog goes off the screen? How about @code{catY}?}]}
- @code[#:multi-line #t]{(define (update-world w)
+		[(saiu-direita? (mundo-caoX m)) 
+			(make-mundo ...caoX...
+				    ...rubiX...
+				    ...gatoY...)]
+		[else  (make-mundo  (+ (mundo-caoX m) 10) 
+				    (- (mundo-rubiX m) 5)
+				       (mundo-gatoY m))]))}
+                                  Como o @code{caoX} muda dentro dessa condição? Nós dissemos que queremos que o cão apareça no lado esquerdo 
+                                  da tela.
+                                  @activity{@itemlist[@item{Qual será o novo valor de @code{caoX}, para que ele apareça de volta ao 
+                                                            lado esquerdo da tela?}
+                                                       @item{O @code{rubiX} muda se o cachorro sair da tela? E o @code{gatoY}?}]}
+ @code[#:multi-line #t]{(define (atualiza-mundo m)
 	(cond
-		[(off-right? (world-dogX w)) 
-			(make-world 0
-				    (world-rubyX w)
-				    (world-catY w))]
-		[else  (make-world  (+ (world-dogX w) 10) 
-				    (- (world-rubyX w) 5)
-				    (world-catY w))]))}}
+		[(saiu-direita? (mundo-caoX m)) 
+			(make-mundo 0
+				    (mundo-rubiX m)
+				    (mundo-gatoY m))]
+		[else  (make-mundo  (+ (mundo-caoX m) 10) 
+				    (- (mundo-rubiX m) 5)
+				    (mundo-gatoY m))]))}}
                          @teacher{}}
-                 @point{@student{Now it's time to think about the ruby...
-                                  @activity{@itemlist[@item{Instead of checking if @code{rubyX} was off the @bold{right} side of the screen,
-                                                            what do we need to check?}
-                                                       @item{What function have you already written that checks if a number is less than 0?}
-                                                       @item{How does @code{update-world} need to change? What will the second @code{cond} 
-                                                             branch look like?}
-                                                       @item{Finish the code for @code{update-world} so that it also checks whether the 
-                                                             ruby has gone off the left-hand side of the screen.}]}
-@code[#:multi-line #t]{(define (update-world w)
+                 @point{@student{Agora é hora de pensar sobre o rubi...
+                                  @activity{@itemlist[@item{Ao invés de checar se @code{rubiX} saiu pelo lado @bold{direito} da tela,
+                                                            o que precisamos olhar?}
+                                                       @item{Qual função que você já escreveu que verifica se um número é menor do que 0?}
+                                                       @item{Como @code{atualiza-mundo} precisa mudar? Como o segundo ramo do @code{cond} 
+                                                             deveria se parecer?}
+                                                       @item{Termine o código para @code{atualiza-mundo} para que ele verifique se o 
+                                                             rubi ultrapassou o limite esquerdo da tela.}]}
+@code[#:multi-line #t]{(define (atualiza-mundo m)
 	(cond
-		[(off-right? (world-dogX w)) 
-			(make-world 0
-				    (world-rubyX w)
-				    (world-catY w))]
-		[(off-left? (world-rubyX w)) 
-			(make-world (world-dogX w)
+		[(saiu-direita? (mundo-caoX m)) 
+			(make-mundo 0
+				    (mundo-rubiX m)
+				    (mundo-gatoY m))]
+		[(saiu-esquerda? (mundo-rubiX m)) 
+			(make-mundo (mundo-caoX m)
 				    640
-				    (world-catY w))]
-		[else  (make-world  (+ (world-dogX w) 10) 
-				    (- (world-rubyX w) 5)
-				    (world-catY w))]))}}
-                         @teacher{This can be an opportunity to discuss abstraction and the usefullness of reusing code with your
-                                  students. The @code{cond} tests in @code{update-world} could be written as: 
-                                  @code{(> (world-dogX w) 640)}, or @code{(< (world-rubyX w) 0)}, but this is more work than 
-                                  neccessary if the @code{off-right} and @code{off-left} functions have been written, and could 
-                                  be confusing for someone else looking at the code, who doesn't know why @code{dogX} is being 
-                                  compared to 640. Additionally, from a programming point of view, it makes sense to use the 
-                                  specific screen boundaries in as few functions as possible: If a programmer wants his or her
-                                  game to be playable on a larger screen (such as a tablet), they will have to go through their
-                                  code and change every function that tests boundaries based on the old screen size, 640x480. If 
-                                  only the @code{off-right} and @code{off-left} functions use the screen size, the programmer can 
-                                  make a few quick changes to the numbers, instead of searching through @code{cond} branches such 
-                                  as in the second example.}}
+				    (mundo-gatoY m))]
+		[else  (make-mundo  (+ (mundo-caoX m) 10) 
+				    (- (mundo-rubiX m) 5)
+				    (mundo-gatoY m))]))}}
+                         @teacher{Essa pode ser uma oportunidade para discutir abstração e a utilidade de reuso de código com seus
+                                  alunos. Os testes @code{cond} dentro de @code{atualiza-mundo} poderia ser escrito como: 
+                                  @code{(> (mundo-caoX m) 640)}, ou @code{(< (mundo-rubiX m) 0)}, mas é mais esforço que 
+                                  neccessário se as funções @code{saiu-direita?} e @code{saiu-esquerda?} já estão escritas, e poderia 
+                                  ser confuso para outra pessoa que olha o código, quem não sabe o porque do @code{caoX} ser 
+                                  comparado com 640. Além disso, do ponto de vista da programação, faz mais sentido usar os 
+                                  limites específicos da tela o menos possível: Se um programador quer seu
+                                  jogo sendo jogado em uma tela maior (como de um tablet), ele vai ter que percorrer todo o seu
+                                  código e mudar todas as funções onde aparecem os limites da tela antiga, 640x480. Se 
+                                  apenas as funções @code{saiu-direita?} e @code{saiu-esquerda?} usam o tamanho da tela, o programador pode 
+                                  fazer poucas mudanças e rápidas nos números, ao invés de ter que procurar pelos ramos do @code{cond}, 
+                                  como no segundo exemplo.}}
                  ]
          }
        
-@lesson/studteach[#:title "Tests and Results"
-        #:duration "45 minutes"
+@lesson/studteach[#:title "Testes e Resultados"
+        #:duration "45 minutos"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
-        #:product-outcomes @itemlist[@item{Students will use Cond in their update-world functions}
-                                     @item{Students will identify circumstances in which the functions in their game should behave differently}
-          @item{Students will define these circumstances - and the desired behavior - in code, as different Cond branches}]
+        #:product-outcomes @itemlist[@item{Alunos vão usar Cond em suas funções atualiza-mundo}
+                                     @item{Alunos identificarão circunstâncias onde as funções de seus jogos precisam ter um comportamento diferentes}
+          @item{Alunos definirão essas circunstâncias - e o comportamento desejado - no código, em diferentes ramos do Cond}]
         #:standards (list)
         #:materials @itemlist[]
         #:preparation @itemlist[@item{}]
@@ -218,27 +218,27 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Now to use what you know about boundary detection and apply it to your own game. 
-                                @activity{@itemlist[@item{Open your game file.}
-                                                     @item{Reformat your @code{update-world} function so that it uses 
-                                                           @code{cond}, with your current code inside the @code{else} clause.}
-                                                     @item{Next, copy and paste your @code{off-left?} and @code{off-right?} 
-                                                           functions from Ninja World into your game.}
-                                                     @item{Think about the things in your game that fly offscreen. Do they 
-                                                           fly off the left? The right? The top or bottom? Do you need to 
-                                                           write an @code{off-top?} function or @code{off-bottom?}}
-                                                     @item{In the lefthand column of @worksheet-link[#:page 34 #:name "Test and Result"],
-                                                           make a list of the tests that you need to do to decide whether each
-                                                           thing flies offscreen. For example, with the dog we said
-                                                           @code{(off-right? (world-dogX w))}. On the right, figure out 
-                                                           which world you need to make, so that the thing
-                                                           you're testing re-appears on screen once it has flown off.}]}}
-                        @teacher{Work in small groups to complete the workbook page.}}
+        @points[@point{@student{Agora, use o que você sabe sobre detecção de limites e aplique no seu próprio jogo. 
+                                @activity{@itemlist[@item{Abra o arquivo do seu jogo.}
+                                                     @item{Refatore sua função @code{atualiza-mundo} para que ela use 
+                                                           @code{cond}s, com seu código atual dentro da caso @code{else}.}
+                                                     @item{Depois, copie e cole suas funções @code{saiu-esquerda?} e @code{saiu-direita?} 
+                                                           do Mundo Ninja para o seu jogo.}
+                                                     @item{Pense sobre as coisas do seu jogo que voam para fora da tela. Elas 
+                                                           voam para fora da esquerda? Da direita? Por cima ou por baixo? Você precisa 
+                                                           escrever uma função @code{saiu-cima?} ou @code{saiu-baixo?}}
+                                                     @item{Na coluna do lado esquerdo da @worksheet-link[#:page 34 #:name "Test and Result"],
+                                                           faça uma lista dos testes que você precisa fazer para decidir se cada coisa
+                                                           voa para fora da tela. Por exemplo, com o cachorro nós dissemos
+                                                           @code{(saiu-direita? (mundo-caoX m))}. À direita, descubra 
+                                                           qual mundo você precisa fazer, para que a coisa
+                                                           que você está testando reapareça na tela depois que ela tenha saído.}]}}
+                        @teacher{Trabalhe em pequenos grupos para completar essa página da apostila.}}
                  ]
          }
 
-@lesson/studteach[#:title "Branches in update-world"
-        #:duration "15 minutes"
+@lesson/studteach[#:title "Ramos na atualiza-mundo"
+        #:duration "15 minutos"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
@@ -252,20 +252,20 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Look at the @code{cond} branches for Ninja World's @code{update-world} function. Notice 
-                                            that for each branch, we need a test and a result. This is exactly what 
-                                            you've written in your workbook for your game. All you need to do now is 
-                                            surround each row of your table with square brackets and type it into 
-                                            your game.
-                                            @activity{Adapt @code{update-world} so that that each thing re-appears on 
-                                                            screen once it has flown off.}}
-                        @teacher{Work in pairs or small groups to assist students with their own @code{update-world} 
-                                 functions.}}
+        @points[@point{@student{Olhe para os ramos do @code{cond} na função @code{atualiza-mundo} do Mundo Ninja. Perceba 
+                                            que cada ramo, precisamos de um teste e um resultado. Isso é exatamente o que 
+                                            você escreveu em sua apostila para o seu jogo. Tudo o que precisa fazer agora é 
+                                            cercar cada linha da sua tabela com colchetes e digite-a em 
+                                            seu jogo.
+                                            @activity{Adapte @code{atualiza-mundo} para que cada coisa reapareça na 
+                                                            tela depois de ter saído.}}
+                        @teacher{Trabalhe em pares ou pequenos grupo para ajudar os alunos em suas próprias funções
+                                 @code{atualiza-mundo}.}}
                  ]
        }
 
-@lesson/studteach[#:title "Closing"
-        #:duration "5 minutes"
+@lesson/studteach[#:title "Encerramento"
+        #:duration "5 minutos"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
@@ -279,18 +279,18 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Take a minute and admire your handiwork: You've put a lot of time and effort into your 
-                                game during this course, and it's coming together nicely with complex data structures
-                                and advanced movement. It's already much more sophisticated than your Bootstrap 1 game! 
-                                But something is still missing: in the Ninja Cat game, nothing happens when the cat 
-                                collides with the dog, or ruby. In the next unit we'll change that: you'll be able
-                                to handle collisions with the characters in your game! Start thinking about what should 
-                                happen when your player reaches some treasure, shoots a zombie, or some other condition 
-                                in your game.}
-                        @teacher{@management{Remind students how far they have come since Bootstrap 1 and the beginning
-                                             of Bootstrap 2. They've expanded their knowledge of Racket and programming, 
-                                             learned about a brand new data type and created their own advanced videogame!}
-                                  Have the students show off their games to one another.}}
+        @points[@point{@student{Tome um minuto e admire seu trabalho: Você colocou muito tempo e empenho no seu jogo 
+                                durante esse curso, e está se unindo bem com estrutura de dados complexos
+                                e movimentos avançados. Isso já é muito mais sofisticado que seu jogo do Bootstrap 1! 
+                                Mas algo ainda está faltando: no jogo Gato Ninja, nada acontece quando o gato 
+                                colide com o cachorro, ou com o rubi. Na próxima lição vamos mudar isso: você será capaz
+                                de lidar com colisões com os personagens do seu jogo! Comece a pensar sobre o que deveria 
+                                acontecer quando seu jogador pega algum tesouro, atira em um zumbi, ou alguma outra condição 
+                                do seu jogo.}
+                        @teacher{@management{Recorde os alunos até onde eles chegaram desde o Bootstrap 1 e o início
+                                             do Bootstrap 2. Eles expandiram seus conhecimentos de Racket e programação, 
+                                             aprenderam sobre um novo tipo de dados e criaram seus próprios jogos avançados!}
+                                  Peça aos alunos para que mostrem seus jogos uns aos outros.}}
                  ]
          }
        }
