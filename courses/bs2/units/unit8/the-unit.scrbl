@@ -1,62 +1,62 @@
 #lang curr/lib
 
-@title{Unit 8: Collision Detection}
+@title{Unidade 8: Detecção de Colisões}
 @declare-tags[management]
 
-@unit-overview/auto[#:lang-table (list (list "Number" @code{+ - * / sq sqrt expt}) 
+@unit-overview/auto[#:lang-table (list (list "Número" @code{+ - * / sq sqrt expt}) 
                                        (list "String" @code{string-append string-length})                          
-                                       (list "Image" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
-                                       (list "Boolean" @code{= > < string=? and or}))]{   
+                                       (list "Figura" @code{rectangle circle triangle ellipse radial-star scale rotate put-image})
+                                       (list "Booleano" @code{= > < string=? and or}))]{   
 @unit-descr{Students return to the Pythagorean Theorem and distance formula they used in Bootstrap 1, this time with data structures and the full update-world function.}
 }
 @unit-lessons{
-@lesson/studteach[#:title "Introduction"
-        #:duration "5 minutes"
+@lesson/studteach[#:title "Introdução"
+        #:duration "5 minutos"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
         #:product-outcomes @itemlist[]
         #:standards (list)
-        #:materials @itemlist[@item{Pens/pencils for the students, fresh whiteboard markers for teachers}
-                            @item{Class poster (List of rules, design recipe, course calendar)}
-                            @item{Editing environment (WeScheme or DrRacket with the bootstrap-teachpack installed)}
-                            @item{Student workbooks}
-                            @item{Language Table}
-                            @item{Cutouts of Cat and Dog images}
+        #:materials @itemlist[@item{Lápis/canetas aos alunos, e giz/marcadores de quadro branco aos professores}
+                            @item{Cartazes da turma (Lista de regras, conhecimentos básicos, calendário do curso)}
+                            @item{Ambiente de Edição (WeScheme ou DrRacket com o pacote bootstrap-teachpack instalado)}
+                            @item{Apostila dos Alunos}
+                            @item{Tablea de Linguagem}
+                            @item{Recortes da Figura do Gato e do Cachorro}
                             @item{Cutouts of Pythagorean Theorem packets [@(resource-link #:path "images/pythag1.png" #:label "1"), @(resource-link #:path "images/pythag2.png" #:label "2")] - 1 per cluster}
                             @item{The Ninja World 5 file [NW5.rkt from @resource-link[#:path "source-files.zip" #:label "source-files.zip"] | @editor-link[#:public-id "hTE94bR2V5" "WeScheme"] preloaded on students' machines}]
-        #:preparation @itemlist[@item{Seating arrangements: ideally clusters of desks/tables}]
+        #:preparation @itemlist[@item{Arranjos de assento: preferencialmente aglomerando as mesas}]
         #:pacings (list 
                 @pacing[#:type "remediation"]{@itemlist[@item{}]}
                 @pacing[#:type "misconception"]{@itemlist[@item{}]}
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Right now, in both Ninja World and your games, nothing happens when the player collides with another 
-                                game character. We need to write a function change that. This is going to require a 
-                                little math, but luckily it's exactly the same as it was in Bootstrap:1.
+        @points[@point{@student{Agora mesmo, tanto no Mundo Ninja quanto nos seus jogos, nada acontece quando o jogador colide com outro 
+                                personagem do jogo. Precisamos escrever uma função que muda isso. Isto vai precisar de 
+                                um pouco de matemática, mas felizmente é exatamente o mesmo que estava no Bootstrap:1.
                                 @bitmap{images/numberline.png}                               
-                                @activity{@itemlist[@item{In the image above, how far apart are the cat and dog?}
-                                                     @item{If the cat was moved one space to the right, how far apart would they be?}
-                                                     @item{What if the cat and dog switched positions?}]}
+                                @activity{@itemlist[@item{Na imagem acima, o quão distantes o gato e o cachorro estão?}
+                                                     @item{Se o gato foi movido um espaço para a direita, o quão longe eles estariam?}
+                                                     @item{E se o gato e o cachorro trocassem de lugar um com o outro?}]}
                                 
-                                In one dimension, such as on a number line, finding the distance is pretty easy. If the characters 
-                                are on the same line, you just subtract one coordinate from another, and you have your distance. 
-                                However, if all we did was subtract the second number from the first, the function would only 
-                                work half the time!
+                                Em uma dimensão, assim como em uma régua, encontrar a distância é muito fácil. Se os personagens 
+                                estão na mesma linha, você apenas subtrai uma coordenada da outra, e você consegue a distância. 
+                                No entanto, se tudo o que fizermos for subtrair o segundo número do primeiro, a função funcionaria apenas 
+                                metado do tempo!
 
-                                @activity{When the cat and dog were switched, did you still subtract the dog's position from the 
-                                          cat's, or subtract the cat's position from the dog's? Why?}}
-                        @teacher{Draw the number line on the board, with the cutouts of the cat and dog at the given positions.
-                                 Ask students to tell you the distance between them, and move the images accordingly. 
-                                 Having students act this out can also work well: draw a number line, have two students stand at different 
-                                 points on the line, using their arms or cutouts to give objects of different sizes. Move students along 
-                                 the number line until they touch, then compute the distance on the number line.}}
+                                @activity{Quando o gato e o cachorro foram trocados, você ainda subtrai a posição do cachorro da 
+                                          posição do gato, ou subtrai a posição do gato da posição do cachorro? Por que?}}
+                        @teacher{Desenhe uma linha numérica no quadro, com os recortes do gato e do cachorro nas posições dadas.
+                                 Peça aos alunos para dizerem a você a distância entre eles, e mova as imagens de acordo. 
+                                 Fazer com que os alunos façam isso também pode funcionar: desenhe uma linha numérica, peça que dois alunos fiquem em pé em diferentes 
+                                 pontos da linha, usando seus braço ou recortes para dar aos objetos diferentes tamanhos. Movimente os alunos pela 
+                                 linha numérica até eles se encontrarem, e calcula a distância na linha numérica.}}
                  ]
          }
 
-@lesson/studteach[#:title "1D Distance"
-        #:duration "10 minutes"
+@lesson/studteach[#:title "Distância em 1D"
+        #:duration "10 minutos"
         #:overview ""
         #:learning-objectives @itemlist[]
         #:evidence-statements @itemlist[]
@@ -70,48 +70,49 @@
                 @pacing[#:type "challenge"]{@itemlist[@item{}]}
                 )
       ]{
-        @points[@point{@student{Distances cannot be negative, so we have to make sure we are always subtracting the smaller 
-                                number from the bigger one. If the characters are on the same plane, there are two conditions:
-                                if the first number is bigger, and the other is if the second is bigger.
-                                @activity{@itemlist[@item{What kind of function do we need, when we have multiple 
-                                                          @italic{conditions}?}
-                                                     @item{Turn to @worksheet-link[#:page 36 #:name "Design Recipe Line Length"].}
-                                                     @item{What is the Name of this function? Domain? Range?}
-                                                     @item{Write two examples for @code{line-length} so that it subtracts the 
-                                                           smaller number from the bigger one. Start with an example using 
-                                                           the numbers 23 and 5, then do a second example with 5 and 23 in 
-                                                           the @italic{other order}.}]}
-@code[#:multi-line #t]{(EXAMPLE (line-length 23 5) (- 23 5))
-                       (EXAMPLE (line-length 5 23) (- 23 5))}}
+        @points[@point{@student{Distâncias não podem ser negativas, então precisamos ter certeza de sempre subtrair o número 
+                                menor do número maior. Se os personagens estão na mesma dimensão, existem duas condições:
+                                se o primeiro número for maior, e a outra se o segundo número for maior.
+                                @activity{@itemlist[@item{Que tipo de função nós precisamos, quando temos várias 
+                                                          @italic{condições}?}
+                                                     @item{Vá para a @worksheet-link[#:page 36 #:name "Design Recipe Line Length"].}
+                                                     @item{Qual é o Nome da função? O Domínio? A Imagem?}
+                                                     @item{Escreva dois exemplos para @code{tamanho-linha} em que ela diminui o 
+                                                           menor número do maior. Comece com um exemplo usando 
+                                                           os números 23 e 5, e depois faça um segundo exemplo com 5 e 23 na 
+                                                           @italic{outra ordem}.}]}
+@code[#:multi-line #t]{(EXAMPLE (tamanho-linha 23 5) (- 23 5))
+                       (EXAMPLE (tamanho-linha 5 23) (- 23 5))}}
                         @teacher{}}
-                 @point{@student{Now we have an idea of the results for the @code{cond} statement, but a @code{cond} function also 
-                                needs Tests. We want to @italic{test} to see whether the first 
-                                number given to @code{line-length} is greater than the second number. 
-                                @activity{@itemlist[@item{How would you write that test in Racket code?}
-                                                     @item{And what would the result for that test be? If @code{a} is
-                                                           greater than @code{b}, which number would we subtract from 
-                                                           which?}
-                                                     @item{How could you include a test for wheather the two numbers are equal,
-                                                           @italic{without} adding a third @code{cond} branch?}
-                                                     @item{Write down the definition for @code{line-length}.}]}     
-@code[#:multi-line #t]{(define (line-length a b)
+                 @point{@student{Agora temos uma ideia dos resultados para a instrução @code{cond}, mas a função @code{cond} também 
+                                precisa de Testes. Nós queremos @italic{testar} para ver ser o primeiro 
+                                número dado para @code{tamanho-linha} é maior que o segundo número. 
+                                @activity{@itemlist[@item{Como você escreveria esse teste em código no Racket?}
+                                                     @item{E qual seria o resultado para esse teste? Se @code{a} é
+                                                           maior que @code{b}, qual número deve ser subtraído do 
+                                                           outro?}
+                                                     @item{Como você poderia incluir um teste para saber se os dois números são iguais,
+                                                           @italic{sem} adicionar um terceiro ramo no @code{cond}?}
+                                                     @item{Escreva a definição para @code{tamanho-linha}.}]}     
+@code[#:multi-line #t]{(define (tamanho-linha a b)
                        (cond
                        [(> a b) (- a b)]
                        [(>= b a) (- b a)]))}}
-                        @teacher{It is possible to replace the second test with @code{else}, because there will only be two options:
-                                 @code{line-length} will either subtract @code{b} from @code{a}, or @code{a} from @code{b}. (If the 
-                                 numbers are equal, it doesn't matter which is subtracted.) However, having students write out the full 
-                                 test and result gets them thinking about what exactly is being tested in each branch of the function.
+                        @teacher{É possível substituir o segundo teste com um @code{else}, porque existem apenas duas opções:
+                                 @code{tamanho-linha} vai subtrair @code{b} de @code{a}, ou @code{a} do @code{b}. (Se os 
+                                 números são iguais, não importa a ordem com que eles são subtraídos.) No entanto, d
+                    bers are equal, it doesn't matter which is subtracted.) No entanto, fazer com que os alunos escrevam os 
+                                 testes completos os faz pensar sobre o que exatamente está sendo testado em cada ramo da função.
                                  
-                                 It is possible to avoid using a conditional entirely by taking the absolute value of the difference 
-                                 (the function @code{abs} does this); if you are working with older students who already know about
-                                 absolute value you could show it. Using @code{cond}, however, emphasizes how code structure arises 
-                                 from examples.}}
+                                 É possível evitar usar um condicional inteiro pegando o valor absoluto da diferença 
+                                 (a função @code{abs} faz isso); se você está trabalhando com alunos mais velhos que já conhecem sobre
+                                 valor absoluto você poderia mostrá-los. Usando @code{cond}, no entanto, enfatiza como estruturas de código surge 
+                                 dos exemplos.}}
                  ]
          }
 
-@lesson/studteach[#:title "The Distance Formula"
-        #:duration "20 minutes"
+@lesson/studteach[#:title "A Formulada Distância"
+        #:duration "20 minutos"
         #:overview ""
         #:learning-objectives @itemlist[@item{Reinforce their understanding of the distance formula}]
         #:evidence-statements @itemlist[]
